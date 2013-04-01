@@ -24,7 +24,7 @@
 				autoStart: false,				// lancer automatiquement le diaporama
 				imgFirst: 0,					// index de l image à afficher par défaut (0 = première image)
 				interval: 2500,				// temps en millisecondes entre chaque image
-				hideControl: true,			// cacher le contrôle du diaporama
+				hideControl: false,			// cacher le contrôle du diaporama
 				playBtnLabel: 'Lecture',		// label du bouton de lecture
 				stopBtnLabel: 'Pause',		// label du bouton de pause
 				imgClicked: function(alt) {	// callback du clic sur l image en cours d affichage
@@ -36,14 +36,7 @@
 	</head>
 <body>
 	<div id="desoSlide">
-		<div id="desoSlide_mainImageInfo">
-			<div id="desoSlide_mainImage"></div>
-			<div id="desoSlide_caption"></div>
-		</div>
-		
-		<div id="desoSlide_control"></div>
-
-		<div id="desoSlide_thumbs">
+		<div class="desoSlide_thumbs">
 			<ul>
 				<li>
 					<a href="images/salt.png">

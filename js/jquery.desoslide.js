@@ -1,6 +1,6 @@
 /*
-jQuery: desoSlide plugin v1.0 - jquery.desoslide.js
-Copyright - 2011 - S.V.
+jQuery: desoSlide plugin v1.1 - jquery.desoslide.js
+Copyright - 2013 - S.V.
 This source code is under the GNU General Public License
 contact@chez-syl.fr
 */
@@ -9,13 +9,13 @@ contact@chez-syl.fr
 	
 		// default values
 		var defaults = {
-			'autoStart': false,
-			'imgFirst': 0,
-			'interval': 3000,
-			'imgClicked': false,
-			'hideControl': false,
-			'playBtnLabel': 'Play',
-			'stopBtnLabel': 'Stop'
+			autoStart: false,
+			imgFirst: 0,
+			interval: 3000,
+			imgClicked: false,
+			hideControl: false,
+			playBtnLabel: 'Play',
+			stopBtnLabel: 'Stop'
 		};
         
 		// extend options
@@ -25,22 +25,34 @@ contact@chez-syl.fr
 		// [BEGIN] variables
 		// *****************
 		
-		var t = this.selector;
-		var $desoSlide = $('#desoSlide');
+		var $desoSlide = this;
 		var $mainImgInfo = $('#desoSlide_mainImageInfo');
 		var $main = $('#desoSlide_mainImage');
-		var $mainImg = $('#desoSlide_mainImage img');
+		var $mainImg = $('img', $main);
 		var $caption = $('#desoSlide_caption');
 		var $control = $('#desoSlide_control');
-		var $timer = $('#desoSlide_timer');
+		var $thumbs = $('.desoSlide_thumbs', $desoSlide);
 		var ms = (p.interval < 1500) ? 1500 : p.interval;
 		var imgToswitchImg = p.imgFirst;
 		var timer;
-		var ready = false;
 		
 		// *****************
 		// [END] variables
 		// *****************
+		
+		
+		function createMarkup() {
+		
+			if(!p.hideControl) {
+				$desoSlide.prepend('<div id="desoSlide_control"></div>');
+			}
+
+			$desoSlide.prepend('<div id="desoSlide_mainImageInfo"><div id="desoSlide_mainImage"></div><div id="desoSlide_caption"></div></div>');
+			
+		};
+		
+		createMarkup();
+		
 		
 		// custom the caption
 		$caption.css({
@@ -49,10 +61,13 @@ contact@chez-syl.fr
 		});
 		
 		// display the default image
-		var href = $(t+' #desoSlide_thumbs li:eq('+imgToswitchImg+') a').attr('href');
-		var alt = $(t+' #desoSlide_thumbs li:eq('+imgToswitchImg+') a').children('img').attr('alt');
-		var info = $(t+' #desoSlide_thumbs li:eq('+imgToswitchImg+') a').children('img').data('info');
+		var href = $('li:eq('+imgToswitchImg+') a', $thumbs).attr('href');
+		var alt = $('li:eq('+imgToswitchImg+') a', $thumbs).children('img').attr('alt');
+		var info = $('li:eq('+imgToswitchImg+') a', $thumbs).children('img').data('info');
 
+		console.log(href +' '+ alt +' '+ info);
+		console.log($main);
+		
 		// create the main image tag
 		$('<img />', {
 			'src': href,
@@ -76,11 +91,6 @@ contact@chez-syl.fr
 			imgToswitchImg++;
 		}
 
-		// hide control
-		if(p.hideControl) {
-			$control.hide();
-		}
-		
 		calculate(info);
 
 		// ***********************
@@ -98,7 +108,7 @@ contact@chez-syl.fr
 		}, $desoSlide);
 		
 		// hover on thumbs
-		$(t+' #desoSlide_thumbs li img').on({
+		$('li img', $thumbs).on({
 			mouseover: function() {
 				$(this).animate({
 					opacity: 0.5
@@ -112,7 +122,7 @@ contact@chez-syl.fr
 		});
 		
 		// thumb click
-		$(t+' #desoSlide_thumbs li a').on('click', function() {
+		$('li a', $thumbs).on('click', function() {
 			if(!p.autoStart) {
 				var $this = $(this);
 				
@@ -169,11 +179,12 @@ contact@chez-syl.fr
 			$main.height($mainImg.height());
 			var h = $mainImg.height();
 			var w = $mainImg.width();
-			
+				console.log($caption.css());
+		
 			// calculate new width with padding-left
 			var paddingLeft = $caption.css('padding-left').replace('px', '');
 			width = w - paddingLeft;
-			
+
 			// calculate new height with padding-top
 			var paddingTop = $caption.css('padding-top').replace('px', '');
 			height = $caption.height();
@@ -195,7 +206,7 @@ contact@chez-syl.fr
 
 		// switch image
 		function switchImg() {
-			var imgCount = $(t+' #desoSlide_thumbs li a').length;
+			var imgCount = $('li a', $thumbs).length;
 			
 			// count reset 
 			if(imgToswitchImg == imgCount || imgToswitchImg > imgCount-1) {
@@ -203,9 +214,9 @@ contact@chez-syl.fr
 			}
 		
 			// new image
-			var href = $(t+' #desoSlide_thumbs li:eq('+imgToswitchImg+') a').attr('href');
-			var alt = $(t+' #desoSlide_thumbs li:eq('+imgToswitchImg+') a').children('img').attr('alt');
-			var info = $(t+' #desoSlide_thumbs li:eq('+imgToswitchImg+') a').children('img').data('info');
+			var href = $('li:eq('+imgToswitchImg+') a', $thumbs).attr('href');
+			var alt = $('li:eq('+imgToswitchImg+') a', $thumbs).children('img').attr('alt');
+			var info = $('li:eq('+imgToswitchImg+') a', $thumbs).children('img').data('info');
 
 			// call the displayer
 			displayImg(href, alt, info);
