@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery plugin desoSlide</title>
+		<link rel="stylesheet" type="text/css" href="css/jquery.desoslide.css" />
+		<style>
+		body {
+			font-family: arial, serif;
+			font-size: 12px;
+		}
+		a, a:hover, a:visited, a:active {
+		   border:none;
+		   outline:none;
+		}
+		img {
+			border: 0;
+		}
+		</style>
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.desoslide.js"></script>
+		<script>
+		$(document).ready(function() {
+			$('#desoSlide').desoSlide({
+				autoStart: false,				// lancer automatiquement le diaporama
+				imgFirst: 0,					// index de l image à afficher par défaut (0 = première image)
+				interval: 2500,				// temps en millisecondes entre chaque image
+				hideControl: true,			// cacher le contrôle du diaporama
+				playBtnLabel: 'Lecture',		// label du bouton de lecture
+				stopBtnLabel: 'Pause',		// label du bouton de pause
+				imgClicked: function(alt) {	// callback du clic sur l image en cours d affichage
+					alert(alt);
+				}
+			});
+		});
+		</script>
+	</head>
+<body>
+	<div id="desoSlide">
+		<div id="desoSlide_mainImageInfo">
+			<div id="desoSlide_mainImage"></div>
+			<div id="desoSlide_caption"></div>
+		</div>
+		
+		<div id="desoSlide_control"></div>
+
+		<div id="desoSlide_thumbs">
+			<ul>
+				<li>
+					<a href="images/salt.png">
+						<img src="images/salt_thumb.png" alt="Salt" data-info="Realised by Phillip Noyce"/>
+					</a>
+				</li>
+				<li>
+					<a href="images/batman.png">
+						<img src="images/batman_thumb.png" alt="Batman" data-info="Realised by Christopher Nolan"/>
+					</a>
+				</li>
+				<li>
+					<a href="images/frozen.png">
+						<img src="images/frozen_thumb.png" alt="Frozen" data-info="Realised by Adam Green"/>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

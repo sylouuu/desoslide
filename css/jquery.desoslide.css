@@ -1,0 +1,64 @@
+#desoSlide {
+    background-color: #5F5F5F;
+    border: 1px solid #919191;
+    border-radius: 5px;
+    margin: 0;
+    overflow: hidden;
+	position: relative;
+    padding: 5px;
+	width: 680px;
+}
+#desoSlide_thumbs ul {
+	list-style-type: none;
+}
+#desoSlide #desoSlide_mainImage:hover {
+	cursor: pointer;
+}
+#desoSlide_mainImage {
+    color: #FFFFFF;
+    float: right;
+    min-height: 246px;
+    overflow: hidden;
+    position: relative;
+    width: 579px;
+	z-index:1;
+}
+#desoSlide_thumbs {
+    float: left;
+    width: 90px;
+}
+#desoSlide_thumbs ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+#desoSlide_thumbs ul li {
+    float: left;
+    margin: 0;
+    padding: 12px 10px;
+    width: 90px;
+}
+#desoSlide_caption {
+	width: 579px;
+	height: 40px;
+	position: absolute;
+	z-index:2;
+	background-color: black;
+	color: white;
+	display: none;
+	font-weight:bold;
+	padding-left:5px;
+	padding-top:5px;
+}
+#desoSlide_control {
+	width: 80px;
+	text-align:center;
+	background-color: black;
+    border-radius: 5px;
+	font-weight:bold;
+	padding:5px;
+}
+#desoSlide_control #desoSlide_timer {
+	color: white;
+	text-decoration: none;
+}
