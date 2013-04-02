@@ -9,6 +9,7 @@ contact@chez-syl.fr
 	
 		// default values
 		var defaults = {
+			mainImage: false,
 			autoStart: false,
 			imgFirst: 0,
 			interval: 3000,
@@ -21,25 +22,19 @@ contact@chez-syl.fr
 		var p = $.extend(defaults, options); 
 		
 		var $desoSlide = this;
-		var $thumbs = $('.desoSlide_thumbs li', $desoSlide);
-		var mainImage = 'desoSlide_mainImage';
+		var $thumbs = $('li', $desoSlide);
 		var thumbsCount = $thumbs.length;
 		var imgKey = p.imgFirst;
 		// console.log(thumbsCount);
 		
-		// creating the main image div
-		$('<div>', {
-			'id'	: mainImage,
-			'class'	: 'span8'
-		}).prependTo($desoSlide);
-		
+	
 		// creating the main image
 		if(imgKey < thumbsCount) {
 			$('<img>', {
 				'src'		: $('a', $thumbs).eq(imgKey).attr('href'),
 				'alt'		: $('img', $thumbs).eq(imgKey).attr('alt'),
 				'data-info'	: $('img', $thumbs).eq(imgKey).data('info')
-			}).prependTo($('#'+ mainImage));
+			}).prependTo($(p.mainImage));
 		} else {
 			console.warn('desoSlide: The imgFirst param must be between 0 and '+ thumbsCount);
 		}
@@ -74,7 +69,7 @@ contact@chez-syl.fr
 		
 		// displaying the new image
 		function displayImg(href, alt, info) {
-			$('#'+ mainImage +' img').fadeOut('slow', function() {
+			$(p.mainImage +' img').fadeOut('slow', function() {
 				$(this).attr({
 					'src': href,
 					'alt': alt,
