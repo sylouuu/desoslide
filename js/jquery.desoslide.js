@@ -1,7 +1,7 @@
 /*
 jQuery: desoSlide plugin v1.1 - jquery.desoslide.js
 Copyright - 2013 - S.V.
-This source code is under the GNU General Public License
+This source code is under the MIT License
 contact@chez-syl.fr
 */
 (function($) {
@@ -11,23 +11,25 @@ contact@chez-syl.fr
 		var defaults = {
 			mainImage: false,
 			insertion: 'append',
-			autoStart: false,
 			imgFirst: 0,
-			interval: 3000,
-			hideControl: false,
-			playBtnLabel: 'Play',
-			stopBtnLabel: 'Stop'
+			interval: 3000
 		};
         
 		// extend options
 		var p = $.extend(defaults, options); 
 		
+		// *****************
+		// [BEGIN] variables
+		// *****************
+
 		var $desoSlide = this;
 		var $thumbs = $('li', $desoSlide);
 		var thumbsCount = $thumbs.length;
 		var imgKey = p.imgFirst;
-		// console.log(thumbsCount);
 		
+		// *****************
+		// [END] variables
+		// *****************
 	
 		// creating the main image
 		if(imgKey < thumbsCount) {
@@ -48,15 +50,18 @@ contact@chez-syl.fr
 					$(p.mainImage).html($img);
 				break;
 				default:
-					displayError('desoSlide: Bad value for the "insertion" param. Check out the documentation.');
+					displayError('Bad value for the "insertion" param. Check out the documentation.');
 				break;
 			}
 			
-			
 		} else {
-			displayError('desoSlide: The imgFirst param must be between 0 and '+ thumbsCount);
+			displayError('The imgFirst param must be between 0 and '+ thumbsCount);
 		}
 		
+		// ***********************
+		// [BEGIN] events handlers
+		// ***********************
+
 		// clicking on thumbnail
 		$('a', $thumbs).on('click', function(e) {
 			e.preventDefault();
@@ -85,6 +90,14 @@ contact@chez-syl.fr
 			}
 		});
 		
+		// ***********************
+		// [END] events handlers
+		// ***********************
+
+	   	// *****************
+		// [BEGIN] functions
+		// *****************
+
 		// displaying the new image
 		function displayImg(href, alt, info) {
 			$(p.mainImage +' img').fadeOut('slow', function() {
@@ -101,11 +114,15 @@ contact@chez-syl.fr
 			imgKey++;
 		}
 		
-		
+		// displaying error message in the console
 		function displayError(msg) {
 			console.error('desoSlide: '+ msg);
 		}
 		
+	   	// *****************
+		// [END] functions
+		// *****************
+
 		return this;
     };
 })(jQuery);
