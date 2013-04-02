@@ -12,7 +12,6 @@ contact@chez-syl.fr
 			autoStart: false,
 			imgFirst: 0,
 			interval: 3000,
-			imgClicked: false,
 			hideControl: false,
 			playBtnLabel: 'Play',
 			stopBtnLabel: 'Stop'
@@ -21,234 +20,74 @@ contact@chez-syl.fr
 		// extend options
 		var p = $.extend(defaults, options); 
 		
-		// *****************
-		// [BEGIN] variables
-		// *****************
-		
 		var $desoSlide = this;
-		var $mainImgInfo = $('#desoSlide_mainImageInfo');
-		var $main = $('#desoSlide_mainImage');
-		var $mainImg = $('img', $main);
-		var $caption = $('#desoSlide_caption');
-		var $control = $('#desoSlide_control');
-		var $thumbs = $('.desoSlide_thumbs', $desoSlide);
-		var ms = (p.interval < 1500) ? 1500 : p.interval;
-		var imgToswitchImg = p.imgFirst;
-		var timer;
+		var $thumbs = $('.desoSlide_thumbs li', $desoSlide);
+		var mainImage = 'desoSlide_mainImage';
+		var thumbsCount = $thumbs.length;
+		var imgKey = p.imgFirst;
+		// console.log(thumbsCount);
 		
-		// *****************
-		// [END] variables
-		// *****************
+		// creating the main image div
+		$('<div>', {
+			'id'	: mainImage,
+			'class'	: 'span8'
+		}).prependTo($desoSlide);
 		
+		// creating the main image
+		if(imgKey < thumbsCount) {
+			$('<img>', {
+				'src'		: $('a', $thumbs).eq(imgKey).attr('href'),
+				'alt'		: $('img', $thumbs).eq(imgKey).attr('alt'),
+				'data-info'	: $('img', $thumbs).eq(imgKey).data('info')
+			}).prependTo($('#'+ mainImage));
+		} else {
+			console.warn('desoSlide: The imgFirst param must be between 0 and '+ thumbsCount);
+		}
 		
-		function createMarkup() {
-		
-			if(!p.hideControl) {
-				$desoSlide.prepend('<div id="desoSlide_control"></div>');
-			}
-
-			$desoSlide.prepend('<div id="desoSlide_mainImageInfo"><div id="desoSlide_mainImage"></div><div id="desoSlide_caption"></div></div>');
+		// clicking on thumbnail
+		$('a', $thumbs).on('click', function(e) {
+			e.preventDefault();
+			var $this = $(this);
 			
-		};
-		
-		createMarkup();
-		
-		
-		// custom the caption
-		$caption.css({
-			'opacity': 0.5,
-			'border-radius': '5px'
+			// new image
+			var href = $this.attr('href');
+			var alt = $('img', $this).attr('alt');
+			var info = $('img', $this).data('info');
+			
+			// call the displayer
+			displayImg(href, alt, info);
 		});
 		
-		// display the default image
-		var href = $('li:eq('+imgToswitchImg+') a', $thumbs).attr('href');
-		var alt = $('li:eq('+imgToswitchImg+') a', $thumbs).children('img').attr('alt');
-		var info = $('li:eq('+imgToswitchImg+') a', $thumbs).children('img').data('info');
-
-		console.log(href +' '+ alt +' '+ info);
-		console.log($main);
-		
-		// create the main image tag
-		$('<img />', {
-			'src': href,
-			'alt': alt,
-			'data-info': info
-		}).appendTo($main);
-
-		// add the timer
-		$('<a>', {
-			'id': 'desoSlide_timer',
-			'href': '#',
-			'data-behaviour': 'play',
-			'html': p.playBtnLabel
-		}).appendTo($control);
-		
-		// auto
-		if(p.autoStart) {
-			$('#desoSlide_timer').data('behaviour', 'stop').html(p.stopBtnLabel);
-			switchImg();
-		} else {
-			imgToswitchImg++;
-		}
-
-		calculate(info);
-
-		// ***********************
-		// [BEGIN] events handlers
-		// ***********************
-		
-		// hover for caption
-		$mainImgInfo.on({
+		// hover on thumbnail
+		$('img', $thumbs).on({
 			mouseover: function() {
-				$caption.fadeIn();
-			},
-			mouseleave: function() {
-				$caption.fadeOut();
-			}
-		}, $desoSlide);
-		
-		// hover on thumbs
-		$('li img', $thumbs).on({
-			mouseover: function() {
-				$(this).animate({
-					opacity: 0.5
+				$(this).stop(true, true).animate({
+					opacity: 0.7
 				}, 'normal');
 			},
 			mouseout: function() {
-				$(this).animate({
+				$(this).stop(true, true).animate({
 					opacity: 1
-				}, 'normal');
+				}, 'fast');
 			}
 		});
 		
-		// thumb click
-		$('li a', $thumbs).on('click', function() {
-			if(!p.autoStart) {
-				var $this = $(this);
-				
-				// new image
-				var href = $this.attr('href');
-				var alt = $this.children('img').attr('alt');
-				var info = $this.children('img').data('info');			
-				
-				// call the displayer
-				displayImg(href, alt, info);
-			}
-			return false;
-		});
-		
-		// play/stop
-		$desoSlide.on('click', '#desoSlide_timer', function() {
-			var bh = $(this).data('behaviour');
-			if(bh == 'stop') {
-				$(this).data('behaviour', 'play').html(p.playBtnLabel);
-				p.autoStart = false;
-				clearTimeout(timer);
-			} else {
-				$(this).data('behaviour', 'stop').html(p.stopBtnLabel);
-				p.autoStart = true;
-				switchImg();
-			}
-			return false;
-		});
-		
-		// callback on click
-		$('#desoSlide_mainImage img').on('click', function() {
-			if(p.imgClicked) {
-				p.imgClicked($(this).attr('alt'));
-			}
-		});
-		
-		// ***********************
-		// [END] events handlers
-		// ***********************
-		
-	   	// *****************
-		// [BEGIN] functions
-		// *****************
-		
-		// calculate de new text position
-		function calculate(info) {
-			var $mainImg = $('#desoSlide_mainImage img');
-
-			var width = 0;
-			var height = 0;
-			// main image position
-			var pos = $main.position();
-			// main image height
-			$main.height($mainImg.height());
-			var h = $mainImg.height();
-			var w = $mainImg.width();
-				console.log($caption.css());
-		
-			// calculate new width with padding-left
-			var paddingLeft = $caption.css('padding-left').replace('px', '');
-			width = w - paddingLeft;
-
-			// calculate new height with padding-top
-			var paddingTop = $caption.css('padding-top').replace('px', '');
-			height = $caption.height();
-			
-			// calculate top & left
-			var top = pos.top + (parseInt(h) - parseInt($caption.height()) - paddingTop);
-			var left = pos.left;
-			
-			// update the caption
-			$caption.css({
-				'left': left +'px',
-				'top': top +'px',
-				'width': width +'px',
-				'height': height +'px'
-			});
-
-			$caption.text(info);
-		}
-
-		// switch image
-		function switchImg() {
-			var imgCount = $('li a', $thumbs).length;
-			
-			// count reset 
-			if(imgToswitchImg == imgCount || imgToswitchImg > imgCount-1) {
-				imgToswitchImg = 0;
-			}
-		
-			// new image
-			var href = $('li:eq('+imgToswitchImg+') a', $thumbs).attr('href');
-			var alt = $('li:eq('+imgToswitchImg+') a', $thumbs).children('img').attr('alt');
-			var info = $('li:eq('+imgToswitchImg+') a', $thumbs).children('img').data('info');
-
-			// call the displayer
-			displayImg(href, alt, info);
-		}
-		
-		// display the new image
+		// displaying the new image
 		function displayImg(href, alt, info) {
-			$('#desoSlide_mainImage img').fadeOut('slow', function() {
+			$('#'+ mainImage +' img').fadeOut('slow', function() {
 				$(this).attr({
 					'src': href,
 					'alt': alt,
 					'data-info': info
 				}).fadeIn('slow', function() {
-					calculate(info);
+					// calculate(info);
 				});
 			});
 						
 			// next image
-			imgToswitchImg++;
-			
-			// start the loop
-			if(p.autoStart) {
-				timer = setTimeout(function() {
-					switchImg();
-				}, ms);
-			}
+			imgKey++;
 		}
 		
-	   	// *****************
-		// [END] functions
-		// *****************
-	   
 		return this;
     };
 })(jQuery);

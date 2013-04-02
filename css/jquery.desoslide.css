@@ -1,43 +1,28 @@
-#desoSlide {
-    background-color: #5F5F5F;
-    border: 1px solid #919191;
-    border-radius: 5px;
-    margin: 0;
-    overflow: hidden;
-	position: relative;
-    padding: 5px;
-	width: 680px;
-}
 .desoSlide_thumbs ul {
 	list-style-type: none;
 }
-#desoSlide #desoSlide_mainImage:hover {
+#desoSlide_mainImage {
+	box-shadow: 0 0 5px #000;
+	border-radius:3px;
+}
+#desoSlide_mainImage:hover {
 	cursor: pointer;
 }
-#desoSlide_mainImage {
-    color: #FFFFFF;
-    float: right;
-    min-height: 246px;
-    overflow: hidden;
-    position: relative;
-    width: 579px;
-	z-index:1;
-}
-.desoSlide_thumbs {
-    float: left;
-    width: 90px;
-}
+
 .desoSlide_thumbs ul {
     list-style: none outside none;
     margin: 0;
     padding: 0;
 }
 .desoSlide_thumbs ul li {
-    float: left;
-    margin: 0;
-    padding: 12px 10px;
-    width: 90px;
+	text-align:center;
+    padding: 5px 2px 5px 2px;
 }
+.desoSlide_thumbs img {
+	box-shadow: 0 0 5px #000;
+	border-radius: 3px;
+}
+
 #desoSlide_caption {
 	width: 579px;
 	height: 40px;
