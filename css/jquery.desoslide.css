@@ -1,25 +1,3 @@
-#desoSlide_mainImage {
-	box-shadow: 0 0 5px #000;
-	border-radius:3px;
-}
-#desoSlide_mainImage:hover {
-	cursor: pointer;
-}
-
-.desoSlide_thumbs {
-    list-style: none outside none;
-    margin: 0;
-    padding: 0;
-}
-.desoSlide_thumbs li {
-	text-align:center;
-    padding: 5px 2px 5px 2px;
-}
-.desoSlide_thumbs img {
-	box-shadow: 0 0 5px #000;
-	border-radius: 3px;
-}
-
 #desoSlide_caption {
 	width: 579px;
 	height: 40px;

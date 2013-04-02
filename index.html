@@ -12,7 +12,8 @@
 		<script>
 		$(document).ready(function() {
 			$('#desoSlide').desoSlide({
-				mainImage: '#desoSlide_mainImage',
+				mainImage: '#mainImage',
+				insertion: 'replace',
 				autoStart: false,				// lancer automatiquement le diaporama
 				imgFirst: 0,					// index de l image à afficher par défaut (0 = première image)
 				interval: 2500,				// temps en millisecondes entre chaque image
@@ -54,12 +55,10 @@
 		<hr>
 
 		<div class="row-fluid marketing">
-			<div id="desoSlide_mainImage" class="span8">
-				<!--<img src="img/lake.jpg" alt="Lake">-->
-			</div>
+			<div id="mainImage" class="span8"></div>
 			
 			<div class="span4">
-				<ul id="desoSlide" class="desoSlide_thumbs">
+				<ul id="desoSlide" class="thumbs">
 					<li>
 						<a href="img/lake.jpg"><img src="img/lake_thumb.jpg" alt="Lake" data-info="A lake"></a>
 					</li>
