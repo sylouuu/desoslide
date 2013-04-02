@@ -30,7 +30,12 @@ contact@chez-syl.fr
 		// *****************
 		// [END] variables
 		// *****************
-	
+		
+		if($desoSlide.length == 0) {
+			displayError($desoSlide.selector +' doesn\'t exists.');
+			return false;
+		}
+		
 		// creating the main image
 		if(imgKey < thumbsCount) {
 			var $img = $('<img>', {
@@ -55,7 +60,7 @@ contact@chez-syl.fr
 			}
 			
 		} else {
-			displayError('The imgFirst param must be between 0 and '+ thumbsCount);
+			displayError('The imgFirst param must be between 0 and '+ thumbsCount +'.');
 		}
 		
 		// ***********************
@@ -73,7 +78,9 @@ contact@chez-syl.fr
 			var info = $('img', $this).data('info');
 			
 			// call the displayer
-			displayImg(href, alt, info);
+			if($this.parent('li').index() !== imgKey) {
+				displayImg(href, alt, info);
+			}
 		});
 		
 		// hover on thumbnail
