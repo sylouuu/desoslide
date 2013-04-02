@@ -10,6 +10,7 @@ contact@chez-syl.fr
 		// default values
 		var defaults = {
 			mainImage: false,
+			insertion: 'append',
 			autoStart: false,
 			imgFirst: 0,
 			interval: 3000,
@@ -30,13 +31,30 @@ contact@chez-syl.fr
 	
 		// creating the main image
 		if(imgKey < thumbsCount) {
-			$('<img>', {
+			var $img = $('<img>', {
 				'src'		: $('a', $thumbs).eq(imgKey).attr('href'),
 				'alt'		: $('img', $thumbs).eq(imgKey).attr('alt'),
 				'data-info'	: $('img', $thumbs).eq(imgKey).data('info')
-			}).prependTo($(p.mainImage));
+			});
+			
+			switch(p.insertion) {
+				case 'prepend':
+					$img.prependTo($(p.mainImage));
+				break;
+				case 'append':
+					$img.appendTo($(p.mainImage));
+				break;
+				case 'replace':
+					$(p.mainImage).html($img);
+				break;
+				default:
+					displayError('desoSlide: Bad value for the "insertion" param. Check out the documentation.');
+				break;
+			}
+			
+			
 		} else {
-			console.warn('desoSlide: The imgFirst param must be between 0 and '+ thumbsCount);
+			displayError('desoSlide: The imgFirst param must be between 0 and '+ thumbsCount);
 		}
 		
 		// clicking on thumbnail
@@ -81,6 +99,11 @@ contact@chez-syl.fr
 						
 			// next image
 			imgKey++;
+		}
+		
+		
+		function displayError(msg) {
+			console.error('desoSlide: '+ msg);
 		}
 		
 		return this;

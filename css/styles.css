@@ -46,3 +46,28 @@ body {
 .marketing p + h4 {
 	margin-top: 28px;
 }
+
+
+#mainImage {
+	box-shadow: 0 0 5px #000;
+	border-radius:3px;
+}
+#mainImage:hover {
+	cursor: pointer;
+}
+
+.thumbs {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+.thumbs li {
+	text-align:center;
+    padding: 5px 2px 5px 2px;
+}
+.thumbs img {
+	box-shadow: 0 0 5px #000;
+	border-radius: 3px;
+}
+
+
