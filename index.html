@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery plugin &middot; desoSlide</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.desoslide.css" />
+		<link rel="stylesheet" type="text/css" href="css/styles.css" />
+
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.desoslide.js"></script>
+		<script>
+		$(document).ready(function() {
+			$('#desoSlide').desoSlide({
+				mainImage: '#desoSlide_mainImage',
+				autoStart: false,				// lancer automatiquement le diaporama
+				imgFirst: 0,					// index de l image à afficher par défaut (0 = première image)
+				interval: 2500,				// temps en millisecondes entre chaque image
+				hideControl: false,			// cacher le contrôle du diaporama
+				playBtnLabel: 'Lecture',		// label du bouton de lecture
+				stopBtnLabel: 'Pause'		// label du bouton de pause
+			});
+		});
+		</script>
+	</head>
+<body>
+	<div class="container-narrow">
+
+		<div class="masthead">
+			<ul class="nav nav-pills pull-right">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#">Documentation</a></li>
+			</ul>
+			<h3 class="muted">desoSlide</h3>
+		</div>
+
+		<hr>
+
+		<div class="jumbotron">
+			<h1>Lightweight images slider!</h1>
+			
+			<p class="lead">with thumbnails!</p>
+
+			<p>
+				<a class="btn btn-large btn-primary" href="#">Documentation</a>
+			</p>
+			
+			<ul class="masthead-links">
+				<li><i class="icon-download-alt"></i> <a href="#">Download</a></li>
+				<li>Version 1.1.0</li>
+			</ul>
+		</div>
+
+		<hr>
+
+		<div class="row-fluid marketing">
+			<div id="desoSlide_mainImage" class="span8">
+				<!--<img src="img/lake.jpg" alt="Lake">-->
+			</div>
+			
+			<div class="span4">
+				<ul id="desoSlide" class="desoSlide_thumbs">
+					<li>
+						<a href="img/lake.jpg"><img src="img/lake_thumb.jpg" alt="Lake" data-info="A lake"></a>
+					</li>
+					<li>
+						<a href="img/flower.jpg"><img src="img/flower_thumb.jpg" alt="Flower" data-info="A flower"></a>
+					</li>
+					<li>
+						<a href="img/butterfly.jpg"><img src="img/butterfly_thumb.jpg" alt="Butterfly" data-info="A butterfly"></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="row-fluid marketing">
+			<div class="span6">
+				<h4>Subheading</h4>
+				<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+				<h4>Subheading</h4>
+				<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+				<h4>Subheading</h4>
+				<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+			</div>
+
+			<div class="span6">
+				<h4>Subheading</h4>
+				<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+				<h4>Subheading</h4>
+				<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+				<h4>Subheading</h4>
+				<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="footer">
+			<p>&copy; Syl 2013</p>
+		</div>
+	</div>
+</body>
+</html>
