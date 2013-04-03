@@ -2,14 +2,15 @@ body {
 	padding-top: 10px;
 	padding-bottom: 20px;
 }
-
-/* Custom container */
-.container-narrow {
-	margin: 0 auto;
-	max-width: 700px;
+.ribbon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: 0;
 }
+
 .container-narrow > hr {
-	margin: 30px 0;
+	margin: 20px 0;
 }
 
 /* Main marketing message and sign up button */
@@ -19,7 +20,7 @@ body {
 }
 
 .jumbotron h1 {
-	font-size: 72px;
+	font-size: 3em;
 	line-height: 1;
 }
 
@@ -41,33 +42,9 @@ body {
 
 /* Supporting marketing content */
 .marketing {
-	margin: 60px 0;
+	margin: 20px 0;
 }
+
 .marketing p + h4 {
 	margin-top: 28px;
 }
-
-
-#mainImage {
-	box-shadow: 0 0 5px #000;
-	border-radius:3px;
-}
-#mainImage:hover {
-	cursor: pointer;
-}
-
-.thumbs {
-    list-style: none outside none;
-    margin: 0;
-    padding: 0;
-}
-.thumbs li {
-	text-align:center;
-    padding: 5px 2px 5px 2px;
-}
-.thumbs img {
-	box-shadow: 0 0 5px #000;
-	border-radius: 3px;
-}
-
-

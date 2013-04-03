@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery plugin &middot; desoSlide</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.desoslide.css" />
+		<link rel="stylesheet" type="text/css" href="css/github.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/styles.css" />
+		<link rel="stylesheet" type="text/css" href="css/documentation.css" />
+
+		<script src="js/jquery.js"></script>
+		<script src="js/highlight.min.js"></script>
+		<script src="js/bootstrap/bootstrap-tab.min.js"></script>
+		<script src="js/jquery.desoslide.js"></script>
+		<script src="js/documentation.js"></script>
+	</head>
+<body>
+	<!-- [BEGIN] forkme ribbon -->
+	<a href="https://github.com/sylouuu/desoslide"><img class="ribbon" src="img/forkme_right_red.png" alt="Fork me on GitHub"></a>
+	<!-- [END] forkme ribbon -->
+	
+	<div class="container-narrow">
+		<!-- [BEGIN] masthead -->
+		<div class="masthead">
+			<ul class="nav nav-pills pull-right">
+				<li><a href="./">Home</a></li>
+				<li class="active"><a href="#">Documentation</a></li>
+			</ul>
+			<h3 class="muted">desoSlide</h3>
+		</div>
+		<!-- [END] masthead -->
+
+		<hr>
+		<!-- [BEGIN] wizard -->
+		<div class="row-fluid marketing">
+			<h2>Wizard by step</h2>
+			<div class="span12">
+				
+				<ul id="steps" class="nav nav-tabs">
+					<li class="active"><a href="#step1" data-toggle="tab">Step 1</a></li>
+					<li><a href="#step2" data-toggle="tab">Step 2</a></li>
+					<li><a href="#step3" data-toggle="tab">Step 3</a></li>
+					<li><a href="#step4" data-toggle="tab">Result</a></li>
+				</ul>
+				
+				<div class="tab-content">
+					<div id="step1" class="tab-pane active">
+						<p>
+							At first, include jQuery and the desoSlide files in your page:
+						</p>
+<pre><code>&lt;link rel="stylesheet" href="css/jquery.desoslide.css" />
+
+&lt;script src="js/jquery.js">&lt;/script>
+&lt;script src="js/jquery.desoslide.js">&lt;/script></code></pre>
+						<p>
+							The CSS file is only needed for the caption styles.
+						</p>
+					</div>
+					
+					<div id="step2" class="tab-pane">
+						<p>
+							Then, you need to create your thumbnails list with that markup:
+						</p>
+<pre><code>&lt;ul id="my_thumbs">
+	&lt;li>
+		&lt;a href="img/bird.jpg">
+			&lt;img src="img/bird_thumb.jpg" alt="Bird" data-caption="A bird">
+		&lt;/a>
+	&lt;/li>
+	&lt;li>
+		&lt;a href="img/flower.jpg">
+			&lt;img src="img/flower_thumb.jpg" alt="Flower" data-caption="A flower">
+		&lt;/a>
+	&lt;/li>
+	&lt;li>
+		&lt;a href="img/butterfly.jpg">
+			&lt;img src="img/butterfly_thumb.jpg" alt="Butterfly" data-caption="A butterfly">
+		&lt;/a>
+	&lt;/li>
+	&lt;li>
+		&lt;a href="img/rose.jpg">
+			&lt;img src="img/rose_thumb.jpg" alt="Rose" data-caption="A rose">
+		&lt;/a>
+	&lt;/li>
+&lt;/ul></code></pre>
+						<p>
+							Specify your images links and the <code>alt</code> attribute. The <code>data-caption</code> attribute is used for the caption.
+						</p>
+					</div>
+					
+					<div id="step3" class="tab-pane">
+						<p>
+							Call the plugin "desoSlide" on your list of thumbnails by specifying the target where the main image will be generated:
+						</p>
+<pre><code>$(function() {
+	$('#my_thumbs').desoSlide({
+		mainImage: '#mainImage'
+	});
+});</code></pre>
+						<p>
+							Here, the main image will be generated inside <code>#mainImage</code>.
+						</p>
+					</div>
+					
+					<div id="step4" class="tab-pane">
+						<div id="wizard_demo">
+							<ul id="wizard_thumbs">
+								<li>
+									<a href="img/examples/bird.jpg"><img src="img/examples/bird_thumb.jpg" alt="bird" data-caption="A bird"></a>
+								</li>
+								<li>
+									<a href="img/examples/flower.jpg"><img src="img/examples/flower_thumb.jpg" alt="Flower" data-caption="A flower"></a>
+								</li>
+								<li>
+									<a href="img/examples/butterfly.jpg"><img src="img/examples/butterfly_thumb.jpg" alt="Butterfly" data-caption="A butterfly"></a>
+								</li>
+								<li>
+									<a href="img/examples/rose.jpg"><img src="img/examples/rose_thumb.jpg" alt="Rose" data-caption="A rose"></a>
+								</li>
+							</ul>
+							
+							<div id="wizard_mainImage"></div>
+						</div>
+					</div>					
+				</div>
+			</div>
+		</div>
+		<!-- [END] wizard -->
+		
+		<!-- [BEGIN] Examples -->
+		<div class="row-fluid marketing">
+			<h2>Examples</h2>
+			<div class="span12">
+				<p class="lead">
+					Displaying the second image at loading. Disabling the caption.
+				</p>
+			</div>
+		</div>
+		<div class="row-fluid marketing">
+			<div class="span3">
+				<ul id="ex1_thumbs">
+					<li>
+						<a href="img/examples/bird.jpg"><img src="img/examples/bird_thumb.jpg" alt="bird" data-caption="A bird"></a>
+					</li>
+					<li>
+						<a href="img/examples/flower.jpg"><img src="img/examples/flower_thumb.jpg" alt="Flower" data-caption="A flower"></a>
+					</li>
+					<li>
+						<a href="img/examples/butterfly.jpg"><img src="img/examples/butterfly_thumb.jpg" alt="Butterfly" data-caption="A butterfly"></a>
+					</li>
+					<li>
+						<a href="img/examples/rose.jpg"><img src="img/examples/rose_thumb.jpg" alt="Rose" data-caption="A rose"></a>
+					</li>
+				</ul>
+			</div>
+			
+			<div id="ex1_mainImage" class="span9"></div>
+		</div>
+		<div class="row-fluid marketing">
+			<div class="span12">
+				
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#ex1_js" data-toggle="tab">Code</a></li>
+				</ul>
+				
+				<div class="tab-content">
+					<div id="ex1_js" class="tab-pane active">
+<pre><code>$('#ex1_thumbs').desoSlide({
+	mainImage: '#ex1_mainImage',
+	imgFirst: 1,
+	disableCaption: true
+});
+</code></pre>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row-fluid marketing">
+			<div class="span12">
+				<p class="lead">
+					Displaying the caption by hovering the main image.
+				</p>
+			</div>
+		</div>
+		<div class="row-fluid marketing">
+			<div class="12">
+				<div id="ex2_mainImage"></div>
+		</div>
+		<div class="row-fluid marketing">
+			<div class="12">
+				<ul id="ex2_thumbs">
+					<li>
+						<a href="img/examples/bird.jpg"><img src="img/examples/bird_thumb.jpg" alt="bird" data-caption="A bird"></a>
+					</li>
+					<li>
+						<a href="img/examples/flower.jpg"><img src="img/examples/flower_thumb.jpg" alt="Flower" data-caption="A flower"></a>
+					</li>
+					<li>
+						<a href="img/examples/butterfly.jpg"><img src="img/examples/butterfly_thumb.jpg" alt="Butterfly" data-caption="A butterfly"></a>
+					</li>
+					<li>
+						<a href="img/examples/rose.jpg"><img src="img/examples/rose_thumb.jpg" alt="Rose" data-caption="A rose"></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row-fluid marketing">
+			<div class="span12">
+				
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#ex2_js" data-toggle="tab">Code</a></li>
+				</ul>
+				
+				<div class="tab-content">
+					<div id="ex2_js" class="tab-pane active">
+<pre><code>$('#ex2_thumbs').desoSlide({
+	mainImage: '#ex2_mainImage',
+	displayCaption: 'hover'
+});
+</code></pre>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- [END] Examples -->
+		
+		<!-- [BEGIN] Documentation -->
+		<div class="row-fluid marketing">
+			<h2>Documentation</h2>
+			<div class="span12">
+				<p>Find below all the available options.</p>
+				<table class="table table-bordered">
+					<tr>
+						<th>Options</th>
+						<th>Values</th>
+						<th>Default</th>
+						<th>Description</th>
+					</tr>
+					<tr>
+						<td><code>mainImage</code></td>
+						<td>Your selector.</td>
+						<td><code>false</code></td>
+						<td>The main image container. If you don't specify a valid selector, you'll receive an error.</td>
+					</tr>
+					<tr>
+						<td><code>insertion</code></td>
+						<td><code>'append'</code>, <code>'prepend'</code> or <code>'replace'</code></td>
+						<td><code>'append</code></td>
+						<td>How to create the main image, by appending, prepending or replace all the selector's content (overwriting).</td>
+					</tr>
+					<tr>
+						<td><code>imgFirst</code></td>
+						<td>An integer between 0 and the number of thumbnails (-1).</td>
+						<td><code>0</code></td>
+						<td>The index of the thumbnail that you want to display first.</td>
+					</tr>
+					<tr>
+						<td><code>disableCaption</code></td>
+						<td>Boolean.</td>
+						<td><code>false</code></td>
+						<td>Disable or not the main image caption. If <code>false</code>, be sure that you have specify the <code>data-caption</code> attribute on thumbnails.</td>
+					</tr>
+					<tr>
+						<td><code>displayCaption</code></td>
+						<td><code>'always'</code> or <code>'hover'</code></td>
+						<td><code>'always'</code></td>
+						<td>How to show the main image caption.</td>
+					</tr>
+					<tr>
+						<td><code>displayWarning</code></td>
+						<td>Boolean.</td>
+						<td><code>true</code></td>
+						<td>Show warnings in the developer console. Be sure to put it <code>false</code> in production.</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<!-- [END] Documentation -->
+		
+		<hr>
+
+		<!-- [BEGIN] footer -->
+		<div class="footer">
+			<p>&copy; <a href="https://github.com/sylouuu">Syl</a> 2013</p>
+		</div>
+		<!-- [END] footer -->
+	</div>
+</body>
+</html>
