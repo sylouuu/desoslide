@@ -186,7 +186,7 @@ contact@chez-syl.fr
 			
 			if($(p.mainImage +' .desoSlide_caption').length == 0) {
 				$caption.appendTo($(p.mainImage));
-				// console.log('caption created ' +$img.selector);
+				console.log('caption created ' +$img.selector);
 			}
 			
 			// overwrite the caption
@@ -204,6 +204,8 @@ contact@chez-syl.fr
 			// calculate top & left
 			var top = pos.top + (parseInt(h) - parseInt($(p.mainImage +' .desoSlide_caption').height()) - (paddingTop + paddingBottom));
 			var left = pos.left;
+			
+			console.log($(p.mainImage).selector +' '+ width +' '+ left +' '+ top);
 			
 			// update the caption
 			$(p.mainImage +' .desoSlide_caption').css({
