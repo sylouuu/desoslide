@@ -1,15 +1,17 @@
-#desoSlide_caption {
-	width: 579px;
-	height: 40px;
+.desoSlide_caption {
 	position: absolute;
-	z-index:2;
+	height: auto;
+	z-index: 2;
 	background-color: black;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
 	color: white;
 	display: none;
-	font-weight:bold;
-	padding-left:5px;
-	padding-top:5px;
+	font-weight: bold;
+	padding-left: 8px;
+	padding-top: 5px;
 }
+/*
 #desoSlide_control {	width: 80px;
 	text-align:center;
 	background-color: black;
@@ -21,3 +23,4 @@
 	color: white;
 	text-decoration: none;
 }
+*/

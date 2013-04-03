@@ -9,20 +9,15 @@
 
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery.desoslide.js"></script>
-		<script>
-		$(document).ready(function() {
-			$('#desoSlide').desoSlide({
-				mainImage: '#mainImage',
-				insertion: 'replace',
-				imgFirst: 0,
-				interval: 2500
-			});
-		});
-		</script>
+		<script src="js/demo.js"></script>
 	</head>
 <body>
+	<!-- [BEGIN] forkme ribbon -->
+	<a href="https://github.com/sylouuu/desoslide"><img style="position: absolute; top: 0; right: 0; border: 0;" src="img/forkme_right_red.png" alt="Fork me on GitHub"></a>
+	<!-- [END] forkme ribbon -->
+	
 	<div class="container-narrow">
-
+		<!-- [BEGIN] masthead -->
 		<div class="masthead">
 			<ul class="nav nav-pills pull-right">
 				<li class="active"><a href="#">Home</a></li>
@@ -30,39 +25,48 @@
 			</ul>
 			<h3 class="muted">desoSlide</h3>
 		</div>
+		<!-- [END] masthead -->
 
 		<hr>
-
+		
+		<!-- [BEGIN] jumbotron -->
 		<div class="jumbotron">
-			<h1>Lightweight images slider!</h1>
+			<h1>Lightweight images slider...</h1>
 			
-			<p class="lead">with thumbnails!</p>
+			<p class="lead">... with thumbnails! Feel free to use your own HTML markup!</p>
 
 			<p>
-				<a class="btn btn-large btn-primary" href="#">Documentation</a>
+				<a class="btn btn-large btn-primary" href="documentation.html">See documentation & examples</a>
 			</p>
 			
 			<ul class="masthead-links">
-				<li><i class="icon-download-alt"></i> <a href="#">Download</a></li>
-				<li>Version 1.1.0</li>
+				<li><i class="icon-download-alt"></i> <a href="https://github.com/sylouuu/desoslide/archive/master.zip">Download</a></li>
+				<li>Version 1.0.0</li>
 			</ul>
 		</div>
+		<!-- [END] jumbotron -->
 
 		<hr>
 
+		<!-- [BEGIN] features -->
 		<div class="row-fluid marketing">
-			<div id="mainImage" class="span8"></div>
+			<div id="home_mainImage" class="span8">
+				
+			</div>
 			
 			<div class="span4">
-				<ul id="desoSlide" class="thumbs">
+				<ul id="home_demo" class="home_thumbs">
 					<li>
-						<a href="img/lake.jpg"><img src="img/lake_thumb.jpg" alt="Lake" data-info="A lake"></a>
+						<a href="img/examples/lake.jpg"><img src="img/examples/lake_thumb.jpg" alt="Lake" data-info="A lake"></a>
 					</li>
 					<li>
-						<a href="img/flower.jpg"><img src="img/flower_thumb.jpg" alt="Flower" data-info="A flower"></a>
+						<a href="img/examples/flower.jpg"><img src="img/examples/flower_thumb.jpg" alt="Flower" data-info="A flower"></a>
 					</li>
 					<li>
-						<a href="img/butterfly.jpg"><img src="img/butterfly_thumb.jpg" alt="Butterfly" data-info="A butterfly"></a>
+						<a href="img/examples/butterfly.jpg"><img src="img/examples/butterfly_thumb.jpg" alt="Butterfly" data-info="A butterfly"></a>
+					</li>
+					<li>
+						<a href="img/examples/rose.jpg"><img src="img/examples/rose_thumb.jpg" alt="Rose" data-info="A rose"></a>
 					</li>
 				</ul>
 			</div>
@@ -91,12 +95,15 @@
 				<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
 			</div>
 		</div>
+		<!-- [END] features -->
 
 		<hr>
 
+		<!-- [BEGIN] footer -->
 		<div class="footer">
 			<p>&copy; Syl 2013</p>
 		</div>
+		<!-- [END] footer -->
 	</div>
 </body>
 </html>
