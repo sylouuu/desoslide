@@ -12,9 +12,9 @@ contact@chez-syl.fr
 			mainImage: false,
 			insertion: 'append',
 			imgFirst: 0,
-			displayWarning: true,
 			disableCaption: false,
-			displayCaption: 'always'
+			displayCaption: 'always',
+			displayWarning: true
 		};
 
 		// extend options
@@ -34,6 +34,16 @@ contact@chez-syl.fr
 		// [END] variables
 		// *****************
 		
+		// mainImage param checks
+		if(!p.mainImage) {
+			displayError('You must specify the "mainImage" param. Check out the documentation.');
+		} else {
+			// if the container does not exist
+			if($(p.mainImage).length == 0) {
+				displayError($(p.mainImage).selector +' doesn\'t exist.');
+			}
+		}
+		
 		// if the container does not exist
 		if($thumbsContainer.length == 0) {
 			displayError($thumbsContainer.selector +' doesn\'t exist.');
@@ -49,11 +59,11 @@ contact@chez-syl.fr
 			// data
 			src = $('a', $thumbs).eq(currentImg).attr('href');
 			alt = $('img', $thumbs).eq(currentImg).attr('alt'),
-			captionInfo = $('img', $thumbs).eq(currentImg).data('info')
+			captionInfo = $('img', $thumbs).eq(currentImg).data('caption')
 			
 			// captions checks
 			if(!p.disableCaption && captionInfo == '') {
-				displayWarning('The captions are enabled and the data-info attribute is missing on a thumb. Add it or disable captions. Check out the documention.');
+				displayWarning('The captions are enabled and the data-caption attribute is missing on a thumb. Add it or disable captions. Check out the documention.');
 			}
 			
 			// W3C check
@@ -63,9 +73,9 @@ contact@chez-syl.fr
 			
 			// the img tag
 			$img = $('<img>', {
-				'src'		: src,
-				'alt'		: alt,
-				'data-info'	: captionInfo
+				'src'			: src,
+				'alt'			: alt,
+				'data-caption'	: captionInfo
 			});
 			
 			// DOM insertion
@@ -109,7 +119,7 @@ contact@chez-syl.fr
 				$(p.mainImage +' .desoSlide_caption').hide();
 				
 				// call the displayer
-				displayImg($this.attr('href'), $('img', $this).attr('alt'), $('img', $this).data('info'));
+				displayImg($this.attr('href'), $('img', $this).attr('alt'), $('img', $this).data('caption'));
 				
 				// set the current image index
 				currentImg = $this.parent('li').index();
@@ -159,7 +169,7 @@ contact@chez-syl.fr
 
 		// adjust the caption position
 		function calculateCaptionPosition(info) {
-			console.log($(p.mainImage +' img').selector);
+			// console.log($(p.mainImage +' img').selector);
 			var width = 0;
 			var height = 0;
 			
@@ -172,19 +182,16 @@ contact@chez-syl.fr
 			
 			$caption = $('<div>', {
 				'class': 'desoSlide_caption'
-			});
+			}).hide();
 			
 			if($(p.mainImage +' .desoSlide_caption').length == 0) {
-				$caption.insertAfter($img)	
+				$caption.appendTo($(p.mainImage));
+				// console.log('caption created ' +$img.selector);
 			}
 			
 			// overwrite the caption
 			$(p.mainImage +' .desoSlide_caption').html(info);
 			
-			if(p.displayCaption == 'always') {
-				$(p.mainImage +' .desoSlide_caption').fadeIn();
-			}
-
 			// calculate new width with padding-left
 			var paddingLeft = parseInt($(p.mainImage +' .desoSlide_caption').css('padding-left').replace('px', ''));
 			var paddingRight = parseInt($(p.mainImage +' .desoSlide_caption').css('padding-right').replace('px', ''));
@@ -204,6 +211,11 @@ contact@chez-syl.fr
 				'top': top +'px',
 				'width': width +'px'
 			});
+			
+			if(p.displayCaption == 'always') {
+				$(p.mainImage +' .desoSlide_caption').fadeIn();
+			}
+
 		}
 		
 		// displaying the new image
@@ -212,7 +224,7 @@ contact@chez-syl.fr
 				$(this).attr({
 					'src': href,
 					'alt': alt,
-					'data-info': info
+					'data-caption': info
 				}).fadeIn('slow', function() {
 					if(!p.disableCaption) {
 						calculateCaptionPosition(info);

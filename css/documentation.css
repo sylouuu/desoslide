@@ -8,7 +8,7 @@
 	text-align:center;
 }
 
-#wizard_demo img, #ex1_mainImage img, #ex1_thumbs img {
+#wizard_demo img, #ex1_mainImage img, #ex1_thumbs img, #ex2_mainImage img, #ex2_thumbs img {
 	box-shadow: 0 0 5px #000;
 }
 
@@ -16,13 +16,17 @@
 	padding-top: 10px;
 }
 
-#wizard_thumbs, #ex1_thumbs {
+#wizard_thumbs, #ex1_thumbs, #ex2_thumbs {
     list-style: none outside none;
     margin: 0;
     padding: 0;
 }
 
-#wizard_thumbs li, #ex1_thumbs li {
+#wizard_thumbs li, #ex1_thumbs li, #ex2_thumbs li {
 	display:inline-block;
     padding: 5px 2px 5px 2px;
+}
+
+#ex2_mainImage, #ex2_thumbs {
+	text-align:center;
 }

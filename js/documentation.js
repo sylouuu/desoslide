@@ -4,9 +4,6 @@ hljs.initHighlightingOnLoad();
 // [BEGIN] documentation demo
 $(function() {
 
-	// show the first wizard step
-	$('#steps a:last').tab('show');
-	
 	
 	$('#wizard_thumbs').desoSlide({
 		mainImage: '#wizard_mainImage',
@@ -15,9 +12,14 @@ $(function() {
 	
 	$('#ex1_thumbs').desoSlide({
 		mainImage: '#ex1_mainImage',
+		imgFirst: 1,
 		disableCaption: true
 	});
 	
+	$('#ex2_thumbs').desoSlide({
+		mainImage: '#ex2_mainImage',
+		displayCaption: 'hover'
+	});
 	
 	
 });
