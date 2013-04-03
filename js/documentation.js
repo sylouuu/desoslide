@@ -5,6 +5,10 @@ hljs.initHighlightingOnLoad();
 $(function() {
 
 	
+	$('#go_to_step1').on('click', function() {
+		$('ul.nav-tabs a:first').tab('show');
+	});
+	
 	$('#wizard_thumbs').desoSlide({
 		mainImage: '#wizard_mainImage',
 		displayCaption: 'always'

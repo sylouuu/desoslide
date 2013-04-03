@@ -182,7 +182,7 @@ contact@chez-syl.fr
 			
 			$caption = $('<div>', {
 				'class': 'desoSlide_caption'
-			}).hide();
+			});
 			
 			if($(p.mainImage +' .desoSlide_caption').length == 0) {
 				$caption.appendTo($(p.mainImage));
@@ -215,9 +215,9 @@ contact@chez-syl.fr
 			});
 			
 			if(p.displayCaption == 'always') {
-				$(p.mainImage +' .desoSlide_caption').fadeIn();
+				$(p.mainImage +' .desoSlide_caption').hide().fadeIn();
 			}
-
+			
 		}
 		
 		// displaying the new image
