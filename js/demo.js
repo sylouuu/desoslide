@@ -1,10 +1,12 @@
 // [BEGIN] home demo
 $(function() {
-	$('#desoSlide').desoSlide({
-		mainImage: '#mainImage',
+	$('#home_demo').desoSlide({
+		mainImage: '#home_mainImage',
 		insertion: 'replace',
 		imgFirst: 0,
-		interval: 2500
+		displayWarning: true,
+		disableCaption: false,
+		displayCaption: 'always'
 	});
 });
 // [END] home demo

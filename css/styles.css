@@ -6,7 +6,7 @@ body {
 /* Custom container */
 .container-narrow {
 	margin: 0 auto;
-	max-width: 700px;
+	max-width: 760px;
 }
 .container-narrow > hr {
 	margin: 30px 0;
@@ -19,7 +19,7 @@ body {
 }
 
 .jumbotron h1 {
-	font-size: 72px;
+	font-size: 3em;
 	line-height: 1;
 }
 
@@ -43,29 +43,33 @@ body {
 .marketing {
 	margin: 60px 0;
 }
+
 .marketing p + h4 {
 	margin-top: 28px;
 }
 
 
-#mainImage {
+#home_mainImage {
 	box-shadow: 0 0 5px #000;
 	border-radius:3px;
 }
-#mainImage:hover {
+
+#home_mainImage:hover {
 	cursor: pointer;
 }
 
-.thumbs {
+.home_thumbs {
     list-style: none outside none;
     margin: 0;
     padding: 0;
 }
-.thumbs li {
+
+.home_thumbs li {
 	text-align:center;
     padding: 5px 2px 5px 2px;
 }
-.thumbs img {
+
+.home_thumbs img {
 	box-shadow: 0 0 5px #000;
 	border-radius: 3px;
 }
