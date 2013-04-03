@@ -8,8 +8,8 @@
 	color: white;
 	display: none;
 	font-weight: bold;
-	padding-left: 8px;
-	padding-top: 5px;
+	padding: 8px;
+	text-align: left;
 }
 /*
 #desoSlide_control {	width: 80px;

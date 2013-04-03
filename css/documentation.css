@@ -1,0 +1,28 @@
+/* Custom container */
+.container-narrow {
+	margin: 0 auto;
+	max-width: 920px;
+}
+
+#wizard_demo {
+	text-align:center;
+}
+
+#wizard_demo img, #ex1_mainImage img, #ex1_thumbs img {
+	box-shadow: 0 0 5px #000;
+}
+
+#wizard_mainImage {
+	padding-top: 10px;
+}
+
+#wizard_thumbs, #ex1_thumbs {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+
+#wizard_thumbs li, #ex1_thumbs li {
+	display:inline-block;
+    padding: 5px 2px 5px 2px;
+}

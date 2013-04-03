@@ -1,0 +1,31 @@
+/* Custom container */
+.container-narrow {
+	margin: 0 auto;
+	max-width: 760px;
+}
+
+#home_mainImage {
+	box-shadow: 0 0 5px #000;
+	border-radius:3px;
+}
+
+#home_mainImage:hover {
+	cursor: pointer;
+}
+
+.home_thumbs {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+
+.home_thumbs li {
+	text-align:center;
+    padding: 5px 2px 5px 2px;
+}
+
+.home_thumbs img {
+	box-shadow: 0 0 5px #000;
+	border-radius: 3px;
+}
+

@@ -16,7 +16,7 @@ contact@chez-syl.fr
 			disableCaption: false,
 			displayCaption: 'always'
 		};
-        
+
 		// extend options
 		var p = $.extend(defaults, options); 
 		
@@ -159,11 +159,12 @@ contact@chez-syl.fr
 
 		// adjust the caption position
 		function calculateCaptionPosition(info) {
+			console.log($(p.mainImage +' img').selector);
 			var width = 0;
 			var height = 0;
 			
 			// main image position
-			var pos = $(p.mainImage).position();
+			var pos = $(p.mainImage +' img').position();
 			
 			// main image height
 			var w = $(p.mainImage +' img').width();
@@ -177,6 +178,7 @@ contact@chez-syl.fr
 				$caption.insertAfter($img)	
 			}
 			
+			// overwrite the caption
 			$(p.mainImage +' .desoSlide_caption').html(info);
 			
 			if(p.displayCaption == 'always') {
@@ -184,14 +186,16 @@ contact@chez-syl.fr
 			}
 
 			// calculate new width with padding-left
-			var paddingLeft = $(p.mainImage +' .desoSlide_caption').css('padding-left').replace('px', '');
-			width = w - paddingLeft;
-			
+			var paddingLeft = parseInt($(p.mainImage +' .desoSlide_caption').css('padding-left').replace('px', ''));
+			var paddingRight = parseInt($(p.mainImage +' .desoSlide_caption').css('padding-right').replace('px', ''));
+			width = w - (paddingLeft + paddingRight);
+
 			// calculate new height with padding-top
-			var paddingTop = $(p.mainImage +' .desoSlide_caption').css('padding-top').replace('px', '');
+			var paddingTop = parseInt($(p.mainImage +' .desoSlide_caption').css('padding-top').replace('px', ''));
+			var paddingBottom = parseInt($(p.mainImage +' .desoSlide_caption').css('padding-bottom').replace('px', ''));
 
 			// calculate top & left
-			var top = pos.top + (parseInt(h) - parseInt($(p.mainImage +' .desoSlide_caption').height()) - paddingTop);
+			var top = pos.top + (parseInt(h) - parseInt($(p.mainImage +' .desoSlide_caption').height()) - (paddingTop + paddingBottom));
 			var left = pos.left;
 			
 			// update the caption
