@@ -21,17 +21,17 @@ This source code is under the MIT License
 		var p = $.extend(defaults, options); 
 		
 		// *****************
-		// [BEGIN] variables
+		// [BEGIN] Variables
 		// *****************
 
 		var $thumbsContainer = this;
 		var $thumbs = $('li', $thumbsContainer);
 		var thumbsCount = $thumbs.length;
 		var currentImg = p.imgFirst;
-		var src, alt, info;
+		var captionInfo;
 		
 		// *****************
-		// [END] variables
+		// [END] Variables
 		// *****************
 		
 		// mainImage param checks
@@ -62,8 +62,9 @@ This source code is under the MIT License
 		if(currentImg < thumbsCount) {
 			// data
 			src = $('a', $thumbs).eq(currentImg).attr('href');
-			alt = $('img', $thumbs).eq(currentImg).attr('alt'),
-			captionInfo = $('img', $thumbs).eq(currentImg).data('caption')
+			alt = $('img', $thumbs).eq(currentImg).attr('alt');
+			captionInfo = $('img', $thumbs).eq(currentImg).data('caption');
+			// console.log($('img', $(p.mainImage)).selector +' : '+ captionInfo);
 			
 			// captions checks
 			if(!p.disableCaption && captionInfo == '') {
@@ -98,6 +99,13 @@ This source code is under the MIT License
 					return false;
 				break;
 			}
+
+			if(!p.disableCaption) {
+				$('img', $(p.mainImage)).one('load', function() {
+					// console.log(captionInfo +' for '+ $('img', $(p.mainImage)).selector);
+					calculateCaptionPosition(captionInfo);
+				});
+			}
 		} else {
 			displayError('The "imgFirst" param must be between 0 and '+ thumbsCount +'.');
 			return false;
@@ -107,12 +115,6 @@ This source code is under the MIT License
 		// [BEGIN] events handlers
 		// ***********************
 		
-		// create the caption
-		if(!p.disableCaption) {
-			$(p.mainImage +' img').one('load', function() {
-				calculateCaptionPosition(captionInfo);
-			});
-		}
 		
 		// clicking on thumbnail
 		$('a', $thumbs).on('click', function(e) {
@@ -163,11 +165,11 @@ This source code is under the MIT License
 		}
 		
 		// new caption position when resizing
-		$(window).resize(function() {
-			if(!p.disableCaption) {
-				calculateCaptionPosition(captionInfo);
-			}
-		});
+		// $(window).resize(function() {
+			// if(!p.disableCaption) {
+				// calculateCaptionPosition(captionInfo);
+			// }
+		// });
 		
 		// ***********************
 		// [END] events handlers
@@ -179,16 +181,16 @@ This source code is under the MIT License
 
 		// adjust the caption position
 		function calculateCaptionPosition(info) {
-			// console.log($(p.mainImage +' img').selector);
+			// console.log($('img', $(p.mainImage)).selector +' '+ info);
 			var width = 0;
 			var height = 0;
 			
 			// main image position
-			var pos = $(p.mainImage +' img').position();
+			var pos = $('img', $(p.mainImage)).position();
 			
 			// main image height
-			var w = $(p.mainImage +' img').width();
-			var h = $(p.mainImage +' img').height();
+			var w = $('img', $(p.mainImage)).width();
+			var h = $('img', $(p.mainImage)).height();
 			
 			$caption = $('<div>', {
 				'class': 'desoSlide_caption'
@@ -196,11 +198,13 @@ This source code is under the MIT License
 			
 			if($('.desoSlide_caption', $(p.mainImage)).length == 0) {
 				$caption.appendTo($(p.mainImage));
-				// console.log('caption created ' +$img.selector);
+				// console.log('caption created on ' +$img.selector);
 			}
 			
 			// overwrite the caption
 			$('.desoSlide_caption', $(p.mainImage)).html(info);
+			
+			// console.log('caption : '+ $('.desoSlide_caption', $(p.mainImage)).html() + ' for '+ $('.desoSlide_caption', $(p.mainImage)).selector);
 			
 			// calculate new width with padding-left
 			var paddingLeft = parseInt($('.desoSlide_caption', $(p.mainImage)).css('padding-left').replace('px', ''));
