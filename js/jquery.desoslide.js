@@ -1,8 +1,8 @@
 /*
-jQuery: desoSlide plugin v1.1 - jquery.desoslide.js
-Copyright - 2013 - S.V.
+Version Alpha
+jQuery: desoSlide plugin - jquery.desoslide.js
+Copyright - 2013 - https://github.com/sylouuu/desoslide
 This source code is under the MIT License
-contact@chez-syl.fr
 */
 (function($) {
     $.fn.desoSlide = function(options) {
@@ -12,11 +12,11 @@ contact@chez-syl.fr
 			mainImage: false,
 			insertion: 'append',
 			imgFirst: 0,
-			displayWarning: true,
 			disableCaption: false,
-			displayCaption: 'always'
+			displayCaption: 'always',
+			displayWarning: true
 		};
-        
+
 		// extend options
 		var p = $.extend(defaults, options); 
 		
@@ -34,14 +34,28 @@ contact@chez-syl.fr
 		// [END] variables
 		// *****************
 		
+		// mainImage param checks
+		if(!p.mainImage) {
+			displayError('You must specify the "mainImage" param. Check out the documentation.');
+			return false;
+		} else {
+			// if the container does not exist
+			if($(p.mainImage).length == 0) {
+				displayError($(p.mainImage).selector +' doesn\'t exist.');
+				return false;
+			}
+		}
+		
 		// if the container does not exist
 		if($thumbsContainer.length == 0) {
 			displayError($thumbsContainer.selector +' doesn\'t exist.');
+			return false;
 		}
 		
 		// displayCaption param checker
 		if(p.displayCaption != 'always' && p.displayCaption != 'hover') {
 			displayError('Bad value for the "displayCaption" param. Check out the documentation.');
+			return false;
 		}
 		
 		// creating the main image
@@ -49,11 +63,11 @@ contact@chez-syl.fr
 			// data
 			src = $('a', $thumbs).eq(currentImg).attr('href');
 			alt = $('img', $thumbs).eq(currentImg).attr('alt'),
-			captionInfo = $('img', $thumbs).eq(currentImg).data('info')
+			captionInfo = $('img', $thumbs).eq(currentImg).data('caption')
 			
 			// captions checks
 			if(!p.disableCaption && captionInfo == '') {
-				displayWarning('The captions are enabled and the data-info attribute is missing on a thumb. Add it or disable captions. Check out the documention.');
+				displayWarning('The captions are enabled and the data-caption attribute is missing on a thumb. Add it or disable captions. Check out the documention.');
 			}
 			
 			// W3C check
@@ -63,9 +77,9 @@ contact@chez-syl.fr
 			
 			// the img tag
 			$img = $('<img>', {
-				'src'		: src,
-				'alt'		: alt,
-				'data-info'	: captionInfo
+				'src'			: src,
+				'alt'			: alt,
+				'data-caption'	: captionInfo
 			});
 			
 			// DOM insertion
@@ -81,10 +95,12 @@ contact@chez-syl.fr
 				break;
 				default:
 					displayError('Bad value for the "insertion" param. Check out the documentation.');
+					return false;
 				break;
 			}
 		} else {
 			displayError('The "imgFirst" param must be between 0 and '+ thumbsCount +'.');
+			return false;
 		}
 		
 		// ***********************
@@ -106,10 +122,10 @@ contact@chez-syl.fr
 			// if the clicked image is not already displayed
 			if($this.parent('li').index() !== currentImg) {
 				// hiding the caption
-				$(p.mainImage +' .desoSlide_caption').hide();
+				$('.desoSlide_caption', $(p.mainImage)).animate({ opacity: 0 });
 				
 				// call the displayer
-				displayImg($this.attr('href'), $('img', $this).attr('alt'), $('img', $this).data('info'));
+				displayImg($this.attr('href'), $('img', $this).attr('alt'), $('img', $this).data('caption'));
 				
 				// set the current image index
 				currentImg = $this.parent('li').index();
@@ -134,10 +150,14 @@ contact@chez-syl.fr
 		if(p.displayCaption == 'hover') {
 			$(p.mainImage).on({
 				mouseover: function() {
-					$(p.mainImage +' .desoSlide_caption').fadeIn();
+					$('.desoSlide_caption', $(p.mainImage)).stop().animate({
+						opacity: 0.5
+					}, 400);
 				},
 				mouseleave: function() {
-					$(p.mainImage +' .desoSlide_caption').fadeOut();
+					$('.desoSlide_caption', $(p.mainImage)).stop().animate({
+						opacity: 0
+					}, 400);
 				}
 			});
 		}
@@ -159,11 +179,12 @@ contact@chez-syl.fr
 
 		// adjust the caption position
 		function calculateCaptionPosition(info) {
+			// console.log($(p.mainImage +' img').selector);
 			var width = 0;
 			var height = 0;
 			
 			// main image position
-			var pos = $(p.mainImage).position();
+			var pos = $(p.mainImage +' img').position();
 			
 			// main image height
 			var w = $(p.mainImage +' img').width();
@@ -173,48 +194,63 @@ contact@chez-syl.fr
 				'class': 'desoSlide_caption'
 			});
 			
-			if($(p.mainImage +' .desoSlide_caption').length == 0) {
-				$caption.insertAfter($img)	
+			if($('.desoSlide_caption', $(p.mainImage)).length == 0) {
+				$caption.appendTo($(p.mainImage));
+				// console.log('caption created ' +$img.selector);
 			}
 			
-			$(p.mainImage +' .desoSlide_caption').html(info);
+			// overwrite the caption
+			$('.desoSlide_caption', $(p.mainImage)).html(info);
 			
-			if(p.displayCaption == 'always') {
-				$(p.mainImage +' .desoSlide_caption').fadeIn();
-			}
-
 			// calculate new width with padding-left
-			var paddingLeft = $(p.mainImage +' .desoSlide_caption').css('padding-left').replace('px', '');
-			width = w - paddingLeft;
-			
+			var paddingLeft = parseInt($('.desoSlide_caption', $(p.mainImage)).css('padding-left').replace('px', ''));
+			var paddingRight = parseInt($('.desoSlide_caption', $(p.mainImage)).css('padding-right').replace('px', ''));
+			width = w - (paddingLeft + paddingRight);
+
 			// calculate new height with padding-top
-			var paddingTop = $(p.mainImage +' .desoSlide_caption').css('padding-top').replace('px', '');
+			var paddingTop = parseInt($('.desoSlide_caption', $(p.mainImage)).css('padding-top').replace('px', ''));
+			var paddingBottom = parseInt($('.desoSlide_caption', $(p.mainImage)).css('padding-bottom').replace('px', ''));
 
 			// calculate top & left
-			var top = pos.top + (parseInt(h) - parseInt($(p.mainImage +' .desoSlide_caption').height()) - paddingTop);
+			var top = pos.top + (parseInt(h) - parseInt($('.desoSlide_caption', $(p.mainImage)).height()) - (paddingTop + paddingBottom));
 			var left = pos.left;
 			
+			// console.log($(p.mainImage).selector +' '+ width +' '+ left +' '+ top);
+			
 			// update the caption
-			$(p.mainImage +' .desoSlide_caption').css({
+			$('.desoSlide_caption', $(p.mainImage)).css({
 				'left': left +'px',
 				'top': top +'px',
 				'width': width +'px'
 			});
+			
+			if(p.displayCaption == 'always') {
+				$('.desoSlide_caption', $(p.mainImage)).animate({
+					opacity: 0.5
+				});
+			}
+			
 		}
 		
 		// displaying the new image
 		function displayImg(href, alt, info) {
-			$(p.mainImage +' img').fadeOut('slow', function() {
+			$('img', $(p.mainImage)).stop().animate({
+				opacity: 0
+			}, 400, function() {
 				$(this).attr({
 					'src': href,
 					'alt': alt,
-					'data-info': info
-				}).fadeIn('slow', function() {
-					if(!p.disableCaption) {
-						calculateCaptionPosition(info);
-					}
+					'data-caption': info
+				}).load(function() {
+					$(this).stop().animate({
+						opacity: 1
+					}, 400, function() {
+						if(!p.disableCaption) {
+							calculateCaptionPosition(info);
+						}					
+					});
 				});
-			});
+			})
 		}
 		
 		// displaying warning message in the console
@@ -230,7 +266,6 @@ contact@chez-syl.fr
 			if(typeof console !== 'undefined') {
 				console.error('desoSlide: '+ msg);
 			}
-			return false;
 		}
 		
 	   	// *****************

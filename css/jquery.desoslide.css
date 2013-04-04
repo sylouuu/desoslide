@@ -3,13 +3,12 @@
 	height: auto;
 	z-index: 2;
 	background-color: black;
-	opacity: 0.5;
-	filter: alpha(opacity=50);
+	opacity: 0;
+	filter: alpha(opacity=0);
 	color: white;
-	display: none;
 	font-weight: bold;
-	padding-left: 8px;
-	padding-top: 5px;
+	padding: 8px;
+	text-align: left;
 }
 /*
 #desoSlide_control {	width: 80px;
