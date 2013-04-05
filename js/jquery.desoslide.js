@@ -204,7 +204,7 @@ This source code is under the MIT License
 				
 				// new caption position when resizing
 				$(window).resize(function() {
-					if(!p.disableCaption && return_value) {
+					if(!p.disableCaption && return_value.selector == $thumbsContainer.selector) {
 						obj.calculateCaptionPosition(captionInfo);
 					}
 				});
