@@ -25,7 +25,7 @@ This source code is under the MIT License
 		// [BEGIN] Variables
 		// *****************
 
-		return_value = this;
+		returnValue = this;
 		var $thumbsContainer = this;
 		var $thumbs = $('li', $thumbsContainer);
 		var thumbsCount = $thumbs.length;
@@ -37,7 +37,7 @@ This source code is under the MIT License
 		// [END] Variables
 		// *****************
 		
-		var obj = {
+		var app = {
 		
 			// *****************
 			// [BEGIN] Checks
@@ -46,26 +46,22 @@ This source code is under the MIT License
 			checks: function() {
 				// if the container does not exist
 				if($thumbsContainer.length == 0) {
-					obj.displayError($thumbsContainer.selector +' doesn\'t exist.');
-					return false;
+					app.displayError($thumbsContainer.selector +' doesn\'t exist.');
 				}
 				
 				// mainImage param checks
 				if(!p.mainImage) {
-					obj.displayError('You must specify the "mainImage" param. Check out the documentation.');
-					return false;
+					app.displayError('You must specify the "mainImage" param. Check out the documentation.');
 				} else {
 					// if the container does not exist
 					if($(p.mainImage).length == 0) {
-						obj.displayError($(p.mainImage).selector +' doesn\'t exist.');
-						return false;
+						app.displayError($(p.mainImage).selector +' doesn\'t exist.');
 					}
 				}
 				
 				// displayCaption param checker
 				if(p.displayCaption != 'always' && p.displayCaption != 'hover') {
-					obj.displayError('Bad value for the "displayCaption" param. Check out the documentation.');
-					return false;
+					app.displayError('Bad value for the "displayCaption" param. Check out the documentation.');
 				}
 			},
 			
@@ -88,14 +84,12 @@ This source code is under the MIT License
 					
 					// captions checks
 					if(!p.disableCaption && (typeof captionInfo === 'undefined' || captionInfo == '')) {
-						obj.displayWarning('The captions are enabled and the data-caption attribute is missing on a thumb. Add it or disable captions. Check out the documention.');
-						return false;
+						app.displayWarning('The captions are enabled and the data-caption attribute is missing on a thumb. Add it or disable captions. Check out the documention.');
 					}
 					
 					// W3C check
 					if(typeof alt === 'undefined' || alt == '') {
-						obj.displayWarning('The alt attribute is missing on a thumb, it\'s mandatory on <img> tags.');
-						return false;
+						app.displayWarning('The alt attribute is missing on a thumb, it\'s mandatory on <img> tags.');
 					}
 					
 					// the img tag
@@ -121,25 +115,22 @@ This source code is under the MIT License
 							$(p.mainImage).html($img).wrapInner($wrapper);
 						break;
 						default:
-							obj.displayError('Bad value for the "insertion" param. Check out the documentation.');
-							return false;
+							app.displayError('Bad value for the "insertion" param. Check out the documentation.');
 						break;
 					}
 
 					if(!p.disableCaption) {
 						$('img', $(p.mainImage)).one('load', function() {
-							obj.calculateCaptionPosition(captionInfo);
+							app.calculateCaptionPosition(captionInfo);
 						}).each(function() {
 							if(this.complete) $(this).load();
 						});
 					}
 				} else {
 					if(thumbsCount == 0) {
-						obj.displayError('You must have at least 1 thumbnail.');
-						return false;
+						app.displayError('You must have at least 1 thumbnail.');
 					} else {
-						obj.displayError('The "imgFirst" param must be between 0 and '+ (thumbsCount - 1) +'.');
-						return false;
+						app.displayError('The "imgFirst" param must be between 0 and '+ (thumbsCount - 1) +'.');
 					}
 				}
 			},
@@ -165,7 +156,7 @@ This source code is under the MIT License
 						$overlay.animate({ opacity: 0 });
 						
 						// call the displayer
-						obj.displayImg($this.attr('href'), $('img', $this).attr('alt'), $('img', $this).data('caption'));
+						app.displayImg($this.attr('href'), $('img', $this).attr('alt'), $('img', $this).data('caption'));
 						
 						// set the current image index
 						currentImg = $this.parent('li').index();
@@ -204,8 +195,8 @@ This source code is under the MIT License
 				
 				// new caption position when resizing
 				$(window).resize(function() {
-					if(!p.disableCaption && return_value.selector == $thumbsContainer.selector) {
-						obj.calculateCaptionPosition(captionInfo);
+					if(!p.disableCaption && returnValue.selector == $thumbsContainer.selector) {
+						app.calculateCaptionPosition(captionInfo);
 					}
 				});
 				
@@ -288,7 +279,7 @@ This source code is under the MIT License
 							opacity: 1
 						}, 400, function() {
 							if(!p.disableCaption) {
-								obj.calculateCaptionPosition(info);
+								app.calculateCaptionPosition(info);
 							}					
 						});
 					});
@@ -301,7 +292,7 @@ This source code is under the MIT License
 				if(p.displayWarnings && typeof console !== 'undefined') {
 					console.warn('desoSlide: '+ msg);
 				}
-				return_value = false;
+				returnValue = false;
 			},	
 			
 			// displaying error message in the console
@@ -309,7 +300,7 @@ This source code is under the MIT License
 				if(p.displayErrors && typeof console !== 'undefined') {
 					console.error('desoSlide: '+ msg);
 				}
-				return_value = false;
+				returnValue = false;
 			}
 			
 			// *****************
@@ -319,10 +310,10 @@ This source code is under the MIT License
 		};
 		
 		// initializing
-		obj.checks();
-		obj.creating();
-		obj.events();
+		app.checks();
+		app.creating();
+		app.events();
 
-		return return_value;
+		return returnValue;
     };
 })(jQuery);
