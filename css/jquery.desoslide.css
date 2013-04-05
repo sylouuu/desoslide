@@ -1,16 +1,22 @@
-.desoSlide_caption {
+.desoSlide_overlay {
 	position: absolute;
-	height: auto;
-	z-index: 2;
-	background-color: black;
-	opacity: 0.5;
-	filter: alpha(opacity=50);
-	color: white;
-	display: none;
-	font-weight: bold;
-	padding: 8px;
+	z-index: 10;
 	text-align: left;
+	color: white;
+	font-weight: bold;
+	background-color: black;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	box-shadow: 0 0 5px #000;
+	padding: 8px;
 }
+
+.desoSlide_wrapper {
+	position: relative;
+	width:auto;
+	height:auto;
+}
+
 /*
 #desoSlide_control {	width: 80px;
 	text-align:center;

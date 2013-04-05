@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Tests suite &middot; jQuery plugin desoSlide</title>
+
+		<link rel="stylesheet" type="text/css" href="lib/jasmine-1.3.1/jasmine.css">
+		
+		<!--<script src="../js/ga.js"></script>-->
+		
+		<script src="../js/jquery.js"></script>
+		<script src="../js/jquery.desoslide.js"></script>
+		
+		<script src="lib/jasmine-1.3.1/jasmine.js"></script>
+		<script src="lib/jasmine-1.3.1/jasmine-html.js"></script>
+
+		<script src="tests.js"></script>
+		<script src="run.js"></script>
+		
+		<script>
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-27524593-3']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+	  </script>
+		
+		<style>.test { display: none; }</style>
+	</head>
+<body>
+	
+	<!-- [BEGIN] Scenario 3 -->
+	<ul id="scenario3" class="test"></ul>
+	<!-- [END] Scenario 3 -->
+	
+	<!-- [BEGIN] Scenario 4 -->
+	<ul id="scenario4_thumbs" class="test"></ul>
+
+	<div id="scenario4" class="test"></div>
+	<!-- [END] Scenario 4 -->
+	
+	<!-- [BEGIN] Scenario 5, 6, 7 & 8-->
+	<ul id="scenario5_thumbs" class="test">
+		<li>
+			<a href="../img/examples/bird.jpg"><img src="../img/examples/bird_thumb.jpg" alt="bird"></a>
+		</li>
+		<li>
+			<a href="../img/examples/flower.jpg"><img src="../img/examples/flower_thumb.jpg" alt="Flower"></a>
+		</li>
+		<li>
+			<a href="../img/examples/butterfly.jpg"><img src="../img/examples/butterfly_thumb.jpg" alt="Butterfly"></a>
+		</li>
+		<li>
+			<a href="../img/examples/rose.jpg"><img src="../img/examples/rose_thumb.jpg" alt="Rose"></a>
+		</li>
+	</ul>
+
+	<div id="scenario5" class="test"></div>
+	<!-- [END] Scenario 5, 6, 7 & 8-->
+
+	<!-- [BEGIN] Scenario 9 -->
+	<ul id="scenario9_thumbs" class="test">
+		<li>
+			<a href="../img/examples/bird.jpg"><img src="../img/examples/bird_thumb.jpg" data-caption="bird"></a>
+		</li>
+		<li>
+			<a href="../img/examples/flower.jpg"><img src="../img/examples/flower_thumb.jpg" data-caption="Flower"></a>
+		</li>
+		<li>
+			<a href="../img/examples/butterfly.jpg"><img src="../img/examples/butterfly_thumb.jpg" data-caption="Butterfly"></a>
+		</li>
+		<li>
+			<a href="../img/examples/rose.jpg"><img src="../img/examples/rose_thumb.jpg" data-caption="Rose"></a>
+		</li>
+	</ul>
+
+	<div id="scenario9" class="test"></div>
+	<!-- [END] Scenario 9 -->
+
+	<!-- [BEGIN] Scenario 10 -->
+	<ul id="scenario10_thumbs" class="test">
+		<li>
+			<a href="../img/examples/bird.jpg"><img src="../img/examples/bird_thumb.jpg" alt="bird"></a>
+		</li>
+		<li>
+			<a href="../img/examples/flower.jpg"><img src="../img/examples/flower_thumb.jpg" alt="Flower"></a>
+		</li>
+		<li>
+			<a href="../img/examples/butterfly.jpg"><img src="../img/examples/butterfly_thumb.jpg" alt="Butterfly"></a>
+		</li>
+		<li>
+			<a href="../img/examples/rose.jpg"><img src="../img/examples/rose_thumb.jpg" alt="Rose"></a>
+		</li>
+	</ul>
+
+	<div id="scenario10" class="test"></div>
+	<!-- [END] Scenario 10 -->
+
+	<!-- [BEGIN] Scenario 11 -->
+	<ul id="scenario11_thumbs" class="test">
+		<li>
+			<a href="../img/examples/bird.jpg"><img src="../img/examples/bird_thumb.jpg" alt="bird" data-caption="bird"></a>
+		</li>
+		<li>
+			<a href="../img/examples/flower.jpg"><img src="../img/examples/flower_thumb.jpg" alt="Flower" data-caption="Flower"></a>
+		</li>
+		<li>
+			<a href="../img/examples/butterfly.jpg"><img src="../img/examples/butterfly_thumb.jpg" alt="Butterfly" data-caption="Butterfly"></a>
+		</li>
+		<li>
+			<a href="../img/examples/rose.jpg"><img src="../img/examples/rose_thumb.jpg" alt="Rose" data-caption="Rose"></a>
+		</li>
+	</ul>
+
+	<div id="scenario11" class="test"></div>
+	<!-- [END] Scenario 10 -->
+
+
+
+</body>
+</html>

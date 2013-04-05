@@ -1,6 +1,3 @@
-// syntax highlighting
-hljs.initHighlightingOnLoad();
-
 // [BEGIN] documentation demo
 $(function() {
 
@@ -24,7 +21,6 @@ $(function() {
 		mainImage: '#ex2_mainImage',
 		displayCaption: 'hover'
 	});
-	
 	
 });
 // [END] documentation demo
