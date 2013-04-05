@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>jQuery plugin &middot; desoSlide</title>
+		<title>Documentation &middot; jQuery plugin desoSlide</title>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/jquery.desoslide.css" />
@@ -9,8 +9,12 @@
 		<link rel="stylesheet" type="text/css" href="css/styles.css" />
 		<link rel="stylesheet" type="text/css" href="css/documentation.css" />
 
+		<script src="js/ga.js"></script>
 		<script src="js/jquery.js"></script>
+		<!--[if !IE]><!-->
 		<script src="js/highlight.min.js"></script>
+		<script src="js/hljs_init.js"></script>
+		<!--<![endif]-->
 		<script src="js/bootstrap/bootstrap-tab.min.js"></script>
 		<script src="js/jquery.desoslide.js"></script>
 		<script src="js/documentation.js"></script>
@@ -26,6 +30,7 @@
 			<ul class="nav nav-pills pull-right">
 				<li><a href="./">Home</a></li>
 				<li class="active"><a href="#">Documentation</a></li>
+				<li><a href="tests/">Tests</a></li>
 			</ul>
 			<h3 class="muted">desoSlide</h3>
 		</div>
@@ -273,10 +278,16 @@
 						<td>How to show the main image caption.</td>
 					</tr>
 					<tr>
-						<td><code>displayWarning</code></td>
+						<td><code>displayWarnings</code></td>
 						<td>Boolean.</td>
 						<td><code>true</code></td>
 						<td>Show warnings in the developer console. Be sure to put it <code>false</code> in production.</td>
+					</tr>
+					<tr>
+						<td><code>displayErrors</code></td>
+						<td>Boolean.</td>
+						<td><code>true</code></td>
+						<td>Show errors in the developer console. Be sure to put it <code>false</code> in production. If the render isn't ok, enable the errors then debug.</td>
 					</tr>
 				</table>
 			</div>
