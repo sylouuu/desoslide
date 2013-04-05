@@ -2,6 +2,7 @@ body {
 	padding-top: 10px;
 	padding-bottom: 20px;
 }
+
 .ribbon {
 	position: absolute;
 	top: 0;
@@ -9,6 +10,10 @@ body {
 	border: 0;
 }
 
+.social-buttons {
+	padding: 5px 100px;
+}
+	
 .container-narrow > hr {
 	margin: 20px 0;
 }
