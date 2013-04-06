@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 		<title>Documentation &middot; jQuery plugin desoSlide</title>
+		
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/jquery.desoslide.css" />
@@ -9,7 +13,6 @@
 		<link rel="stylesheet" type="text/css" href="css/styles.css" />
 		<link rel="stylesheet" type="text/css" href="css/documentation.css" />
 
-		<!--<script src="js/ga.js"></script>-->
 		<script src="js/jquery.js"></script>
 		<!--[if !IE]><!-->
 		<script src="js/highlight.min.js"></script>
@@ -30,12 +33,12 @@
 		</script>
 	</head>
 <body>
-	<!-- [BEGIN] forkme ribbon -->
+	<!-- [BEGIN] Forkme ribbon -->
 	<a href="https://github.com/sylouuu/desoslide"><img class="ribbon" src="img/forkme_right_red.png" alt="Fork me on GitHub"></a>
-	<!-- [END] forkme ribbon -->
+	<!-- [END] Forkme ribbon -->
 	
 	<div class="container-narrow">
-		<!-- [BEGIN] masthead -->
+		<!-- [BEGIN] Masthead -->
 		<div class="masthead">
 			<ul class="nav nav-pills pull-right">
 				<li><a href="./">Home</a></li>
@@ -51,10 +54,10 @@
 			
 			</h3>
 		</div>
-		<!-- [END] masthead -->
+		<!-- [END] Masthead -->
 
 		<hr>
-		<!-- [BEGIN] wizard -->
+		<!-- [BEGIN] Wizard -->
 		<div class="row-fluid marketing">
 			<h2>Wizard by step</h2>
 			<div class="span12">
@@ -82,33 +85,36 @@
 					
 					<div id="step2" class="tab-pane">
 						<p>
-							Then, you need to create your thumbnails list with that markup:
+							Then, you need to create your thumbnails list with that markup. Don't forget to specify your images links and the <code>alt</code> attribute.
 						</p>
 <pre><code>&lt;ul id="my_thumbs">
 	&lt;li>
 		&lt;a href="img/bird.jpg">
-			&lt;img src="img/bird_thumb.jpg" alt="Bird" data-caption="A bird">
+			&lt;img src="img/bird_thumb.jpg" alt="Bird" data-caption="A bird, click me to open http://chez-syl.fr/" data-href="http://chez-syl.fr/">
 		&lt;/a>
 	&lt;/li>
 	&lt;li>
 		&lt;a href="img/flower.jpg">
-			&lt;img src="img/flower_thumb.jpg" alt="Flower" data-caption="A flower">
+			&lt;img src="img/flower_thumb.jpg" alt="Flower" data-caption="A flower" data-caption="A flower, click me to open README.md file" data-href="README.md">
 		&lt;/a>
 	&lt;/li>
 	&lt;li>
 		&lt;a href="img/butterfly.jpg">
-			&lt;img src="img/butterfly_thumb.jpg" alt="Butterfly" data-caption="A butterfly">
+			&lt;img src="img/butterfly_thumb.jpg" alt="Butterfly" data-caption="A butterfly" data-caption="A butterfly, click me to open LICENSE.md file" data-href="LICENSE.md">
 		&lt;/a>
 	&lt;/li>
 	&lt;li>
 		&lt;a href="img/rose.jpg">
-			&lt;img src="img/rose_thumb.jpg" alt="Rose" data-caption="A rose">
+			&lt;img src="img/rose_thumb.jpg" alt="Rose" data-caption="A rose, you can't click me, got no link">
 		&lt;/a>
 	&lt;/li>
 &lt;/ul></code></pre>
-						<p>
-							Specify your images links and the <code>alt</code> attribute. The <code>data-caption</code> attribute is used for the caption.
-						</p>
+						<p>Explanations:</p>
+						<ul>
+							<li>Specify your images links and the <code>alt</code> attribute</li>
+							<li>The <code>data-caption</code> attribute is used for the caption (optional)</li>
+							<li>The <code>data-href</code> attribute contains the link to the page that will be active on the main image (optional)</li>
+						</ul>
 					</div>
 					
 					<div id="step3" class="tab-pane">
@@ -133,16 +139,16 @@
 						<div id="wizard_demo">
 							<ul id="wizard_thumbs">
 								<li>
-									<a href="img/examples/bird.jpg"><img src="img/examples/bird_thumb.jpg" alt="bird" data-caption="A bird"></a>
+									<a href="img/examples/bird.jpg"><img src="img/examples/bird_thumb.jpg" alt="Bird" data-caption="A bird, click me to open http://chez-syl.fr/" data-href="http://chez-syl.fr/"></a>
 								</li>
 								<li>
-									<a href="img/examples/flower.jpg"><img src="img/examples/flower_thumb.jpg" alt="Flower" data-caption="A flower"></a>
+									<a href="img/examples/flower.jpg"><img src="img/examples/flower_thumb.jpg" alt="Flower" data-caption="A flower, click me to open README.md file" data-href="README.md"></a>
 								</li>
 								<li>
-									<a href="img/examples/butterfly.jpg"><img src="img/examples/butterfly_thumb.jpg" alt="Butterfly" data-caption="A butterfly"></a>
+									<a href="img/examples/butterfly.jpg"><img src="img/examples/butterfly_thumb.jpg" alt="Butterfly" data-caption="A butterfly, click me to open LICENSE.md file" data-href="LICENSE.md"></a>
 								</li>
 								<li>
-									<a href="img/examples/rose.jpg"><img src="img/examples/rose_thumb.jpg" alt="Rose" data-caption="A rose"></a>
+									<a href="img/examples/rose.jpg"><img src="img/examples/rose_thumb.jpg" alt="Rose" data-caption="A rose, you can't click me, got no link"></a>
 								</li>
 							</ul>
 							
@@ -152,7 +158,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- [END] wizard -->
+		<!-- [END] Wizard -->
 		
 		<!-- [BEGIN] Examples -->
 		<div class="row-fluid marketing">

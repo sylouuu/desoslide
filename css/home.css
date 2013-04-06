@@ -9,10 +9,6 @@
 	border-radius:3px;
 }
 
-#home_mainImage:hover {
-	cursor: pointer;
-}
-
 .home_thumbs {
     list-style: none outside none;
     margin: 0;
