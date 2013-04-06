@@ -1,3 +1,3 @@
-### Check out http://sylouuu.github.com/desoslide/
+### Check out http://sylouuu.github.io/desoslide/
 
 ### Changelog
