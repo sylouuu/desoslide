@@ -10,6 +10,7 @@ This source code is under the MIT License
 		// default values
 		var defaults = {
 			mainImage: false,
+			autoLoad: true,
 			insertion: 'append',
 			imgFirst: 0,
 			disableCaption: false,
@@ -63,6 +64,7 @@ This source code is under the MIT License
 				if(p.displayCaption != 'always' && p.displayCaption != 'hover') {
 					app.displayError('Bad value for the "displayCaption" param. Check out the documentation.');
 				}
+				
 			},
 			
 			// *****************
@@ -76,6 +78,16 @@ This source code is under the MIT License
 			creating: function() {
 				// creating the main image
 				if(currentImg < thumbsCount) {
+				
+					// auto load images
+					if(p.autoLoad) {
+						$('a', $thumbs).each(function(i, item) {
+							$('<img>', {
+								src: item.href
+							}).hide().appendTo('body');
+						});
+					}
+				
 					// data
 					src = $('a', $thumbs).eq(currentImg).attr('href');
 					alt = $('img', $thumbs).eq(currentImg).attr('alt');
