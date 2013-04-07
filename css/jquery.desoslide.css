@@ -30,3 +30,12 @@
 	text-decoration: none;
 }
 */
+
+.desoSlide-next{ background-position: 0 0; width: 16px; height: 16px; } 
+.desoSlide-pause{ background-position: 0 -26px; width: 16px; height: 16px; } 
+.desoSlide-play{ background-position: 0 -52px; width: 16px; height: 16px; } 
+.desoSlide-prev{ background-position: 0 -78px; width: 16px; height: 16px; } 
+
+#container li {
+    background: url(../img/desoSlide_controls.png) no-repeat top left;
+}

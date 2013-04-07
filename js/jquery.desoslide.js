@@ -72,10 +72,10 @@ This source code is under the MIT License
 			// *****************
 			
 			// *****************
-			// [BEGIN] Creating
+			// [BEGIN] Init
 			// *****************
 			
-			creating: function() {
+			init: function() {
 				// creating the main image
 				if(currentImg < thumbsCount) {
 				
@@ -154,7 +154,7 @@ This source code is under the MIT License
 			},
 			
 			// *****************
-			// [END] Creating
+			// [END] Init
 			// *****************
 			
 			// ***********************
@@ -357,7 +357,7 @@ This source code is under the MIT License
 		
 		// initializing
 		app.checks();
-		app.creating();
+		app.init();
 		app.events();
 
 		return returnValue;
