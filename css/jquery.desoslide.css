@@ -18,7 +18,7 @@
 	height:auto;
 }
 
-.desoSlide_controls {
+.desoSlide_controls-wrapper {
 	position:absolute;
 	/*border:1px solid black;*/
 	text-align:right;
@@ -30,6 +30,9 @@
 	height: 48px;
 	line-height: 48px;
 	vertical-align: text-top;*/
+}
+
+.desoSlide_controls {
 	background-image: url(../img/desoSlide_controls.png);
 	background-position: 0 0;
 	background-repeat: no-repeat;
