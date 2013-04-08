@@ -5,11 +5,13 @@ $(function() {
 	// *****************
 	
 	var scenario1 = $('#scenario1_thumbs').desoSlide({
-		displayErrors: false
+		displayErrors: false,
+		displayWarnings: false
 	});
 
 	var scenario2 = $('#scenario2_thumbs').desoSlide({
 		mainImage: '#scenario2',
+		displayWarnings: false,
 		displayErrors: false
 	});
 	
@@ -32,11 +34,13 @@ $(function() {
 
 	var scenario3 = $('#scenario3_thumbs').desoSlide({
 		mainImage: '#scenario3',
+		displayWarnings: false,
 		displayErrors: false
 	});
 	
 	var scenario4 = $('#scenario4_thumbs').desoSlide({
 		mainImage: '#scenario4',
+		displayWarnings: false,
 		displayErrors: false
 	});
 	
@@ -61,6 +65,7 @@ $(function() {
 		mainImage: '#scenario5',
 		enableCaption: false,
 		imgFirst: 4,
+		displayWarnings: false,
 		displayErrors: false
 	});
 

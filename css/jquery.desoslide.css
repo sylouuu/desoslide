@@ -20,7 +20,7 @@
 
 .desoSlide_controls {
 	position:absolute;
-	border:1px solid black;
+	/*border:1px solid black;*/
 	text-align:right;
 	width:150px;
 	bottom: 7px;

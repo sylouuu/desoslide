@@ -69,8 +69,8 @@ This source code is under the MIT License
 				if(p.displayCaption != 'always' && p.displayCaption != 'hover') {
 					app.displayError('Bad value for the "displayCaption" param. Check out the documentation.');
 				}
-				
-				if(currentImg > thumbsCount) {
+
+				if(currentImg >= thumbsCount) {
 					if(thumbsCount == 0) {
 						app.displayError('You must have at least 1 thumbnail.');
 					} else {
@@ -288,7 +288,7 @@ This source code is under the MIT License
 				} else if(aExists && !hrefExists) {
 					// replace the <a> tag with this content
 					var content = $('a.desoSlide_link', $(p.mainImage)).contents();
-					$('a', $(p.mainImage)).replaceWith(content);
+					$('a.desoSlide_link', $(p.mainImage)).replaceWith(content);
 				} else if(!aExists && hrefExists) {
 					// adding the <a> tag
 					var content = $('.desoSlide_wrapper', $(p.mainImage)).contents();
@@ -324,7 +324,7 @@ This source code is under the MIT License
 				});
 				
 				// adding the controls wrapper
-				if(aExists) {
+				if($('a.desoSlide_link', $(p.mainImage)).length > 0) {
 					$controls.appendTo($('a.desoSlide_link', $(p.mainImage)));
 				} else {
 					$controls.appendTo($('.desoSlide_wrapper', $(p.mainImage)));
