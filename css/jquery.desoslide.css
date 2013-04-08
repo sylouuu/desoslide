@@ -1,4 +1,5 @@
 .desoSlide_overlay {
+	min-height: 20px;
 	position: absolute;
 	z-index: 10;
 	text-align: left;
@@ -17,25 +18,21 @@
 	height:auto;
 }
 
-/*
-#desoSlide_control {	width: 80px;
-	text-align:center;
-	background-color: black;
-    border-radius: 5px;
-	font-weight:bold;
-	padding:5px;
+.desoSlide_controls {
+	position:absolute;
+	border:1px solid black;
+	text-align:right;
+	width:150px;
+	bottom: 7px;
+	z-index: 100;
 }
-#desoSlide_control #desoSlide_timer {
-	color: white;
-	text-decoration: none;
-}
-*/
 
-.desoSlide-next{ background-position: 0 0; width: 16px; height: 16px; } 
-.desoSlide-pause{ background-position: 0 -26px; width: 16px; height: 16px; } 
-.desoSlide-play{ background-position: 0 -52px; width: 16px; height: 16px; } 
-.desoSlide-prev{ background-position: 0 -78px; width: 16px; height: 16px; } 
-
-#container li {
-    background: url(../img/desoSlide_controls.png) no-repeat top left;
+.desoSlide_controls a {
+    /*background: url(../img/desoSlide_controls.png) no-repeat top left;*/
+	/*background-color: black;*/
+	/*width: 16px;height: 16px;*/
 }
+.desoSlide-next{ background-position: 0 0; width: 16px;height: 16px;} 
+.desoSlide-pause{ background-position: 0 -26px; width: 20px;height: 20px;} 
+.desoSlide-play{ background-position: 0 -52px; width: 16px;height: 16px; } 
+.desoSlide-prev{ background-position: 0 -78px;width: 16px;height: 16px; } 

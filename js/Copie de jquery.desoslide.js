@@ -9,7 +9,7 @@ contact@chez-syl.fr
 	
 		// default values
 		var defaults = {
-			autoStart: false,
+			autoStart: true,
 			imgFirst: 0,
 			interval: 3000,
 			imgClicked: false,

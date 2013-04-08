@@ -59,7 +59,7 @@ $(function() {
 	
 	var scenario5 = $('#scenario5_thumbs').desoSlide({
 		mainImage: '#scenario5',
-		disableCaption: true,
+		enableCaption: false,
 		imgFirst: 4,
 		displayErrors: false
 	});
@@ -102,7 +102,7 @@ $(function() {
 	var scenario7 = $('#scenario5_thumbs').desoSlide({
 		mainImage: '#scenario5',
 		insertion: 'fail',
-		disableCaption: true,
+		enableCaption: false,
 		displayWarnings: false,
 		displayErrors: false
 	});
@@ -161,7 +161,7 @@ $(function() {
 	
 	var scenario10 = $('#scenario10_thumbs').desoSlide({
 		mainImage: '#scenario10',
-		disableCaption: true,
+		enableCaption: false,
 		displayWarnings: false,
 		displayErrors: false
 	});
