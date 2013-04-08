@@ -34,7 +34,7 @@ This source code is under the MIT License
 		$thumbs = $('li', $thumbsContainer),
 		thumbsCount = $thumbs.length,
 		currentImg = p.imgFirst,
-		$overlay = $('.desoSlide_overlay', $(p.mainImage)),
+		$overlay = $('.desoSlide-overlay', $(p.mainImage)),
 		ms = (p.interval < 1500) ? 1500 : p.interval,
 		timer, aExists, hrefExists, 
 		src, alt, caption, href;
@@ -128,7 +128,7 @@ This source code is under the MIT License
 			addWrapper: function() {
 				// the wrapper tag
 				var $wrapper = $('<div>', {
-					'class': 'desoSlide_wrapper'
+					'class': 'desoSlide-wrapper'
 				});
 				
 				// the img tag
@@ -217,13 +217,13 @@ This source code is under the MIT License
 					var w = $('img', $(p.mainImage)).width();
 					var h = $('img', $(p.mainImage)).height();
 					
-					if($('.desoSlide_overlay', $(p.mainImage)).length == 0) {
+					if($('.desoSlide-overlay', $(p.mainImage)).length == 0) {
 						$('<div>', {
-						'class': 'desoSlide_overlay'
-						}).appendTo($('.desoSlide_wrapper', $(p.mainImage)));
+						'class': 'desoSlide-overlay'
+						}).appendTo($('.desoSlide-wrapper', $(p.mainImage)));
 					}
 					
-					$overlay = $('.desoSlide_overlay', $(p.mainImage));
+					$overlay = $('.desoSlide-overlay', $(p.mainImage));
 					
 					// calculate new width with padding-left
 					var paddingLeft = parseInt($overlay.css('padding-left').replace('px', ''));
@@ -291,8 +291,8 @@ This source code is under the MIT License
 					$('a.desoSlide_link', $(p.mainImage)).replaceWith(content);
 				} else if(!aExists && hrefExists) {
 					// adding the <a> tag
-					var content = $('.desoSlide_wrapper', $(p.mainImage)).contents();
-					$a.appendTo($('.desoSlide_wrapper', $(p.mainImage))).html(content);
+					var content = $('.desoSlide-wrapper', $(p.mainImage)).contents();
+					$a.appendTo($('.desoSlide-wrapper', $(p.mainImage))).html(content);
 				}
 				
 				// add controls
@@ -304,17 +304,17 @@ This source code is under the MIT License
 			
 			// add controls
 			addControls: function() {		
-				$('.desoSlide_controls-wrapper', $(p.mainImage)).remove();
+				$('.desoSlide-controls-wrapper', $(p.mainImage)).remove();
 				
 				// controls buttons			
-				var $prev	= '<a href="#prev"><span class="desoSlide_controls prev"></span></a>';
-				var $pause	= '<a href="#pause"><span class="desoSlide_controls pause"></span></a>';
-				var $play	= '<a href="#play"><span class="desoSlide_controls play"></span></a>';
-				var $next	= '<a href="#next"><span class="desoSlide_controls next"></span></a>';
+				var $prev	= '<a href="#prev"><span class="desoSlide-controls prev"></span></a>';
+				var $pause	= '<a href="#pause"><span class="desoSlide-controls pause"></span></a>';
+				var $play	= '<a href="#play"><span class="desoSlide-controls play"></span></a>';
+				var $next	= '<a href="#next"><span class="desoSlide-controls next"></span></a>';
 				
 				// the wrapper
 				var $controls = $('<div>', {
-					'class': 'desoSlide_controls-wrapper'
+					'class': 'desoSlide-controls-wrapper'
 				}).append($prev + $pause + $play + $next);
 				
 				// dynamic positioning
@@ -327,7 +327,7 @@ This source code is under the MIT License
 				if($('a.desoSlide_link', $(p.mainImage)).length > 0) {
 					$controls.appendTo($('a.desoSlide_link', $(p.mainImage)));
 				} else {
-					$controls.appendTo($('.desoSlide_wrapper', $(p.mainImage)));
+					$controls.appendTo($('.desoSlide-wrapper', $(p.mainImage)));
 				}
 			
 			},
@@ -414,6 +414,30 @@ This source code is under the MIT License
 						}
 					});
 				}
+				
+				// click on control
+				$(p.mainImage).on('click', '.desoSlide-controls-wrapper a', $(p.mainImage), function(e) {
+					e.preventDefault();
+
+					switch($(this).attr('href')) {
+						case '#prev':
+							currentImg--;
+							app.displayImg();
+						break;
+						case '#pause':
+							clearTimeout(timer);
+							app.displayImg();
+						break;
+						case '#play':
+							p.autoStart = true;
+							app.displayImg();
+						break;
+						case '#next':
+							currentImg++;
+							app.displayImg();
+						break;
+					}
+				});
 				
 				// new caption position when resizing
 				$(window).resize(function() {
