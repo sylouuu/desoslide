@@ -25,14 +25,18 @@
 	width:150px;
 	bottom: 7px;
 	z-index: 100;
+   /* display: inline-block;
+     width: 48px;
+	height: 48px;
+	line-height: 48px;
+	vertical-align: text-top;*/
+	background-image: url(../img/desoSlide_controls.png);
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-color : #333
 }
 
-.desoSlide_controls a {
-    background: url(../img/desoSlide_controls.png) no-repeat top left;
-	/*background-color: black;*/
-	/*width: 16px;height: 16px;*/
-}
-.desoSlide-next{ background-position: 0 0; width: 16px;height: 16px;} 
-.desoSlide-pause{ background-position: 0 -26px; width: 20px;height: 20px;} 
-.desoSlide-play{ background-position: 0 -52px; width: 16px;height: 16px; } 
-.desoSlide-prev{ background-position: 0 -78px;width: 16px;height: 16px; } 
+.desoSlide_controls.next{ background-position: 0 0; width: 24px; height: 24px; } 
+.desoSlide_controls.pause{ background-position: 0 -28px; width: 24px; height: 24px; } 
+.desoSlide_controls.play{ background-position: 0 -56px; width: 24px; height: 24px; } 
+.desoSlide_controls.prev{ background-position: 0 -84px; width: 24px; height: 24px; } 
