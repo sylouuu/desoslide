@@ -307,7 +307,7 @@ This source code is under the MIT License
 				$('.desoSlide_controls-wrapper', $(p.mainImage)).remove();
 				
 				// controls buttons			
-				var $prev	= '<a href="#prev"><span class="desoSlide_controls prev">test</span></a>';
+				var $prev	= '<a href="#prev"><span class="desoSlide_controls prev"></span></a>';
 				var $pause	= '<a href="#pause"><span class="desoSlide_controls pause"></span></a>';
 				var $play	= '<a href="#play"><span class="desoSlide_controls play"></span></a>';
 				var $next	= '<a href="#next"><span class="desoSlide_controls next"></span></a>';
