@@ -307,10 +307,10 @@ This source code is under the MIT License
 				$('.desoSlide_controls', $(p.mainImage)).remove();
 				
 				// controls buttons			
-				var $prev	= '<a href="#prev"><span class="desoSlide-prev">prev</span></a>';
-				var $pause	= '<a href="#pause"><span class="desoSlide-pause">pause</span></a>';
-				var $play	= '<a href="#play"><span class="desoSlide-play">play</span></a>';
-				var $next	= '<a href="#next"><span class="desoSlide-next">next</span></a>';
+				var $prev	= '<a href="#prev"><span class="prev">prev</span></a>';
+				var $pause	= '<a href="#pause"><span class="pause">pause</span></a>';
+				var $play	= '<a href="#play"><span class="play">play</span></a>';
+				var $next	= '<a href="#next"><span class="next">next</span></a>';
 				
 				// the wrapper
 				var $controls = $('<div>', {
@@ -319,8 +319,8 @@ This source code is under the MIT License
 				
 				// dynamic positioning
 				$controls.css({
-					'left': $overlay.css('left'),
-					'width': $overlay.css('width')
+					'width': $overlay.css('width'),
+					'left': $overlay.css('left')
 				});
 				
 				// adding the controls wrapper
