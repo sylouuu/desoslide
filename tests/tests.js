@@ -5,11 +5,13 @@ $(function() {
 	// *****************
 	
 	var scenario1 = $('#scenario1_thumbs').desoSlide({
-		displayErrors: false
+		displayErrors: false,
+		displayWarnings: false
 	});
 
 	var scenario2 = $('#scenario2_thumbs').desoSlide({
 		mainImage: '#scenario2',
+		displayWarnings: false,
 		displayErrors: false
 	});
 	
@@ -32,11 +34,13 @@ $(function() {
 
 	var scenario3 = $('#scenario3_thumbs').desoSlide({
 		mainImage: '#scenario3',
+		displayWarnings: false,
 		displayErrors: false
 	});
 	
 	var scenario4 = $('#scenario4_thumbs').desoSlide({
 		mainImage: '#scenario4',
+		displayWarnings: false,
 		displayErrors: false
 	});
 	
@@ -59,8 +63,9 @@ $(function() {
 	
 	var scenario5 = $('#scenario5_thumbs').desoSlide({
 		mainImage: '#scenario5',
-		disableCaption: true,
+		enableCaption: false,
 		imgFirst: 4,
+		displayWarnings: false,
 		displayErrors: false
 	});
 
@@ -102,7 +107,7 @@ $(function() {
 	var scenario7 = $('#scenario5_thumbs').desoSlide({
 		mainImage: '#scenario5',
 		insertion: 'fail',
-		disableCaption: true,
+		enableCaption: false,
 		displayWarnings: false,
 		displayErrors: false
 	});
@@ -161,7 +166,7 @@ $(function() {
 	
 	var scenario10 = $('#scenario10_thumbs').desoSlide({
 		mainImage: '#scenario10',
-		disableCaption: true,
+		enableCaption: false,
 		displayWarnings: false,
 		displayErrors: false
 	});
