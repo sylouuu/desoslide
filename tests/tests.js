@@ -64,12 +64,12 @@ $(function() {
 	var scenario5 = $('#scenario5_thumbs').desoSlide({
 		mainImage: '#scenario5',
 		enableCaption: false,
-		imgFirst: 4,
+		firstImg: 4,
 		displayWarnings: false,
 		displayErrors: false
 	});
 
-	describe('The imgFirst param', function() {
+	describe('The firstImg param', function() {
 		it('has a bad value: trigger an error', function() {
 			expect(scenario5).toBe(false);
 		});

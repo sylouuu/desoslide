@@ -13,7 +13,7 @@ $(function() {
 	
 	$('#ex1_thumbs').desoSlide({
 		mainImage: '#ex1_mainImage',
-		imgFirst: 1,
+		firstImg: 1,
 		enableCaption: false,
 		enableControls: false
 	});

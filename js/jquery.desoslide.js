@@ -13,7 +13,7 @@ This source code is under the MIT License
 			insertion: 'append', // wrapper insertion type
 			autoLoad: true, // preloading images
 			autoStart: false, // autostarting diaporama
-			imgFirst: 0, // index of the first image to show
+			firstImg: 0, // index of the first image to show
 			enableCaption: true, // show caption: data-caption required
 			displayCaption: 'always', // type of show (caption) 'always' or 'hover'
 			enableControls: true, // able to control (prev/pause/play/next)
@@ -33,11 +33,13 @@ This source code is under the MIT License
 		$thumbsContainer = returnValue,
 		$thumbs = $('li', $thumbsContainer),
 		thumbsCount = $thumbs.length,
-		currentImg = p.imgFirst,
+		currentImg = p.firstImg,
+		imgToShow, 
 		$overlay = $('.desoSlide-overlay', $(p.mainImage)),
 		ms = (p.interval < 1500) ? 1500 : p.interval,
-		timer, aExists, hrefExists, 
-		src, alt, caption, href;
+		timer = false, aExists, hrefExists, 
+		src, alt, caption, href,
+		$controlsWrapper;
 
 		// *****************
 		// [END] Variables
@@ -74,7 +76,7 @@ This source code is under the MIT License
 					if(thumbsCount == 0) {
 						app.displayError('You must have at least 1 thumbnail.');
 					} else {
-						app.displayError('The "imgFirst" param must be between 0 and '+ (thumbsCount - 1) +'.');
+						app.displayError('The "firstImg" param must be between 0 and '+ (thumbsCount - 1) +'.');
 					}
 				}
 			},
@@ -156,16 +158,22 @@ This source code is under the MIT License
 			
 			// displaying the new image
 			displayImg: function() {
-				var imgToShow;
+				imgToShow;
 				
 				// count reset
 				if(currentImg >= thumbsCount) {
 					currentImg = 0;
 				}
 				
+				
+				// if(imgToShow == p.firstImg) {
+					// currentImg++;
+				// }
+				
 				// next image
 				imgToShow = currentImg;
 				
+				console.log($(p.mainImage).selector +' imgToShow '+ imgToShow);
 				// data
 				src = $('a', $thumbs).eq(imgToShow).attr('href');
 				alt = $('img', $thumbs).eq(imgToShow).attr('alt');
@@ -193,6 +201,7 @@ This source code is under the MIT License
 							// starting the loop
 							if(p.autoStart) {
 								currentImg++;
+								
 								timer = setTimeout(function() {
 									app.displayImg();
 								}, ms);
@@ -329,7 +338,37 @@ This source code is under the MIT License
 				} else {
 					$controls.appendTo($('.desoSlide-wrapper', $(p.mainImage)));
 				}
+				
+				$controlsWrapper = $('.desoSlide-controls-wrapper', $(p.mainImage));
+				
+				if(p.autoStart) {
+					$('a[href="#play"]', $controlsWrapper).hide().parent().find('a[href="#pause"]').show();
+				} else {
+					$('a[href="#pause"]', $controlsWrapper).hide().parent().find('a[href="#play"]').show();
+				}
+			},
 			
+			pause: function() {
+				if(p.autoStart && timer) {
+					console.log('pause');
+					p.autoStart = false;
+					clearTimeout(timer);
+					console.log(currentImg);
+					$('a[href="#pause"]', $controlsWrapper).hide().parent().find('a[href="#play"]').show();
+				}
+			},
+			
+			play: function() {
+				if(!p.autoStart) {
+					console.log('play');
+					p.autoStart = true;
+					if(imgToShow == currentImg) {
+						currentImg++;
+					}
+					app.displayImg();
+					
+					$('a[href="#play"]', $controlsWrapper).hide().parent().find('a[href="#pause"]').show();
+				}
 			},
 			
 			// displaying warning message in the console
@@ -377,10 +416,7 @@ This source code is under the MIT License
 						// call the displayer
 						app.displayImg();
 						
-						if(p.autoStart) {
-							p.autoStart = false;
-							clearTimeout(timer);
-						}
+						app.pause();
 
 					}
 				});
@@ -422,18 +458,18 @@ This source code is under the MIT License
 					switch($(this).attr('href')) {
 						case '#prev':
 							currentImg--;
+							app.pause();
 							app.displayImg();
 						break;
 						case '#pause':
-							clearTimeout(timer);
-							app.displayImg();
+							app.pause();
 						break;
 						case '#play':
-							p.autoStart = true;
-							app.displayImg();
+							app.play();
 						break;
 						case '#next':
 							currentImg++;
+							app.pause();
 							app.displayImg();
 						break;
 					}
