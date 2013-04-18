@@ -13,14 +13,15 @@ $(function() {
 	
 	$('#ex1_thumbs').desoSlide({
 		mainImage: '#ex1_mainImage',
+		autoStart: true,
 		firstImg: 1,
-		enableCaption: false,
-		enableControls: false
+		enableCaption: false
 	});
 	
 	$('#ex2_thumbs').desoSlide({
 		mainImage: '#ex2_mainImage',
-		displayCaption: 'hover'
+		displayCaption: 'hover',
+		enableControls: false
 	});
 	
 });

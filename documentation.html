@@ -26,9 +26,9 @@
 			_gaq.push(['_trackPageview']);
 
 			(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
 		</script>
 	</head>
@@ -139,16 +139,16 @@
 						<div id="wizard_demo">
 							<ul id="wizard_thumbs">
 								<li>
-									<a href="img/examples/bird.jpg"><img src="img/examples/bird_thumb.jpg" alt="Bird" data-caption="A bird, click me to open http://chez-syl.fr/" data-href="http://chez-syl.fr/"></a>
+									<a href="img/examples/wizard/bird.jpg"><img src="img/examples/wizard/bird_thumb.jpg" alt="Bird" data-caption="A bird, click me to open http://chez-syl.fr/" data-href="http://chez-syl.fr/"></a>
 								</li>
 								<li>
-									<a href="img/examples/flower.jpg"><img src="img/examples/flower_thumb.jpg" alt="Flower" data-caption="A flower, click me to open README.md file" data-href="README.md"></a>
+									<a href="img/examples/wizard/flower.jpg"><img src="img/examples/wizard/flower_thumb.jpg" alt="Flower" data-caption="A flower, click me to open README.md file" data-href="README.md"></a>
 								</li>
 								<li>
-									<a href="img/examples/butterfly.jpg"><img src="img/examples/butterfly_thumb.jpg" alt="Butterfly" data-caption="A butterfly, click me to open LICENSE.md file" data-href="LICENSE.md"></a>
+									<a href="img/examples/wizard/butterfly.jpg"><img src="img/examples/wizard/butterfly_thumb.jpg" alt="Butterfly" data-caption="A butterfly, click me to open LICENSE.md file" data-href="LICENSE.md"></a>
 								</li>
 								<li>
-									<a href="img/examples/rose.jpg"><img src="img/examples/rose_thumb.jpg" alt="Rose" data-caption="A rose, you can't click me, got no link"></a>
+									<a href="img/examples/wizard/rose.jpg"><img src="img/examples/wizard/rose_thumb.jpg" alt="Rose" data-caption="A rose, you can't click me, got no link"></a>
 								</li>
 							</ul>
 							
@@ -200,6 +200,7 @@
 					<div id="ex1_js" class="tab-pane active">
 <pre><code>$('#ex1_thumbs').desoSlide({
 	mainImage: '#ex1_mainImage',
+	autoStart: true,
 	firstImg: 1,
 	enableCaption: false
 });
@@ -212,7 +213,7 @@
 		<div class="row-fluid marketing">
 			<div class="span12">
 				<p class="lead">
-					Displaying the caption by hovering the main image. No <code>data-href</code> provided.
+					Displaying the caption by hovering the main image. No <code>data-href</code> provided and no control.
 				</p>
 			</div>
 		</div>
@@ -250,7 +251,8 @@
 					<div id="ex2_js" class="tab-pane active">
 <pre><code>$('#ex2_thumbs').desoSlide({
 	mainImage: '#ex2_mainImage',
-	displayCaption: 'hover'
+	displayCaption: 'hover',
+	enableControls: false
 });
 </code></pre>
 					</div>
@@ -278,16 +280,22 @@
 						<td>The main image container. If you don't specify a valid selector, you'll receive an error.</td>
 					</tr>
 					<tr>
-						<td><code>autoLoad</code></td>
-						<td>Boolean</td>
-						<td><code>true</code></td>
-						<td>All thumbnails links (full size images) are auto loaded.</td>
-					</tr>
-					<tr>
 						<td><code>insertion</code></td>
 						<td><code>'append'</code>, <code>'prepend'</code> or <code>'replace'</code></td>
 						<td><code>'append</code></td>
 						<td>How to create the main image, by appending, prepending or replace all the selector's content (overwriting).</td>
+					</tr>
+					<tr>
+						<td><code>autoLoad</code></td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+						<td>All thumbnails links (full size images) are auto loaded in background (invisible).</td>
+					</tr>
+					<tr>
+						<td><code>autoStart</code></td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+						<td>Autostarting a diaporama.</td>
 					</tr>
 					<tr>
 						<td><code>firstImg</code></td>
@@ -319,16 +327,33 @@
 						<td><code>true</code></td>
 						<td>Show errors in the developer console. Be sure to put it <code>false</code> in production. If the render isn't ok, enable the errors then debug.</td>
 					</tr>
+					<tr>
+						<td><code>result</code></td>
+						<td>function(result)</td>
+						<td><code>false</code></td>
+						<td>Get the slider result. The first argument has one of these values: "success", "error" or "warning"</td>
+					</tr>
 				</table>
 			</div>
 			
 			<h2>Return value</h2>
 			<div class="span12">
-				<p>The returned value by the <code>.desoSlide()</code> call is the jQuery object. However it may return <code>false</code> if:</p>
-				<ul>
-					<li>A warning is triggered</li>
-					<li>An error is triggered</li>
-				</ul>
+				<p>The returned value by the <code>.desoSlide()</code> call is the jQuery object in order to maintain the chainability.</p>
+				<p>As explained before, if you want to know if the slider is well generated, use the <code>result</code> function.</p>
+<pre><code>$('#ex2_thumbs').desoSlide({
+	mainImage: '#ex2_mainImage',
+	result: function(result) {
+		switch(result) {
+			case 'success': // success handler
+			break;
+			case 'error': // error handler
+			break;
+			case 'warning': // warning handler
+			break;
+		}
+	}
+});
+</code></pre>
 			</div>
 		</div>
 		<!-- [END] Documentation -->
