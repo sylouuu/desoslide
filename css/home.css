@@ -15,12 +15,11 @@
     padding: 0;
 }
 
-.home_thumbs li {
-    padding: 0px 2px 10px 2px;
-}
+	.home_thumbs li {
+		padding: 0px 2px 10px 2px;
+	}
 
-.home_thumbs img {
-	box-shadow: 0 0 5px #000;
-	border-radius: 3px;
-}
-
+	.home_thumbs img {
+		box-shadow: 0 0 5px #000;
+		border-radius: 3px;
+	}

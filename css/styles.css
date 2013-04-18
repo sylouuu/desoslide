@@ -24,35 +24,34 @@ body {
 	text-align: center;
 }
 
-.jumbotron h1 {
-	font-size: 3em;
-	line-height: 1;
-}
+	.jumbotron h1 {
+		font-size: 3em;
+		line-height: 1;
+	}
 
-.jumbotron .btn {
-	font-size: 21px;
-	padding: 14px 24px;
-}
+	.jumbotron .btn {
+		font-size: 21px;
+		padding: 14px 24px;
+	}
 
 .masthead-links {
 	margin: 0;
 	list-style: none;
 }
 
-.masthead-links li {
-	display: inline;
-	padding: 0 10px;
-	color: #949494;
-}
+	.masthead-links li {
+		display: inline;
+		padding: 0 10px;
+		color: #949494;
+	}
 
-/* Supporting marketing content */
 .marketing {
 	margin: 20px 0;
 }
 
-.marketing p + h4 {
-	margin-top: 28px;
-}
+	.marketing p + h4 {
+		margin-top: 28px;
+	}
 
 iframe {
     background-color: transparent;
