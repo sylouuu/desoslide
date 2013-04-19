@@ -1,25 +1,25 @@
-$(window).load(function() {
+$(function() {
 
 	// *****************
 	// [BEGIN] Scenario 1 & 2
 	// *****************
 	
 	describe('The mainImage param', function() {
-		it('isn\'t specified: trigger an error', function() {
+		it('isn\'t specified: error expected', function() {
 			$('#scenario1_thumbs').desoSlide({
 				displayErrors: false,
 				displayWarnings: false,
-				result: function(result) {
+				callback: function(result) {
 					expect(result).toEqual('error');
 				}
 			});
 		});
-		it('is specified, but the selector doesn\'t exist: trigger an error', function() {
+		it('is specified, but the selector doesn\'t exist: error expected', function() {
 			$('#scenario2_thumbs').desoSlide({
 				mainImage: '#scenario2',
 				displayErrors: false,
 				displayWarnings: false,
-				result: function(result) {
+				callback: function(result) {
 					expect(result).toEqual('error');
 				}
 			});
@@ -35,22 +35,22 @@ $(window).load(function() {
 	// *****************
 
 	describe('The thumbs container', function() {
-		it('doesn\'t exists: trigger an error', function() {
+		it('doesn\'t exists: error expected', function() {
 			$('#scenario3_thumbs').desoSlide({
 				mainImage: '#scenario3',
 				displayWarnings: false,
 				displayErrors: false,
-				result: function(result) {
+				callback: function(result) {
 					expect(result).toEqual('error');
 				}
 			});
 		});
-		it('exists but has no child: trigger an error', function() {
+		it('exists but has no child: error expected', function() {
 			$('#scenario4_thumbs').desoSlide({
 				mainImage: '#scenario4',
 				displayWarnings: false,
 				displayErrors: false,
-				result: function(result) {
+				callback: function(result) {
 					expect(result).toEqual('error');
 				}
 			});
@@ -66,14 +66,14 @@ $(window).load(function() {
 	// *****************
 
 	describe('The firstImg param', function() {
-		it('has a bad value: trigger an error', function() {
+		it('has a bad value: error expected', function() {
 			$('#scenario5_thumbs').desoSlide({
 				mainImage: '#scenario5',
 				enableCaption: false,
 				firstImg: 4,
 				displayWarnings: false,
 				displayErrors: false,
-				result: function(result) {
+				callback: function(result) {
 					expect(result).toEqual('error');
 				}
 			});
@@ -89,13 +89,13 @@ $(window).load(function() {
 	// *****************
 
 	describe('The displayCaption param', function() {
-		it('has a bad value: trigger an error', function() {
+		it('has a bad value: error expected', function() {
 			$('#scenario5_thumbs').desoSlide({
 				mainImage: '#scenario5',
 				displayCaption: 'fail',
 				displayWarnings: false,
 				displayErrors: false,
-				result: function(result) {
+				callback: function(result) {
 					expect(result).toEqual('error');
 				}
 			});
@@ -111,13 +111,13 @@ $(window).load(function() {
 	// *****************
 	
 	describe('The insertion param', function() {
-		it('has a bad value: trigger an error', function() {
+		it('has a bad value: error expected', function() {
 			$('#scenario5_thumbs').desoSlide({
 				mainImage: '#scenario5',
 				insertion: 'fail',
 				displayWarnings: false,
 				displayErrors: false,
-				result: function(result) {
+				callback: function(result) {
 					expect(result).toEqual('error');
 				}
 			});
@@ -133,12 +133,12 @@ $(window).load(function() {
 	// *****************
 	
 	describe('The data-caption attribute', function() {
-		it('isn\'t specified: trigger a warning', function() {
+		it('isn\'t specified: warning expected', function() {
 			$('#scenario5_thumbs').desoSlide({
 				mainImage: '#scenario5',
 				displayWarnings: false,
 				displayErrors: false,
-				result: function(result) {
+				callback: function(result) {
 					expect(result).toEqual('warning');
 				}
 			});
@@ -154,12 +154,12 @@ $(window).load(function() {
 	// *****************
 	
 	describe('The alt attribute', function() {
-		it('isn\'t specified: trigger a warning', function() {
+		it('isn\'t specified: warning expected', function() {
 			$('#scenario9_thumbs').desoSlide({
 				mainImage: '#scenario9',
 				displayWarnings: false,
 				displayErrors: false,
-				result: function(result) {
+				callback: function(result) {
 					expect(result).toEqual('warning');
 				}
 			});
@@ -171,38 +171,27 @@ $(window).load(function() {
 	// *****************
 	
 	// *****************
-	// [BEGIN] Scenario 10
+	// [BEGIN] Scenario 10 & 11
 	// *****************
 	
-	describe('The slider is well generated, without caption', function() {
-		it('triggers a success', function() {
+	describe('The slider is well generated', function() {
+		it('without caption: success expected', function() {
 			$('#scenario10_thumbs').desoSlide({
 				mainImage: '#scenario10',
 				enableCaption: false,
 				displayWarnings: false,
 				displayErrors: false,
-				result: function(result) {
+				callback: function(result) {
 					expect(result).toEqual('success');
 				}
 			});
 		});
-	});
-	
-	// *****************
-	// [END] Scenario 9
-	// *****************
-	
-	// *****************
-	// [BEGIN] Scenario 11
-	// *****************
-	
-	describe('The slider is well generated, with caption', function() {
-		it('triggers a success', function() {
+		it('with caption: success expected', function() {
 			$('#scenario11_thumbs').desoSlide({
 				mainImage: '#scenario11',
 				displayWarnings: false,
 				displayErrors: false,
-				result: function(result) {
+				callback: function(result) {
 					expect(result).toEqual('success');
 				}
 			});
@@ -210,7 +199,7 @@ $(window).load(function() {
 	});
 	
 	// *****************
-	// [END] Scenario 9
+	// [END] Scenario 10 & 11
 	// *****************
 	
 });

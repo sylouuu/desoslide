@@ -328,10 +328,10 @@
 						<td>Show errors in the developer console. Be sure to put it <code>false</code> in production. If the render isn't ok, enable the errors then debug.</td>
 					</tr>
 					<tr>
-						<td><code>result</code></td>
+						<td><code>callback</code></td>
 						<td>function(result)</td>
 						<td><code>false</code></td>
-						<td>Get the slider result. The first argument has one of these values: "success", "error" or "warning"</td>
+						<td>Get the slider result. The first argument outputs one of these values: "success", "error" or "warning"</td>
 					</tr>
 				</table>
 			</div>
@@ -339,10 +339,10 @@
 			<h2>Return value</h2>
 			<div class="span12">
 				<p>The returned value by the <code>.desoSlide()</code> call is the jQuery object in order to maintain the chainability.</p>
-				<p>As explained before, if you want to know if the slider is well generated, use the <code>result</code> function.</p>
+				<p>As explained before, if you want to know if the slider is well generated, use the <code>callback</code> function.</p>
 <pre><code>$('#ex2_thumbs').desoSlide({
 	mainImage: '#ex2_mainImage',
-	result: function(result) {
+	callback: function(result) {
 		switch(result) {
 			case 'success': // success handler
 			break;

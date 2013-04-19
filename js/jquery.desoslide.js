@@ -20,7 +20,7 @@ This source code is under the MIT License
 			interval: 3000, // interval between each image
 			displayWarnings: true, // show warnings in console
 			displayErrors: true, // show errors in console
-			result: false // the slider result ("success", "error" or "warning")
+			callback: false // the slider result ("success", "error" or "warning")
 		};
 
 		// extend options
@@ -62,30 +62,29 @@ This source code is under the MIT License
 			checks: function() {
 				// if the container does not exist
 				if($thumbsContainer.length == 0) {
-					app.returnValue('error', $thumbsContainer.selector +' doesn\'t exist.');
-					return false;
+					app.resultHandler('error', $thumbsContainer.selector +' doesn\'t exist.');
 				}
 				
 				// mainImage param checks
 				if(!p.mainImage) {
-					app.returnValue('error', 'You must specify the "mainImage" param. Check out the documentation.');
+					app.resultHandler('error', 'You must specify the "mainImage" param. Check out the documentation.');
 				} else {
 					// if the container does not exist
 					if($(p.mainImage).length == 0) {
-						app.returnValue('error', $(p.mainImage).selector +' doesn\'t exist.');
+						app.resultHandler('error', $(p.mainImage).selector +' doesn\'t exist.');
 					}
 				}
 				
 				// displayCaption param checker
 				if(p.displayCaption != 'always' && p.displayCaption != 'hover') {
-					app.returnValue('error', 'Bad value for the "displayCaption" param. Check out the documentation.');
+					app.resultHandler('error', 'Bad value for the "displayCaption" param. Check out the documentation.');
 				}
 
 				if(currentImg >= thumbsCount) {
 					if(thumbsCount == 0) {
-						app.returnValue('error', 'You must have at least 1 thumbnail.');
+						app.resultHandler('error', 'You must have at least 1 thumbnail.');
 					} else {
-						app.returnValue('error', 'The "firstImg" param must be between 0 and '+ (thumbsCount - 1) +'.');
+						app.resultHandler('error', 'The "firstImg" param must be between 0 and '+ (thumbsCount - 1) +'.');
 					}
 				}
 			},
@@ -93,12 +92,12 @@ This source code is under the MIT License
 			checkData: function() {
 				// captions checks
 				if(p.enableCaption && (typeof caption === 'undefined' || caption == '')) {
-					app.returnValue('warning', 'The captions are enabled and the data-caption attribute is missing on a thumb. Add it or disable captions. Check out the documention.');
+					app.resultHandler('warning', 'The captions are enabled and the data-caption attribute is missing on a thumb. Add it or disable captions. Check out the documention.');
 				}
 				
 				// W3C check
 				if(typeof alt === 'undefined' || alt == '') {
-					app.returnValue('warning', 'The alt attribute is missing on a thumb, it\'s mandatory on <img> tags.');
+					app.resultHandler('warning', 'The alt attribute is missing on a thumb, it\'s mandatory on <img> tags.');
 				}
 			},
 			
@@ -155,7 +154,7 @@ This source code is under the MIT License
 						$(p.mainImage).html($img).wrapInner($wrapper);
 					break;
 					default:
-						app.returnValue('error', 'Bad value for the "insertion" param. Check out the documentation.');
+						app.resultHandler('error', 'Bad value for the "insertion" param. Check out the documentation.');
 					break;
 				}
 				
@@ -165,7 +164,7 @@ This source code is under the MIT License
 			
 			// displaying the new image
 			displayImg: function() {
-				app.returnValue();
+				app.resultHandler();
 				
 				imgToShow;
 				
@@ -468,7 +467,7 @@ This source code is under the MIT License
 				
 				// new caption position when resizing
 				$(window).bind('resize', function() {
-					if(p.enableCaption && app.returnValue.selector == $thumbsContainer.selector) {
+					if(p.enableCaption && app.resultHandler.selector == $thumbsContainer.selector) {
 						delay(function(){
 							console.log('resizing');
 							app.addOverlay();
@@ -482,15 +481,15 @@ This source code is under the MIT License
 			// [END] Events handlers
 			// ***********************
 			
-			returnValue: function(type, msg) {
+			resultHandler: function(type, msg) {
 				switch(type) {
 					case 'error':
 						if(p.displayErrors && typeof console !== 'undefined') {
 							console.error('desoSlide: '+ msg);
 						}
 						
-						if(p.result) {
-							p.result('error');
+						if(p.callback) {
+							p.callback('error');
 						}
 					break;
 					case 'warning':
@@ -498,13 +497,13 @@ This source code is under the MIT License
 							console.warn('desoSlide: '+ msg);
 						}
 						
-						if(p.result) {
-							p.result('warning');
+						if(p.callback) {
+							p.callback('warning');
 						}
 					break;
 					default:
-						if(p.result) {
-							p.result('success');
+						if(p.callback) {
+							p.callback('success');
 						}
 					break;
 				}
