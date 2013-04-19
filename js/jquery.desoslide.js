@@ -215,10 +215,6 @@ This source code is under the MIT License
 								}, ms);
 							}
 							
-							if(p.onSuccess) {
-								p.onSuccess();
-							}
-							
 						});
 					});
 				})
