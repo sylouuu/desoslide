@@ -45,7 +45,7 @@ $(window).load(function() {
 				}
 			});
 		});
-		it('but has no child: trigger an error', function() {
+		it('exists but has no child: trigger an error', function() {
 			$('#scenario4_thumbs').desoSlide({
 				mainImage: '#scenario4',
 				displayWarnings: false,
