@@ -475,7 +475,7 @@ This source code is under the MIT License
 				
 				if(p.enableControls) {
 					// keys binder
-					$(document).on('keydown', function(e){
+					$(document).on('keyup', function(e){
 						e.preventDefault();
 						switch(e.which) { 
 							case 37: // left arrow
