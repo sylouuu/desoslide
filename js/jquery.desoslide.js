@@ -163,13 +163,13 @@ This source code is under the MIT License
 			
 			
 			// displaying the new image
-			displayImg: function() {
+			displayImg: function(fromControl) {
 				app.resultHandler();
 				
-				imgToShow;
+				imgToShow = 0;
 				
 				// count reset
-				if(currentImg == -1){
+				if(currentImg < 0){
 					currentImg = thumbsCount - 1;
 				}
 				
@@ -180,7 +180,7 @@ This source code is under the MIT License
 				
 				// next image
 				imgToShow = currentImg;
-				
+				// console.log('showing '+ imgToShow);
 				// data
 				src = $('a', $thumbs).eq(imgToShow).attr('href');
 				alt = $('img', $thumbs).eq(imgToShow).attr('alt');
@@ -207,7 +207,10 @@ This source code is under the MIT License
 							
 							// starting the loop
 							if(p.autoStart) {
-								currentImg++;
+								// if(!fromControl) {
+									currentImg++;
+									// console.log('not fromControl');
+								// }
 								
 								timer = setTimeout(function() {
 									app.displayImg();
@@ -329,12 +332,12 @@ This source code is under the MIT License
 				var $next	= '<a href="#next"><span class="desoSlide-controls next"></span></a>';
 				
 				// the wrapper
-				// var $controls = $('<div>', {
-					// 'class': 'desoSlide-controls-wrapper'
-				// }).append($prev + $pause + $play + $next);
 				var $controls = $('<div>', {
 					'class': 'desoSlide-controls-wrapper'
-				}).append($pause + $play);
+				}).append($prev + $pause + $play + $next);
+				// var $controls = $('<div>', {
+					// 'class': 'desoSlide-controls-wrapper'
+				// }).append($pause + $play);
 				
 				// dynamic positioning
 				$controls.css({
@@ -360,17 +363,18 @@ This source code is under the MIT License
 			
 			pause: function() {
 				if(p.autoStart && timer) {
-					console.log('pause');
+					// console.log('pause');
 					p.autoStart = false;
 					clearTimeout(timer);
-					console.log(currentImg);
+					currentImg--;
+					// console.log(currentImg);
 					$('a[href="#pause"]', $controlsWrapper).hide().parent().find('a[href="#play"]').show();
 				}
 			},
 			
 			play: function() {
 				if(!p.autoStart) {
-					console.log('play');
+					// console.log('play');
 					p.autoStart = true;
 					if(imgToShow == currentImg) {
 						currentImg++;
@@ -381,6 +385,34 @@ This source code is under the MIT License
 				}
 			},
 						
+			resultHandler: function(type, msg) {
+				switch(type) {
+					case 'error':
+						if(p.displayErrors && typeof console !== 'undefined') {
+							console.error('desoSlide: '+ msg);
+						}
+						
+						if(p.callback) {
+							p.callback('error');
+						}
+					break;
+					case 'warning':
+						if(p.displayWarnings && typeof console !== 'undefined') {
+							console.warn('desoSlide: '+ msg);
+						}
+						
+						if(p.callback) {
+							p.callback('warning');
+						}
+					break;
+					default:
+						if(p.callback) {
+							p.callback('success');
+						}
+					break;
+				}
+			},
+
 			// *****************
 			// [END] Functions
 			// *****************
@@ -447,9 +479,10 @@ This source code is under the MIT License
 
 					switch($(this).attr('href')) {
 						case '#prev':
-							currentImg--;
 							app.pause();
-							app.displayImg();
+							currentImg--;
+							// console.log('prev: want to show '+ currentImg);
+							app.displayImg(true);
 						break;
 						case '#pause':
 							app.pause();
@@ -458,9 +491,10 @@ This source code is under the MIT License
 							app.play();
 						break;
 						case '#next':
-							currentImg++;
 							app.pause();
-							app.displayImg();
+							currentImg++;
+							// console.log('next: want to show '+ currentImg);
+							app.displayImg(true);
 						break;
 					}
 				});
@@ -469,7 +503,6 @@ This source code is under the MIT License
 				$(window).bind('resize', function() {
 					if(p.enableCaption && app.resultHandler.selector == $thumbsContainer.selector) {
 						delay(function(){
-							console.log('resizing');
 							app.addOverlay();
 						}, 100);
 					}
@@ -481,36 +514,9 @@ This source code is under the MIT License
 			// [END] Events handlers
 			// ***********************
 			
-			resultHandler: function(type, msg) {
-				switch(type) {
-					case 'error':
-						if(p.displayErrors && typeof console !== 'undefined') {
-							console.error('desoSlide: '+ msg);
-						}
-						
-						if(p.callback) {
-							p.callback('error');
-						}
-					break;
-					case 'warning':
-						if(p.displayWarnings && typeof console !== 'undefined') {
-							console.warn('desoSlide: '+ msg);
-						}
-						
-						if(p.callback) {
-							p.callback('warning');
-						}
-					break;
-					default:
-						if(p.callback) {
-							p.callback('success');
-						}
-					break;
-				}
-			}
 		};
 		
-		
+		// all images are loaded
 		$(window).load(function() {
 			// initializing
 			app.checks();
