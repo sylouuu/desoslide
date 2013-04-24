@@ -473,6 +473,31 @@ This source code is under the MIT License
 					});
 				}
 				
+				if(p.enableControls) {
+					// keys binder
+					$(document).on('keydown', function(e){
+						e.preventDefault();
+						switch(e.which) { 
+							case 37: // left arrow
+							case 38: // up arrow
+								app.pause();
+								currentImg--;
+								app.displayImg(true);
+							break;
+							case 39: // right arrow
+							case 40: // down arrow
+								app.pause();
+								currentImg++;
+								app.displayImg(true);
+							break;
+							case 32: // space
+								// if paused
+								(!p.autoStart) ? app.play() : app.pause();
+							break;
+						}
+					});
+				}
+
 				// click on control
 				$(p.mainImage).on('click', '.desoSlide-controls-wrapper a', $(p.mainImage), function(e) {
 					e.preventDefault();
