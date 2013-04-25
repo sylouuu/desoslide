@@ -15,7 +15,8 @@ $(function() {
 		mainImage: '#ex1_mainImage',
 		autoStart: true,
 		firstImg: 1,
-		enableCaption: false
+		enableCaption: false,
+		enableControlsKeys: false
 	});
 	
 	$('#ex2_thumbs').desoSlide({

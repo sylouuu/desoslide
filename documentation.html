@@ -165,7 +165,7 @@
 			<h2>Examples</h2>
 			<div class="span12">
 				<p class="lead">
-					Displaying the second image at loading. Disabling the caption and no link.
+					Displaying the second image at loading. Disabling the caption, no link and no keys.
 				</p>
 			</div>
 		</div>
@@ -202,7 +202,8 @@
 	mainImage: '#ex1_mainImage',
 	autoStart: true,
 	firstImg: 1,
-	enableCaption: false
+	enableCaption: false,
+	enableControlsKeys: false
 });
 </code></pre>
 					</div>
@@ -261,6 +262,21 @@
 		</div>
 		<!-- [END] Examples -->
 		
+		<div class="row-fluid marketing">
+			<h2>Controls</h2>
+			<div class="span12">
+				<p>You can control the slider by clicking on the pictos. Previous, pause, play and next are supported. Also, you are able to use your keyboard keys to control it:</p>
+				
+				<ul>
+					<li>left & up arrows: <b>previous</b></li>
+					<li>right & down arrows: <b>next</b></li>
+					<li>space: toggling <b>play/pause</b></li>
+				</ul>
+				
+				<p>As this feature is binded on the document, if you have more than one slider on your page and you press a key, all the slider will be triggered. I recommand to you to enable the keys control on only one slider, by disabling the others with <code>enableControlsKeys: false</code>.</p>
+			</div>
+		</div>
+		
 		<!-- [BEGIN] Documentation -->
 		<div class="row-fluid marketing">
 			<h2>Documentation</h2>
@@ -314,6 +330,24 @@
 						<td><code>'always'</code> or <code>'hover'</code></td>
 						<td><code>'always'</code></td>
 						<td>How to show the main image caption.</td>
+					</tr>
+					<tr>
+						<td><code>enableControls</code></td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+						<td>Able to control the slider (prev/pause/play/next)</td>
+					</tr>
+					<tr>
+						<td><code>enableControlsKeys</code></td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+						<td>Able to control the slider by using the keyboard shortcuts (left/up/down/right/space)</td>
+					</tr>
+					<tr>
+						<td><code>interval</code></td>
+						<td>An integer, minimum 1500</td>
+						<td><code>3000</code></td>
+						<td>Interval in milliseconds between each image.</td>
 					</tr>
 					<tr>
 						<td><code>displayWarnings</code></td>

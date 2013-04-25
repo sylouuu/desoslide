@@ -17,6 +17,7 @@ This source code is under the MIT License
 			enableCaption: true, // show caption: data-caption required
 			displayCaption: 'always', // type of show (caption) 'always' or 'hover'
 			enableControls: true, // able to control (prev/pause/play/next)
+			enableControlsKeys: true, // able to control the slider by using the keyboard shortcuts (left/up/down/right/space)
 			interval: 3000, // interval between each image
 			displayWarnings: true, // show warnings in console
 			displayErrors: true, // show errors in console
@@ -473,7 +474,7 @@ This source code is under the MIT License
 					});
 				}
 				
-				if(p.enableControls) {
+				if(p.enableControls && p.enableControlsKeys) {
 					// keys binder
 					$(document).on('keyup', function(e){
 						e.preventDefault();
