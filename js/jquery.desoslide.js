@@ -164,7 +164,7 @@ This source code is under the MIT License
 			
 			
 			// displaying the new image
-			displayImg: function(fromControl) {
+			displayImg: function() {
 				app.resultHandler();
 				
 				imgToShow = 0;
@@ -336,9 +336,6 @@ This source code is under the MIT License
 				var $controls = $('<div>', {
 					'class': 'desoSlide-controls-wrapper'
 				}).append($prev + $pause + $play + $next);
-				// var $controls = $('<div>', {
-					// 'class': 'desoSlide-controls-wrapper'
-				// }).append($pause + $play);
 				
 				// dynamic positioning
 				$controls.css({
@@ -481,19 +478,14 @@ This source code is under the MIT License
 						switch(e.which) { 
 							case 37: // left arrow
 							case 38: // up arrow
-								app.pause();
-								currentImg--;
-								app.displayImg(true);
+								$(p.mainImage).trigger('prev.desoslide');
 							break;
 							case 39: // right arrow
 							case 40: // down arrow
-								app.pause();
-								currentImg++;
-								app.displayImg(true);
+								$(p.mainImage).trigger('next.desoslide');
 							break;
 							case 32: // space
-								// if paused
-								(!p.autoStart) ? app.play() : app.pause();
+								(!p.autoStart) ? $(p.mainImage).trigger('play.desoslide') : $(p.mainImage).trigger('pause.desoslide');
 							break;
 						}
 					});
@@ -505,24 +497,38 @@ This source code is under the MIT License
 
 					switch($(this).attr('href')) {
 						case '#prev':
-							app.pause();
-							currentImg--;
-							// console.log('prev: want to show '+ currentImg);
-							app.displayImg(true);
+							$(p.mainImage).trigger('prev.desoslide');
 						break;
 						case '#pause':
-							app.pause();
+							$(p.mainImage).trigger('pause.desoslide');
 						break;
 						case '#play':
-							app.play();
+							$(p.mainImage).trigger('play.desoslide');
 						break;
 						case '#next':
-							app.pause();
-							currentImg++;
-							// console.log('next: want to show '+ currentImg);
-							app.displayImg(true);
+							$(p.mainImage).trigger('next.desoslide');
 						break;
 					}
+				});
+				
+				$(p.mainImage).on('prev.desoslide', function() {
+					app.pause();
+					currentImg--;
+					app.displayImg();
+				});
+				
+				$(p.mainImage).on('pause.desoslide', function() {
+					app.pause();
+				});
+				
+				$(p.mainImage).on('play.desoslide', function() {
+					app.play();
+				});
+				
+				$(p.mainImage).on('next.desoslide', function() {
+					app.pause();
+					currentImg++;
+					app.displayImg();
 				});
 				
 				// new caption position when resizing
