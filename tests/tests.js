@@ -35,7 +35,7 @@ $(function() {
 	// *****************
 
 	describe('The thumbs container', function() {
-		it('doesn\'t exists: error expected', function() {
+		it('doesn\'t exist: error expected', function() {
 			$('#scenario3_thumbs').desoSlide({
 				mainImage: '#scenario3',
 				displayWarnings: false,
