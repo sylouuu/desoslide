@@ -474,17 +474,15 @@ This source code is under the MIT License
 				if(p.enableControls && p.enableControlsKeys) {
 					// keys binder
 					$(document).on('keydown', function(e){
-						e.preventDefault();
-						switch(e.which) { 
+						switch(e.which) {
 							case 37: // left arrow
-							case 38: // up arrow
 								$(p.mainImage).trigger('prev.desoslide');
 							break;
 							case 39: // right arrow
-							case 40: // down arrow
 								$(p.mainImage).trigger('next.desoslide');
 							break;
 							case 32: // space
+								e.preventDefault();
 								(!p.autoStart) ? $(p.mainImage).trigger('play.desoslide') : $(p.mainImage).trigger('pause.desoslide');
 							break;
 						}
