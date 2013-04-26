@@ -181,7 +181,7 @@ This source code is under the MIT License
 				
 				// next image
 				imgToShow = currentImg;
-				// console.log('showing '+ imgToShow);
+
 				// data
 				src = $('a', $thumbs).eq(imgToShow).attr('href');
 				alt = $('img', $thumbs).eq(imgToShow).attr('alt');
@@ -208,10 +208,7 @@ This source code is under the MIT License
 							
 							// starting the loop
 							if(p.autoStart) {
-								// if(!fromControl) {
-									currentImg++;
-									// console.log('not fromControl');
-								// }
+								currentImg++;
 								
 								timer = setTimeout(function() {
 									app.displayImg();
@@ -278,7 +275,6 @@ This source code is under the MIT License
 					}
 					
 					app.addLink();
-					
 				} else {
 					app.addLink();
 				}
@@ -361,22 +357,23 @@ This source code is under the MIT License
 			
 			pause: function() {
 				if(p.autoStart && timer) {
-					// console.log('pause');
 					p.autoStart = false;
+
 					clearTimeout(timer);
 					currentImg--;
-					// console.log(currentImg);
+
 					$('a[href="#pause"]', $controlsWrapper).hide().parent().find('a[href="#play"]').show();
 				}
 			},
 			
 			play: function() {
 				if(!p.autoStart) {
-					// console.log('play');
 					p.autoStart = true;
+					
 					if(imgToShow == currentImg) {
 						currentImg++;
 					}
+					
 					app.displayImg();
 					
 					$('a[href="#play"]', $controlsWrapper).hide().parent().find('a[href="#pause"]').show();
