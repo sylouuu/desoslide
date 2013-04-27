@@ -506,20 +506,24 @@ This source code is under the MIT License
 					}
 				});
 				
+				// on prev
 				$(p.mainImage).on('prev.desoslide', function() {
 					app.pause();
 					currentImg--;
 					app.displayImg();
 				});
 				
+				// on pause
 				$(p.mainImage).on('pause.desoslide', function() {
 					app.pause();
 				});
 				
+				// on play
 				$(p.mainImage).on('play.desoslide', function() {
 					app.play();
 				});
 				
+				// on next
 				$(p.mainImage).on('next.desoslide', function() {
 					app.pause();
 					currentImg++;
