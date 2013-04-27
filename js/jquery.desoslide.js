@@ -288,12 +288,12 @@ This source code is under the MIT License
 			
 			// adding the link on the main image & caption
 			addLink: function() {
-				aExists = ($('a.desoSlide_link', $(p.mainImage)).length > 0) ? true : false;
+				aExists = ($('a.desoslide-link', $(p.mainImage)).length > 0) ? true : false;
 				hrefExists = (typeof href !== 'undefined' && href != '') ? true : false;
 
 				// the <a> tag
 				var $a = $('<a>', {
-					'class':	'desoSlide_link',
+					'class':	'desoslide-link',
 					'href'		: href,
 					'target'	: '_blank'
 				});
@@ -303,8 +303,8 @@ This source code is under the MIT License
 					$('img', $(p.mainImage)).parent('a').attr('href', href);
 				} else if(aExists && !hrefExists) {
 					// replace the <a> tag with this content
-					var content = $('a.desoSlide_link', $(p.mainImage)).contents();
-					$('a.desoSlide_link', $(p.mainImage)).replaceWith(content);
+					var content = $('a.desoslide-link', $(p.mainImage)).contents();
+					$('a.desoslide-link', $(p.mainImage)).replaceWith(content);
 				} else if(!aExists && hrefExists) {
 					// adding the <a> tag
 					var content = $('.desoSlide-wrapper', $(p.mainImage)).contents();
@@ -340,8 +340,8 @@ This source code is under the MIT License
 				});
 				
 				// adding the controls wrapper
-				if($('a.desoSlide_link', $(p.mainImage)).length > 0) {
-					$controls.appendTo($('a.desoSlide_link', $(p.mainImage)));
+				if($('a.desoslide-link', $(p.mainImage)).length > 0) {
+					$controls.appendTo($('a.desoslide-link', $(p.mainImage)));
 				} else {
 					$controls.appendTo($('.desoSlide-wrapper', $(p.mainImage)));
 				}

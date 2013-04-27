@@ -8,7 +8,7 @@
 }
 
 	#wizard_demo img, #ex1_mainImage img, #ex1_thumbs img, #ex2_mainImage img, #ex2_thumbs img {
-		box-shadow: 0 0 5px #000;
+		box-shadow: 0 0 10px rgba(0,0,0, 0.3);
 	}
 
 #wizard_mainImage {
