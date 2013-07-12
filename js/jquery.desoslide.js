@@ -229,11 +229,12 @@ This source code is under the MIT License
 					
 					// main image position
 					var pos = $('img', $(p.mainImage)).position();
-					
+					var border = parseInt($('img', $(p.mainImage)).css('border'), 10);
+
 					// main image height
-					var w = $('img', $(p.mainImage)).width();
-					var h = $('img', $(p.mainImage)).height();
-					
+					var w = $('img', $(p.mainImage)).width() + border;
+					var h = $('img', $(p.mainImage)).height() + border;
+
 					if($('.desoSlide-overlay', $(p.mainImage)).length == 0) {
 						$('<div>', {
 						'class': 'desoSlide-overlay'
