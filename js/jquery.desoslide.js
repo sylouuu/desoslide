@@ -229,8 +229,8 @@ This source code is under the MIT License
 					
 					// main image position
 					var pos = $('img', $(p.mainImage)).position();
-					var border = parseInt($('img', $(p.mainImage)).css('border'), 10);
-
+					var border = parseInt($('img', $(p.mainImage)).css('border-left-width'), 10);
+					
 					// main image height
 					var w = $('img', $(p.mainImage)).width() + border;
 					var h = $('img', $(p.mainImage)).height() + border;
