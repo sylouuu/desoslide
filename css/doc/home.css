@@ -1,12 +1,7 @@
 /* Custom container */
-.container-narrow {
+.container {
 	margin: 0 auto;
 	max-width: 760px;
-}
-
-#home_main_image {
-	box-shadow: 0 0 10px rgba(0,0,0, 0.3);
-	border-radius:3px;
 }
 
 .home-thumbs {
@@ -17,9 +12,4 @@
 
 	.home-thumbs li {
 		padding: 0px 2px 10px 2px;
-	}
-
-	.home-thumbs img {
-		box-shadow: 0 0 10px rgba(0,0,0, 0.3);
-		border-radius: 3px;
 	}
