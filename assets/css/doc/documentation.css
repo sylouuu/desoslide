@@ -1,42 +1,10 @@
-/* Ribbon form me on github */
-.ribbon {
-	z-index : 9999;
-}
-
 /* Container of documentation page */
 .container {
 	margin    : 0 auto;
 	max-width : 992px;
 }
 
-/* Brand name */
-.navbar-brand {
-	font-size : 22px;
-}
-
-.navbar-item-iframe {
-	position : relative;
-	display  : block;
-	padding  : 14px 15px 11px;
-}
-
-.marketing:first-child {
-	margin-top : 0;
-}
-
 /* Tabs */
 .nav-tabs {
 	margin-bottom : 15px;
 }
-
-/* Item of list */
-.list-unstyled li,
-.list-inline li {
-	margin-bottom : 10px;
-}
-
-/* Utility class to display an element in inline-block */
-.inline-block {
-	display : inline-block;
-}
-
