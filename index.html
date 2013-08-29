@@ -35,22 +35,28 @@
 	<!-- [END] Forkme ribbon -->
 
 	<div class="container">
-		<div class="header">
-			<ul class="nav nav-pills pull-right">
-				<li class="active"><a href="#">Home</a></li>
+		<header class="navbar navbar-default" role="navigation">
+			<a class="navbar-brand" href="#">desoSlide</a>
+
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="./">Home</a></li>
 				<li><a href="documentation.html">Documentation</a></li>
 				<li><a href="tests/">Tests</a></li>
 			</ul>
 
-			<h3 class="text-muted">desoSlide
-
-				<span class="social-buttons inline-block">
-					<iframe src="http://ghbtns.com/github-btn.html?user=sylouuu&amp;repo=desoSlide&amp;type=watch&amp;count=true"></iframe>
-					<iframe src="http://ghbtns.com/github-btn.html?user=sylouuu&amp;repo=desoSlide&amp;type=fork&amp;count=true"></iframe>
-				</span>
-
-			</h3>
-		</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<span class="navbar-item-iframe">
+						<iframe src="http://ghbtns.com/github-btn.html?user=sylouuu&amp;repo=desoSlide&amp;type=watch&amp;count=true"></iframe>
+					</span>
+				</li>
+				<li>
+					<span class="navbar-item-iframe">
+						<iframe src="http://ghbtns.com/github-btn.html?user=sylouuu&amp;repo=desoSlide&amp;type=fork&amp;count=true"></iframe>
+					</span>
+				</li>
+			</ul>
+		</header>
 
 		<div class="jumbotron">
 			<h1>Simple images slider...</h1>
@@ -67,56 +73,63 @@
 		</div>
 
 		<!-- [BEGIN] Demo -->
-		<div class="row marketing">
-			<div id="home_main_image" class="col-lg-8"></div>
+		<div class="row marketing ">
+			<div id="home_main_image" class="col-xs-10 col-sm-10 col-md-10 col-lg-10 text-center"></div>
 
-			<div class="col-lg-4" style="text-align:center;">
-				<ul id="home_demo" class="home-thumbs">
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<ul id="home_demo" class="list-unstyled">
 					<li>
-						<a href="assets/img/examples/wizard/bird.jpg"><img src="assets/img/examples/wizard/bird_thumb.jpg" alt="Bird" data-caption="A bird, click me to open http://chez-syl.fr/" data-href="http://chez-syl.fr/"></a>
+						<a href="assets/img/examples/wizard/bird.jpg"><img src="assets/img/examples/wizard/bird_thumb.jpg" class="img-responsive" alt="Bird" data-caption="A bird, click me to open http://chez-syl.fr/" data-href="http://chez-syl.fr/"></a>
 					</li>
 					<li>
-						<a href="assets/img/examples/wizard/flower.jpg"><img src="assets/img/examples/wizard/flower_thumb.jpg" alt="Flower" data-caption="A flower, click me to open README.md file" data-href="README.md"></a>
+						<a href="assets/img/examples/wizard/flower.jpg"><img src="assets/img/examples/wizard/flower_thumb.jpg" class="img-responsive" alt="Flower" data-caption="A flower, click me to open README.md file" data-href="README.md"></a>
 					</li>
 					<li>
-						<a href="assets/img/examples/wizard/butterfly.jpg"><img src="assets/img/examples/wizard/butterfly_thumb.jpg" alt="Butterfly" data-caption="A butterfly, click me to open LICENSE.md file" data-href="LICENSE.md"></a>
+						<a href="assets/img/examples/wizard/butterfly.jpg"><img src="assets/img/examples/wizard/butterfly_thumb.jpg" class="img-responsive" alt="Butterfly" data-caption="A butterfly, click me to open LICENSE.md file" data-href="LICENSE.md"></a>
 					</li>
 					<li>
-						<a href="assets/img/examples/wizard/rose.jpg"><img src="assets/img/examples/wizard/rose_thumb.jpg" alt="Rose" data-caption="A rose, you can't click me, got no link"></a>
+						<a href="assets/img/examples/wizard/rose.jpg"><img src="assets/img/examples/wizard/rose_thumb.jpg" class="img-responsive" alt="Rose" data-caption="A rose, you can't click me, got no link"></a>
 					</li>
 				</ul>
 			</div>
-
 		</div>
+
+		<hr>
 
 		<!-- [BEGIN] Features -->
 		<div class="row marketing">
-			<div class="col-lg-6">
-				<h4><i class="glyphicon glyphicon-gift"></i> Free</h4>
+			<div class="col-sm-6 col-md-6 col-lg-6 text-center">
+				<div class="h1"><i class="glyphicon glyphicon-gift"></i></div>
+				<h3>Free</h3>
 				<p>This plugin is open source, under the <a href="http://en.wikipedia.org/wiki/MIT_License">MIT license</a>. You may contribute on the GitHub <a href="https://github.com/sylouuu/desoslide">repository</a>.</p>
 			</div>
-			<div class="col-lg-6">
-				<h4><i class="glyphicon glyphicon-play"></i> Controls</h4>
+			<div class="col-sm-6 col-md-6 col-lg-6 text-center">
+				<div class="h1"><i class="glyphicon glyphicon-play"></i></div>
+				<h3>Controls</h3>
 				<p>Control the slider by clicking or pressing your keyboard keys.</p>
 			</div>
 		</div>
 		<div class="row marketing">
-			<div class="col-lg-6">
-				<h4><i class="glyphicon glyphicon-wrench"></i> Customizable</h4>
+			<div class="col-sm-6 col-md-6 col-lg-6 text-center">
+				<div class="h1"><i class="glyphicon glyphicon-wrench"></i></div>
+				<h3>Customizable</h3>
 				<p>Use your own CSS and see all the available options in the <a href="documentation.html">documentation</a>.</p>
 			</div>
-			<div class="col-lg-6">
-				<h4><i class="glyphicon glyphicon-picture"></i> Caption</h4>
+			<div class="col-sm-6 col-md-6 col-lg-6 text-center">
+				<div class="h1"><i class="glyphicon glyphicon-picture"></i></div>
+				<h3>Caption</h3>
 				<p>Specify a caption and a link for each image.</p>
 			</div>
 		</div>
 		<div class="row marketing">
-			<div class="col-lg-6">
-				<h4><i class="glyphicon glyphicon-th-large"></i> Multiple</h4>
+			<div class="col-sm-6 col-md-6 col-lg-6 text-center">
+				<div class="h1"><i class="glyphicon glyphicon-th-large"></i></div>
+				<h3>Multiple</h3>
 				<p>Use several sliders on a same page.</p>
 			</div>
-			<div class="col-lg-6">
-				<h4><i class="glyphicon glyphicon-ok"></i> Tests suite</h4>
+			<div class="col-sm-6 col-md-6 col-lg-6 text-center">
+				<div class="h1"><i class="glyphicon glyphicon-ok"></i></div>
+				<h3>Tests suite</h3>
 				<p>A <a href="https://github.com/pivotal/jasmine">Jasmine</a> tests suite is available, see the <a href="tests/">tests page</a>.</p>
 			</div>
 		</div>
