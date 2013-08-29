@@ -22,6 +22,7 @@
 	bottom: 4px;
 	z-index: 100;
 	opacity:1;
+	padding-right: 10px;
 }
 	.desoSlide-controls-wrapper a:hover {
 		opacity:0.7;
@@ -35,7 +36,7 @@
 }
 
 	/* 16*16 */
-	.desoSlide-controls.prev{ background-position: 0 -54px; width: 16px; height: 16px; } 
-	.desoSlide-controls.pause{ background-position: 0 -18px; width: 16px; height: 16px; } 
-	.desoSlide-controls.play{ background-position: 0 -36px; width: 16px; height: 16px; } 
-	.desoSlide-controls.next{ background-position: 0 0; width: 16px; height: 16px; } 
+	.desoSlide-controls.prev{ background-position: 0 -54px; width: 16px; height: 16px; }
+	.desoSlide-controls.pause{ background-position: 0 -18px; width: 16px; height: 16px; }
+	.desoSlide-controls.play{ background-position: 0 -36px; width: 16px; height: 16px; }
+	.desoSlide-controls.next{ background-position: 0 0; width: 16px; height: 16px; }
