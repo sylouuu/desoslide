@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<title>Documentation &middot; jQuery plugin desoSlide</title>
-		
+
 		<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.min.css" />
+		<link rel="stylesheet" href="css/bootstrap/jumbotron-narrow.css" />
 		<link rel="stylesheet" type="text/css" href="css/jquery.desoslide.css" />
 		<link rel="stylesheet" type="text/css" href="css/doc/github.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/doc/styles.css" />
@@ -36,8 +36,8 @@
 	<!-- [BEGIN] Forkme ribbon -->
 	<a href="https://github.com/sylouuu/desoslide"><img class="ribbon" src="img/forkme_right_red.png" alt="Fork me on GitHub"></a>
 	<!-- [END] Forkme ribbon -->
-	
-	<div class="container-narrow">
+
+	<div class="container">
 		<!-- [BEGIN] Masthead -->
 		<div class="masthead">
 			<ul class="nav nav-pills pull-right">
@@ -46,29 +46,29 @@
 				<li><a href="tests/">Tests</a></li>
 			</ul>
 			<h3 class="muted">desoSlide
-			
+
 				<span class="social-buttons inline-block">
 					<iframe src="http://ghbtns.com/github-btn.html?user=sylouuu&amp;repo=desoSlide&amp;type=watch&amp;count=true"></iframe>
 					<iframe src="http://ghbtns.com/github-btn.html?user=sylouuu&amp;repo=desoSlide&amp;type=fork&amp;count=true"></iframe>
 				</span>
-			
+
 			</h3>
 		</div>
 		<!-- [END] Masthead -->
 
 		<hr>
 		<!-- [BEGIN] Wizard -->
-		<div class="row-fluid marketing">
+		<div class="row marketing">
 			<h2>Wizard by step</h2>
-			<div class="span12">
-				
+			<div class="col-lg-12">
+
 				<ul id="steps" class="nav nav-tabs">
 					<li><a href="#step1" data-toggle="tab">Step 1</a></li>
 					<li><a href="#step2" data-toggle="tab">Step 2</a></li>
 					<li><a href="#step3" data-toggle="tab">Step 3</a></li>
 					<li class="active"><a href="#step4" data-toggle="tab">Result</a></li>
 				</ul>
-				
+
 				<div class="tab-content">
 					<div id="step1" class="tab-pane">
 						<p>
@@ -82,7 +82,7 @@
 							The CSS file is only needed for the caption styles.
 						</p>
 					</div>
-					
+
 					<div id="step2" class="tab-pane">
 						<p>
 							Then, you need to create your thumbnails list with that markup. Don't forget to specify your images links and the <code>alt</code> attribute.
@@ -116,7 +116,7 @@
 							<li>The <code>data-href</code> attribute contains the link to the page that will be active on the main image (optional)</li>
 						</ul>
 					</div>
-					
+
 					<div id="step3" class="tab-pane">
 						<p>
 							Call the plugin "desoSlide" on your list of thumbnails by specifying the target where the main image will be generated:
@@ -130,10 +130,10 @@
 							Here, the main image will be generated inside <code>#mainImage</code>.
 						</p>
 					</div>
-					
+
 					<div id="step4" class="tab-pane active">
 						<p>
-							<button id="go_to_step1" class="btn"><i class="icon-arrow-left"></i> Go to the Step 1</button> to see how to get that.
+							<button id="go_to_step1" class="btn btn-default"><i class="icon-arrow-left"></i> Go to the Step 1</button> to see how to get that.
 						</p>
 
 						<div id="wizard_demo">
@@ -151,26 +151,26 @@
 									<a href="img/examples/wizard/rose.jpg"><img src="img/examples/wizard/rose_thumb.jpg" alt="Rose" data-caption="A rose, you can't click me, got no link"></a>
 								</li>
 							</ul>
-							
+
 							<div id="wizard_mainImage"></div>
 						</div>
-					</div>					
+					</div>
 				</div>
 			</div>
 		</div>
 		<!-- [END] Wizard -->
-		
+
 		<!-- [BEGIN] Examples -->
-		<div class="row-fluid marketing">
+		<div class="row marketing">
 			<h2>Examples</h2>
-			<div class="span12">
+			<div class="col-lg-12">
 				<p class="lead">
 					Displaying the second image at loading. Disabling the caption, no link and no keys.
 				</p>
 			</div>
 		</div>
-		<div class="row-fluid marketing">
-			<div class="span3" style="text-align:right;">
+		<div class="row marketing">
+			<div class="col-lg-3" style="text-align:right;">
 				<ul id="ex1_thumbs">
 					<li>
 						<a href="img/examples/ex1/city.jpg"><img src="img/examples/ex1/city_thumb.jpg" alt="city"></a>
@@ -186,16 +186,16 @@
 					</li>
 				</ul>
 			</div>
-			
-			<div id="ex1_mainImage" class="span9"></div>
+
+			<div id="ex1_mainImage" class="col-lg-9"></div>
 		</div>
-		<div class="row-fluid marketing">
-			<div class="span12">
-				
+		<div class="row marketing">
+			<div class="col-lg-12">
+
 				<ul class="nav nav-tabs">
 					<li class="active"><a href="#ex1_js" data-toggle="tab">Code</a></li>
 				</ul>
-				
+
 				<div class="tab-content">
 					<div id="ex1_js" class="tab-pane active">
 <pre><code>$('#ex1_thumbs').desoSlide({
@@ -210,20 +210,20 @@
 				</div>
 			</div>
 		</div>
-		
-		<div class="row-fluid marketing">
-			<div class="span12">
+
+		<div class="row marketing">
+			<div class="col-lg-12">
 				<p class="lead">
 					Displaying the caption by hovering the main image. No <code>data-href</code> provided and no control.
 				</p>
 			</div>
 		</div>
-		<div class="row-fluid marketing">
+		<div class="row marketing">
 			<div class="12">
 				<div id="ex2_mainImage"></div>
 			</div>
 		</div>
-		<div class="row-fluid marketing">
+		<div class="row marketing">
 			<div class="12">
 				<ul id="ex2_thumbs">
 					<li>
@@ -241,13 +241,13 @@
 				</ul>
 			</div>
 		</div>
-		<div class="row-fluid marketing">
-			<div class="span12">
-				
+		<div class="row marketing">
+			<div class="col-lg-12">
+
 				<ul class="nav nav-tabs">
 					<li class="active"><a href="#ex2_js" data-toggle="tab">Code</a></li>
 				</ul>
-				
+
 				<div class="tab-content">
 					<div id="ex2_js" class="tab-pane active">
 <pre><code>$('#ex2_thumbs').desoSlide({
@@ -261,27 +261,27 @@
 			</div>
 		</div>
 		<!-- [END] Examples -->
-		
-		<div class="row-fluid marketing">
+
+		<div class="row marketing">
 			<h2>Controls</h2>
-			<div class="span12">
+			<div class="col-lg-12">
 				<p>You can control the slider by clicking on the pictos. Previous, pause, play and next are supported. Also, you are able to use your keyboard keys to control it:</p>
-				
+
 				<ul>
 					<li>left arrow: <b>previous</b></li>
 					<li>right arrow: <b>next</b></li>
 					<li>space: toggling <b>play/pause</b></li>
 				</ul>
-				
+
 				<p>As this feature is binded on the document, if you have more than one slider on your page and you press a key, all the slider will be triggered. I recommand to you to enable the keys control on only one slider, by disabling the others with <code>enableControlsKeys: false</code>.</p>
 			</div>
 		</div>
 		<!-- [END] Controls -->
-		
+
 		<!-- [BEGIN] Documentation -->
-		<div class="row-fluid marketing">
+		<div class="row marketing">
 			<h2>Documentation</h2>
-			<div class="span12">
+			<div class="col-lg-12">
 				<p>Find below all the available options.</p>
 				<table class="table table-bordered">
 					<tr>
@@ -295,6 +295,12 @@
 						<td>Your target container</td>
 						<td><code>false</code></td>
 						<td>The main image container. If you don't specify a valid selector, you'll receive an error.</td>
+					</tr>
+					<tr>
+						<td><code>mainImageClass</code></td>
+						<td>String</td>
+						<td><code>'img-responsive'</code> for Boostrap 3 compliance</td>
+						<td>Class(es) name(s) of you main image.</td>
 					</tr>
 					<tr>
 						<td><code>insertion</code></td>
@@ -370,9 +376,9 @@
 					</tr>
 				</table>
 			</div>
-			
+
 			<h2>Return value</h2>
-			<div class="span12">
+			<div class="col-lg-12">
 				<p>The returned value by the <code>.desoSlide()</code> call is the jQuery object in order to maintain the chainability.</p>
 				<p>As explained before, if you want to know if the slider is well generated, use the <code>callback</code> function.</p>
 <pre><code>$('#ex2_thumbs').desoSlide({
@@ -392,11 +398,11 @@
 			</div>
 		</div>
 		<!-- [END] Documentation -->
-		
+
 		<!-- [BEGIN] Browser compatibility -->
-		<div class="row-fluid marketing">
+		<div class="row marketing">
 			<h2>Browser compatibility</h2>
-			<div class="span12">
+			<div class="col-lg-12">
 				<ul>
 					<li>IE 8+</li>
 					<li>Firefox 5+</li>
@@ -407,8 +413,6 @@
 			</div>
 		</div>
 		<!-- [END] Browser compatibility -->
-		
-		<hr>
 
 		<!-- [BEGIN] Footer -->
 		<div class="footer">

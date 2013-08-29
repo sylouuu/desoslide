@@ -1,15 +1,15 @@
-.container-narrow {
+.container {
 	margin: 0 auto;
-	max-width: 920px;
+	max-width: 900px;
+}
+
+#steps {
+	margin-bottom: 20px;
 }
 
 #wizard_demo {
 	text-align:center;
 }
-
-	#wizard_demo img, #ex1_mainImage img, #ex1_thumbs img, #ex2_mainImage img, #ex2_thumbs img {
-		box-shadow: 0 0 10px rgba(0,0,0, 0.3);
-	}
 
 #wizard_mainImage {
 	padding-top: 10px;
