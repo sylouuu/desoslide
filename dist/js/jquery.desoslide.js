@@ -9,20 +9,20 @@ This source code is under the MIT License
 
 		/* Default values */
 		var defaults = {
-			mainImage: false, /* Main image selector */
-			mainImageClass: 'img-responsive', /* Main image class */
-			insertion: 'append', /* Wrapper insertion type */
-			autoLoad: true, /* Preloading images */
-			autoStart: false, /* Autostarting diaporama */
-			firstImg: 0, /* Index of the first image to show */
-			enableCaption: true, /* Show caption: data-caption required */
-			displayCaption: 'always', /* Type of show (caption) 'always' or 'hover' */
-			enableControls: true, /* Able to control (prev/pause/play/next) */
-			enableControlsKeys: true, /* Able to control the slider by using the keyboard shortcuts (left/right/space) */
-			interval: 3000, /* Interval between each image */
-			displayWarnings: true, /* Show warnings in console */
-			displayErrors: true, /* Show errors in console */
-			callback: false /* The slider result ("success", "error" or "warning") */
+			autoLoad: 			true, 				/* Preloading images */
+			autoStart: 			false, 				/* Autostarting diaporama */
+			callback: 			false, 				/* The slider result ("success", "error" or "warning") */
+			displayCaption: 	'always', 			/* Type of show (caption) 'always' or 'hover' */
+			displayErrors: 		true, 				/* Show errors in console */
+			displayWarnings: 	true, 				/* Show warnings in console */
+			enableCaption: 		true, 				/* Show caption: data-caption required */
+			enableControls: 	true, 				/* Able to control (prev/pause/play/next) */
+			enableControlsKeys: true, 				/* Able to control the slider by using the keyboard shortcuts (left/right/space) */
+			firstImg: 			0, 					/* Index of the first image to show */
+			insertion: 			'append', 			/* Wrapper insertion type */
+			interval: 			3000, 				/* Interval between each image */
+			mainImage: 			false, 				/* Main image selector */
+			mainImageClass: 	'img-responsive' 	/* Main image class */
 		};
 
 		/* Extend options */
@@ -173,7 +173,7 @@ This source code is under the MIT License
 				/* Showing the new one */
 				setTimeout(function() {
 					app.displayImg();
-				}, 650);
+				}, 600);
 			},
 
 			/* Displaying the new image */
@@ -217,7 +217,7 @@ This source code is under the MIT License
 					/* Adding overlay */
 					setTimeout(function() {
 						app.addOverlay();
-					}, 650);
+					}, 700);
 
 					/* Starting the loop */
 					if(p.autoStart) {
