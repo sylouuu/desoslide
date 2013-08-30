@@ -18,7 +18,7 @@ This source code is under the MIT License
 			enableCaption: true, /* Show caption: data-caption required */
 			displayCaption: 'always', /* Type of show (caption) 'always' or 'hover' */
 			enableControls: true, /* Able to control (prev/pause/play/next) */
-			enableControlsKeys: true, /* Able to control the slider by using the keyboard shortcuts (left/up/down/right/space) */
+			enableControlsKeys: true, /* Able to control the slider by using the keyboard shortcuts (left/right/space) */
 			interval: 3000, /* Interval between each image */
 			displayWarnings: true, /* Show warnings in console */
 			displayErrors: true, /* Show errors in console */
@@ -35,21 +35,22 @@ This source code is under the MIT License
 		var delay = (function(){
 			var timer = 0;
 			return function(callback, ms){
-				clearTimeout (timer);
+				clearTimeout(timer);
 				timer = setTimeout(callback, ms);
 			};
 		})();
 
-		var $thumbsContainer = this,
-		$thumbs = $('li', $thumbsContainer),
-		thumbsCount = $thumbs.length,
-		currentImg = p.firstImg,
-		imgToShow,
-		$overlay = $('.desoSlide-overlay', $(p.mainImage)),
-		ms = (p.interval < 1500) ? 1500 : p.interval,
-		timer = false, aExists, hrefExists,
-		src, alt, caption, href,
-		$controlsWrapper;
+		var
+			$thumbsContainer = this,
+			$thumbs = $('li', $thumbsContainer),
+			thumbsCount = $thumbs.length,
+			currentImg = p.firstImg,
+			imgToShow,
+			$overlay = $('.desoSlide-overlay', $(p.mainImage)),
+			ms = (p.interval < 1500) ? 1500 : p.interval,
+			timer = false, aExists, hrefExists,
+			src, alt, caption, href,
+			$controlsWrapper;
 
 		// *****************
 		// [END] Variables
@@ -172,7 +173,7 @@ This source code is under the MIT License
 				/* Showing the new one */
 				setTimeout(function() {
 					app.displayImg();
-				}, 500);
+				}, 650);
 			},
 
 			/* Displaying the new image */
@@ -216,7 +217,7 @@ This source code is under the MIT License
 					/* Adding overlay */
 					setTimeout(function() {
 						app.addOverlay();
-					}, 500);
+					}, 650);
 
 					/* Starting the loop */
 					if(p.autoStart) {
@@ -229,7 +230,7 @@ This source code is under the MIT License
 				});
 			},
 
-			/* Adjusting the caption position */
+			/* Adjusting the overlay position */
 			addOverlay: function() {
 				if(p.enableCaption || p.enableControls) {
 					var width = 0;
@@ -245,7 +246,7 @@ This source code is under the MIT License
 
 					if($('.desoSlide-overlay', $(p.mainImage)).length == 0) {
 						$('<div>', {
-						'class': 'desoSlide-overlay'
+							'class': 'desoSlide-overlay'
 						}).appendTo($('.desoSlide-wrapper', $(p.mainImage)));
 					}
 
@@ -304,21 +305,19 @@ This source code is under the MIT License
 				/* The link tag */
 				var $a = $('<a>', {
 					'class':	'desoslide-link',
-					'href'		: href,
-					'target'	: '_blank'
+					'href': 	href,
+					'target': 	'_blank'
 				});
 
 				if(aExists && hrefExists) {
 					/* Update the href */
-					$('img', $(p.mainImage)).parent('a').attr('href', href);
+					 $('a.desoslide-link', $(p.mainImage)).attr('href', href);
 				} else if(aExists && !hrefExists) {
 					/* Replace the <a> tag with this content */
-					var content = $('a.desoslide-link', $(p.mainImage)).contents();
-					$('a.desoslide-link', $(p.mainImage)).replaceWith(content);
+					$('a.desoslide-link', $(p.mainImage)).replaceWith($a);
 				} else if(!aExists && hrefExists) {
 					/* Adding the link tag */
-					var content = $('.desoSlide-wrapper', $(p.mainImage)).contents();
-					$a.appendTo($('.desoSlide-wrapper', $(p.mainImage))).html(content);
+					$('.desoSlide-wrapper', $(p.mainImage)).append($a);
 				}
 
 				/* Add controls */
