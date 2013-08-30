@@ -3,7 +3,7 @@ $(function() {
 	// *****************
 	// [BEGIN] Scenario 1 & 2
 	// *****************
-	
+
 	describe('The mainImage param', function() {
 		it('isn\'t specified: error expected', function() {
 			$('#scenario1_thumbs').desoSlide({
@@ -25,7 +25,7 @@ $(function() {
 			});
 		});
 	});
-	
+
 	// *****************
 	// [END] Scenario 1 & 2
 	// *****************
@@ -60,7 +60,7 @@ $(function() {
 	// *****************
 	// [END] Scenario 3 & 4
 	// *****************
-	
+
 	// *****************
 	// [BEGIN] Scenario 5
 	// *****************
@@ -79,11 +79,11 @@ $(function() {
 			});
 		});
 	});
-	
+
 	// *****************
 	// [END] Scenario 5
 	// *****************
-	
+
 	// *****************
 	// [BEGIN] Scenario 6
 	// *****************
@@ -101,15 +101,15 @@ $(function() {
 			});
 		});
 	});
-	
+
 	// *****************
 	// [END] Scenario 6
 	// *****************
-	
+
 	// *****************
 	// [BEGIN] Scenario 7
 	// *****************
-	
+
 	describe('The insertion param', function() {
 		it('has a bad value: error expected', function() {
 			$('#scenario5_thumbs').desoSlide({
@@ -123,15 +123,15 @@ $(function() {
 			});
 		});
 	});
-	
+
 	// *****************
 	// [END] Scenario 7
 	// *****************
-	
+
 	// *****************
 	// [BEGIN] Scenario 8
 	// *****************
-	
+
 	describe('The data-caption attribute', function() {
 		it('isn\'t specified: warning expected', function() {
 			$('#scenario5_thumbs').desoSlide({
@@ -144,15 +144,15 @@ $(function() {
 			});
 		});
 	});
-	
+
 	// *****************
 	// [END] Scenario 8
 	// *****************
-	
+
 	// *****************
 	// [BEGIN] Scenario 9
 	// *****************
-	
+
 	describe('The alt attribute', function() {
 		it('isn\'t specified: warning expected', function() {
 			$('#scenario9_thumbs').desoSlide({
@@ -165,15 +165,15 @@ $(function() {
 			});
 		});
 	});
-	
+
 	// *****************
 	// [END] Scenario 9
 	// *****************
-	
+
 	// *****************
 	// [BEGIN] Scenario 10 & 11
 	// *****************
-	
+
 	describe('The slider is well generated', function() {
 		it('without caption: success expected', function() {
 			$('#scenario10_thumbs').desoSlide({
@@ -197,9 +197,31 @@ $(function() {
 			});
 		});
 	});
-	
+
 	// *****************
 	// [END] Scenario 10 & 11
 	// *****************
-	
+
+	// *****************
+	// [BEGIN] Scenario 12
+	// *****************
+
+	describe('The effect param', function() {
+		it('has a bad value: error expected', function() {
+			$('#scenario10_thumbs').desoSlide({
+				mainImage: '#scenario10',
+				effect: 'test',
+				displayWarnings: false,
+				displayErrors: false,
+				callback: function(result) {
+					expect(result).toEqual('error');
+				}
+			});
+		});
+	});
+
+	// *****************
+	// [END] Scenario 12
+	// *****************
+
 });

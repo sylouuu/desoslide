@@ -15,7 +15,7 @@ This source code is under the MIT License
 			displayCaption: 	'always', 			/* Type of show (caption) 'always' or 'hover' */
 			displayErrors: 		true, 				/* Show errors in console */
 			displayWarnings: 	true, 				/* Show warnings in console */
-			effect:  			'roll',				/* Transition effect ("fade", ) */
+			effect:  			'fade',				/* Transition effect ("fade", "flip", "light", "roll", "rotate") */
 			enableCaption: 		true, 				/* Show caption: data-caption required */
 			enableControls: 	true, 				/* Able to control (prev/pause/play/next) */
 			enableControlsKeys: true, 				/* Able to control the slider by using the keyboard shortcuts (left/right/space) */
@@ -184,6 +184,10 @@ This source code is under the MIT License
 					'roll': {
 						'in': 'rollIn',
 						'out': 'rollOut'
+					},
+					'rotate': {
+						'in': 'rotateIn',
+						'out': 'rotateOut'
 					}
 				};
 

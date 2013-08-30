@@ -8,7 +8,6 @@
 
 		<link rel="stylesheet" href="assets/css/doc/documentation.css">
 
-		<link rel="stylesheet" href="assets/css/animate-custom.css">
 		<link rel="stylesheet" href="dist/css/jquery.desoslide.css">
 
 		<script src="assets/js/jquery/jquery.js"></script>
@@ -229,11 +228,12 @@
 				<div class="tab-content">
 					<div id="ex1_js" class="tab-pane active">
 <pre><code>$('#ex1_thumbs').desoSlide({
-	mainImage: '#ex1_mainImage',
 	autoStart: true,
-	firstImg: 1,
+	effect: 'roll',
 	enableCaption: false,
-	enableControlsKeys: false
+	enableControlsKeys: false,
+	firstImg: 1,
+	mainImage: '#ex1_mainImage'
 });
 </code></pre>
 					</div>
@@ -281,9 +281,10 @@
 				<div class="tab-content">
 					<div id="ex2_js" class="tab-pane active">
 <pre><code>$('#ex2_thumbs').desoSlide({
-	mainImage: '#ex2_mainImage',
+	effect: 'flip',
+	enableControls: false,
 	displayCaption: 'hover',
-	enableControls: false
+	mainImage: '#ex2_mainImage'
 });
 </code></pre>
 					</div>
@@ -326,24 +327,6 @@
 						<th>Description</th>
 					</tr>
 					<tr>
-						<td><code>mainImage</code></td>
-						<td>Your target container</td>
-						<td><code>false</code></td>
-						<td>The main image container. If you don't specify a valid selector, you'll receive an error.</td>
-					</tr>
-					<tr>
-						<td><code>mainImageClass</code></td>
-						<td>String</td>
-						<td><code>'img-responsive'</code> for BS3 compliance</td>
-						<td>Class(es) name(s) of you main image.</td>
-					</tr>
-					<tr>
-						<td><code>insertion</code></td>
-						<td><code>'append'</code>, <code>'prepend'</code> or <code>'replace'</code></td>
-						<td><code>'append</code></td>
-						<td>How to create the main image, by appending, prepending or replace all the selector's content (overwriting).</td>
-					</tr>
-					<tr>
 						<td><code>autoLoad</code></td>
 						<td>Boolean</td>
 						<td><code>true</code></td>
@@ -356,22 +339,40 @@
 						<td>Autostarting a diaporama.</td>
 					</tr>
 					<tr>
-						<td><code>firstImg</code></td>
-						<td>An integer between 0 and the number of thumbnails (-1)</td>
-						<td><code>0</code></td>
-						<td>The index of the thumbnail that you want to display first.</td>
+						<td><code>callback</code></td>
+						<td>function(result)</td>
+						<td><code>false</code></td>
+						<td>Get the slider result. The first argument outputs one of these values: "success", "error" or "warning".</td>
+					</tr>
+					<tr>
+						<td><code>displayCaption</code></td>
+						<td><code>'always'</code> <code>'hover'</code></td>
+						<td><code>'always'</code></td>
+						<td>How to show the main image caption.</td>
+					</tr>
+					<tr>
+						<td><code>displayErrors</code></td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+						<td>Show errors in the developer console. Be sure to put it <code>false</code> in production. If the render isn't ok, enable the errors then debug.</td>
+					</tr>
+					<tr>
+						<td><code>displayWarnings</code></td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+						<td>Show warnings in the developer console. Be sure to put it <code>false</code> in production.</td>
+					</tr>
+					<tr>
+						<td><code>effect</code></td>
+						<td><code>'fade'</code> <code>'flip'</code> <code>'light'</code> <code>'roll'</code> <code>'rotate'</code></td>
+						<td><code>'fade'</code></td>
+						<td>Transition effects. They are provided by <a href="http://daneden.me/animate/">animate.css</a>.</td>
 					</tr>
 					<tr>
 						<td><code>enableCaption</code></td>
 						<td>Boolean</td>
 						<td><code>true</code></td>
 						<td>Enable or not the main image caption. If <code>true</code>, be sure that you have specify the <code>data-caption</code> attribute on thumbnails.</td>
-					</tr>
-					<tr>
-						<td><code>displayCaption</code></td>
-						<td><code>'always'</code> or <code>'hover'</code></td>
-						<td><code>'always'</code></td>
-						<td>How to show the main image caption.</td>
 					</tr>
 					<tr>
 						<td><code>enableControls</code></td>
@@ -386,28 +387,34 @@
 						<td>Able to control the slider by using the keyboard shortcuts (left/right/space).</td>
 					</tr>
 					<tr>
+						<td><code>firstImg</code></td>
+						<td>An integer between 0 and the number of thumbnails (-1)</td>
+						<td><code>0</code></td>
+						<td>The index of the thumbnail that you want to display first.</td>
+					</tr>
+					<tr>
+						<td><code>insertion</code></td>
+						<td><code>'append'</code> <code>'prepend'</code> <code>'replace'</code></td>
+						<td><code>'append</code></td>
+						<td>How to create the main image, by appending, prepending or replace all the selector's content (overwriting).</td>
+					</tr>
+					<tr>
 						<td><code>interval</code></td>
 						<td>An integer, minimum 1500</td>
 						<td><code>3000</code></td>
 						<td>Interval in milliseconds between each image.</td>
 					</tr>
 					<tr>
-						<td><code>displayWarnings</code></td>
-						<td>Boolean</td>
-						<td><code>true</code></td>
-						<td>Show warnings in the developer console. Be sure to put it <code>false</code> in production.</td>
-					</tr>
-					<tr>
-						<td><code>displayErrors</code></td>
-						<td>Boolean</td>
-						<td><code>true</code></td>
-						<td>Show errors in the developer console. Be sure to put it <code>false</code> in production. If the render isn't ok, enable the errors then debug.</td>
-					</tr>
-					<tr>
-						<td><code>callback</code></td>
-						<td>function(result)</td>
+						<td><code>mainImage</code></td>
+						<td>Your target container</td>
 						<td><code>false</code></td>
-						<td>Get the slider result. The first argument outputs one of these values: "success", "error" or "warning".</td>
+						<td>The main image container. If you don't specify a valid selector, you'll receive an error.</td>
+					</tr>
+					<tr>
+						<td><code>mainImageClass</code></td>
+						<td>String</td>
+						<td><code>'img-responsive'</code> for BS3 compliance</td>
+						<td>Class(es) name(s) of you main image.</td>
 					</tr>
 				</table>
 			</div>
