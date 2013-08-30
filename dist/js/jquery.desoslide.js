@@ -15,6 +15,7 @@ This source code is under the MIT License
 			displayCaption: 	'always', 			/* Type of show (caption) 'always' or 'hover' */
 			displayErrors: 		true, 				/* Show errors in console */
 			displayWarnings: 	true, 				/* Show warnings in console */
+			effect:  			'roll',				/* Transition effect ("fade", ) */
 			enableCaption: 		true, 				/* Show caption: data-caption required */
 			enableControls: 	true, 				/* Able to control (prev/pause/play/next) */
 			enableControlsKeys: true, 				/* Able to control the slider by using the keyboard shortcuts (left/right/space) */
@@ -32,7 +33,7 @@ This source code is under the MIT License
 		// [BEGIN] Variables
 		// *****************
 
-		var delay = (function(){
+		var delay = (function() {
 			var timer = 0;
 			return function(callback, ms){
 				clearTimeout(timer);
@@ -50,7 +51,7 @@ This source code is under the MIT License
 			ms = (p.interval < 1500) ? 1500 : p.interval,
 			timer = false, aExists, hrefExists,
 			src, alt, caption, href,
-			$controlsWrapper;
+			$controlsWrapper, effects;
 
 		// *****************
 		// [END] Variables
@@ -113,7 +114,6 @@ This source code is under the MIT License
 			// *****************
 
 			init: function() {
-
 				/* Auto load images */
 				if(p.autoLoad) {
 					$('a', $thumbs).each(function(i, item) {
@@ -123,6 +123,8 @@ This source code is under the MIT License
 						}).hide().appendTo('body');
 					});
 				}
+
+				app.effectHandler();
 
 				app.addWrapper();
 			},
@@ -144,7 +146,6 @@ This source code is under the MIT License
 
 				/* The img tag */
 				var $img = $('<img>').addClass(p.mainImageClass).css('opacity', 0);
-				// var $img = $('<img>').addClass(p.mainImageClass).hide();
 
 				/* DOM insertion */
 				switch(p.insertion) {
@@ -165,10 +166,45 @@ This source code is under the MIT License
 				app.displayImg();
 			},
 
+			effectHandler: function() {
+				/* Available effects with in/out matches */
+				effects = {
+					'fade': { /* Default */
+						'in': 'fadeIn',
+						'out': 'fadeOut'
+					},
+					'flip': {
+						'in': 'flipInX',
+						'out': 'flipOutX'
+					},
+					'light': {
+						'in': 'lightSpeedIn',
+						'out': 'lightSpeedOut'
+					},
+					'roll': {
+						'in': 'rollIn',
+						'out': 'rollOut'
+					}
+				};
+
+				/* Bad effect value */
+				if(!(p.effect in effects)) {
+					var i = 0;
+					$.each(effects, function(key, item) {
+						if(i == 0) {
+							p.effect = key; /* Get the default effect */
+						}
+						i++;
+					});
+					app.resultHandler('error', 'Bad value for the "effect" param. Default value is used. Check out the documentation.');
+				}
+
+			},
+
 			/* Making the out image effect */
 			outEffect: function() {
 				/* Hiding the old one */
-				$('img', $(p.mainImage)).removeClass('animated fadeInRight').addClass('animated fadeOutLeft');
+				$('img', $(p.mainImage)).removeClass('animated '+ effects[p.effect].in).addClass('animated '+ effects[p.effect].out);
 
 				/* Showing the new one */
 				setTimeout(function() {
@@ -212,7 +248,7 @@ This source code is under the MIT License
 				}).one('load', function() {
 
 					/* Showing */
-					$(this).removeClass('animated fadeOutLeft').addClass('animated fadeInRight');
+					$(this).removeClass('animated '+ effects[p.effect].out).addClass('animated '+ effects[p.effect].in);
 
 					/* Adding overlay */
 					setTimeout(function() {

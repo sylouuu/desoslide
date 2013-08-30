@@ -19,6 +19,7 @@ $(function() {
 	});
 
 	$('#ex2_thumbs').desoSlide({
+		effect: 'flip',
 		displayCaption: 'hover',
 		enableControls: false,
 		mainImage: '#ex2_mainImage'
