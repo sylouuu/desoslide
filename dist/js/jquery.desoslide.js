@@ -231,13 +231,10 @@ This source code is under the MIT License
 					/* Main image position */
 					var pos = $('img', $(p.mainImage)).position();
 					var border = parseInt($('img', $(p.mainImage)).css('border-left-width'), 10);
-					console.log('border:'+ border);
 
 					/* Main image height */
 					var w = $('img', $(p.mainImage)).width() + border;
 					var h = $('img', $(p.mainImage)).height() + border;
-
-					console.log('taille de l\'image, w:'+ w +' h:'+ h);
 
 					if($('.desoSlide-overlay', $(p.mainImage)).length == 0) {
 						$('<div>', {
@@ -249,20 +246,13 @@ This source code is under the MIT License
 
 					width = w;
 
-					/* Calculate new height with padding-top */
+					/* Calculate new height with paddings */
 					var paddingTop = parseInt($overlay.css('padding-top').replace('px', ''), 10);
 					var paddingBottom = parseInt($overlay.css('padding-bottom').replace('px', ''), 10);
+					var paddingLeft = parseInt($overlay.css('padding-left').replace('px', ''), 10);
+					var paddingRight = parseInt($overlay.css('padding-right').replace('px', ''), 10);
 
-
-					var overlayMinHeight = parseInt($overlay.css('min-height').replace('px', ''), 10);
-
-					/* min-height specified */
-					if(overlayMinHeight) {
-						var overlayHeight = overlayMinHeight;
-					} else {
-						var overlayHeight = parseInt($overlay.css('height').replace('px', ''), 10);
-					}
-
+					var overlayHeight = parseInt($overlay.css('height').replace('px', ''), 10) - (paddingLeft + paddingRight);
 					overlayHeight = (parseInt(h, 10) - overlayHeight - (paddingTop + paddingBottom));
 
 					var top = pos.top + overlayHeight;
