@@ -142,7 +142,8 @@ This source code is under the MIT License
 				});
 
 				/* The img tag */
-				var $img = $('<img>').addClass(p.mainImageClass).hide();
+				var $img = $('<img>').addClass(p.mainImageClass).css('opacity', 0);
+				// var $img = $('<img>').addClass(p.mainImageClass).hide();
 
 				/* DOM insertion */
 				switch(p.insertion) {
@@ -163,9 +164,20 @@ This source code is under the MIT License
 				app.displayImg();
 			},
 
+			/* Making the out image effect */
+			outEffect: function() {
+				/* Hiding the old one */
+				$('img', $(p.mainImage)).removeClass('animated fadeInRight').addClass('animated fadeOutLeft');
+
+				/* Showing the new one */
+				setTimeout(function() {
+					app.displayImg();
+				}, 500);
+			},
 
 			/* Displaying the new image */
 			displayImg: function() {
+				/* Callback */
 				app.resultHandler();
 
 				imgToShow = 0;
@@ -184,46 +196,41 @@ This source code is under the MIT License
 				imgToShow = currentImg;
 
 				/* Data */
-				src = $('a', $thumbs).eq(imgToShow).attr('href');
-				alt = $('img', $thumbs).eq(imgToShow).attr('alt');
+				src 	= $('a', $thumbs).eq(imgToShow).attr('href');
+				alt 	= $('img', $thumbs).eq(imgToShow).attr('alt');
 				caption = $('img', $thumbs).eq(imgToShow).data('caption');
-				href = $('img', $thumbs).eq(imgToShow).data('href');
+				href 	= $('img', $thumbs).eq(imgToShow).data('href');
 
 				/* Checking the data */
 				app.checkData();
 
-				var self = this;
-				var $image;
-				$('img', $(p.mainImage)).stop().show().animate({
-					opacity: 0
-				}, 400, function() {
-					$(this).attr({
-						'src': src,
-						'alt': alt,
-						'data-caption': caption
-					}).one('load', function() {
-						$(this).stop().animate({
-							opacity: 1
-						}, 400, function() {
-							app.addOverlay();
+				$('img', $(p.mainImage)).attr({
+					'src': src,
+					'alt': alt,
+					'data-caption': caption
+				}).one('load', function() {
 
-							/* Starting the loop */
-							if(p.autoStart) {
-								currentImg++;
+					/* Showing */
+					$(this).removeClass('animated fadeOutLeft').addClass('animated fadeInRight');
 
-								timer = setTimeout(function() {
-									app.displayImg();
-								}, ms);
-							}
+					/* Adding overlay */
+					setTimeout(function() {
+						app.addOverlay();
+					}, 500);
 
-						});
-					});
-				})
+					/* Starting the loop */
+					if(p.autoStart) {
+						currentImg++;
+
+						timer = setTimeout(function() {
+							app.outEffect();
+						}, ms);
+					}
+				});
 			},
 
 			/* Adjusting the caption position */
 			addOverlay: function() {
-
 				if(p.enableCaption || p.enableControls) {
 					var width = 0;
 					var height = 0;
@@ -377,7 +384,7 @@ This source code is under the MIT License
 						currentImg++;
 					}
 
-					app.displayImg();
+					app.outEffect();
 
 					$('a[href="#play"]', $controlsWrapper).hide().parent().find('a[href="#pause"]').show();
 				}
@@ -435,7 +442,7 @@ This source code is under the MIT License
 						currentImg = $this.parent('li').index();
 
 						/* Call the displayer */
-						app.displayImg();
+						app.outEffect();
 
 						app.pause();
 					}
@@ -513,7 +520,7 @@ This source code is under the MIT License
 				$(p.mainImage).on('prev.desoslide', function() {
 					app.pause();
 					currentImg--;
-					app.displayImg();
+					app.outEffect();
 				});
 
 				/* On pause */
@@ -530,7 +537,7 @@ This source code is under the MIT License
 				$(p.mainImage).on('next.desoslide', function() {
 					app.pause();
 					currentImg++;
-					app.displayImg();
+					app.outEffect();
 				});
 
 				/* New caption position when resizing */
