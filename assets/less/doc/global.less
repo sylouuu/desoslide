@@ -20,9 +20,9 @@ body {
 	right    : 0;
 	border   : 0;
 
-	// Apply z-index only for screen > 768px
-	@media (min-width : 768px) {
-		z-index : 9999;
+	// Hide ribbon only for screen < 768px
+	@media (max-width : 768px) {
+		display : none;
 	}
 }
 
