@@ -1,8 +1,8 @@
 // [BEGIN] home demo
 $(function() {
 	$('#home_demo').desoSlide({
-		mainImage: '#home_main_image',
-		insertion: 'replace'
+		insertion: 'replace',
+		mainImage: '#home_main_image'
 	});
 });
 // [END] home demo
