@@ -6,12 +6,12 @@ $(function() {
 	});
 
 	$('#wizard_thumbs').desoSlide({
-		displayCaption: 'always',
 		mainImage: '#wizard_mainImage'
 	});
 
 	$('#ex1_thumbs').desoSlide({
 		autoStart: true,
+		effect: 'roll',
 		enableCaption: false,
 		enableControlsKeys: false,
 		firstImg: 1,
@@ -20,8 +20,8 @@ $(function() {
 
 	$('#ex2_thumbs').desoSlide({
 		effect: 'flip',
-		displayCaption: 'hover',
 		enableControls: false,
+		displayCaption: 'hover',
 		mainImage: '#ex2_mainImage'
 	});
 
