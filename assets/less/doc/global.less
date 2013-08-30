@@ -1,93 +1,120 @@
+/**!
+ * GLOBAL CSS
+ */
+
 body {
-	padding-top: 10px;
-	padding-bottom: 20px;
+	padding-top    : 10px;
+	padding-bottom : 20px;
 }
 
-/* Container */
+// Container
 .container {
-	margin: 0 auto;
-	max-width: 992px;
+	max-width : 992px;
+	margin    : 0 auto;
 }
 
-/* Ribbon form me on github */
+// Ribbon form me on github
 .ribbon {
-	position: absolute;
-	top: 0;
-	right: 0;
-	border: 0;
-	z-index : 9999;
+	position : absolute;
+	top      : 0;
+	right    : 0;
+	border   : 0;
+
+	// Apply z-index only for screen > 768px
+	@media (min-width : 768px) {
+		z-index : 9999;
+	}
 }
 
-/* Brand name */
+
+// Brand name
 .navbar-brand {
 	font-size : 22px;
 }
 
 .navbar-item-iframe {
-	position : relative;
 	display  : block;
+	position : relative;
 	padding  : 14px 5px 11px;
+
+	@media (max-width : 768px) {
+		float : left;
+	}
 }
 
-.container > hr {
-	margin: 20px 0;
+@media (max-width : 768px) {
+
+	ul.navbar-right {
+		margin       : 0;
+		padding-left : 10px;
+	}
 }
 
-/* Main marketing message and sign up button */
+.container {
+
+	> hr {
+		margin : 20px 0;
+	}
+}
+
+// Main marketing message and sign up button
 .jumbotron {
-	margin: 0;
-	text-align: center;
+	margin     : 0;
+	text-align : center;
+
+	h1 {
+		font-size   : 2.5em;
+		line-height : 1;
+	}
+
+	.btn {
+		padding   : 14px 24px;
+		font-size : 21px;
+	}
 }
-
-	.jumbotron h1 {
-		font-size: 2.5em;
-		line-height: 1;
-	}
-
-	.jumbotron .btn {
-		font-size: 21px;
-		padding: 14px 24px;
-	}
 
 .masthead-links {
-	margin: 0;
-	list-style: none;
+	margin     : 0;
+	list-style : none;
+
+	li {
+
+		display : inline;
+		padding : 0 10px;
+		color   : #949494;
+	}
 }
 
-.masthead-links li {
-	display: inline;
-	padding: 0 10px;
-	color: #949494;
-}
-
-/* Marketing */
+// Marketing
 .marketing {
-	margin: 20px 0;
-}
+	margin : 20px 0;
 
-.marketing:first-child {
-	margin-top : 0;
-}
+	p + h4 {
+		margin-top: 28px;
+	}
 
-.marketing p + h4 {
-	margin-top: 28px;
+	&:first-child {
+		margin-top : 0;
+	}
 }
 
 iframe {
-    background-color: transparent;
-	border: 0;
-	overflow: hidden;
-	width: 90px;
-	height: 20px;
+	height           : 20px;
+	width            : 90px;
+	border           : 0;
+    background-color : transparent;
+	overflow         : hidden;
 }
 
-/* Item of list */
-.list-unstyled li,
-.list-inline li {
-	margin-bottom : 10px;
+// Item of list
+.list-unstyled,
+.list-inline {
+	li {
+		margin-bottom : 10px;
+	}
 }
 
-/* Utility class to display an element in inline-block */
+// Utility class to display an element in inline-block
 .inline-block {
 	display : inline-block;
 }
