@@ -1,8 +1,12 @@
-// [BEGIN] home demo
 $(function() {
 	$('#home_demo').desoSlide({
-		insertion: 'replace',
-		mainImage: '#home_main_image'
+		main: {
+			container: '#home_main_image',
+			cssClass: 'img-responsive'
+		},
+		auto: {
+			start: true
+		},
+		caption: true
 	});
 });
-// [END] home demo
