@@ -1,29 +1,48 @@
-// [BEGIN] documentation demo
 $(function() {
 
+	/* Link to first tab */
 	$('#go_to_step1').on('click', function() {
 		$('ul.nav-tabs a:first').tab('show');
 	});
 
+	/* Wizard example */
 	$('#wizard_thumbs').desoSlide({
-		mainImage: '#wizard_mainImage'
+		main: {
+			container: '#wizard_mainImage',
+			cssClass: 'img-responsive'
+		},
+		caption: true
 	});
 
+	/* First example */
 	$('#ex1_thumbs').desoSlide({
-		autoStart: true,
+		main: {
+			container: '#ex1_mainImage',
+			cssClass: 'img-responsive'
+		},
+		auto: {
+			start: true
+		},
+		first: 1,
 		effect: 'roll',
-		enableCaption: false,
-		enableControlsKeys: false,
-		firstImg: 1,
-		mainImage: '#ex1_mainImage'
+		controls: {
+			keys: false
+		}
 	});
 
+	/* Second example */
 	$('#ex2_thumbs').desoSlide({
+		main: {
+			container: '#ex2_mainImage',
+			cssClass: 'img-responsive'
+		},
 		effect: 'flip',
-		enableControls: false,
-		displayCaption: 'hover',
-		mainImage: '#ex2_mainImage'
+		overlay: 'hover',
+		caption: true,
+		controls: {
+			enable: false,
+			keys: false
+		}
 	});
 
 });
-// [END] documentation demo
