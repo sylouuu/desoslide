@@ -5,7 +5,7 @@ Copyright - 2013 - https://github.com/sylouuu/desoslide
 This source code is under the MIT License
 */
 (function($) {
-    $.fn.desoSlide = function(options) {
+	$.fn.desoSlide = function(options) {
 
 		/* Default values */
 		var defaults = {
@@ -612,5 +612,5 @@ This source code is under the MIT License
 
 		return this;
 
-    };
+	};
 })(jQuery);
