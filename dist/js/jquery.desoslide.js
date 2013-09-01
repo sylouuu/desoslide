@@ -5,29 +5,37 @@ Copyright - 2013 - https://github.com/sylouuu/desoslide
 This source code is under the MIT License
 */
 (function($) {
-    $.fn.desoSlide = function(options) {
+	$.fn.desoSlide = function(options) {
 
 		/* Default values */
 		var defaults = {
-			autoLoad: 			true, 				/* Preloading images */
-			autoStart: 			false, 				/* Autostarting diaporama */
-			callback: 			false, 				/* The slider result ("success", "error" or "warning") */
-			displayCaption: 	'always', 			/* Type of show (caption) 'always' or 'hover' */
-			displayErrors: 		true, 				/* Show errors in console */
-			displayWarnings: 	true, 				/* Show warnings in console */
-			effect:  			'fade',				/* Transition effect ("fade", "flip", "light", "roll", "rotate") */
-			enableCaption: 		true, 				/* Show caption: data-caption required */
-			enableControls: 	true, 				/* Able to control (prev/pause/play/next) */
-			enableControlsKeys: true, 				/* Able to control the slider by using the keyboard shortcuts (left/right/space) */
-			firstImg: 			0, 					/* Index of the first image to show */
-			insertion: 			'append', 			/* Wrapper insertion type */
-			interval: 			3000, 				/* Interval between each image */
-			mainImage: 			false, 				/* Main image selector */
-			mainImageClass: 	'img-responsive' 	/* Main image class */
+			main: {
+				container: 	false, 		/* Container for the main image */
+				cssClass: 	'', 		/* Main image class */
+				insertion: 	'append'	/* Wrapper insertion type ("prepend", "append", "replace") */
+			},
+			auto: {
+				load: 		true, 		/* Preloading images */
+				start: 		false 		/* Autostarting diaporama */
+			},
+			first: 			0, 			/* Index of the first image to show */
+			interval: 		3000, 		/* Interval between each image */
+			effect:  		'fade',		/* Transition effect ("fade", "flip", "light", "roll", "rotate") */
+			overlay: 		'always', 	/* Type of show ("always" or "hover") */
+			caption: 		false, 		/* Show caption: data-caption attribute required */
+			controls: {
+				enable: 	true, 		/* Able to control by clicking (prev/pause/play/next) */
+				keys: 		true 		/* Able to control by using the keyboard shortcuts (left/right/space) */
+			},
+			log: {
+				errors: 	true, 		/* Log errors in console */
+				warnings: 	true 		/* Log warnings in console */
+			},
+			result: 		false 		/* The slider result ("success", "error", "warning") */
 		};
 
 		/* Extend options */
-		var p = $.extend(defaults, options);
+		var p = $.extend(true, defaults, options);
 
 		// *****************
 		// [BEGIN] Variables
@@ -45,9 +53,9 @@ This source code is under the MIT License
 			$thumbsContainer = this,
 			$thumbs = $('li', $thumbsContainer),
 			thumbsCount = $thumbs.length,
-			currentImg = p.firstImg,
+			currentImg = p.first,
 			imgToShow,
-			$overlay = $('.desoSlide-overlay', $(p.mainImage)),
+			$overlay = $('.desoSlide-overlay', $(p.main.container)),
 			ms = (p.interval < 1500) ? 1500 : p.interval,
 			timer = false, aExists, hrefExists,
 			src, alt, caption, href,
@@ -69,33 +77,33 @@ This source code is under the MIT License
 					app.resultHandler('error', $thumbsContainer.selector +' doesn\'t exist.');
 				}
 
-				/* mainImage param checks */
-				if(!p.mainImage) {
-					app.resultHandler('error', 'You must specify the "mainImage" param. Check out the documentation.');
+				/* main.container param checks */
+				if(!p.main.container) {
+					app.resultHandler('error', 'You must specify the "main.container" param. Check out the documentation.');
 				} else {
 					/* iIf the container does not exist */
-					if($(p.mainImage).length == 0) {
-						app.resultHandler('error', $(p.mainImage).selector +' doesn\'t exist.');
+					if($(p.main.container).length == 0) {
+						app.resultHandler('error', $(p.main.container).selector +' doesn\'t exist.');
 					}
 				}
 
-				/* displayCaption param checker */
-				if(p.displayCaption != 'always' && p.displayCaption != 'hover') {
-					app.resultHandler('error', 'Bad value for the "displayCaption" param. Check out the documentation.');
+				/* overlay param checker */
+				if(p.overlay != 'always' && p.overlay != 'hover') {
+					app.resultHandler('error', 'Bad value for the "caption.display" param. Check out the documentation.');
 				}
 
 				if(currentImg >= thumbsCount) {
 					if(thumbsCount == 0) {
 						app.resultHandler('error', 'You must have at least 1 thumbnail.');
 					} else {
-						app.resultHandler('error', 'The "firstImg" param must be between 0 and '+ (thumbsCount - 1) +'.');
+						app.resultHandler('error', 'The "first" param must be between 0 and '+ (thumbsCount - 1) +'.');
 					}
 				}
 			},
 
 			checkData: function() {
 				/* Captions checks */
-				if(p.enableCaption && (typeof caption === 'undefined' || caption == '')) {
+				if(p.caption && (typeof caption === 'undefined' || caption == '')) {
 					app.resultHandler('warning', 'The captions are enabled and the data-caption attribute is missing on a thumb. Add it or disable captions. Check out the documention.');
 				}
 
@@ -115,7 +123,7 @@ This source code is under the MIT License
 
 			init: function() {
 				/* Auto load images */
-				if(p.autoLoad) {
+				if(p.auto.load) {
 					$('a', $thumbs).each(function(i, item) {
 						$('<img>', {
 							src: item.href,
@@ -145,18 +153,18 @@ This source code is under the MIT License
 				});
 
 				/* The img tag */
-				var $img = $('<img>').addClass(p.mainImageClass).css('opacity', 0);
+				var $img = $('<img>').addClass(p.main.cssClass).css('opacity', 0);
 
 				/* DOM insertion */
-				switch(p.insertion) {
+				switch(p.main.insertion) {
 					case 'prepend':
-						$img.prependTo($(p.mainImage)).wrap($wrapper);
+						$img.prependTo($(p.main.container)).wrap($wrapper);
 					break;
 					case 'append':
-						$img.appendTo($(p.mainImage)).wrap($wrapper);
+						$img.appendTo($(p.main.container)).wrap($wrapper);
 					break;
 					case 'replace':
-						$(p.mainImage).html($img).wrapInner($wrapper);
+						$(p.main.container).html($img).wrapInner($wrapper);
 					break;
 					default:
 						app.resultHandler('error', 'Bad value for the "insertion" param. Check out the documentation.');
@@ -208,7 +216,7 @@ This source code is under the MIT License
 			/* Making the out image effect */
 			outEffect: function() {
 				/* Hiding the old one */
-				$('img', $(p.mainImage)).removeClass('animated '+ effects[p.effect].in).addClass('animated '+ effects[p.effect].out);
+				$('img', $(p.main.container)).removeClass('animated '+ effects[p.effect].in).addClass('animated '+ effects[p.effect].out);
 
 				/* Showing the new one */
 				setTimeout(function() {
@@ -245,7 +253,7 @@ This source code is under the MIT License
 				/* Checking the data */
 				app.checkData();
 
-				$('img', $(p.mainImage)).attr({
+				$('img', $(p.main.container)).attr({
 					'src': src,
 					'alt': alt,
 					'data-caption': caption
@@ -260,7 +268,7 @@ This source code is under the MIT License
 					}, 700);
 
 					/* Starting the loop */
-					if(p.autoStart) {
+					if(p.auto.start) {
 						currentImg++;
 
 						timer = setTimeout(function() {
@@ -272,25 +280,25 @@ This source code is under the MIT License
 
 			/* Adjusting the overlay position */
 			addOverlay: function() {
-				if(p.enableCaption || p.enableControls) {
+				if(p.caption || p.controls.enable) {
 					var width = 0;
 					var height = 0;
 
 					/* Main image position */
-					var pos = $('img', $(p.mainImage)).position();
-					var border = parseInt($('img', $(p.mainImage)).css('border-left-width'), 10);
+					var pos = $('img', $(p.main.container)).position();
+					var border = parseInt($('img', $(p.main.container)).css('border-left-width'), 10);
 
 					/* Main image height */
-					var w = $('img', $(p.mainImage)).width() + border;
-					var h = $('img', $(p.mainImage)).height() + border;
+					var w = $('img', $(p.main.container)).width() + border;
+					var h = $('img', $(p.main.container)).height() + border;
 
-					if($('.desoSlide-overlay', $(p.mainImage)).length == 0) {
+					if($('.desoSlide-overlay', $(p.main.container)).length == 0) {
 						$('<div>', {
 							'class': 'desoSlide-overlay'
-						}).appendTo($('.desoSlide-wrapper', $(p.mainImage)));
+						}).appendTo($('.desoSlide-wrapper', $(p.main.container)));
 					}
 
-					$overlay = $('.desoSlide-overlay', $(p.mainImage));
+					$overlay = $('.desoSlide-overlay', $(p.main.container));
 
 					width = w;
 
@@ -306,30 +314,34 @@ This source code is under the MIT License
 					var top = pos.top + overlayHeight;
 					var left = pos.left;
 
-					/* Update the caption */
+					/* Update the overlay position */
 					$overlay.css({
-						'left': left +'px',
-						'top': top +'px',
-						'width': width +'px'
+						'left': 	left +'px',
+						'top': 		top +'px',
+						'width': 	width +'px'
 					});
 
 					/* Showing the overlay if needed */
-					if(p.displayCaption == 'always') {
+					if(p.overlay == 'always') {
 						$overlay.animate({
 							opacity: 0.7
 						}, 500);
 					}
 
 					/* Add caption */
-					if(p.enableCaption) {
+					if(p.caption) {
 						app.updateCaption();
+						app.addLink();
 					}
 
-					app.addLink();
 				} else {
 					app.addLink();
 				}
 
+				/* Add controls */
+				if(p.controls.enable) {
+					app.addControls();
+				}
 			},
 
 			/* Updating the caption */
@@ -339,7 +351,7 @@ This source code is under the MIT License
 
 			/* Adding the link on the main image & caption */
 			addLink: function() {
-				aExists = ($('a.desoslide-link', $(p.mainImage)).length > 0) ? true : false;
+				aExists = ($('a.desoslide-link', $(p.main.container)).length > 0) ? true : false;
 				hrefExists = (typeof href !== 'undefined' && href != '') ? true : false;
 
 				/* The link tag */
@@ -351,25 +363,19 @@ This source code is under the MIT License
 
 				if(aExists && hrefExists) {
 					/* Update the href */
-					 $('a.desoslide-link', $(p.mainImage)).attr('href', href);
+					 $('a.desoslide-link', $(p.main.container)).attr('href', href);
 				} else if(aExists && !hrefExists) {
 					/* Replace the <a> tag with this content */
-					$('a.desoslide-link', $(p.mainImage)).replaceWith($a);
+					$('a.desoslide-link', $(p.main.container)).replaceWith($a);
 				} else if(!aExists && hrefExists) {
 					/* Adding the link tag */
-					$('.desoSlide-wrapper', $(p.mainImage)).append($a);
+					$('.desoSlide-wrapper', $(p.main.container)).append($a);
 				}
-
-				/* Add controls */
-				if(p.enableControls) {
-					app.addControls();
-				}
-
 			},
 
 			/* Add controls */
 			addControls: function() {
-				$('.desoSlide-controls-wrapper', $(p.mainImage)).remove();
+				$('.desoSlide-controls-wrapper', $(p.main.container)).remove();
 
 				/* Controls buttons */
 				var $prev	= '<a href="#prev"><span class="desoSlide-controls prev"></span></a>';
@@ -389,15 +395,15 @@ This source code is under the MIT License
 				});
 
 				/* Adding the controls wrapper */
-				if($('a.desoslide-link', $(p.mainImage)).length > 0) {
-					$controls.appendTo($('a.desoslide-link', $(p.mainImage)));
+				if($('a.desoslide-link', $(p.main.container)).length > 0) {
+					$controls.appendTo($('a.desoslide-link', $(p.main.container)));
 				} else {
-					$controls.appendTo($('.desoSlide-wrapper', $(p.mainImage)));
+					$controls.appendTo($('.desoSlide-wrapper', $(p.main.container)));
 				}
 
-				$controlsWrapper = $('.desoSlide-controls-wrapper', $(p.mainImage));
+				$controlsWrapper = $('.desoSlide-controls-wrapper', $(p.main.container));
 
-				if(p.autoStart) {
+				if(p.auto.start) {
 					$('a[href="#play"]', $controlsWrapper).hide().parent().find('a[href="#pause"]').show();
 				} else {
 					$('a[href="#pause"]', $controlsWrapper).hide().parent().find('a[href="#play"]').show();
@@ -405,8 +411,8 @@ This source code is under the MIT License
 			},
 
 			pause: function() {
-				if(p.autoStart && timer) {
-					p.autoStart = false;
+				if(p.auto.start && timer) {
+					p.auto.start = false;
 
 					clearTimeout(timer);
 					currentImg--;
@@ -416,8 +422,8 @@ This source code is under the MIT License
 			},
 
 			play: function() {
-				if(!p.autoStart) {
-					p.autoStart = true;
+				if(!p.auto.start) {
+					p.auto.start = true;
 
 					if(imgToShow == currentImg) {
 						currentImg++;
@@ -432,26 +438,26 @@ This source code is under the MIT License
 			resultHandler: function(type, msg) {
 				switch(type) {
 					case 'error':
-						if(p.displayErrors && typeof console !== 'undefined') {
+						if(p.log.errors && typeof console !== 'undefined') {
 							console.error('desoSlide: '+ msg);
 						}
 
-						if(p.callback) {
-							p.callback('error');
+						if(p.result) {
+							p.result('error');
 						}
 					break;
 					case 'warning':
-						if(p.displayWarnings && typeof console !== 'undefined') {
+						if(p.log.warnings && typeof console !== 'undefined') {
 							console.warn('desoSlide: '+ msg);
 						}
 
-						if(p.callback) {
-							p.callback('warning');
+						if(p.result) {
+							p.result('warning');
 						}
 					break;
 					default:
-						if(p.callback) {
-							p.callback('success');
+						if(p.result) {
+							p.result('success');
 						}
 					break;
 				}
@@ -474,7 +480,7 @@ This source code is under the MIT License
 
 					/* If the clicked image is not already displayed */
 					if($this.parent('li').index() !== currentImg) {
-						/* Hiding the caption */
+						/* Hiding the overlay */
 						$overlay.animate({ opacity: 0 });
 
 						/* Set the current image index */
@@ -501,9 +507,9 @@ This source code is under the MIT License
 					}
 				});
 
-				/* Hover on caption */
-				if(p.displayCaption == 'hover') {
-					$(p.mainImage).on({
+				/* Hover on overlay */
+				if(p.overlay == 'hover') {
+					$(p.main.container).on({
 						mouseover: function() {
 							$overlay.stop().animate({
 								opacity: 0.7
@@ -517,71 +523,71 @@ This source code is under the MIT License
 					});
 				}
 
-				if(p.enableControls && p.enableControlsKeys) {
+				if(p.controls.enable && p.controls.keys) {
 					/* Keys binder */
 					$(document).on('keydown', function(e){
 						switch(e.which) {
 							case 37: /* Left arrow */
-								$(p.mainImage).trigger('prev.desoslide');
+								$(p.main.container).trigger('prev.desoslide');
 							break;
 							case 39: /* Right arrow */
-								$(p.mainImage).trigger('next.desoslide');
+								$(p.main.container).trigger('next.desoslide');
 							break;
 							case 32: /* Space */
 								e.preventDefault();
-								(!p.autoStart) ? $(p.mainImage).trigger('play.desoslide') : $(p.mainImage).trigger('pause.desoslide');
+								(!p.auto.start) ? $(p.main.container).trigger('play.desoslide') : $(p.main.container).trigger('pause.desoslide');
 							break;
 						}
 					});
 				}
 
 				/* Click on control */
-				$(p.mainImage).on('click', '.desoSlide-controls-wrapper a', $(p.mainImage), function(e) {
+				$(p.main.container).on('click', '.desoSlide-controls-wrapper a', $(p.main.container), function(e) {
 					e.preventDefault();
 
 					switch($(this).attr('href')) {
 						case '#prev':
-							$(p.mainImage).trigger('prev.desoslide');
+							$(p.main.container).trigger('prev.desoslide');
 						break;
 						case '#pause':
-							$(p.mainImage).trigger('pause.desoslide');
+							$(p.main.container).trigger('pause.desoslide');
 						break;
 						case '#play':
-							$(p.mainImage).trigger('play.desoslide');
+							$(p.main.container).trigger('play.desoslide');
 						break;
 						case '#next':
-							$(p.mainImage).trigger('next.desoslide');
+							$(p.main.container).trigger('next.desoslide');
 						break;
 					}
 				});
 
 				/* On prev */
-				$(p.mainImage).on('prev.desoslide', function() {
+				$(p.main.container).on('prev.desoslide', function() {
 					app.pause();
 					currentImg--;
 					app.outEffect();
 				});
 
 				/* On pause */
-				$(p.mainImage).on('pause.desoslide', function() {
+				$(p.main.container).on('pause.desoslide', function() {
 					app.pause();
 				});
 
 				/* On play */
-				$(p.mainImage).on('play.desoslide', function() {
+				$(p.main.container).on('play.desoslide', function() {
 					app.play();
 				});
 
 				/* On next */
-				$(p.mainImage).on('next.desoslide', function() {
+				$(p.main.container).on('next.desoslide', function() {
 					app.pause();
 					currentImg++;
 					app.outEffect();
 				});
 
-				/* New caption position when resizing */
+				/* New overlay position when resizing */
 				$(window).bind('resize', function() {
-					if(p.enableCaption && app.resultHandler.selector == $thumbsContainer.selector) {
+					if(p.caption && app.resultHandler.selector == $thumbsContainer.selector) {
 						delay(function(){
 							app.addOverlay();
 						}, 100);
@@ -606,5 +612,5 @@ This source code is under the MIT License
 
 		return this;
 
-    };
+	};
 })(jQuery);
