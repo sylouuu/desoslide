@@ -1,0 +1,22 @@
+﻿Revert "test conflict"
+
+This reverts commit c0b98c3bf324993f8f55bfcda138651a95b889b8, reversing
+changes made to 1911598352ccfd1867c1a9313871104245f77565.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   assets/css/doc/documentation.css
+#	modified:   assets/css/doc/home.css
+#	deleted:    assets/less/doc/documentation.css
+#	modified:   assets/less/doc/documentation.less
+#	modified:   assets/less/doc/home.less
+#	modified:   dist/css/jquery.desoslide.css
+#	modified:   documentation.html
+#	modified:   index.html
+#	modified:   tests/tests.js
+#
+

@@ -140,15 +140,10 @@
 							Call the plugin "desoSlide" on your list of thumbnails by specifying the target where the main image will be generated:
 						</p>
 <pre><code>$(function() {
-    $('#my_thumbs').desoSlide({
-        main: {
-            container: '#wizard_mainImage',
-            cssClass: 'img-responsive'
-        },
-        caption: true
-    });
-});
-</code></pre>
+	$('#my_thumbs').desoSlide({
+		mainImage: '#mainImage'
+	});
+});</code></pre>
 						<p>
 							Here, the main image will be generated inside <code>#mainImage</code>.
 						</p>
@@ -197,11 +192,7 @@
 				<div class="page-header">
 					<h2>Examples</h2>
 				</div>
-<<<<<<< HEAD
 				<p class="lead">Displaying the second image at loading. Disabling the caption, no link and no keys.</p>
-=======
-				<p class="lead">Autostarting, displaying the second image at loading. No link and no keys. Just standard controls.</p>
->>>>>>> origin/gh-pages
 			</div>
 		</div>
 		<div class="row marketing">
@@ -234,27 +225,12 @@
 				<div class="tab-content">
 					<div id="ex1_js" class="tab-pane active">
 <pre><code>$('#ex1_thumbs').desoSlide({
-<<<<<<< HEAD
 	autoStart: true,
 	effect: 'roll',
 	enableCaption: false,
 	enableControlsKeys: false,
 	firstImg: 1,
 	mainImage: '#ex1_mainImage'
-=======
-    main: {
-        container: '#ex1_mainImage',
-        cssClass: 'img-responsive'
-    },
-    auto: {
-        start: true
-    },
-    first: 1,
-    effect: 'roll',
-    controls: {
-        keys: false
-    }
->>>>>>> origin/gh-pages
 });
 </code></pre>
 					</div>
@@ -265,7 +241,7 @@
 		<div class="row marketing">
 			<div class="col-lg-12">
 				<p class="lead">
-					Displaying the overlay by hovering the main image. No link provided and no controls.
+					Displaying the caption by hovering the main image. No <code>data-href</code> provided and no control.
 				</p>
 			</div>
 		</div>
@@ -302,24 +278,10 @@
 				<div class="tab-content">
 					<div id="ex2_js" class="tab-pane active">
 <pre><code>$('#ex2_thumbs').desoSlide({
-<<<<<<< HEAD
 	effect: 'flip',
 	enableControls: false,
 	displayCaption: 'hover',
 	mainImage: '#ex2_mainImage'
-=======
-    main: {
-        container: '#ex2_mainImage',
-        cssClass: 'img-responsive'
-    },
-    effect: 'flip',
-    overlay: 'hover',
-    caption: true,
-    controls: {
-        enable: false,
-        keys: false
-    }
->>>>>>> origin/gh-pages
 });
 </code></pre>
 					</div>
@@ -352,11 +314,7 @@
 			<div class="page-header">
 				<h2>Options</h2>
 			</div>
-<<<<<<< HEAD
 			<div class="col-lg-12">
-=======
-			<div class="col-lg-12 table-responsive">
->>>>>>> origin/gh-pages
 				<p>Find below all the available options.</p>
 				<table class="table table-bordered">
 					<tr>
@@ -434,11 +392,7 @@
 					<tr>
 						<td><code>insertion</code></td>
 						<td><code>'append'</code> <code>'prepend'</code> <code>'replace'</code></td>
-<<<<<<< HEAD
 						<td><code>'append</code></td>
-=======
-						<td><code>'append'</code></td>
->>>>>>> origin/gh-pages
 						<td>How to create the main image, by appending, prepending or replace all the selector's content (overwriting).</td>
 					</tr>
 					<tr>
@@ -456,11 +410,7 @@
 					<tr>
 						<td><code>mainImageClass</code></td>
 						<td>String</td>
-<<<<<<< HEAD
 						<td><code>'img-responsive'</code> for BS3 compliance</td>
-=======
-						<td><code>''</code></td>
->>>>>>> origin/gh-pages
 						<td>Class(es) name(s) of you main image.</td>
 					</tr>
 				</table>
