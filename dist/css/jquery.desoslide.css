@@ -5,6 +5,7 @@ Copyright - 2013 - https://github.com/sylouuu/desoslide
 This source code is under the MIT License
 */
 .animated{-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-ms-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-duration:0.5s;-moz-animation-duration:0.5s;-ms-animation-duration:0.5s;-o-animation-duration:0.5s;animation-duration:0.5s;}.animated.hinge{-webkit-animation-duration:0.5s;-moz-animation-duration:0.5s;-ms-animation-duration:0.5s;-o-animation-duration:0.5s;animation-duration:0.5s;}@-webkit-keyframes flipInX {
+<<<<<<< HEAD
     0% {
         -webkit-transform: perspective(400px) rotateX(90deg);
         opacity: 0;
@@ -77,6 +78,80 @@ This source code is under the MIT License
         transform: perspective(400px) rotateX(0deg);
         opacity: 1;
     }
+=======
+	0% {
+		-webkit-transform: perspective(400px) rotateX(90deg);
+		opacity: 0;
+	} 40% {
+		-webkit-transform: perspective(400px) rotateX(-10deg);
+	}
+
+	70% {
+		-webkit-transform: perspective(400px) rotateX(10deg);
+	}
+
+	100% {
+		-webkit-transform: perspective(400px) rotateX(0deg);
+		opacity: 1;
+	}
+}
+@-moz-keyframes flipInX {
+	0% {
+		-moz-transform: perspective(400px) rotateX(90deg);
+		opacity: 0;
+	}
+
+	40% {
+		-moz-transform: perspective(400px) rotateX(-10deg);
+	}
+
+	70% {
+		-moz-transform: perspective(400px) rotateX(10deg);
+	}
+
+	100% {
+		-moz-transform: perspective(400px) rotateX(0deg);
+		opacity: 1;
+	}
+}
+@-o-keyframes flipInX {
+	0% {
+		-o-transform: perspective(400px) rotateX(90deg);
+		opacity: 0;
+	}
+
+	40% {
+		-o-transform: perspective(400px) rotateX(-10deg);
+	}
+
+	70% {
+		-o-transform: perspective(400px) rotateX(10deg);
+	}
+
+	100% {
+		-o-transform: perspective(400px) rotateX(0deg);
+		opacity: 1;
+	}
+}
+@keyframes flipInX {
+	0% {
+		transform: perspective(400px) rotateX(90deg);
+		opacity: 0;
+	}
+
+	40% {
+		transform: perspective(400px) rotateX(-10deg);
+	}
+
+	70% {
+		transform: perspective(400px) rotateX(10deg);
+	}
+
+	100% {
+		transform: perspective(400px) rotateX(0deg);
+		opacity: 1;
+	}
+>>>>>>> origin/gh-pages
 }
 
 .flipInX {
@@ -90,6 +165,7 @@ This source code is under the MIT License
 	animation-name: flipInX;
 }
 @-webkit-keyframes flipOutX {
+<<<<<<< HEAD
     0% {
         -webkit-transform: perspective(400px) rotateX(0deg);
         opacity: 1;
@@ -131,6 +207,49 @@ This source code is under the MIT License
         transform: perspective(400px) rotateX(90deg);
         opacity: 0;
     }
+=======
+	0% {
+		-webkit-transform: perspective(400px) rotateX(0deg);
+		opacity: 1;
+	}
+	100% {
+		-webkit-transform: perspective(400px) rotateX(90deg);
+		opacity: 0;
+	}
+}
+
+@-moz-keyframes flipOutX {
+	0% {
+		-moz-transform: perspective(400px) rotateX(0deg);
+		opacity: 1;
+	}
+	100% {
+		-moz-transform: perspective(400px) rotateX(90deg);
+		opacity: 0;
+	}
+}
+
+@-o-keyframes flipOutX {
+	0% {
+		-o-transform: perspective(400px) rotateX(0deg);
+		opacity: 1;
+	}
+	100% {
+		-o-transform: perspective(400px) rotateX(90deg);
+		opacity: 0;
+	}
+}
+
+@keyframes flipOutX {
+	0% {
+		transform: perspective(400px) rotateX(0deg);
+		opacity: 1;
+	}
+	100% {
+		transform: perspective(400px) rotateX(90deg);
+		opacity: 0;
+	}
+>>>>>>> origin/gh-pages
 }
 
 .flipOutX {
@@ -345,6 +464,7 @@ This source code is under the MIT License
 }
 
 .lightSpeedIn {
+<<<<<<< HEAD
     -webkit-animation-name: lightSpeedIn;
     -moz-animation-name: lightSpeedIn;
     -o-animation-name: lightSpeedIn;
@@ -357,6 +477,20 @@ This source code is under the MIT License
 }
 @-webkit-keyframes lightSpeedOut {
     0% { -webkit-transform: translateX(0%) skewX(0deg); opacity: 1; }
+=======
+	-webkit-animation-name: lightSpeedIn;
+	-moz-animation-name: lightSpeedIn;
+	-o-animation-name: lightSpeedIn;
+	animation-name: lightSpeedIn;
+
+	-webkit-animation-timing-function: ease-out;
+	-moz-animation-timing-function: ease-out;
+	-o-animation-timing-function: ease-out;
+	animation-timing-function: ease-out;
+}
+@-webkit-keyframes lightSpeedOut {
+	0% { -webkit-transform: translateX(0%) skewX(0deg); opacity: 1; }
+>>>>>>> origin/gh-pages
 	100% { -webkit-transform: translateX(100%) skewX(-30deg); opacity: 0; }
 }
 
@@ -376,6 +510,7 @@ This source code is under the MIT License
 }
 
 .lightSpeedOut {
+<<<<<<< HEAD
     -webkit-animation-name: lightSpeedOut;
     -moz-animation-name: lightSpeedOut;
     -o-animation-name: lightSpeedOut;
@@ -385,6 +520,17 @@ This source code is under the MIT License
     -moz-animation-timing-function: ease-in;
     -o-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
+=======
+	-webkit-animation-name: lightSpeedOut;
+	-moz-animation-name: lightSpeedOut;
+	-o-animation-name: lightSpeedOut;
+	animation-name: lightSpeedOut;
+
+	-webkit-animation-timing-function: ease-in;
+	-moz-animation-timing-function: ease-in;
+	-o-animation-timing-function: ease-in;
+	animation-timing-function: ease-in;
+>>>>>>> origin/gh-pages
 }
 /* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
 
@@ -417,48 +563,80 @@ This source code is under the MIT License
 /* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
 
 @-webkit-keyframes rollOut {
+<<<<<<< HEAD
     0% {
+=======
+	0% {
+>>>>>>> origin/gh-pages
 		opacity: 1;
 		-webkit-transform: translateX(0px) rotate(0deg);
 	}
 
+<<<<<<< HEAD
     100% {
+=======
+	100% {
+>>>>>>> origin/gh-pages
 		opacity: 0;
 		-webkit-transform: translateX(100%) rotate(120deg);
 	}
 }
 
 @-moz-keyframes rollOut {
+<<<<<<< HEAD
     0% {
+=======
+	0% {
+>>>>>>> origin/gh-pages
 		opacity: 1;
 		-moz-transform: translateX(0px) rotate(0deg);
 	}
 
+<<<<<<< HEAD
     100% {
+=======
+	100% {
+>>>>>>> origin/gh-pages
 		opacity: 0;
 		-moz-transform: translateX(100%) rotate(120deg);
 	}
 }
 
 @-o-keyframes rollOut {
+<<<<<<< HEAD
     0% {
+=======
+	0% {
+>>>>>>> origin/gh-pages
 		opacity: 1;
 		-o-transform: translateX(0px) rotate(0deg);
 	}
 
+<<<<<<< HEAD
     100% {
+=======
+	100% {
+>>>>>>> origin/gh-pages
 		opacity: 0;
 		-o-transform: translateX(100%) rotate(120deg);
 	}
 }
 
 @keyframes rollOut {
+<<<<<<< HEAD
     0% {
+=======
+	0% {
+>>>>>>> origin/gh-pages
 		opacity: 1;
 		transform: translateX(0px) rotate(0deg);
 	}
 
+<<<<<<< HEAD
     100% {
+=======
+	100% {
+>>>>>>> origin/gh-pages
 		opacity: 0;
 		transform: translateX(100%) rotate(120deg);
 	}
