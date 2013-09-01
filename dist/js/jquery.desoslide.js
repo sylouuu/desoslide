@@ -21,7 +21,7 @@ This source code is under the MIT License
 			first: 			0, 			/* Index of the first image to show */
 			interval: 		3000, 		/* Interval between each image */
 			effect:  		'fade',		/* Transition effect ("fade", "flip", "light", "roll", "rotate") */
-			overlay: 		'always', 	/* Type of show ("always" or "hover") */
+			overlay: 		'always', 	/* How to show overlay ("always" or "hover") */
 			caption: 		false, 		/* Show caption: data-caption attribute required */
 			controls: {
 				enable: 	true, 		/* Able to control by clicking (prev/pause/play/next) */

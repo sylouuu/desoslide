@@ -342,40 +342,46 @@
 						<th>Description</th>
 					</tr>
 					<tr>
-						<td><code>autoLoad</code></td>
-						<td>Boolean</td>
-						<td><code>true</code></td>
-						<td>All thumbnails links (full size images) are auto loaded in background (invisible).</td>
+						<td><code>main.container</code></td>
+						<td>Your target container</td>
+						<td><code>false</code></td>
+						<td>Container for the main image. If you don't specify a valid selector, you'll receive an error.</td>
 					</tr>
 					<tr>
-						<td><code>autoStart</code></td>
+						<td><code>main.cssClass</code></td>
+						<td>String</td>
+						<td><code>''</code></td>
+						<td>Class(es) name(s) of your main image.</td>
+					</tr>
+					<tr>
+						<td><code>main.insertion</code></td>
+						<td><code>'append'</code> <code>'prepend'</code> <code>'replace'</code></td>
+						<td><code>'append'</code></td>
+						<td>How to create the main image, by prepending, appending or replace all the selector's content (overwriting).</td>
+					</tr>
+					<tr>
+						<td><code>auto.load</code></td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+						<td>All thumbnails links (full size images) are auto loaded in background (invisible). </td>
+					</tr>
+					<tr>
+						<td><code>auto.start</code></td>
 						<td>Boolean</td>
 						<td><code>false</code></td>
 						<td>Autostarting a diaporama.</td>
 					</tr>
 					<tr>
-						<td><code>callback</code></td>
-						<td>function(result)</td>
-						<td><code>false</code></td>
-						<td>Get the slider result. The first argument outputs one of these values: "success", "error" or "warning".</td>
+						<td><code>first</code></td>
+						<td>Integer between 0 and the number of thumbnails (-1)</td>
+						<td><code>0</code></td>
+						<td>The index of the thumbnail that you want to display first.</td>
 					</tr>
 					<tr>
-						<td><code>displayCaption</code></td>
-						<td><code>'always'</code> <code>'hover'</code></td>
-						<td><code>'always'</code></td>
-						<td>How to show the main image caption.</td>
-					</tr>
-					<tr>
-						<td><code>displayErrors</code></td>
-						<td>Boolean</td>
-						<td><code>true</code></td>
-						<td>Show errors in the developer console. Be sure to put it <code>false</code> in production. If the render isn't ok, enable the errors then debug.</td>
-					</tr>
-					<tr>
-						<td><code>displayWarnings</code></td>
-						<td>Boolean</td>
-						<td><code>true</code></td>
-						<td>Show warnings in the developer console. Be sure to put it <code>false</code> in production.</td>
+						<td><code>interval</code></td>
+						<td>Integer, minimum 1500</td>
+						<td><code>3000</code></td>
+						<td>Interval in milliseconds between each image.</td>
 					</tr>
 					<tr>
 						<td><code>effect</code></td>
@@ -384,52 +390,46 @@
 						<td>Transition effects. They are provided by <a href="http://daneden.me/animate/">animate.css</a>.</td>
 					</tr>
 					<tr>
-						<td><code>enableCaption</code></td>
+						<td><code>overlay</code></td>
+						<td><code>'always'</code> <code>'hover'</code></td>
+						<td><code>'always'</code></td>
+						<td>How to show overlay.</td>
+					</tr>
+					<tr>
+						<td><code>caption</code></td>
 						<td>Boolean</td>
-						<td><code>true</code></td>
-						<td>Enable or not the main image caption. If <code>true</code>, be sure that you have specify the <code>data-caption</code> attribute on thumbnails.</td>
-					</tr>
-					<tr>
-						<td><code>enableControls</code></td>
-						<td>Boolean</td>
-						<td><code>true</code></td>
-						<td>Able to control the slider (prev/pause/play/next).</td>
-					</tr>
-					<tr>
-						<td><code>enableControlsKeys</code></td>
-						<td>Boolean</td>
-						<td><code>true</code></td>
-						<td>Able to control the slider by using the keyboard shortcuts (left/right/space).</td>
-					</tr>
-					<tr>
-						<td><code>firstImg</code></td>
-						<td>An integer between 0 and the number of thumbnails (-1)</td>
-						<td><code>0</code></td>
-						<td>The index of the thumbnail that you want to display first.</td>
-					</tr>
-					<tr>
-						<td><code>insertion</code></td>
-						<td><code>'append'</code> <code>'prepend'</code> <code>'replace'</code></td>
-						<td><code>'append'</code></td>
-						<td>How to create the main image, by appending, prepending or replace all the selector's content (overwriting).</td>
-					</tr>
-					<tr>
-						<td><code>interval</code></td>
-						<td>An integer, minimum 1500</td>
-						<td><code>3000</code></td>
-						<td>Interval in milliseconds between each image.</td>
-					</tr>
-					<tr>
-						<td><code>mainImage</code></td>
-						<td>Your target container</td>
 						<td><code>false</code></td>
-						<td>The main image container. If you don't specify a valid selector, you'll receive an error.</td>
+						<td>If <code>true</code>, be sure that you have specify the <code>data-caption</code> attribute on thumbnails.</td>
 					</tr>
 					<tr>
-						<td><code>mainImageClass</code></td>
-						<td>String</td>
-						<td><code>''</code></td>
-						<td>Class(es) name(s) of you main image.</td>
+						<td><code>controls.enable</code></td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+						<td>Able to control by clicking (prev/pause/play/next).</td>
+					</tr>
+					<tr>
+						<td><code>controls.keys</code></td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+						<td> Able to control by using the keyboard shortcuts (left/right/space)</td>
+					</tr>
+					<tr>
+						<td><code>log.errors</code></td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+						<td>Log errors in console. Be sure to put it <code>false</code> in production. If the render isn't ok, enable the errors then debug.</td>
+					</tr>
+					<tr>
+						<td><code>log.warnings</code></td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+						<td>Log warnings in console. Be sure to put it <code>false</code> in production.</td>
+					</tr>
+					<tr>
+						<td><code>result</code></td>
+						<td>function(result)</td>
+						<td><code>false</code></td>
+						<td>Get the slider result. The first argument outputs one of these values: "success", "error" or "warning".</td>
 					</tr>
 				</table>
 			</div>
@@ -443,19 +443,21 @@
 			</div>
 			<div class="col-lg-12">
 				<p>The returned value by the <code>.desoSlide()</code> call is the jQuery object in order to maintain the chainability.</p>
-				<p>As explained before, if you want to know if the slider is well generated, use the <code>callback</code> function.</p>
-<pre><code>$('#ex2_thumbs').desoSlide({
-	mainImage: '#ex2_mainImage',
-	callback: function(result) {
-		switch(result) {
-			case 'success': // success handler
-			break;
-			case 'error': // error handler
-			break;
-			case 'warning': // warning handler
-			break;
-		}
-	}
+				<p>As explained before, if you want to know if the slider is well generated, use the <code>result</code> function.</p>
+<pre><code>$('#demo_thumbs').desoSlide({
+    main: {
+        container: '#demo'
+    },
+    result: function(result) {
+        switch(result) {
+            case 'success': // success handler
+            break;
+            case 'error': // error handler
+            break;
+            case 'warning': // warning handler
+            break;
+        }
+    }
 });
 </code></pre>
 			</div>
