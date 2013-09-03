@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Documentation &middot; jQuery plugin desoSlide</title>
+
+		<link rel="stylesheet" href="assets/css/doc/documentation.css">
+
+		<link rel="stylesheet" href="dist/css/jquery.desoslide.css">
+
+		<script src="assets/js/jquery/jquery.js"></script>
+
+		<!--[if !IE]><!-->
+			<script src="assets/js/doc/highlight.min.js"></script>
+		<!--<![endif]-->
+
+		<script src="assets/js/bootstrap/bootstrap.min.js"></script>
+		<script src="dist/js/jquery.desoslide.js"></script>
+		<script src="assets/js/doc/documentation.js"></script>
+		<script>
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-27524593-3']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+	</head>
+<body>
+	<!-- [BEGIN] Forkme ribbon -->
+	<a href="https://github.com/sylouuu/desoslide"><img class="ribbon" src="assets/img/forkme_right_red.png" alt="Fork me on GitHub"></a>
+	<!-- [END] Forkme ribbon -->
+
+	<div class="container">
+		<header class="navbar navbar-default">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-home-collapse">
+			      	<span class="sr-only">Toggle navigation</span>
+			      	<span class="icon-bar"></span>
+			      	<span class="icon-bar"></span>
+			      	<span class="icon-bar"></span>
+			    </button>
+				<a class="navbar-brand" href="./">desoSlide</a>
+			</div>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<span class="navbar-item-iframe">
+						<iframe src="http://ghbtns.com/github-btn.html?user=sylouuu&amp;repo=desoSlide&amp;type=watch&amp;count=true"></iframe>
+					</span>
+				</li>
+				<li>
+					<span class="navbar-item-iframe">
+						<iframe src="http://ghbtns.com/github-btn.html?user=sylouuu&amp;repo=desoSlide&amp;type=fork&amp;count=true"></iframe>
+					</span>
+				</li>
+			</ul>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-home-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="./">Home</a></li>
+					<li class="active"><a href="documentation.html">Documentation</a></li>
+					<li><a href="tests/">Tests</a></li>
+				</ul>
+			</div>
+		</header>
+
+		<!-- [BEGIN] Wizard -->
+		<div class="row marketing">
+			<div class="page-header">
+				<h1>Wizard by step</h1>
+			</div>
+
+			<div class="col-lg-12">
+
+				<ul class="nav nav-tabs">
+					<li><a href="#step1" data-toggle="tab">Step 1</a></li>
+					<li><a href="#step2" data-toggle="tab">Step 2</a></li>
+					<li><a href="#step3" data-toggle="tab">Step 3</a></li>
+					<li class="active"><a href="#step4" data-toggle="tab">Result</a></li>
+				</ul>
+
+				<div class="tab-content">
+					<div id="step1" class="tab-pane">
+						<p>
+							At first, include jQuery and the desoSlide files in your page:
+						</p>
+<pre><code>&lt;link rel="stylesheet" href="css/jquery.desoslide.css" />
+
+&lt;script src="js/jquery.js">&lt;/script>
+&lt;script src="js/jquery.desoslide.js">&lt;/script></code></pre>
+						<p>
+							The CSS file is only needed for the caption styles.
+						</p>
+					</div>
+
+					<div id="step2" class="tab-pane">
+						<p>
+							Then, you need to create your thumbnails list with that markup. Don't forget to specify your images links and the <code>alt</code> attribute.
+						</p>
+<pre><code>&lt;ul id="my_thumbs">
+	&lt;li>
+		&lt;a href="assets/img/bird.jpg">
+			&lt;img src="assets/img/bird_thumb.jpg" alt="Bird" data-caption="A bird, click me to open http://chez-syl.fr/" data-href="http://chez-syl.fr/">
+		&lt;/a>
+	&lt;/li>
+	&lt;li>
+		&lt;a href="assets/img/flower.jpg">
+			&lt;img src="assets/img/flower_thumb.jpg" alt="Flower" data-caption="A flower" data-caption="A flower, click me to open README.md file" data-href="README.md">
+		&lt;/a>
+	&lt;/li>
+	&lt;li>
+		&lt;a href="assets/img/butterfly.jpg">
+			&lt;img src="assets/img/butterfly_thumb.jpg" alt="Butterfly" data-caption="A butterfly" data-caption="A butterfly, click me to open LICENSE.md file" data-href="LICENSE.md">
+		&lt;/a>
+	&lt;/li>
+	&lt;li>
+		&lt;a href="assets/img/rose.jpg">
+			&lt;img src="assets/img/rose_thumb.jpg" alt="Rose" data-caption="A rose, you can't click me, got no link">
+		&lt;/a>
+	&lt;/li>
+&lt;/ul></code></pre>
+						<p>Explanations:</p>
+						<ul>
+							<li>Specify your images links and the <code>alt</code> attribute</li>
+							<li>The <code>data-caption</code> attribute is used for the caption (optional)</li>
+							<li>The <code>data-href</code> attribute contains the link to the page that will be active on the main image (optional)</li>
+						</ul>
+					</div>
+
+					<div id="step3" class="tab-pane">
+						<p>
+							Call the plugin "desoSlide" on your list of thumbnails by specifying the target where the main image will be generated:
+						</p>
+<pre><code>$(function() {
+    $('#my_thumbs').desoSlide({
+        main: {
+            container: '#wizard_mainImage',
+            cssClass: 'img-responsive'
+        },
+        caption: true
+    });
+});
+</code></pre>
+						<p>
+							Here, the main image will be generated inside <code>#mainImage</code>.
+						</p>
+					</div>
+
+					<div id="step4" class="tab-pane active">
+						<p>
+							<button id="go_to_step1" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Go to the Step 1</button> to see how to get that.
+						</p>
+
+						<div id="wizard_demo" class="text-center">
+
+							<div class="row">
+								<div class="col-lg-12">
+									<ul id="wizard_thumbs" class="list-inline">
+										<li>
+											<a href="assets/img/examples/wizard/bird.jpg"><img src="assets/img/examples/wizard/bird_thumb.jpg" alt="Bird" data-caption="A bird, click me to open http://chez-syl.fr/" data-href="http://chez-syl.fr/"></a>
+										</li>
+										<li>
+											<a href="assets/img/examples/wizard/flower.jpg"><img src="assets/img/examples/wizard/flower_thumb.jpg" alt="Flower" data-caption="A flower, click me to open README.md file" data-href="README.md"></a>
+										</li>
+										<li>
+											<a href="assets/img/examples/wizard/butterfly.jpg"><img src="assets/img/examples/wizard/butterfly_thumb.jpg" alt="Butterfly" data-caption="A butterfly, click me to open LICENSE.md file" data-href="LICENSE.md"></a>
+										</li>
+										<li>
+											<a href="assets/img/examples/wizard/rose.jpg"><img src="assets/img/examples/wizard/rose_thumb.jpg" alt="Rose" data-caption="A rose, you can't click me, got no link"></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							<div id="wizard_mainImage" class="inline-block">
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- [END] Wizard -->
+
+		<!-- [BEGIN] Examples -->
+		<div class="row marketing">
+			<div class="col-lg-12">
+
+				<div class="page-header">
+					<h2>Examples</h2>
+				</div>
+				<p class="lead">Autostarting, displaying the second image at loading. No link and no keys. Just standard controls.</p>
+			</div>
+		</div>
+		<div class="row marketing">
+			<div class="col-md-2 col-lg-2">
+				<ul id="ex1_thumbs" class="list-unstyled">
+					<li>
+						<a href="assets/img/examples/ex1/city.jpg"><img src="assets/img/examples/ex1/city_thumb.jpg" alt="city"></a>
+					</li>
+					<li>
+						<a href="assets/img/examples/ex1/building.jpg"><img src="assets/img/examples/ex1/building_thumb.jpg" alt="building"></a>
+					</li>
+					<li>
+						<a href="assets/img/examples/ex1/eiffel.jpg"><img src="assets/img/examples/ex1/eiffel_thumb.jpg" alt="eiffel"></a>
+					</li>
+					<li>
+						<a href="assets/img/examples/ex1/bridge.jpg"><img src="assets/img/examples/ex1/bridge_thumb.jpg" alt="bridge"></a>
+					</li>
+				</ul>
+			</div>
+
+			<div id="ex1_mainImage" class="col-md-10 col-lg-10"></div>
+		</div>
+		<div class="row marketing">
+			<div class="col-lg-12">
+
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#ex1_js" data-toggle="tab">Code</a></li>
+				</ul>
+
+				<div class="tab-content">
+					<div id="ex1_js" class="tab-pane active">
+<pre><code>$('#ex1_thumbs').desoSlide({
+    main: {
+        container: '#ex1_mainImage',
+        cssClass: 'img-responsive'
+    },
+    auto: {
+        start: true
+    },
+    first: 1,
+    effect: 'roll',
+    controls: {
+        keys: false
+    }
+});
+</code></pre>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row marketing">
+			<div class="col-lg-12">
+				<p class="lead">
+					Displaying the overlay by hovering the main image. No link provided and no controls.
+				</p>
+			</div>
+		</div>
+		<div class="row marketing">
+			<div class="col-lg-12 text-center">
+				<div id="ex2_mainImage" class="inline-block"></div>
+			</div>
+		</div>
+		<div class="row marketing">
+			<div class="col-lg-12 text-center">
+				<ul id="ex2_thumbs" class="list-inline">
+					<li>
+						<a href="assets/img/examples/ex2/tortoise.jpg"><img src="assets/img/examples/ex2/tortoise_thumb.jpg" alt="tortoise" data-caption="A tortoise"></a>
+					</li>
+					<li>
+						<a href="assets/img/examples/ex2/tiger.jpg"><img src="assets/img/examples/ex2/tiger_thumb.jpg" alt="tiger" data-caption="A tiger"></a>
+					</li>
+					<li>
+						<a href="assets/img/examples/ex2/lynx.jpg"><img src="assets/img/examples/ex2/lynx_thumb.jpg" alt="lynx" data-caption="A lynx"></a>
+					</li>
+					<li>
+						<a href="assets/img/examples/ex2/dog.jpg"><img src="assets/img/examples/ex2/dog_thumb.jpg" alt="dog" data-caption="A dog"></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row marketing">
+			<div class="col-lg-12">
+
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#ex2_js" data-toggle="tab">Code</a></li>
+				</ul>
+
+				<div class="tab-content">
+					<div id="ex2_js" class="tab-pane active">
+<pre><code>$('#ex2_thumbs').desoSlide({
+    main: {
+        container: '#ex2_mainImage',
+        cssClass: 'img-responsive'
+    },
+    effect: 'flip',
+    overlay: 'hover',
+    caption: true,
+    controls: {
+        enable: false,
+        keys: false
+    }
+});
+</code></pre>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- [END] Examples -->
+
+		<!-- [BEGIN] Controls -->
+		<div class="row marketing">
+			<div class="page-header">
+				<h2>Controls</h2>
+			</div>
+			<div class="col-lg-12">
+				<p>You can control the slider by clicking on the pictos. Previous, pause, play and next are supported. Also, you are able to use your keyboard keys to control it:</p>
+
+				<ul>
+					<li>left arrow: <b>previous</b></li>
+					<li>right arrow: <b>next</b></li>
+					<li>space: toggling <b>play/pause</b></li>
+				</ul>
+
+				<p>As this feature is binded on the document, if you have more than one slider on your page and you press a key, all sliders will be triggered. I recommand to you to enable the keys control on only one slider, by disabling the others with <code>controls.keys: false</code>.</p>
+			</div>
+		</div>
+		<!-- [END] Controls -->
+
+		<!-- [BEGIN] Options -->
+		<div class="row marketing">
+			<div class="page-header">
+				<h2>Options</h2>
+			</div>
+
+			<p>Find below all the available options.</p>
+
+			<div class="col-lg-12 table-responsive">
+				<table class="table table-bordered">
+					<tr>
+						<th>Options</th>
+						<th>Values</th>
+						<th>Default</th>
+						<th>Description</th>
+					</tr>
+					<tr>
+						<td><code>main.container</code></td>
+						<td>Your target container</td>
+						<td><code>false</code></td>
+						<td>Container for the main image. If you don't specify a valid selector, you'll receive an error.</td>
+					</tr>
+					<tr>
+						<td><code>main.cssClass</code></td>
+						<td>String</td>
+						<td><code>''</code></td>
+						<td>Class(es) name(s) of your main image.</td>
+					</tr>
+					<tr>
+						<td><code>main.insertion</code></td>
+						<td><code>'append'</code> <code>'prepend'</code> <code>'replace'</code></td>
+						<td><code>'append'</code></td>
+						<td>How to create the main image, by prepending, appending or replace all the selector's content (overwriting).</td>
+					</tr>
+					<tr>
+						<td><code>auto.load</code></td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+						<td>All thumbnails links (full size images) are auto loaded in background (invisible). </td>
+					</tr>
+					<tr>
+						<td><code>auto.start</code></td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+						<td>Autostarting a diaporama.</td>
+					</tr>
+					<tr>
+						<td><code>first</code></td>
+						<td>Integer between 0 and the number of thumbnails (-1)</td>
+						<td><code>0</code></td>
+						<td>The index of the thumbnail that you want to display first.</td>
+					</tr>
+					<tr>
+						<td><code>interval</code></td>
+						<td>Integer, minimum 1500</td>
+						<td><code>3000</code></td>
+						<td>Interval in milliseconds between each image.</td>
+					</tr>
+					<tr>
+						<td><code>effect</code></td>
+						<td><code>'fade'</code> <code>'flip'</code> <code>'light'</code> <code>'roll'</code> <code>'rotate'</code></td>
+						<td><code>'fade'</code></td>
+						<td>Transition effect. They are provided by <a href="http://daneden.me/animate/">animate.css</a>.</td>
+					</tr>
+					<tr>
+						<td><code>overlay</code></td>
+						<td><code>'always'</code> <code>'hover'</code></td>
+						<td><code>'always'</code></td>
+						<td>How to show overlay.</td>
+					</tr>
+					<tr>
+						<td><code>caption</code></td>
+						<td>Boolean</td>
+						<td><code>false</code></td>
+						<td>If <code>true</code>, be sure that you have specify the <code>data-caption</code> attribute on thumbnails.</td>
+					</tr>
+					<tr>
+						<td><code>controls.enable</code></td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+						<td>Able to control by clicking (prev/pause/play/next).</td>
+					</tr>
+					<tr>
+						<td><code>controls.keys</code></td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+						<td> Able to control by using the keyboard shortcuts (left/right/space)</td>
+					</tr>
+					<tr>
+						<td><code>log.errors</code></td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+						<td>Log errors in console. Be sure to put it <code>false</code> in production. If the render isn't ok, enable the errors then debug.</td>
+					</tr>
+					<tr>
+						<td><code>log.warnings</code></td>
+						<td>Boolean</td>
+						<td><code>true</code></td>
+						<td>Log warnings in console. Be sure to put it <code>false</code> in production.</td>
+					</tr>
+					<tr>
+						<td><code>result</code></td>
+						<td>function(result)</td>
+						<td><code>false</code></td>
+						<td>Get the slider result. The first argument outputs one of these values: "success", "error" or "warning".</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<!-- [END] Options -->
+
+		<!-- [BEGIN] Return value -->
+		<div class="row marketing">
+			<div class="page-header">
+				<h2>Return value</h2>
+			</div>
+			<div class="col-lg-12">
+				<p>The returned value by the <code>.desoSlide()</code> call is the jQuery object in order to maintain the chainability.</p>
+				<p>As explained before, if you want to know if the slider is well generated, use the <code>result</code> function.</p>
+<pre><code>$('#demo_thumbs').desoSlide({
+    main: {
+        container: '#demo'
+    },
+    result: function(result) {
+        switch(result) {
+            case 'success': // success handler
+            break;
+            case 'error': // error handler
+            break;
+            case 'warning': // warning handler
+            break;
+        }
+    }
+});
+</code></pre>
+			</div>
+		</div>
+		<!-- [END] Return value -->
+
+		<!-- [BEGIN] Browser compatibility -->
+		<div class="row marketing">
+			<div class="page-header">
+				<h2>Browser compatibility</h2>
+			</div>
+			<div class="col-lg-12">
+				<ul>
+					<li>IE 8+</li>
+					<li>Firefox 5+</li>
+					<li>Chrome</li>
+					<li>Opera</li>
+					<li>Safari</li>
+				</ul>
+			</div>
+		</div>
+		<!-- [END] Browser compatibility -->
+
+		<!-- [BEGIN] Contributors -->
+		<div class="row marketing">
+			<div class="page-header">
+				<h2>Contributors</h2>
+			</div>
+			<div class="col-lg-12">
+				<ul>
+					<li><a href="https://github.com/sylouuu">sylouuu</a> (me)</li>
+					<li><a href="https://github.com/jaoued">jaoued</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- [END] Contributors -->
+
+		<!-- [BEGIN] Footer -->
+		<div class="footer">
+			<p>&copy; <a href="https://github.com/sylouuu">Syl</a> 2013</p>
+		</div>
+		<!-- [END] Footer -->
+	</div>
+</body>
+</html>
