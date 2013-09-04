@@ -1,6 +1,21 @@
-/**!
- * GLOBAL CSS
- */
+// Bootstrap
+// --------------------------------------------------
+
+@import '../bootstrap/bootstrap.less';
+@import '../bootstrap/jumbotron-narrow.less';
+
+// Variables
+// --------------------------------------------------
+
+@import 'var.less';
+
+// Mixins
+// --------------------------------------------------
+
+@import 'mixins.less';
+
+// Styles
+// --------------------------------------------------
 
 body {
 	padding-top    : 10px;
@@ -26,6 +41,9 @@ body {
 	}
 }
 
+.navbar {
+	.remove-radius();
+}
 
 // Brand name
 .navbar-brand {
@@ -60,21 +78,39 @@ body {
 	> hr {
 		margin : 20px 0;
 	}
-}
 
-// Main marketing message and sign up button
-.jumbotron {
-	margin     : 0;
-	text-align : center;
 
-	h1 {
-		font-size   : 2.5em;
-		line-height : 1;
+	// Main marketing message and sign up button
+	.jumbotron {
+		margin     : 0;
+		text-align : center;
+		background-color: @bg-color;
+		border: 1px solid @border-color;
+
+		h1 {
+			font-size   : 2.5em;
+			line-height : 1;
+		}
+
+		.btn {
+			padding   : 14px 24px;
+			font-size : 21px;
+		}
+
+		.remove-radius();
 	}
 
 	.btn {
-		padding   : 14px 24px;
-		font-size : 21px;
+		.remove-radius();
+	}
+
+	pre {
+		.remove-radius();
+		background-color: @bg-color;
+	}
+
+	code {
+		background-color: @bg-color;
 	}
 }
 

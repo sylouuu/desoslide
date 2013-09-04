@@ -1,18 +1,12 @@
-// Bootstrap
-// --------------------------------------------------
-
-@import '../bootstrap/bootstrap.less';
-@import '../bootstrap/jumbotron-narrow.less';
-
 // GitHub highlight code
 // --------------------------------------------------
 
 @import '../github/github.less';
 
-// Global
+// Main
 // --------------------------------------------------
 
-@import 'global.less';
+@import 'main.less';
 
 // Styles
 // --------------------------------------------------
@@ -23,8 +17,7 @@
 }
 
 .jumbotron {
-	background-color: #F8F8F8;
-	border: 1px solid #e7e7e7;
+	.remove-radius();
 }
 
 @media(max-width : 480px) {
