@@ -108,10 +108,10 @@
 								<p>
 									At first, include jQuery and the desoSlide files in your page:
 								</p>
-		<pre><code>&lt;link rel="stylesheet" href="css/jquery.desoslide.css" />
+<pre><code>&lt;link rel="stylesheet" href="css/jquery.desoslide.css" />
 
-		&lt;script src="js/jquery.js">&lt;/script>
-		&lt;script src="js/jquery.desoslide.js">&lt;/script></code></pre>
+&lt;script src="js/jquery.js">&lt;/script>
+&lt;script src="js/jquery.desoslide.js">&lt;/script></code></pre>
 								<p>
 									The CSS file is only needed for the caption styles.
 								</p>
@@ -121,28 +121,28 @@
 								<p>
 									Then, you need to create your thumbnails list with that markup. Don't forget to specify your images links and the <code>alt</code> attribute.
 								</p>
-		<pre><code>&lt;ul id="my_thumbs">
-			&lt;li>
-				&lt;a href="assets/img/bird.jpg">
-					&lt;img src="assets/img/bird_thumb.jpg" alt="Bird" data-caption="A bird, click me to open http://chez-syl.fr/" data-href="http://chez-syl.fr/">
-				&lt;/a>
-			&lt;/li>
-			&lt;li>
-				&lt;a href="assets/img/flower.jpg">
-					&lt;img src="assets/img/flower_thumb.jpg" alt="Flower" data-caption="A flower" data-caption="A flower, click me to open README.md file" data-href="README.md">
-				&lt;/a>
-			&lt;/li>
-			&lt;li>
-				&lt;a href="assets/img/butterfly.jpg">
-					&lt;img src="assets/img/butterfly_thumb.jpg" alt="Butterfly" data-caption="A butterfly" data-caption="A butterfly, click me to open LICENSE.md file" data-href="LICENSE.md">
-				&lt;/a>
-			&lt;/li>
-			&lt;li>
-				&lt;a href="assets/img/rose.jpg">
-					&lt;img src="assets/img/rose_thumb.jpg" alt="Rose" data-caption="A rose, you can't click me, got no link">
-				&lt;/a>
-			&lt;/li>
-		&lt;/ul></code></pre>
+<pre><code>&lt;ul id="my_thumbs">
+    &lt;li>
+        &lt;a href="assets/img/bird.jpg">
+            &lt;img src="assets/img/bird_thumb.jpg" alt="Bird" data-caption="A bird, click me to open http://chez-syl.fr/" data-href="http://chez-syl.fr/">
+        &lt;/a>
+    &lt;/li>
+    &lt;li>
+        &lt;a href="assets/img/flower.jpg">
+            &lt;img src="assets/img/flower_thumb.jpg" alt="Flower" data-caption="A flower" data-caption="A flower, click me to open README.md file" data-href="README.md">
+        &lt;/a>
+    &lt;/li>
+    &lt;li>
+        &lt;a href="assets/img/butterfly.jpg">
+            &lt;img src="assets/img/butterfly_thumb.jpg" alt="Butterfly" data-caption="A butterfly" data-caption="A butterfly, click me to open LICENSE.md file" data-href="LICENSE.md">
+        &lt;/a>
+    &lt;/li>
+    &lt;li>
+        &lt;a href="assets/img/rose.jpg">
+            &lt;img src="assets/img/rose_thumb.jpg" alt="Rose" data-caption="A rose, you can't click me, got no link">
+        &lt;/a>
+    &lt;/li>
+&lt;/ul></code></pre>
 								<p>Explanations:</p>
 								<ul>
 									<li>Specify your images links and the <code>alt</code> attribute</li>
@@ -155,16 +155,16 @@
 								<p>
 									Call the plugin "desoSlide" on your list of thumbnails by specifying the target where the main image will be generated:
 								</p>
-		<pre><code>$(function() {
-			$('#my_thumbs').desoSlide({
-				main: {
-					container: '#wizard_mainImage',
-					cssClass: 'img-responsive'
-				},
-				caption: true
-			});
-		});
-		</code></pre>
+<pre><code>$(function() {
+    $('#my_thumbs').desoSlide({
+        main: {
+            container: '#wizard_mainImage',
+            cssClass: 'img-responsive'
+        },
+        caption: true
+    });
+});
+</code></pre>
 								<p>
 									Here, the main image will be generated inside <code>#mainImage</code>.
 								</p>
@@ -245,21 +245,21 @@
 
 						<div class="tab-content">
 							<div id="ex1_js" class="tab-pane active">
-		<pre><code>$('#ex1_thumbs').desoSlide({
-			main: {
-				container: '#ex1_mainImage',
-				cssClass: 'img-responsive'
-			},
-			auto: {
-				start: true
-			},
-			first: 1,
-			effect: 'roll',
-			controls: {
-				keys: false
-			}
-		});
-		</code></pre>
+<pre><code>$('#ex1_thumbs').desoSlide({
+    main: {
+        container: '#ex1_mainImage',
+        cssClass: 'img-responsive'
+    },
+    auto: {
+        start: true
+    },
+    first: 1,
+    effect: 'roll',
+    controls: {
+        keys: false
+    }
+});
+</code></pre>
 							</div>
 						</div>
 					</div>
@@ -304,20 +304,20 @@
 
 						<div class="tab-content">
 							<div id="ex2_js" class="tab-pane active">
-		<pre><code>$('#ex2_thumbs').desoSlide({
-			main: {
-				container: '#ex2_mainImage',
-				cssClass: 'img-responsive'
-			},
-			effect: 'flip',
-			overlay: 'hover',
-			caption: true,
-			controls: {
-				enable: false,
-				keys: false
-			}
-		});
-		</code></pre>
+<pre><code>$('#ex2_thumbs').desoSlide({
+    main: {
+        container: '#ex2_mainImage',
+        cssClass: 'img-responsive'
+    },
+    effect: 'flip',
+    overlay: 'hover',
+    caption: true,
+    controls: {
+        enable: false,
+        keys: false
+    }
+});
+</code></pre>
 							</div>
 						</div>
 					</div>
@@ -462,22 +462,22 @@
 					<div class="col-lg-12">
 						<p>The returned value by the <code>.desoSlide()</code> call is the jQuery object in order to maintain the chainability.</p>
 						<p>As explained before, if you want to know if the slider is well generated, use the <code>result</code> function.</p>
-		<pre><code>$('#demo_thumbs').desoSlide({
-			main: {
-				container: '#demo'
-			},
-			result: function(result) {
-				switch(result) {
-					case 'success': // success handler
-					break;
-					case 'error': // error handler
-					break;
-					case 'warning': // warning handler
-					break;
-				}
-			}
-		});
-		</code></pre>
+<pre><code>$('#demo_thumbs').desoSlide({
+    main: {
+        container: '#demo'
+    },
+    result: function(result) {
+        switch(result) {
+            case 'success': // success handler
+            break;
+            case 'error': // error handler
+            break;
+            case 'warning': // warning handler
+        break;
+        }
+    }
+});
+</code></pre>
 					</div>
 				</div>
 				<!-- [END] Return value -->

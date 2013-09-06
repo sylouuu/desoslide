@@ -42,25 +42,56 @@
 	padding-left: 0px;
 }
 
+.sidebar.affix {
+	position: static;
+}
+
+/* Show and affix the side nav when space allows it */
+@media screen and (min-width: 992px) {
+	.sidebar .nav > .active > ul {
+		display: block;
+	}
+
+	/* Widen the fixed sidebar */
+	.sidebar.affix,
+	.sidebar.affix-bottom {
+		width: 213px;
+	}
+
+	.sidebar.affix {
+		position: fixed; /* Undo the static from mobile first approach */
+		top: 80px;
+	}
+
+	.sidebar.affix-bottom {
+		position: absolute; /* Undo the static from mobile first approach */
+	}
+
+	.sidebar.affix-bottom .sidenav,
+	.sidebar.affix .sidenav {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	/* Widen the fixed sidebar again */
+	.sidebar.affix-bottom,
+	.sidebar.affix {
+		width: 270px;
+	}
+}
+
 .sidenav {
 	margin-top: 30px;
 	margin-bottom: 30px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	text-shadow: 0 1px 0 #fff;
 	background-color: @bg-color;
 	border: 1px solid @border-color;
 }
 
-.sidebar .nav > .active > a, .sidebar .nav > .active:hover > a, .sidebar .nav > .active:focus > a {
-	font-weight: bold;
-	color: #563d7c;
-	background-color: transparent;
-	border-right: 1px solid #563d7c;
-}
-
 .sidebar .nav > li > a {
-	display: block;
 	color: @color;
 	padding: 5px 20px;
 }
