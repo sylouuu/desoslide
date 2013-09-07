@@ -80,18 +80,16 @@ footer {
 	text-align : justify;
 }
 
-// Bandeau "fork me on Github"
-.ribbon {
-	position : absolute;
-	top      : 0;
-	right    : 0;
-	z-index  : 9999;
-	display  : none;
-}
-
 // Barre de navigation
 .navbar {
 	border : none;
+
+	.btn-navbar {
+
+		@media (max-width: 979px) {
+			margin : 14px 0 20px;
+		}
+	}
 
 	.nav {
 
@@ -108,6 +106,15 @@ footer {
 					}
 				}
 			}
+		}
+	}
+
+	.navbar-brand {
+		padding     : 20px 28px 27px;
+		line-height : 1;
+
+		@media (max-width: 979px) {
+			padding : 15px 28px 23px;
 		}
 	}
 }
