@@ -4,6 +4,10 @@
 @import '../bootstrap/bootstrap.less';
 @import '../bootstrap/jumbotron-narrow.less';
 
+// Flat-UI
+// --------------------------------------------------
+@import '../flat_ui/flat_ui.less';
+
 // Variables
 // --------------------------------------------------
 
@@ -17,133 +21,13 @@
 // Styles
 // --------------------------------------------------
 
+// Corps de la page
 body {
-	padding-top    : 10px;
-	padding-bottom : 20px;
-	overflow-x: hidden;
+	padding-top    : 97px;
+	padding-bottom : 0;
 }
 
-// Container
-.container {
-	max-width : 992px;
-	margin    : 0 auto;
-}
-
-a {
-	color: #428BCA; // blue
-}
-
-a:hover, a:active {
-	color: @color;
-}
-
-// Ribbon form me on github
-.ribbon {
-	position : absolute;
-	top      : 0;
-	right    : 0;
-	border   : 0;
-
-	// Hide ribbon only for screen < 768px
-	@media (max-width : 768px) {
-		display : none;
-	}
-}
-
-.navbar {
-	.remove-radius();
-}
-
-// Brand name
-.navbar-brand {
-	font-size : 22px;
-}
-
-.navbar-item-iframe {
-	display  : block;
-	position : relative;
-	padding  : 14px 5px 11px;
-
-	@media (max-width : 768px) {
-		float : left;
-	}
-}
-
-@media (max-width : 768px) {
-
-	ul.navbar-right {
-		margin       : 0;
-		padding-left : 10px;
-		text-align: center;
-
-		li {
-			display: inline-block;
-		}
-	}
-}
-
-.container {
-
-	> hr {
-		margin : 20px 0;
-	}
-
-
-	// Main marketing message and sign up button
-	.jumbotron {
-		margin     : 0;
-		text-align : center;
-		background-color: @bg-color;
-		border: 1px solid @border-color;
-
-		h1 {
-			font-size   : 2.5em;
-			line-height : 1;
-		}
-
-		.btn-primary {
-			padding   : 14px 24px;
-			font-size : 21px;
-		}
-
-		.remove-radius();
-	}
-
-	.btn {
-		.remove-radius();
-	}
-
-	pre, code {
-		.remove-radius();
-		background-color: @bg-color;
-	}
-}
-
-.masthead-links {
-	margin     : 0;
-	list-style : none;
-
-	li {
-
-		display : inline;
-		padding : 0 10px;
-		color   : #949494;
-	}
-}
-
-// Marketing
-.marketing {
-	margin : 20px 0;
-
-	p + h4 {
-		margin-top: 28px;
-	}
-
-	&:first-child {
-		margin-top : 0;
-	}
-}
-
+// Conteneur externe
 iframe {
 	height           : 20px;
 	width            : 90px;
@@ -152,15 +36,93 @@ iframe {
 	overflow         : hidden;
 }
 
-// Item of list
-.list-unstyled,
-.list-inline {
-	li {
-		margin-bottom : 10px;
+// Pied de page
+footer {
+
+	.bottom-links {
+		margin-bottom : 0;
+
+		> li {
+			line-height : 32px;
+		}
+	}
+
+	&.bottom-menu .navbar-brand {
+		float       : none;
+		margin-top  : 0;
+
+		p {
+			margin-bottom : 0;
+			font-size     : 24px;
+			line-height   : 32px;
+		}
 	}
 }
 
-// Utility class to display an element in inline-block
-.inline-block {
-	display : inline-block;
+// Conteneur de base
+.container {
+
+	@media (min-width: 768px) {
+		max-width : 750px;
+	}
+
+	@media (min-width: 992px) {
+		max-width : 970px;
+	}
+
+	@media (min-width: 1200px) {
+		max-width : 1170px;
+	}
+}
+
+// Justifie le texte
+.text-justify {
+	text-align : justify;
+}
+
+// Bandeau "fork me on Github"
+.ribbon {
+	position : absolute;
+	top      : 0;
+	right    : 0;
+	z-index  : 9999;
+	display  : none;
+}
+
+// Barre de navigation
+.navbar {
+	border : none;
+
+	.nav {
+
+		> li {
+
+			@media (min-width: 980px) {
+
+				> a {
+					padding   : 24px 20px;
+					font-size : 16px;
+
+					&:hover {
+						background-color : @navbar-link-hover-bg;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Container de la barre de navigation
+.navbar-inner {
+	.border-radius(0);
+}
+
+// Conteneur pour la vue mobile
+.nav-collapse {
+
+	@media (min-width: 980px) {
+		&.collapse {
+			display : block;
+		}
+	}
 }

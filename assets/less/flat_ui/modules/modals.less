@@ -1,0 +1,120 @@
+//
+// Modals
+// --------------------------------------------------
+
+// Background
+.modal-backdrop {
+  z-index: (@zindex-modal-background - 10);
+  background-color: @modal-backdrop-bg;
+  
+  // Fade for backdrop
+  &.in { .opacity(.95); }
+}
+
+// Container that the modal scrolls within
+.modal {
+	z-index: @zindex-modal-background;
+}
+
+// Shell div to position the modal with bottom padding
+.modal-dialog {    
+  padding: 0;
+  z-index: (@zindex-modal-background + 10);
+}
+
+// Actual modal
+.modal-content {
+	width: 624px;
+	background-color: @modal-content-bg;
+  border: 2px solid @modal-content-border-color;
+  border-radius: @modal-content-border-radius;
+  .background-clip(border-box);
+  .box-shadow(@modal-content-box-shadow);
+  
+  @media (max-width: 767px) {
+  	& {
+  		width: auto;
+  	}
+  }
+  @media (max-width: 480px) {
+  	& {
+  		.box-shadow(none);
+  	}
+  }
+}
+
+// Modal header
+// Top section of the modal w/ title and dismiss
+.modal-header {
+  padding: 17px 19px 15px 24px;
+  border-bottom: 1px solid @modal-content-border-color;
+}
+
+ // Close icon
+.modal-header .close {
+	margin: 5px 0 0;
+	padding: 0;
+	font-size: 18px;
+	line-height: 1;
+	color: @base;
+}
+
+// Title text within header
+.modal-title {
+  margin: 0;
+  font-size: ceil(@font-size-base * 1.714); // ~24px
+  line-height: 30px;
+}
+
+// Body (where all modal content resides)
+.modal-body {
+  padding: 20px 24px 20px;
+  
+  p {
+    font-size: floor(@font-size-base * 1.143); // ~16px
+    line-height: @line-height-base * 1.32; // ~26px
+  }
+}
+
+// Footer (for actions)
+.modal-footer {
+  padding: 19px 22px 20px;
+  margin-top: 0;
+  background-color: @modal-footer-bg;
+  border-top: none;
+  border-radius: 0 0 @modal-content-border-radius @modal-content-border-radius;
+
+  .btn + .btn {
+    margin-left: 12px;
+  }
+  
+  @media (max-width: 480px) {
+    & {
+      .btn {
+        display: block;
+        min-width: auto;
+        margin-bottom: 15px;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      .btn + .btn {
+        margin-left: 0;
+      }
+    }
+  }  
+}
+
+// Scale up the modal
+@media screen and (min-width: 768px) {
+
+  .modal-dialog {
+    left: 50%;
+    right: auto;
+    width: 624px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+}
