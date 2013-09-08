@@ -1,18 +1,18 @@
 $(function() {
 
-	/* Wizard example */
-	$('#wizard_thumbs').desoSlide({
+	/* First demo */
+	$('#demo1_thumbs').desoSlide({
 		main: {
-			container: '#wizard_mainImage',
+			container: '#demo1_mainImage',
 			cssClass: 'img-responsive'
 		},
 		caption: true
 	});
 
-	/* First example */
-	$('#ex1_thumbs').desoSlide({
+	/* Second demo */
+	$('#demo2_thumbs').desoSlide({
 		main: {
-			container: '#ex1_mainImage',
+			container: '#demo2_mainImage',
 			cssClass: 'img-responsive'
 		},
 		auto: {
@@ -25,10 +25,10 @@ $(function() {
 		}
 	});
 
-	/* Second example */
-	$('#ex2_thumbs').desoSlide({
+	/* Third demo */
+	$('#demo3_thumbs').desoSlide({
 		main: {
-			container: '#ex2_mainImage',
+			container: '#demo3_mainImage',
 			cssClass: 'img-responsive'
 		},
 		effect: 'flip',

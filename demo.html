@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<title>Home &middot; jQuery plugin desoSlide</title>
+		<title>Demo &middot; jQuery plugin desoSlide</title>
 
 		<link rel="icon" href="assets/img/logo/favicon.png">
 
@@ -69,7 +69,7 @@
 
 		<div class="container">
 
-			<!-- [BEGIN] Examples -->
+			<!-- [BEGIN] INTRO -->
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="page-header">
@@ -78,20 +78,21 @@
 
 					<div class="dialog dialog-info">
 						<div class="container">
-							<p class="no-mg-bt">Please refer to the <a href="documentation.html">documentation</a> for for installation instructions.</p>
+							<p class="no-mg-bt">Please refer to the <a href="documentation.html">documentation</a> for installation instructions.</p>
 						</div>
 					</div>
 				</div>
 			</div>
+			<!-- [END] INTRO -->
 
-			<!-- [BEGIN] Example #1 -->
+			<!-- [BEGIN] DEMO #1 -->
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="page-header no-mg-tp">
-						<h3>Examples #1</h3>
+						<h3>#1</h3>
 					</div>
 					<p class="lead">
-						Autostarting, displaying the second image at loading. No link and no keys. Just standard controls.
+						Default options, with caption.
 					</p>
 				</div>
 			</div>
@@ -105,7 +106,7 @@
 					<div class="row">
 
 						<div class="col-md-2 col-lg-2">
-							<ul id="wizard_thumbs" class="list-inline">
+							<ul id="demo1_thumbs" class="list-inline">
 								<li>
 									<a href="assets/img/examples/wizard/bird.jpg"><img src="assets/img/examples/wizard/bird_thumb.jpg" alt="Bird" data-caption="A bird, click me to open http://chez-syl.fr/" data-href="http://chez-syl.fr/"></a>
 								</li>
@@ -121,7 +122,7 @@
 							</ul>
 						</div>
 
-						<div id="wizard_mainImage" class="col-md-10 col-lg-10"></div>
+						<div id="demo1_mainImage" class="col-md-10 col-lg-10"></div>
 					</div>
 				</div>
 			</div>
@@ -136,10 +137,10 @@
 
 				<div class="col-lg-9">
 					<div id="ex1_js" class="tab-pane active">
-<pre><code>$('#my_thumbs').desoSlide({
-	main : {
-		container : '#wizard_mainImage',
-		cssClass  : 'img-responsive'
+<pre><code>$('#demo1_thumbs').desoSlide({
+	main: {
+		container: '#demo1_mainImage',
+		cssClass: 'img-responsive'
 	},
 	caption : true
 });
@@ -147,14 +148,13 @@
 					</div>
 				</div>
 			</div>
-			<!-- [END] Example #1 -->
+			<!-- [END] DEMO #1 -->
 
-
-			<!-- [BEGIN] Example #2 -->
+			<!-- [BEGIN] DEMO #2 -->
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="page-header">
-						<h3>Examples #2</h3>
+						<h3>#2</h3>
 					</div>
 					<p class="lead">
 						Autostarting, displaying the second image at loading. No link and no keys. Just standard controls.
@@ -171,7 +171,7 @@
 					<div class="row">
 
 						<div class="col-md-2 col-lg-2">
-							<ul id="ex1_thumbs" class="list-unstyled">
+							<ul id="demo2_thumbs" class="list-unstyled">
 								<li>
 									<a href="assets/img/examples/ex1/city.jpg"><img src="assets/img/examples/ex1/city_thumb.jpg" alt="city"></a>
 								</li>
@@ -187,7 +187,7 @@
 							</ul>
 						</div>
 
-						<div id="ex1_mainImage" class="col-md-10 col-lg-10"></div>
+						<div id="demo2_mainImage" class="col-md-10 col-lg-10"></div>
 					</div>
 				</div>
 			</div>
@@ -202,31 +202,31 @@
 
 				<div class="col-lg-9">
 					<div id="ex1_js" class="tab-pane active">
-<pre><code>$('#ex1_thumbs').desoSlide({
-	main : {
-		container : '#ex1_mainImage',
-		cssClass  : 'img-responsive'
+<pre><code>$('#demo2_thumbs').desoSlide({
+	main: {
+		container: '#demo2_mainImage',
+		cssClass: 'img-responsive'
 	},
-	auto : {
-		start : true
+	auto: {
+		start: true
 	},
-	first    : 1,
-	effect   : 'roll',
-	controls : {
-		keys : false
+	first: 1,
+	effect: 'roll',
+	controls: {
+		keys: false
 	}
 });
 </code></pre>
 					</div>
 				</div>
 			</div>
-			<!-- [END] Example #2 -->
+			<!-- [END] DEMO #2 -->
 
-			<!-- [BEGIN] Example #3 -->
+			<!-- [BEGIN] DEMO #3 -->
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="page-header">
-						<h3>Examples #3</h3>
+						<h3>#3</h3>
 					</div>
 					<p class="lead">
 						Displaying the overlay by hovering the main image. No link provided and no controls.
@@ -242,13 +242,13 @@
 
 					<div class="row">
 						<div class="col-lg-12 text-center">
-							<div id="ex2_mainImage" class="inline-block"></div>
+							<div id="demo3_mainImage" class="inline-block"></div>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="col-lg-12 text-center">
-							<ul id="ex2_thumbs" class="list-inline">
+							<ul id="demo3_thumbs" class="list-inline">
 								<li>
 									<a href="assets/img/examples/ex2/tortoise.jpg"><img src="assets/img/examples/ex2/tortoise_thumb.jpg" alt="tortoise" data-caption="A tortoise"></a>
 								</li>
@@ -277,24 +277,41 @@
 
 				<div class="col-lg-9">
 					<div id="ex2_js" class="tab-pane active">
-<pre><code>$('#ex2_thumbs').desoSlide({
-	main : {
-		container : '#ex2_mainImage',
-		cssClass  : 'img-responsive'
+<pre><code>$('#demo3_thumbs').desoSlide({
+	main: {
+		container: '#demo3_mainImage',
+		cssClass: 'img-responsive'
 	},
-	effect   : 'flip',
-	overlay  : 'hover',
-	caption  : true,
-	controls : {
-		enable : false,
-		keys   : false
+	effect: 'flip',
+	overlay: 'hover',
+	caption: true,
+	controls: {
+		enable: false,
+		keys: false
 	}
 });
 </code></pre>
 					</div>
 				</div>
 			</div>
-			<!-- [END] Example #3 -->
+			<!-- [END] DEMO #3 -->
+
+			<!-- [BEGIN] MAKE YOUR OWN -->
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="page-header">
+						<h3>#?</h3>
+					</div>
+
+					<div class="dialog dialog-inverse">
+						<div class="container">
+							<p class="no-mg-bt">Make your own slider based on all <a href="documentation.html#options">options</a>!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- [END] MAKE YOUR OWN -->
+
 		</div> <!-- /CONTAINER -->
 
 		<!-- [BEGIN] FOOTER -->
