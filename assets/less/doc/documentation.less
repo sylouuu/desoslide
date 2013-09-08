@@ -11,36 +11,11 @@
 // Styles
 // --------------------------------------------------
 
-/* Larger container for affix */
-.container {
-	max-width : 1170px;
-	margin    : 0 auto;
 
-	.marketing {
-		margin: 0;
-	}
-}
-
-// Tabs
-// --------------------------------------------------
-
-.nav-tabs {
-	margin-bottom: 15px;
-
-	li {
-		a {
-			.remove-radius();
-		}
-	}
-}
 
 // Affix
 // --------------------------------------------------
 
-.col-lg-3 {
-	padding-top: 0;
-	padding-left: 0px;
-}
 
 .sidebar.affix {
 	position: static;
@@ -78,38 +53,22 @@
 	/* Widen the fixed sidebar again */
 	.sidebar.affix-bottom,
 	.sidebar.affix {
-		width: 270px;
+		width : 270px;
 	}
 }
 
 .sidenav {
-	margin-top: 30px;
-	margin-bottom: 30px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	background-color: @bg-color;
-	border: 1px solid @border-color;
+	margin-bottom    : 30px;
+	background-color : @midnight-blue-bg;
 }
 
 .sidebar .nav > li > a {
-	color: @color;
-	padding: 5px 20px;
-}
+	padding     : 9px 20px;
+	color       : @base;
+	font-size   : 16px;
 
-// Tablet portrait
-// --------------------------------------------------
-
-@media(max-width : 768px) {
-	.navbar {
-		margin-bottom: 0;
-	}
-
-	.marketing {
-		margin: 4px;
-	}
-
-	.page-header {
-		margin: 5px 0 5px;
-		padding-bottom: 5px;
+	&:hover {
+		background-color : @base;
+		color            : @firm;
 	}
 }
