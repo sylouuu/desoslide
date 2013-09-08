@@ -1,330 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Home &middot; jQuery plugin desoSlide</title>
+		<title>Home &middot; jQuery plugin desoSlide</title>
 
-        <link rel="icon" href="assets/img/logo/favicon.png">
+		<link rel="icon" href="assets/img/logo/favicon.png">
 
-        <link rel="stylesheet" href="assets/css/doc/demo.css">
-        <link rel="stylesheet" href="dist/css/jquery.desoslide.css">
+		<link rel="stylesheet" href="assets/css/doc/demo.css">
+		<link rel="stylesheet" href="dist/css/jquery.desoslide.css">
 
-        <script src="assets/js/jquery/jquery.js"></script>
-        <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+		<script src="assets/js/jquery/jquery.js"></script>
+		<script src="assets/js/bootstrap/bootstrap.min.js"></script>
 
-        <!--[if !IE]><!-->
-            <script src="assets/js/doc/highlight.min.js"></script>
-        <!--<![endif]-->
+		<!--[if !IE]><!-->
+			<script src="assets/js/doc/highlight.min.js"></script>
+		<!--<![endif]-->
 
-        <script src="dist/js/jquery.desoslide.js"></script>
-        <script src="assets/js/doc/demo.js"></script>
+		<script src="dist/js/jquery.desoslide.js"></script>
+		<script src="assets/js/doc/demo.js"></script>
 
-        <script>
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-27524593-3']);
-            _gaq.push(['_trackPageview']);
+		<script>
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-27524593-3']);
+			_gaq.push(['_trackPageview']);
 
-            (function() {
-                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
-        </script>
-    </head>
-    <body>
-        <header class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+	</head>
+	<body>
+		<header class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
 
-                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-home"></button>
+					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-home"></button>
 
-                    <a href="./" class="navbar-brand">
-                        <img src="assets/img/logo/desoslide.png" alt="desoslide logo">
-                    </a>
+					<a href="./" class="navbar-brand">
+						<img src="assets/img/logo/desoslide.png" alt="desoslide logo">
+					</a>
 
-                    <div class="nav-collapse collapse" id="nav-collapse-home">
-                        <ul class="nav">
-                            <li><a href="./">Home</a></li>
-                            <li class="active"><a href="demo.html">Demo</a></li>
-                            <li>
-                                <a href="documentation.html">Documentation</a>
-                                <ul>
-                                    <li><a href="documentation.html#wizard_by_step">Installation</a></li>
-                                    <li><a href="documentation.html#configuration">Configuration</a></li>
-                                    <li><a href="documentation.html#controls">Controls</a></li>
-                                    <li><a href="documentation.html#options">Options</a></li>
-                                    <li><a href="documentation.html#return_value">Return value</a></li>
-                                    <li><a href="documentation.html#browser_compatibility">Browser compatibility</a></li>
-                                    <li><a href="documentation.html#contributors">Contributors</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="tests/">Tests</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </header>
+					<div class="nav-collapse collapse" id="nav-collapse-home">
+						<ul class="nav">
+							<li><a href="./">Home</a></li>
+							<li class="active"><a href="demo.html">Demo</a></li>
+							<li>
+								<a href="documentation.html">Documentation</a>
+								<ul>
+									<li><a href="documentation.html#wizard_by_step">Installation</a></li>
+									<li><a href="documentation.html#configuration">Configuration</a></li>
+									<li><a href="documentation.html#controls">Controls</a></li>
+									<li><a href="documentation.html#options">Options</a></li>
+									<li><a href="documentation.html#return_value">Return value</a></li>
+									<li><a href="documentation.html#browser_compatibility">Browser compatibility</a></li>
+									<li><a href="documentation.html#contributors">Contributors</a></li>
+								</ul>
+							</li>
+							<li><a href="tests/">Tests</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
 
-        <div class="container">
+		<div class="container">
 
-            <!-- [BEGIN] Examples -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="page-header">
-                        <h2>Demo</h2>
-                    </div>
+			<!-- [BEGIN] Examples -->
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="page-header">
+						<h2>Demo</h2>
+					</div>
 
-                    <div class="dialog dialog-info">
-                        <div class="container">
-                            <p class="no-mg-bt">For more details to how to implement these examples, you can go to the <a href="documentation.html">documentation</a>.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+					<div class="dialog dialog-info">
+						<div class="container">
+							<p class="no-mg-bt">For more details to how to implement these examples, you can go to the <a href="documentation.html">documentation</a>.</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
-            <!-- [BEGIN] Example #1 -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="page-header no-mg-tp">
-                        <h3>Examples #1</h3>
-                    </div>
-                    <p class="lead">
-                        Autostarting, displaying the second image at loading. No link and no keys. Just standard controls.
-                    </p>
-                </div>
-            </div>
+			<!-- [BEGIN] Example #1 -->
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="page-header no-mg-tp">
+						<h3>Examples #1</h3>
+					</div>
+					<p class="lead">
+						Autostarting, displaying the second image at loading. No link and no keys. Just standard controls.
+					</p>
+				</div>
+			</div>
 
-            <div class="row">
-                <div class="col-lg-3">
-                    <h5>Result</h5>
-                </div>
-                <div class="col-lg-9">
+			<div class="row">
+				<div class="col-lg-3">
+					<h5>Result</h5>
+				</div>
+				<div class="col-lg-9">
 
-                    <div class="row">
+					<div class="row">
 
-                        <div class="col-md-2 col-lg-2">
-                            <ul id="wizard_thumbs" class="list-inline">
-                                <li>
-                                    <a href="assets/img/examples/wizard/bird.jpg"><img src="assets/img/examples/wizard/bird_thumb.jpg" alt="Bird" data-caption="A bird, click me to open http://chez-syl.fr/" data-href="http://chez-syl.fr/"></a>
-                                </li>
-                                <li>
-                                    <a href="assets/img/examples/wizard/flower.jpg"><img src="assets/img/examples/wizard/flower_thumb.jpg" alt="Flower" data-caption="A flower, click me to open README.md file" data-href="README.md"></a>
-                                </li>
-                                <li>
-                                    <a href="assets/img/examples/wizard/butterfly.jpg"><img src="assets/img/examples/wizard/butterfly_thumb.jpg" alt="Butterfly" data-caption="A butterfly, click me to open LICENSE.md file" data-href="LICENSE.md"></a>
-                                </li>
-                                <li>
-                                    <a href="assets/img/examples/wizard/rose.jpg"><img src="assets/img/examples/wizard/rose_thumb.jpg" alt="Rose" data-caption="A rose, you can't click me, got no link"></a>
-                                </li>
-                            </ul>
-                        </div>
+						<div class="col-md-2 col-lg-2">
+							<ul id="wizard_thumbs" class="list-inline">
+								<li>
+									<a href="assets/img/examples/wizard/bird.jpg"><img src="assets/img/examples/wizard/bird_thumb.jpg" alt="Bird" data-caption="A bird, click me to open http://chez-syl.fr/" data-href="http://chez-syl.fr/"></a>
+								</li>
+								<li>
+									<a href="assets/img/examples/wizard/flower.jpg"><img src="assets/img/examples/wizard/flower_thumb.jpg" alt="Flower" data-caption="A flower, click me to open README.md file" data-href="README.md"></a>
+								</li>
+								<li>
+									<a href="assets/img/examples/wizard/butterfly.jpg"><img src="assets/img/examples/wizard/butterfly_thumb.jpg" alt="Butterfly" data-caption="A butterfly, click me to open LICENSE.md file" data-href="LICENSE.md"></a>
+								</li>
+								<li>
+									<a href="assets/img/examples/wizard/rose.jpg"><img src="assets/img/examples/wizard/rose_thumb.jpg" alt="Rose" data-caption="A rose, you can't click me, got no link"></a>
+								</li>
+							</ul>
+						</div>
 
-                        <div id="wizard_mainImage" class="col-md-10 col-lg-10"></div>
-                    </div>
-                </div>
-            </div>
+						<div id="wizard_mainImage" class="col-md-10 col-lg-10"></div>
+					</div>
+				</div>
+			</div>
 
-            <div class="row">
+			<div class="row">
 
-                <div class="col-lg-3">
-                    <h5>Code</h5>
-                </div>
+				<div class="col-lg-3">
+					<h5>Code</h5>
+				</div>
 
-                <br>
+				<br>
 
-                <div class="col-lg-9">
-                    <div id="ex1_js" class="tab-pane active">
+				<div class="col-lg-9">
+					<div id="ex1_js" class="tab-pane active">
 <pre><code>$('#my_thumbs').desoSlide({
-    main : {
-        container : '#wizard_mainImage',
-        cssClass  : 'img-responsive'
-    },
-    caption : true
+	main : {
+		container : '#wizard_mainImage',
+		cssClass  : 'img-responsive'
+	},
+	caption : true
 });
 </code></pre>
-                    </div>
-                </div>
-            </div>
-            <!-- [END] Example #1 -->
+					</div>
+				</div>
+			</div>
+			<!-- [END] Example #1 -->
 
 
-            <!-- [BEGIN] Example #2 -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="page-header">
-                        <h3>Examples #2</h3>
-                    </div>
-                    <p class="lead">
-                        Autostarting, displaying the second image at loading. No link and no keys. Just standard controls.
-                    </p>
-                </div>
-            </div>
+			<!-- [BEGIN] Example #2 -->
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="page-header">
+						<h3>Examples #2</h3>
+					</div>
+					<p class="lead">
+						Autostarting, displaying the second image at loading. No link and no keys. Just standard controls.
+					</p>
+				</div>
+			</div>
 
-            <div class="row">
-                <div class="col-lg-3">
-                    <h5>Result</h5>
-                </div>
-                <div class="col-lg-9">
+			<div class="row">
+				<div class="col-lg-3">
+					<h5>Result</h5>
+				</div>
+				<div class="col-lg-9">
 
-                    <div class="row">
+					<div class="row">
 
-                        <div class="col-md-2 col-lg-2">
-                            <ul id="ex1_thumbs" class="list-unstyled">
-                                <li>
-                                    <a href="assets/img/examples/ex1/city.jpg"><img src="assets/img/examples/ex1/city_thumb.jpg" alt="city"></a>
-                                </li>
-                                <li>
-                                    <a href="assets/img/examples/ex1/building.jpg"><img src="assets/img/examples/ex1/building_thumb.jpg" alt="building"></a>
-                                </li>
-                                <li>
-                                    <a href="assets/img/examples/ex1/eiffel.jpg"><img src="assets/img/examples/ex1/eiffel_thumb.jpg" alt="eiffel"></a>
-                                </li>
-                                <li>
-                                    <a href="assets/img/examples/ex1/bridge.jpg"><img src="assets/img/examples/ex1/bridge_thumb.jpg" alt="bridge"></a>
-                                </li>
-                            </ul>
-                        </div>
+						<div class="col-md-2 col-lg-2">
+							<ul id="ex1_thumbs" class="list-unstyled">
+								<li>
+									<a href="assets/img/examples/ex1/city.jpg"><img src="assets/img/examples/ex1/city_thumb.jpg" alt="city"></a>
+								</li>
+								<li>
+									<a href="assets/img/examples/ex1/building.jpg"><img src="assets/img/examples/ex1/building_thumb.jpg" alt="building"></a>
+								</li>
+								<li>
+									<a href="assets/img/examples/ex1/eiffel.jpg"><img src="assets/img/examples/ex1/eiffel_thumb.jpg" alt="eiffel"></a>
+								</li>
+								<li>
+									<a href="assets/img/examples/ex1/bridge.jpg"><img src="assets/img/examples/ex1/bridge_thumb.jpg" alt="bridge"></a>
+								</li>
+							</ul>
+						</div>
 
-                        <div id="ex1_mainImage" class="col-md-10 col-lg-10"></div>
-                    </div>
-                </div>
-            </div>
+						<div id="ex1_mainImage" class="col-md-10 col-lg-10"></div>
+					</div>
+				</div>
+			</div>
 
-            <div class="row">
+			<div class="row">
 
-                <div class="col-lg-3">
-                    <h5>Code</h5>
-                </div>
+				<div class="col-lg-3">
+					<h5>Code</h5>
+				</div>
 
-                <br>
+				<br>
 
-                <div class="col-lg-9">
-                    <div id="ex1_js" class="tab-pane active">
+				<div class="col-lg-9">
+					<div id="ex1_js" class="tab-pane active">
 <pre><code>$('#ex1_thumbs').desoSlide({
-    main : {
-        container : '#ex1_mainImage',
-        cssClass  : 'img-responsive'
-    },
-    auto : {
-        start : true
-    },
-    first    : 1,
-    effect   : 'roll',
-    controls : {
-        keys : false
-    }
+	main : {
+		container : '#ex1_mainImage',
+		cssClass  : 'img-responsive'
+	},
+	auto : {
+		start : true
+	},
+	first    : 1,
+	effect   : 'roll',
+	controls : {
+		keys : false
+	}
 });
 </code></pre>
-                    </div>
-                </div>
-            </div>
-            <!-- [END] Example #2 -->
+					</div>
+				</div>
+			</div>
+			<!-- [END] Example #2 -->
 
-            <!-- [BEGIN] Example #3 -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="page-header">
-                        <h3>Examples #3</h3>
-                    </div>
-                    <p class="lead">
-                        Displaying the overlay by hovering the main image. No link provided and no controls.
-                    </p>
-                </div>
-            </div>
+			<!-- [BEGIN] Example #3 -->
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="page-header">
+						<h3>Examples #3</h3>
+					</div>
+					<p class="lead">
+						Displaying the overlay by hovering the main image. No link provided and no controls.
+					</p>
+				</div>
+			</div>
 
-            <div class="row">
-                <div class="col-lg-3">
-                    <h5>Result</h5>
-                </div>
-                <div class="col-lg-9">
+			<div class="row">
+				<div class="col-lg-3">
+					<h5>Result</h5>
+				</div>
+				<div class="col-lg-9">
 
-                    <div class="row">
-                        <div class="col-lg-12 text-center">
-                            <div id="ex2_mainImage" class="inline-block"></div>
-                        </div>
-                    </div>
+					<div class="row">
+						<div class="col-lg-12 text-center">
+							<div id="ex2_mainImage" class="inline-block"></div>
+						</div>
+					</div>
 
-                    <div class="row">
-                        <div class="col-lg-12 text-center">
-                            <ul id="ex2_thumbs" class="list-inline">
-                                <li>
-                                    <a href="assets/img/examples/ex2/tortoise.jpg"><img src="assets/img/examples/ex2/tortoise_thumb.jpg" alt="tortoise" data-caption="A tortoise"></a>
-                                </li>
-                                <li>
-                                    <a href="assets/img/examples/ex2/tiger.jpg"><img src="assets/img/examples/ex2/tiger_thumb.jpg" alt="tiger" data-caption="A tiger"></a>
-                                </li>
-                                <li>
-                                    <a href="assets/img/examples/ex2/lynx.jpg"><img src="assets/img/examples/ex2/lynx_thumb.jpg" alt="lynx" data-caption="A lynx"></a>
-                                </li>
-                                <li>
-                                    <a href="assets/img/examples/ex2/dog.jpg"><img src="assets/img/examples/ex2/dog_thumb.jpg" alt="dog" data-caption="A dog"></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+					<div class="row">
+						<div class="col-lg-12 text-center">
+							<ul id="ex2_thumbs" class="list-inline">
+								<li>
+									<a href="assets/img/examples/ex2/tortoise.jpg"><img src="assets/img/examples/ex2/tortoise_thumb.jpg" alt="tortoise" data-caption="A tortoise"></a>
+								</li>
+								<li>
+									<a href="assets/img/examples/ex2/tiger.jpg"><img src="assets/img/examples/ex2/tiger_thumb.jpg" alt="tiger" data-caption="A tiger"></a>
+								</li>
+								<li>
+									<a href="assets/img/examples/ex2/lynx.jpg"><img src="assets/img/examples/ex2/lynx_thumb.jpg" alt="lynx" data-caption="A lynx"></a>
+								</li>
+								<li>
+									<a href="assets/img/examples/ex2/dog.jpg"><img src="assets/img/examples/ex2/dog_thumb.jpg" alt="dog" data-caption="A dog"></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
 
-            <div class="row">
+			<div class="row">
 
-                <div class="col-lg-3">
-                    <h5>Code</h5>
-                </div>
+				<div class="col-lg-3">
+					<h5>Code</h5>
+				</div>
 
-                <br>
+				<br>
 
-                <div class="col-lg-9">
-                    <div id="ex2_js" class="tab-pane active">
+				<div class="col-lg-9">
+					<div id="ex2_js" class="tab-pane active">
 <pre><code>$('#ex2_thumbs').desoSlide({
-    main : {
-        container : '#ex2_mainImage',
-        cssClass  : 'img-responsive'
-    },
-    effect   : 'flip',
-    overlay  : 'hover',
-    caption  : true,
-    controls : {
-        enable : false,
-        keys   : false
-    }
+	main : {
+		container : '#ex2_mainImage',
+		cssClass  : 'img-responsive'
+	},
+	effect   : 'flip',
+	overlay  : 'hover',
+	caption  : true,
+	controls : {
+		enable : false,
+		keys   : false
+	}
 });
 </code></pre>
-                    </div>
-                </div>
-            </div>
-            <!-- [END] Example #3 -->
-        </div> <!-- /CONTAINER -->
+					</div>
+				</div>
+			</div>
+			<!-- [END] Example #3 -->
+		</div> <!-- /CONTAINER -->
 
-        <!-- [BEGIN] FOOTER -->
-        <footer class="bottom-menu">
-            <div class="container">
+		<!-- [BEGIN] FOOTER -->
+		<footer class="bottom-menu">
+			<div class="container">
 
-                <div class="row">
+				<div class="row">
 
-                    <article class="col-lg-2">
-                        <div class="navbar-brand">
-                            <img src="assets/img/logo/desoslide_small.png" alt="desoslide logo">
-                        </div>
-                    </article>
+					<article class="col-lg-2">
+						<div class="navbar-brand">
+							<img src="assets/img/logo/desoslide_small.png" alt="desoslide logo">
+						</div>
+					</article>
 
-                    <article class="col-lg-8">
-                        <ul class="bottom-links">
-                            <li><a href="http://chez-syl.fr/">My blog</a></li>
-                            <li><a href="https://github.com/sylouuu/desoslide">Project on GitHub</a></li>
-                            <li><a href="https://github.com/sylouuu/desoslide/issues">Issues</a></li>
-                        </ul>
-                    </article>
+					<article class="col-lg-8">
+						<ul class="bottom-links">
+							<li><a href="http://chez-syl.fr/">My blog</a></li>
+							<li><a href="https://github.com/sylouuu/desoslide">Project on GitHub</a></li>
+							<li><a href="https://github.com/sylouuu/desoslide/issues">Issues</a></li>
+						</ul>
+					</article>
 
-                    <article class="col-lg-2 text-right">
-                        <a href="https://github.com/sylouuu">
-                            <img src="assets/img/github/github_logo.png" alt="github logo">
-                        </a>
-                    </article>
-                </div>
-            </div>
-        </footer>
-        <!-- [END] FOOTER -->
-    </body>
+					<article class="col-lg-2 text-right">
+						<ul class="list-inline no-mg-bt">
+							<li>
+								<a href="https://github.com/sylouuu">
+									<img src="assets/img/github/github_logo.png" alt="github logo">
+								</a>
+							</li>
+							<li>
+								<a href="https://twitter.com/amis_du_web">
+									<img src="assets/img/social/twitter_logo.png" alt="twitter logo">
+								</a>
+							</li>
+						</ul>
+					</article>
+				</div>
+			</div>
+		</footer>
+		<!-- [END] FOOTER -->
+	</body>
 </html>
