@@ -11300,6 +11300,9 @@ footer.bottom-menu .navbar-brand {
   float: none;
   margin-top: 5px;
 }
+footer ul[class^="list-"] li {
+  margin-bottom: 0;
+}
 body {
   padding-top: 97px;
   padding-bottom: 0;
