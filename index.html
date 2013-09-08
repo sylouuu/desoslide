@@ -6,14 +6,13 @@
 
 		<title>Home &middot; jQuery plugin desoSlide</title>
 
-		<link rel="stylesheet" href="assets/css/doc/home.css">
+		<link rel="icon" href="assets/img/logo/favicon.png">
 
-		<link rel="stylesheet" href="dist/css/jquery.desoslide.css">
+		<link rel="stylesheet" href="assets/css/doc/home.css">
 
 		<script src="assets/js/jquery/jquery.js"></script>
 		<script src="assets/js/bootstrap/bootstrap.min.js"></script>
-		<script src="dist/js/jquery.desoslide.js"></script>
-		<script src="assets/js/doc/home.js"></script>
+
 		<script>
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-27524593-3']);
@@ -26,131 +25,142 @@
 			})();
 		</script>
 	</head>
-<body>
-	<!-- [BEGIN] Forkme ribbon -->
-	<a href="https://github.com/sylouuu/desoslide"><img class="ribbon" src="assets/img/forkme_right_red.png" alt="Fork me on GitHub"></a>
-	<!-- [END] Forkme ribbon -->
+	<body>
+		<header class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
 
-	<div class="container">
-		<header class="navbar navbar-default">
-			<div class="navbar-header">
-			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-home-collapse">
-			      	<span class="sr-only">Toggle navigation</span>
-			      	<span class="icon-bar"></span>
-			      	<span class="icon-bar"></span>
-			      	<span class="icon-bar"></span>
-			    </button>
-				<a class="navbar-brand" href="./">desoSlide</a>
-			</div>
+					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-home"></button>
 
-			<ul class="nav navbar-nav navbar-right">
-				<li>
-					<span class="navbar-item-iframe">
-						<iframe src="http://ghbtns.com/github-btn.html?user=sylouuu&amp;repo=desoSlide&amp;type=watch&amp;count=true"></iframe>
-					</span>
-				</li>
-				<li>
-					<span class="navbar-item-iframe">
-						<iframe src="http://ghbtns.com/github-btn.html?user=sylouuu&amp;repo=desoSlide&amp;type=fork&amp;count=true"></iframe>
-					</span>
-				</li>
-			</ul>
+					<a href="./" class="navbar-brand">
+						<img src="assets/img/logo/desoslide.png" alt="desoslide logo">
+					</a>
 
-			<div class="collapse navbar-collapse navbar-home-collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="./">Home</a></li>
-					<li><a href="documentation.html">Documentation</a></li>
-					<li><a href="tests/">Tests</a></li>
-				</ul>
+					<div class="nav-collapse collapse" id="nav-collapse-home">
+						<ul class="nav">
+							<li class="active"><a href="./">Home</a></li>
+							<li><a href="demo.html">Demo</a></li>
+							<li>
+								<a href="documentation.html">Documentation</a>
+								<ul>
+									<li><a href="documentation.html#wizard_by_step">Installation</a></li>
+									<li><a href="documentation.html#configuration">Configuration</a></li>
+									<li><a href="documentation.html#controls">Controls</a></li>
+									<li><a href="documentation.html#options">Options</a></li>
+									<li><a href="documentation.html#return_value">Return value</a></li>
+									<li><a href="documentation.html#browser_compatibility">Browser compatibility</a></li>
+									<li><a href="documentation.html#contributors">Contributors</a></li>
+								</ul>
+							</li>
+							<li><a href="tests/">Tests</a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</header>
 
-		<!-- [BEGIN] Jumbotron -->
-		<div class="jumbotron">
-			<h1>Simple images slider...</h1>
-			<p class="lead">... with thumbnails!</p>
+		<div class="container">
 
-			<p>
-				<a class="btn btn-lg btn-primary" href="documentation.html">See documentation & examples</a>
-			</p>
 
-			<ul class="list-inline text-muted">
-				<li><a href="https://github.com/sylouuu/desoslide/releases" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-download-alt"></span> Download</a></li>
-				<li>Version 1.1.0</li>
-			</ul>
-		</div>
-		<!-- [END] Jumbotron -->
+			<!-- [BEGIN] JUMBOTRON -->
+			<div class="jumbotron">
+				<h1>Simple images slider...</h1>
+				<h3>... with thumbnails!</h3>
 
-		<!-- [BEGIN] Demo -->
-		<div class="row marketing ">
-			<div id="home_main_image" class="col-xs-10 col-sm-10 col-md-10 col-lg-10 text-center"></div>
+				<br>
 
-			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-				<ul id="home_demo" class="list-unstyled">
-					<li>
-						<a href="assets/img/examples/wizard/bird.jpg"><img src="assets/img/examples/wizard/bird_thumb.jpg" class="img-responsive" alt="Bird" data-caption="A bird, click me to open http://chez-syl.fr/" data-href="http://chez-syl.fr/"></a>
-					</li>
-					<li>
-						<a href="assets/img/examples/wizard/flower.jpg"><img src="assets/img/examples/wizard/flower_thumb.jpg" class="img-responsive" alt="Flower" data-caption="A flower, click me to open README.md file" data-href="README.md"></a>
-					</li>
-					<li>
-						<a href="assets/img/examples/wizard/butterfly.jpg"><img src="assets/img/examples/wizard/butterfly_thumb.jpg" class="img-responsive" alt="Butterfly" data-caption="A butterfly, click me to open LICENSE.md file" data-href="LICENSE.md"></a>
-					</li>
-					<li>
-						<a href="assets/img/examples/wizard/rose.jpg"><img src="assets/img/examples/wizard/rose_thumb.jpg" class="img-responsive" alt="Rose" data-caption="A rose, you can't click me, got no link"></a>
-					</li>
+				<ul class="list-inline text-muted">
+					<li><a href="https://github.com/sylouuu/desoslide/releases" class="btn btn-primary btn-hg"><span class="glyphicon glyphicon-download-alt"></span> Download</a></li>
+					<li>Version 1.1.0</li>
 				</ul>
 			</div>
-		</div>
+			<!-- [END] JUMBOTRON -->
 
-		<hr>
+			<!-- [BEGIN] FEATURES -->
+			<div class="features">
 
-		<!-- [BEGIN] Features -->
-		<div class="row marketing">
-			<div class="col-sm-6 col-md-6 col-lg-6 text-center">
-				<div class="h1"><i class="glyphicon glyphicon-gift"></i></div>
-				<h3>Free</h3>
-				<p>This plugin is open source, under the <a href="http://en.wikipedia.org/wiki/MIT_License">MIT license</a>. You may contribute on the GitHub <a href="https://github.com/sylouuu/desoslide">repository</a>.</p>
-			</div>
-			<div class="col-sm-6 col-md-6 col-lg-6 text-center">
-				<div class="h1"><i class="glyphicon glyphicon-play"></i></div>
-				<h3>Controls</h3>
-				<p>Control the slider by clicking or pressing your keyboard keys.</p>
-			</div>
-		</div>
-		<div class="row marketing">
-			<div class="col-sm-6 col-md-6 col-lg-6 text-center">
-				<div class="h1"><i class="glyphicon glyphicon-wrench"></i></div>
-				<h3>Customizable</h3>
-				<p>Use your own CSS and see all the available options (including effects) in the <a href="documentation.html">documentation</a>.</p>
-			</div>
-			<div class="col-sm-6 col-md-6 col-lg-6 text-center">
-				<div class="h1"><i class="glyphicon glyphicon-picture"></i></div>
-				<h3>Caption</h3>
-				<p>Specify a caption and a link for each image.</p>
-			</div>
-		</div>
-		<div class="row marketing">
-			<div class="col-sm-6 col-md-6 col-lg-6 text-center">
-				<div class="h1"><i class="glyphicon glyphicon-th-large"></i></div>
-				<h3>Multiple</h3>
-				<p>Use several sliders on a same page.</p>
-			</div>
-			<div class="col-sm-6 col-md-6 col-lg-6 text-center">
-				<div class="h1"><i class="glyphicon glyphicon-ok"></i></div>
-				<h3>Tests suite</h3>
-				<p>A <a href="https://github.com/pivotal/jasmine">Jasmine</a> tests suite is available, see the <a href="tests/">tests page</a>.</p>
-			</div>
-		</div>
-		<!-- [END] Features -->
+				<div class="row">
+					<div class="col-lg-6 text-center">
+						<img src="assets/img/flat_ui/gift.png" alt="gift">
+						<h3>Free</h3>
+						<p>
+							This plugin is open source, under the <a href="http://en.wikipedia.org/wiki/MIT_License">MIT license</a>.<br>
+							You may contribute on the GitHub <a href="https://github.com/sylouuu/desoslide">repository</a>.
+						</p>
+					</div>
+					<div class="col-lg-6 text-center">
+						<img src="assets/img/flat_ui/settings.png" alt="settings">
+						<h3>Customizable</h3>
+						<p>Use your own CSS and see all the available options (including effects) in the <a href="documentation.html">documentation</a>.</p>
+					</div>
+				</div>
 
-		<!-- [BEGIN] Footer -->
-		<div class="footer">
-			<p>&copy; <a href="https://github.com/sylouuu">Syl</a> 2013</p>
-		</div>
-		<!-- [END] Footer -->
+				<div class="row">
+					<div class="col-lg-6 text-center">
+						<img src="assets/img/flat_ui/goal.png" alt="goal">
+						<h3>Controls</h3>
+						<p>Control the slider by clicking or pressing your keyboard keys.</p>
+					</div>
+					<div class="col-lg-6 text-center">
+						<img src="assets/img/flat_ui/picture.png" alt="picture">
+						<h3>Caption</h3>
+						<p>Specify a caption and a link for each image.</p>
+					</div>
+				</div>
 
-	</div> <!-- /container -->
+				<div class="row">
+					<div class="col-lg-6 text-center">
+						<img src="assets/img/flat_ui/infinite.png" alt="infinite">
+						<h3>Multiple</h3>
+					<p>Use several sliders on a same page.</p>
+					</div>
+					<div class="col-lg-6 text-center">
+						<img src="assets/img/flat_ui/tests.png" alt="tests">
+						<h3>Tests suite</h3>
+					<p>A <a href="https://github.com/pivotal/jasmine">Jasmine</a> tests suite is available, see the <a href="tests/">tests page</a>.</p>
+					</div>
+				</div>
+			</div>
+			<!-- [END] FEATURES -->
+		</DIV> <!-- /CONTAINER -->
 
-</body>
+		<!-- [BEGIN] FOOTER -->
+		<footer class="bottom-menu">
+			<div class="container">
+
+				<div class="row">
+
+					<article class="col-lg-2">
+						<div class="navbar-brand">
+							<img src="assets/img/logo/desoslide_small.png" alt="desoslide logo">
+						</div>
+					</article>
+
+					<article class="col-lg-8">
+						<ul class="bottom-links">
+							<li><a href="http://chez-syl.fr/">My blog</a></li>
+							<li><a href="https://github.com/sylouuu/desoslide">Project on GitHub</a></li>
+							<li><a href="https://github.com/sylouuu/desoslide/issues">Issues</a></li>
+						</ul>
+					</article>
+
+					<article class="col-lg-2 text-right">
+						<ul class="list-inline no-mg-bt">
+							<li>
+								<a href="https://github.com/sylouuu">
+									<img src="assets/img/github/github_logo.png" alt="github logo">
+								</a>
+							</li>
+							<li>
+								<a href="https://twitter.com/amis_du_web">
+									<img src="assets/img/social/twitter_logo.png" alt="twitter logo">
+								</a>
+							</li>
+						</ul>
+					</article>
+				</div>
+			</div>
+		</footer>
+		<!-- [END] FOOTER -->
+	</body>
 </html>
