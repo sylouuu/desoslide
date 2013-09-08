@@ -6,6 +6,9 @@
 
 		<title>Tests suite &middot; jQuery plugin desoSlide</title>
 
+		<link rel="icon" href="../assets/img/logo/favicon.png">
+
+		<link rel="stylesheet" href="../assets/css/doc/home.css">
 		<link rel="stylesheet" href="jasmine/css/jasmine.css">
 
 		<script src="../assets/js/jquery/jquery.js"></script>
@@ -31,93 +34,125 @@
 
 		<style>.test { display: none; }</style>
 	</head>
-<body>
+	<body>
 
-	<!-- [BEGIN] Scenario 3 -->
-	<ul id="scenario3" class="test"></ul>
-	<!-- [END] Scenario 3 -->
+		<header class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
 
-	<!-- [BEGIN] Scenario 4 -->
-	<ul id="scenario4_thumbs" class="test"></ul>
+					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-home"></button>
 
-	<div id="scenario4" class="test"></div>
-	<!-- [END] Scenario 4 -->
+					<a href="./" class="navbar-brand">
+						<img src="../assets/img/logo/desoslide.png" alt="desoslide logo">
+					</a>
 
-	<!-- [BEGIN] Scenario 5, 6, 7 & 8-->
-	<ul id="scenario5_thumbs" class="test">
-		<li>
-			<a href="../assets/img/examples/wizard/bird.jpg"><img src="../assets/img/examples/wizard/bird_thumb.jpg" alt="bird"></a>
-		</li>
-		<li>
-			<a href="../assets/img/examples/wizard/flower.jpg"><img src="../assets/img/examples/wizard/flower_thumb.jpg" alt="Flower"></a>
-		</li>
-		<li>
-			<a href="../assets/img/examples/wizard/butterfly.jpg"><img src="../assets/img/examples/wizard/butterfly_thumb.jpg" alt="Butterfly"></a>
-		</li>
-		<li>
-			<a href="../assets/img/examples/wizard/rose.jpg"><img src="../assets/img/examples/wizard/rose_thumb.jpg" alt="Rose"></a>
-		</li>
-	</ul>
+					<div class="nav-collapse collapse" id="nav-collapse-home">
+						<ul class="nav">
+							<li><a href="../">Home</a></li>
+							<li><a href="../demo.html">Demo</a></li>
+							<li>
+								<a href="../documentation.html">Documentation</a>
+								<ul>
+									<li><a href="documentation.html#wizard_by_step">Installation</a></li>
+									<li><a href="documentation.html#configuration">Configuration</a></li>
+									<li><a href="documentation.html#controls">Controls</a></li>
+									<li><a href="documentation.html#options">Options</a></li>
+									<li><a href="documentation.html#return_value">Return value</a></li>
+									<li><a href="documentation.html#browser_compatibility">Browser compatibility</a></li>
+									<li><a href="documentation.html#contributors">Contributors</a></li>
+								</ul>
+							</li>
+							<li class="active"><a href="./">Tests</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
 
-	<div id="scenario5" class="test"></div>
-	<!-- [END] Scenario 5, 6, 7 & 8-->
+		<!-- [BEGIN] Scenario 3 -->
+		<ul id="scenario3" class="test"></ul>
+		<!-- [END] Scenario 3 -->
 
-	<!-- [BEGIN] Scenario 9 -->
-	<ul id="scenario9_thumbs" class="test">
-		<li>
-			<a href="../assets/img/examples/wizard/bird.jpg"><img src="../assets/img/examples/wizard/bird_thumb.jpg" data-caption="bird"></a>
-		</li>
-		<li>
-			<a href="../assets/img/examples/wizard/flower.jpg"><img src="../assets/img/examples/wizard/flower_thumb.jpg" data-caption="Flower"></a>
-		</li>
-		<li>
-			<a href="../assets/img/examples/wizard/butterfly.jpg"><img src="../assets/img/examples/wizard/butterfly_thumb.jpg" data-caption="Butterfly"></a>
-		</li>
-		<li>
-			<a href="../assets/img/examples/wizard/rose.jpg"><img src="../assets/img/examples/wizard/rose_thumb.jpg" data-caption="Rose"></a>
-		</li>
-	</ul>
+		<!-- [BEGIN] Scenario 4 -->
+		<ul id="scenario4_thumbs" class="test"></ul>
 
-	<div id="scenario9" class="test"></div>
-	<!-- [END] Scenario 9 -->
+		<div id="scenario4" class="test"></div>
+		<!-- [END] Scenario 4 -->
 
-	<!-- [BEGIN] Scenario 10 -->
-	<ul id="scenario10_thumbs" class="test">
-		<li>
-			<a href="../assets/img/examples/wizard/bird.jpg"><img src="../assets/img/examples/wizard/bird_thumb.jpg" alt="bird"></a>
-		</li>
-		<li>
-			<a href="../assets/img/examples/wizard/flower.jpg"><img src="../assets/img/examples/wizard/flower_thumb.jpg" alt="Flower"></a>
-		</li>
-		<li>
-			<a href="../assets/img/examples/wizard/butterfly.jpg"><img src="../assets/img/examples/wizard/butterfly_thumb.jpg" alt="Butterfly"></a>
-		</li>
-		<li>
-			<a href="../assets/img/examples/wizard/rose.jpg"><img src="../assets/img/examples/wizard/rose_thumb.jpg" alt="Rose"></a>
-		</li>
-	</ul>
+		<!-- [BEGIN] Scenario 5, 6, 7 & 8-->
+		<ul id="scenario5_thumbs" class="test">
+			<li>
+				<a href="../assets/img/examples/wizard/bird.jpg"><img src="../assets/img/examples/wizard/bird_thumb.jpg" alt="bird"></a>
+			</li>
+			<li>
+				<a href="../assets/img/examples/wizard/flower.jpg"><img src="../assets/img/examples/wizard/flower_thumb.jpg" alt="Flower"></a>
+			</li>
+			<li>
+				<a href="../assets/img/examples/wizard/butterfly.jpg"><img src="../assets/img/examples/wizard/butterfly_thumb.jpg" alt="Butterfly"></a>
+			</li>
+			<li>
+				<a href="../assets/img/examples/wizard/rose.jpg"><img src="../assets/img/examples/wizard/rose_thumb.jpg" alt="Rose"></a>
+			</li>
+		</ul>
 
-	<div id="scenario10" class="test"></div>
-	<!-- [END] Scenario 10 -->
+		<div id="scenario5" class="test"></div>
+		<!-- [END] Scenario 5, 6, 7 & 8-->
 
-	<!-- [BEGIN] Scenario 11 -->
-	<ul id="scenario11_thumbs" class="test">
-		<li>
-			<a href="../assets/img/examples/wizard/bird.jpg"><img src="../assets/img/examples/wizard/bird_thumb.jpg" alt="bird" data-caption="bird"></a>
-		</li>
-		<li>
-			<a href="../assets/img/examples/wizard/flower.jpg"><img src="../assets/img/examples/wizard/flower_thumb.jpg" alt="Flower" data-caption="Flower"></a>
-		</li>
-		<li>
-			<a href="../assets/img/examples/wizard/butterfly.jpg"><img src="../assets/img/examples/wizard/butterfly_thumb.jpg" alt="Butterfly" data-caption="Butterfly"></a>
-		</li>
-		<li>
-			<a href="../assets/img/examples/wizard/rose.jpg"><img src="../assets/img/examples/wizard/rose_thumb.jpg" alt="Rose" data-caption="Rose"></a>
-		</li>
-	</ul>
+		<!-- [BEGIN] Scenario 9 -->
+		<ul id="scenario9_thumbs" class="test">
+			<li>
+				<a href="../assets/img/examples/wizard/bird.jpg"><img src="../assets/img/examples/wizard/bird_thumb.jpg" data-caption="bird"></a>
+			</li>
+			<li>
+				<a href="../assets/img/examples/wizard/flower.jpg"><img src="../assets/img/examples/wizard/flower_thumb.jpg" data-caption="Flower"></a>
+			</li>
+			<li>
+				<a href="../assets/img/examples/wizard/butterfly.jpg"><img src="../assets/img/examples/wizard/butterfly_thumb.jpg" data-caption="Butterfly"></a>
+			</li>
+			<li>
+				<a href="../assets/img/examples/wizard/rose.jpg"><img src="../assets/img/examples/wizard/rose_thumb.jpg" data-caption="Rose"></a>
+			</li>
+		</ul>
 
-	<div id="scenario11" class="test"></div>
-	<!-- [END] Scenario 11 -->
+		<div id="scenario9" class="test"></div>
+		<!-- [END] Scenario 9 -->
 
-</body>
+		<!-- [BEGIN] Scenario 10 -->
+		<ul id="scenario10_thumbs" class="test">
+			<li>
+				<a href="../assets/img/examples/wizard/bird.jpg"><img src="../assets/img/examples/wizard/bird_thumb.jpg" alt="bird"></a>
+			</li>
+			<li>
+				<a href="../assets/img/examples/wizard/flower.jpg"><img src="../assets/img/examples/wizard/flower_thumb.jpg" alt="Flower"></a>
+			</li>
+			<li>
+				<a href="../assets/img/examples/wizard/butterfly.jpg"><img src="../assets/img/examples/wizard/butterfly_thumb.jpg" alt="Butterfly"></a>
+			</li>
+			<li>
+				<a href="../assets/img/examples/wizard/rose.jpg"><img src="../assets/img/examples/wizard/rose_thumb.jpg" alt="Rose"></a>
+			</li>
+		</ul>
+
+		<div id="scenario10" class="test"></div>
+		<!-- [END] Scenario 10 -->
+
+		<!-- [BEGIN] Scenario 11 -->
+		<ul id="scenario11_thumbs" class="test">
+			<li>
+				<a href="../assets/img/examples/wizard/bird.jpg"><img src="../assets/img/examples/wizard/bird_thumb.jpg" alt="bird" data-caption="bird"></a>
+			</li>
+			<li>
+				<a href="../assets/img/examples/wizard/flower.jpg"><img src="../assets/img/examples/wizard/flower_thumb.jpg" alt="Flower" data-caption="Flower"></a>
+			</li>
+			<li>
+				<a href="../assets/img/examples/wizard/butterfly.jpg"><img src="../assets/img/examples/wizard/butterfly_thumb.jpg" alt="Butterfly" data-caption="Butterfly"></a>
+			</li>
+			<li>
+				<a href="../assets/img/examples/wizard/rose.jpg"><img src="../assets/img/examples/wizard/rose_thumb.jpg" alt="Rose" data-caption="Rose"></a>
+			</li>
+		</ul>
+
+		<div id="scenario11" class="test"></div>
+		<!-- [END] Scenario 11 -->
+	</body>
 </html>

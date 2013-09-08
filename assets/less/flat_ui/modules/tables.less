@@ -1,0 +1,141 @@
+//
+// Tables
+// --------------------------------------------------
+
+.table {
+  font-size: ceil(@font-size-base * 1.142);
+  
+  // Cells
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: 10px 25px;
+        line-height: @line-height-base;
+        border-top: 2px solid @table-border-color;
+      }
+      > th {
+		    color: mix(@base, white, 85%);
+		    border-bottom: 2px solid @table-border-color;
+		  }
+    }
+  }
+  i[class*="fui-"] {
+    vertical-align: baseline;
+    font-size: 20px;
+    margin: -5px 0;
+    position: relative;
+    top: 2px;
+  }
+  .checkbox,
+  .radio {
+  	margin: 0 0 0 -9px;
+
+    &.no-label {
+      padding-left: 0;
+    }
+  }
+  .selected-row {
+    > td {
+      background-color: mix(@firm, white, 5.5%);
+    }
+  }
+  img { vertical-align: top; }
+}
+
+// Bordered table
+.table-bordered {
+  border: 2px solid @table-border-color;
+  font-size: @font-size-base;
+	
+	> thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      th,
+		  td {
+		    border: 2px solid @table-border-color !important;
+		  }
+    }
+  }  
+}
+
+// Stripped
+.table-striped {
+  > tbody {
+    > tr {
+      &:nth-child(even),
+      &.selected-row {
+        > td,
+        > th {
+          background-color: @table-bg-active;
+        }
+      }
+      &:nth-child(odd) {
+        > td,
+        > th {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+
+// Hovered table
+.table-hover {
+  > tbody {
+    > tr:hover {
+	    > td,
+	    > th {
+		    background-color: @table-bg-active;
+	    }
+    }
+  }
+}
+
+// Table backgrounds
+.table tbody tr {
+  &.success > td,
+  & > td.success {
+    background-color: @table-success;
+    border-color: mix(@success, white, 20%);
+  }
+  &.error > td,
+  & > td.error,
+  &.danger > td,
+  & > td.danger {
+    background-color: @table-danger;
+    border-color: mix(@danger, white, 20%);
+  }
+  &.warning > td,
+  & > td.warning {
+    background-color: @table-warning;
+    border-color: mix(@warning, white, 33%);
+  }
+  &.info > td,
+  & > td.info {
+    background-color: @table-info;
+    border-color: mix(@info, white, 20%);
+  }
+}
+
+// Hover states for .table-hover
+.table-hover tbody tr {
+  &.success:hover > td {
+    background-color: darken(@table-success, 2%);
+  }
+  &.error:hover > td,
+  &.danger:hover > td {
+    background-color: darken(@table-danger, 1%);
+  }
+  &.warning:hover > td {
+    background-color: darken(@table-warning, 2%);
+  }
+  &.info:hover > td {
+    background-color: darken(@table-info, 1%);
+  }
+}
+
+

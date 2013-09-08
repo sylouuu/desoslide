@@ -1,0 +1,55 @@
+
+
+// Barre de navigation
+.navbar {
+	border : none;
+
+	.btn-navbar {
+
+		@media (max-width: 979px) {
+			margin : 14px 0 20px;
+		}
+	}
+
+	.nav {
+
+		> li {
+
+			@media (min-width: 980px) {
+
+				> a {
+					padding   : 24px 20px;
+					font-size : 16px;
+
+					&:hover {
+						background-color : @navbar-link-hover-bg;
+					}
+				}
+			}
+		}
+	}
+
+	.navbar-brand {
+		padding     : 20px 28px 27px;
+		line-height : 1;
+
+		@media (max-width: 979px) {
+			padding : 15px 28px 23px;
+		}
+	}
+}
+
+// Container de la barre de navigation
+.navbar-inner {
+	.border-radius(0);
+}
+
+// Conteneur pour la vue mobile
+.nav-collapse {
+
+	@media (min-width: 980px) {
+		&.collapse {
+			display : block;
+		}
+	}
+}
