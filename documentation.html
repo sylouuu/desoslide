@@ -69,7 +69,7 @@
 				<div class="col-lg-3">
 					<div class="sidebar">
 						<ul class="nav sidenav">
-							<li><a href="#installation">Installation</a></li>
+							<li><a href="#setup">Setup</a></li>
 							<li><a href="#configuration">Configuration</a></li>
 							<li><a href="#controls">Controls</a></li>
 							<li><a href="#options">Options</a></li>
@@ -81,15 +81,14 @@
 				</div>
 				<!-- [END] AFFIX SIDEBAR -->
 
-				<!-- [BEGIN] INSTALLATION -->
+				<!-- [BEGIN] SETUP -->
 				<div class="col-lg-9">
 					<div class="page-header no-mg-tp">
-						<h3 id="wizard_by_step">Installation</h3>
+						<h3 id="setup">Setup</h3>
 					</div>
 
 					<p>
-						At first, include jQuery and the desoSlide files in your page.<br>
-						The CSS file is only needed for the caption styles.
+						At first, include jQuery and the desoSlide files in your page.
 					</p>
 <pre><code>&lt;link rel="stylesheet" href="css/jquery.desoslide.css" />
 
@@ -123,14 +122,14 @@
 					<div class="dialog dialog-info">
 						<div class="container text-left">
 							<p>Explanations:</p>
-							<ul>
-								<li>Specify your images links and the <code>alt</code> attribute</li>
-								<li>The <code>data-caption</code> attribute is used for the caption (optional)</li>
-								<li>The <code>data-href</code> attribute contains the link to the page that will be active on the main image (optional)</li>
+							<ul class="list-unstyled">
+								<li><span class="label label-danger">mandatory</span>&emsp;Specify your images links and the <code>alt</code> attribute</li>
+								<li><span class="label label-info">optional</span>&emsp;&emsp;The <code>data-caption</code> attribute is used for the caption</li>
+								<li><span class="label label-info">optional</span>&emsp;&emsp;The <code>data-href</code> attribute contains the link to the page that will be active on the main image</li>
 							</ul>
 						</div>
 					</div>
-					<!-- [END] INSTALLATION -->
+					<!-- [END] SETUP -->
 
 					<!-- [BEGIN] CONFIGURATION -->
 					<div class="page-header">
@@ -143,7 +142,7 @@
 <pre><code>$(function() {
     $('#my_thumbs').desoSlide({
         main: {
-            container: '#wizard_mainImage',
+            container: '#demo_mainImage',
             cssClass: 'img-responsive'
         },
         caption: true
@@ -151,16 +150,16 @@
 });
 </code></pre>
 					<p>
-						Here, the main image will be generated inside <code>#mainImage</code>.
+						Here, the main image will be generated inside <code>#demo_mainImage</code>.
 					</p>
 					<div class="dialog dialog-info">
 						<div class="container">
-							<p class="no-mg-bt">To see the result go to the <a href="demo.html">demo page</a>.</p>
+							<p class="no-mg-bt">View the result on the <a href="demo.html">demo page</a>.</p>
 						</div>
 					</div>
 					<!-- [END] CONFIGURATION -->
 
-					<!-- [BEGIN] CONTROLES -->
+					<!-- [BEGIN] CONTROLS -->
 					<div class="page-header">
 						<h3 id="controls">Controls</h3>
 					</div>
@@ -171,16 +170,16 @@
 					</p>
 
 					<ul>
-						<li>left arrow: <b>previous</b></li>
-						<li>right arrow: <b>next</b></li>
-						<li>space: toggling <b>play/pause</b></li>
+						<li><code><</code>: <b>previous</b></li>
+						<li><code>></code>: <b>next</b></li>
+						<li><code>space</code>: toggling <b>play/pause</b></li>
 					</ul>
 
 					<p>
 						As this feature is binded on the document, if you have more than one slider on your page and you press a key, all sliders will be triggered.
-						I recommand to you to enable the keys control on only one slider, by disabling the others with <code>controls.keys: false</code>.
+						I recommend to you to enable the keys control on only one slider, by disabling the other ones with <code>controls.keys: false</code>.
 					</p>
-					<!-- [END] CONTROLES -->
+					<!-- [END] CONTROLS -->
 
 					<!-- [BEGIN] OPTIONS -->
 					<div class="page-header">
@@ -189,113 +188,115 @@
 
 					<p>Find below all the available options.</p>
 
-					<table class="table table-bordered">
-						<tr>
-							<th>Options</th>
-							<th>Values</th>
-							<th>Default</th>
-							<th>Description</th>
-						</tr>
-						<tr>
-							<td><code>main.container</code></td>
-							<td>Your target container</td>
-							<td><code>false</code></td>
-							<td>Container for the main image. If you don't specify a valid selector, you'll receive an error.</td>
-						</tr>
-						<tr>
-							<td><code>main.cssClass</code></td>
-							<td>String</td>
-							<td><code>''</code></td>
-							<td>Class(es) name(s) of your main image.</td>
-						</tr>
-						<tr>
-							<td><code>main.insertion</code></td>
-							<td><code>'append'</code> <code>'prepend'</code> <code>'replace'</code></td>
-							<td><code>'append'</code></td>
-							<td>How to create the main image, by prepending, appending or replace all the selector's content (overwriting).</td>
-						</tr>
-						<tr>
-							<td><code>auto.load</code></td>
-							<td>Boolean</td>
-							<td><code>true</code></td>
-							<td>All thumbnails links (full size images) are auto loaded in background (invisible). </td>
-						</tr>
-						<tr>
-							<td><code>auto.start</code></td>
-							<td>Boolean</td>
-							<td><code>false</code></td>
-							<td>Autostarting a diaporama.</td>
-						</tr>
-						<tr>
-							<td><code>first</code></td>
-							<td>Integer between 0 and the number of thumbnails (-1)</td>
-							<td><code>0</code></td>
-							<td>The index of the thumbnail that you want to display first.</td>
-						</tr>
-						<tr>
-							<td><code>interval</code></td>
-							<td>Integer, minimum 1500</td>
-							<td><code>3000</code></td>
-							<td>Interval in milliseconds between each image.</td>
-						</tr>
-						<tr>
-							<td><code>effect</code></td>
-							<td><code>'fade'</code> <code>'flip'</code> <code>'light'</code> <code>'roll'</code> <code>'rotate'</code></td>
-							<td><code>'fade'</code></td>
-							<td>Transition effect. They are provided by <a href="http://daneden.me/animate/">animate.css</a>.</td>
-						</tr>
-						<tr>
-							<td><code>overlay</code></td>
-							<td><code>'always'</code> <code>'hover'</code></td>
-							<td><code>'always'</code></td>
-							<td>How to show overlay.</td>
-						</tr>
-						<tr>
-							<td><code>caption</code></td>
-							<td>Boolean</td>
-							<td><code>false</code></td>
-							<td>If <code>true</code>, be sure that you have specify the <code>data-caption</code> attribute on thumbnails.</td>
-						</tr>
-						<tr>
-							<td><code>controls.enable</code></td>
-							<td>Boolean</td>
-							<td><code>true</code></td>
-							<td>Able to control by clicking (prev/pause/play/next).</td>
-						</tr>
-						<tr>
-							<td><code>controls.keys</code></td>
-							<td>Boolean</td>
-							<td><code>true</code></td>
-							<td> Able to control by using the keyboard shortcuts (left/right/space)</td>
-						</tr>
-						<tr>
-							<td><code>log.errors</code></td>
-							<td>Boolean</td>
-							<td><code>true</code></td>
-							<td>Log errors in console. Be sure to put it <code>false</code> in production. If the render isn't ok, enable the errors then debug.</td>
-						</tr>
-						<tr>
-							<td><code>log.warnings</code></td>
-							<td>Boolean</td>
-							<td><code>true</code></td>
-							<td>Log warnings in console. Be sure to put it <code>false</code> in production.</td>
-						</tr>
-						<tr>
-							<td><code>result</code></td>
-							<td>function(result)</td>
-							<td><code>false</code></td>
-							<td>Get the slider result. The first argument outputs one of these values: "success", "error" or "warning".</td>
-						</tr>
-					</table>
+					<div class="table-responsive">
+						<table class="table table-bordered">
+							<tr>
+								<th>Options</th>
+								<th>Values</th>
+								<th>Default</th>
+								<th>Description</th>
+							</tr>
+							<tr>
+								<td><code>main.container</code></td>
+								<td>Your target container</td>
+								<td><code>false</code></td>
+								<td>Container for the main image. If you don't specify a valid selector, you'll receive an error.</td>
+							</tr>
+							<tr>
+								<td><code>main.cssClass</code></td>
+								<td>String</td>
+								<td><code>''</code></td>
+								<td>Class(es) name(s) of your main image.</td>
+							</tr>
+							<tr>
+								<td><code>main.insertion</code></td>
+								<td><code>'append'</code> <code>'prepend'</code> <code>'replace'</code></td>
+								<td><code>'append'</code></td>
+								<td>How to create the main image, by prepending, appending or replace all the selector's content (overwriting).</td>
+							</tr>
+							<tr>
+								<td><code>auto.load</code></td>
+								<td>Boolean</td>
+								<td><code>true</code></td>
+								<td>All thumbnails links (full size images) are auto loaded in background (invisible). </td>
+							</tr>
+							<tr>
+								<td><code>auto.start</code></td>
+								<td>Boolean</td>
+								<td><code>false</code></td>
+								<td>Autostarting a diaporama.</td>
+							</tr>
+							<tr>
+								<td><code>first</code></td>
+								<td>Integer between 0 and the number of thumbnails (-1)</td>
+								<td><code>0</code></td>
+								<td>The index of the thumbnail that you want to display first.</td>
+							</tr>
+							<tr>
+								<td><code>interval</code></td>
+								<td>Integer, minimum 1500</td>
+								<td><code>3000</code></td>
+								<td>Interval in milliseconds between each image.</td>
+							</tr>
+							<tr>
+								<td><code>effect</code></td>
+								<td><code>'fade'</code> <code>'flip'</code> <code>'light'</code> <code>'roll'</code> <code>'rotate'</code></td>
+								<td><code>'fade'</code></td>
+								<td>Transition effect. They are provided by <a href="http://daneden.me/animate/">animate.css</a>.</td>
+							</tr>
+							<tr>
+								<td><code>overlay</code></td>
+								<td><code>'always'</code> <code>'hover'</code></td>
+								<td><code>'always'</code></td>
+								<td>How to show overlay.</td>
+							</tr>
+							<tr>
+								<td><code>caption</code></td>
+								<td>Boolean</td>
+								<td><code>false</code></td>
+								<td>If <code>true</code>, be sure that you have specify the <code>data-caption</code> attribute on thumbnails.</td>
+							</tr>
+							<tr>
+								<td><code>controls.enable</code></td>
+								<td>Boolean</td>
+								<td><code>true</code></td>
+								<td>Able to control by clicking (prev/pause/play/next).</td>
+							</tr>
+							<tr>
+								<td><code>controls.keys</code></td>
+								<td>Boolean</td>
+								<td><code>true</code></td>
+								<td> Able to control by using the keyboard shortcuts (left/right/space)</td>
+							</tr>
+							<tr>
+								<td><code>log.errors</code></td>
+								<td>Boolean</td>
+								<td><code>true</code></td>
+								<td>Log errors in console. Be sure to put it <code>false</code> in production. If the render isn't ok, enable the errors then debug.</td>
+							</tr>
+							<tr>
+								<td><code>log.warnings</code></td>
+								<td>Boolean</td>
+								<td><code>true</code></td>
+								<td>Log warnings in console. Be sure to put it <code>false</code> in production.</td>
+							</tr>
+							<tr>
+								<td><code>result</code></td>
+								<td>function(result)</td>
+								<td><code>false</code></td>
+								<td>Get the slider result. The first argument outputs one of these values: "success", "error" or "warning".</td>
+							</tr>
+						</table>
+					</div>
 					<!-- [END] OPTIONS -->
 
-					<!-- [BEGIN] VALEUR DE RETOUR -->
+					<!-- [BEGIN] RETURN VALUE -->
 
 					<div class="page-header">
 						<h3 id="return_value">Return value</h3>
 					</div>
 						<p>The returned value by the <code>.desoSlide()</code> call is the jQuery object in order to maintain the chainability.</p>
-						<p>As explained before, if you want to know if the slider is well generated, use the <code>result</code> function.</p>
+						<p>If you want to know if the slider is well generated, use the <code>result</code> function.</p>
 <pre><code>$('#demo_thumbs').desoSlide({
     main: {
         container: '#demo'
@@ -312,9 +313,9 @@
     }
 });
 </code></pre>
-					<!-- [END] VALEUR DE RETOUR -->
+					<!-- [END] RETURN VALUE -->
 
-					<!-- [BEGIN] COMPATIBILITÉ DES NAVIGATEURS -->
+					<!-- [BEGIN] BROWSER COMPATIBILITY -->
 					<div class="page-header">
 						<h3 id="browser_compatibility">Browser compatibility</h3>
 					</div>
@@ -326,9 +327,9 @@
 						<li>Opera</li>
 						<li>Safari</li>
 					</ul>
-					<!-- [END] COMPATIBILITÉ DES NAVIGATEURS -->
+					<!-- [END] BROWSER COMPATIBILITY -->
 
-					<!-- [BEGIN] CONTRIBUTEURS -->
+					<!-- [BEGIN] CONTRIBUTORS -->
 					<div class="page-header">
 						<h3 id="contributors">Contributors</h3>
 					</div>
@@ -336,7 +337,7 @@
 						<li><a href="https://github.com/sylouuu">sylouuu</a> (me)</li>
 						<li><a href="https://github.com/jaoued">Jaoued</a></li>
 					</ul>
-					<!-- [END] CONTRIBUTEURS -->
+					<!-- [END] CONTRIBUTORS -->
 
 				</div>
 			</div>
