@@ -11336,6 +11336,9 @@ pre {
 .no-mg-tp {
   margin-top: 0;
 }
+.no-mg-bt {
+  margin-bottom: 0;
+}
 .sidebar.affix {
   position: static;
 }
