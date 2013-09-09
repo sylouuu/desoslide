@@ -16,7 +16,7 @@
 		<!--<![ENDIF]-->
 
 		<script src="assets/js/bootstrap/bootstrap.min.js"></script>
-		<script src="assets/js/doc/documentation.js"></script>
+		<!-- <script src="assets/js/doc/documentation.js"></script> -->
 		<script>
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-27524593-3']);
@@ -65,9 +65,9 @@
 			<div class="row">
 
 				<!-- [BEGIN] AFFIX SIDEBAR -->
-				<div class="col-lg-3">
+				<div class="col-sm-3 col-md-3 col-lg-3">
 					<div class="sidebar" id="sidebar">
-						<ul class="nav sidenav" data-toggle="affix" data-spy="affix" data-offset-top="80">
+						<ul class="nav sidenav" data-toggle="affix" data-spy="affix" data-offset-top="160">
 							<li><a href="#setup">Setup</a></li>
 							<li><a href="#configuration">Configuration</a></li>
 							<li><a href="#controls">Controls</a></li>
@@ -81,7 +81,7 @@
 				<!-- [END] AFFIX SIDEBAR -->
 
 				<!-- [BEGIN] SETUP -->
-				<div class="col-lg-9">
+				<div class="col-sm-9 col-md-9 col-lg-9">
 					<div class="page-header no-mg-tp">
 						<h3 id="setup">Setup</h3>
 					</div>
@@ -187,106 +187,108 @@
 
 					<p>Find below all the available options.</p>
 
-					<div class="table-responsive">
-						<table class="table table-bordered">
+					<table class="table table-bordered">
+						<thead>
 							<tr>
 								<th>Options</th>
 								<th>Values</th>
 								<th>Default</th>
 								<th>Description</th>
 							</tr>
+						</thead>
+						<tbody>
 							<tr>
-								<td><code>main.container</code></td>
-								<td>Your target container</td>
-								<td><code>false</code></td>
-								<td>Container for the main image. If you don't specify a valid selector, you'll receive an error.</td>
+								<td data-title="Options"><code>main.container</code></td>
+								<td data-title="Values">Your target container</td>
+								<td data-title="Default"><code>false</code></td>
+								<td data-title="Description">Container for the main image. If you don't specify a valid selector, you'll receive an error.</td>
 							</tr>
 							<tr>
-								<td><code>main.cssClass</code></td>
-								<td>String</td>
-								<td><code>''</code></td>
-								<td>Class(es) name(s) of your main image.</td>
+								<td data-title="Options"><code>main.cssClass</code></td>
+								<td data-title="Values">String</td>
+								<td data-title="Default"><code>''</code></td>
+								<td data-title="Description">Class(es) name(s) of your main image.</td>
 							</tr>
 							<tr>
-								<td><code>main.insertion</code></td>
-								<td><code>'append'</code> <code>'prepend'</code> <code>'replace'</code></td>
-								<td><code>'append'</code></td>
-								<td>How to create the main image, by prepending, appending or replace all the selector's content (overwriting).</td>
+								<td data-title="Options"><code>main.insertion</code></td>
+								<td data-title="Values"><code>'append'</code> <code>'prepend'</code> <code>'replace'</code></td>
+								<td data-title="Default"><code>'append'</code></td>
+								<td data-title="Description">How to create the main image, by prepending, appending or replace all the selector's content (overwriting).</td>
 							</tr>
 							<tr>
-								<td><code>auto.load</code></td>
-								<td>Boolean</td>
-								<td><code>true</code></td>
-								<td>All thumbnails links (full size images) are auto loaded in background (invisible). </td>
+								<td data-title="Options"><code>auto.load</code></td>
+								<td data-title="Values">Boolean</td>
+								<td data-title="Default"><code>true</code></td>
+								<td data-title="Description">All thumbnails links (full size images) are auto loaded in background (invisible). </td>
 							</tr>
 							<tr>
-								<td><code>auto.start</code></td>
-								<td>Boolean</td>
-								<td><code>false</code></td>
-								<td>Autostarting a diaporama.</td>
+								<td data-title="Options"><code>auto.start</code></td>
+								<td data-title="Values">Boolean</td>
+								<td data-title="Default"><code>false</code></td>
+								<td data-title="Description">Autostarting a diaporama.</td>
 							</tr>
 							<tr>
-								<td><code>first</code></td>
-								<td>Integer between 0 and the number of thumbnails (-1)</td>
-								<td><code>0</code></td>
-								<td>The index of the thumbnail that you want to display first.</td>
+								<td data-title="Options"><code>first</code></td>
+								<td data-title="Values">Integer between 0 and the number of thumbnails (-1)</td>
+								<td data-title="Default"><code>0</code></td>
+								<td data-title="Description">The index of the thumbnail that you want to display first.</td>
 							</tr>
 							<tr>
-								<td><code>interval</code></td>
-								<td>Integer, minimum 1500</td>
-								<td><code>3000</code></td>
-								<td>Interval in milliseconds between each image.</td>
+								<td data-title="Options"><code>interval</code></td>
+								<td data-title="Values">Integer, minimum 1500</td>
+								<td data-title="Default"><code>3000</code></td>
+								<td data-title="Description">Interval in milliseconds between each image.</td>
 							</tr>
 							<tr>
-								<td><code>effect</code></td>
-								<td><code>'fade'</code> <code>'flip'</code> <code>'light'</code> <code>'roll'</code> <code>'rotate'</code></td>
-								<td><code>'fade'</code></td>
-								<td>Transition effect. They are provided by <a href="http://daneden.me/animate/">animate.css</a>.</td>
+								<td data-title="Options"><code>effect</code></td>
+								<td data-title="Values"><code>'fade'</code> <code>'flip'</code> <code>'light'</code> <code>'roll'</code> <code>'rotate'</code></td>
+								<td data-title="Default"><code>'fade'</code></td>
+								<td data-title="Description">Transition effect. They are provided by <a href="http://daneden.me/animate/">animate.css</a>.</td>
 							</tr>
 							<tr>
-								<td><code>overlay</code></td>
-								<td><code>'always'</code> <code>'hover'</code></td>
-								<td><code>'always'</code></td>
-								<td>How to show overlay.</td>
+								<td data-title="Options"><code>overlay</code></td>
+								<td data-title="Values"><code>'always'</code> <code>'hover'</code></td>
+								<td data-title="Default"><code>'always'</code></td>
+								<td data-title="Description">How to show overlay.</td>
 							</tr>
 							<tr>
-								<td><code>caption</code></td>
-								<td>Boolean</td>
-								<td><code>false</code></td>
-								<td>If <code>true</code>, be sure that you have specify the <code>data-caption</code> attribute on thumbnails.</td>
+								<td data-title="Options"><code>caption</code></td>
+								<td data-title="Values">Boolean</td>
+								<td data-title="Default"><code>false</code></td>
+								<td data-title="Description">If <code>true</code>, be sure that you have specify the <code>data-caption</code> attribute on thumbnails.</td>
 							</tr>
 							<tr>
-								<td><code>controls.enable</code></td>
-								<td>Boolean</td>
-								<td><code>true</code></td>
-								<td>Able to control by clicking (prev/pause/play/next).</td>
+								<td data-title="Options"><code>controls.enable</code></td>
+								<td data-title="Values">Boolean</td>
+								<td data-title="Default"><code>true</code></td>
+								<td data-title="Description">Able to control by clicking (prev/pause/play/next).</td>
 							</tr>
 							<tr>
-								<td><code>controls.keys</code></td>
-								<td>Boolean</td>
-								<td><code>true</code></td>
-								<td>Able to control by pressing the keyboard keys (left/right/space).</td>
+								<td data-title="Options"><code>controls.keys</code></td>
+								<td data-title="Values">Boolean</td>
+								<td data-title="Default"><code>true</code></td>
+								<td data-title="Description">Able to control by pressing the keyboard keys (left/right/space).</td>
 							</tr>
 							<tr>
-								<td><code>log.errors</code></td>
-								<td>Boolean</td>
-								<td><code>true</code></td>
-								<td>Log errors in console. Be sure to put it <code>false</code> in production. If the render isn't ok, enable it then debug.</td>
+								<td data-title="Options"><code>log.errors</code></td>
+								<td data-title="Values">Boolean</td>
+								<td data-title="Default"><code>true</code></td>
+								<td data-title="Description">Log errors in console. Be sure to put it <code>false</code> in production. If the render isn't ok, enable it then debug.</td>
 							</tr>
 							<tr>
-								<td><code>log.warnings</code></td>
-								<td>Boolean</td>
-								<td><code>true</code></td>
-								<td>Log warnings in console. Be sure to put it <code>false</code> in production.</td>
+								<td data-title="Options"><code>log.warnings</code></td>
+								<td data-title="Values">Boolean</td>
+								<td data-title="Default"><code>true</code></td>
+								<td data-title="Description">Log warnings in console. Be sure to put it <code>false</code> in production.</td>
 							</tr>
 							<tr>
-								<td><code>result</code></td>
-								<td>function(result)</td>
-								<td><code>false</code></td>
-								<td>Get the slider result. The first argument outputs one of these values: "success", "error" or "warning".</td>
+								<td data-title="Options"><code>result</code></td>
+								<td data-title="Values">function(result)</td>
+								<td data-title="Default"><code>false</code></td>
+								<td data-title="Description">Get the slider result. The first argument outputs one of these values: "success", "error" or "warning".</td>
 							</tr>
-						</table>
-					</div>
+						</tbody>
+					</table>
 					<!-- [END] OPTIONS -->
 
 					<!-- [BEGIN] RETURN VALUE -->
@@ -348,13 +350,13 @@
 
 				<div class="row">
 
-					<article class="col-lg-2">
+					<article class="col-sm-3 col-md-2 col-lg-2">
 						<div class="navbar-brand">
 							<img src="assets/img/logo/desoslide_small.png" alt="desoslide logo">
 						</div>
 					</article>
 
-					<article class="col-lg-8">
+					<article class="col-sm-7 col-md-8 col-lg-8">
 						<ul class="bottom-links">
 							<li><a href="http://chez-syl.fr/">My blog</a></li>
 							<li><a href="https://github.com/sylouuu/desoslide">Project on GitHub</a></li>
@@ -362,7 +364,7 @@
 						</ul>
 					</article>
 
-					<article class="col-lg-2 text-right">
+					<article class="col-sm-2 col-md-2 col-lg-2 text-right">
 						<ul class="list-inline no-mg-bt">
 							<li>
 								<a href="https://github.com/sylouuu" title="Visit my GitHub profile">

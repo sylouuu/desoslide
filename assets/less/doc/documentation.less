@@ -11,49 +11,6 @@
 // Styles
 // --------------------------------------------------
 
-// Affix
-// --------------------------------------------------
-
-.sidebar.affix {
-	position: static;
-}
-
-/* Show and affix the side nav when space allows it */
-@media screen and (min-width: 992px) {
-	.sidebar .nav > .active > ul {
-		display: block;
-	}
-
-	/* Widen the fixed sidebar */
-	.sidebar.affix,
-	.sidebar.affix-bottom {
-		width: 213px;
-	}
-
-	.sidebar.affix {
-		position: fixed; /* Undo the static from mobile first approach */
-		top: 80px;
-	}
-
-	.sidebar.affix-bottom {
-		position: absolute; /* Undo the static from mobile first approach */
-	}
-
-	.sidebar.affix-bottom .sidenav,
-	.sidebar.affix .sidenav {
-		margin-top: 0;
-		margin-bottom: 0;
-	}
-}
-
-@media screen and (min-width: 1200px) {
-	/* Widen the fixed sidebar again */
-	.sidebar.affix-bottom,
-	.sidebar.affix {
-		width : 263px;
-	}
-}
-
 .sidenav {
 	margin-bottom    : 30px;
 	background-color : @midnight-blue-bg;
@@ -70,9 +27,113 @@
 	}
 }
 
+// Affix component
+// --------------------------------------------------
+.affix {
+	top   : 106px;
+
+	li.active a {
+		font-weight : bold;
+		color       : @firm;
+	}
+
+	@media (max-width : 768px) {
+		position : relative;
+		top : 0;
+	}
+
+	@media (min-width : 768px) {
+		width : 158px;
+	}
+
+	@media (min-width : 992px) {
+		width : 213px;
+	}
+
+	@media (min-width : 1200px) {
+		width : 263px;
+	}
+}
+
+// Dialog component
+// --------------------------------------------------
 .dialog {
 
 	li {
 		line-height : 25px;
+	}
+}
+
+// Tableaux
+// ------------------------------
+.table {
+
+	// Cellules
+	thead,
+	tbody,
+	tfoot {
+
+		> tr {
+
+			> th,
+			> td {
+				vertical-align : middle;
+			}
+		}
+	}
+
+	@media only screen and (max-width : 992px) {
+
+		/* Force table to not be like tables anymore */
+		table&,
+		thead,
+		tbody,
+		th,
+		td,
+		tr {
+			display : block;
+		}
+
+		/* Hide table headers (but not display: none;, for accessibility) */
+		thead tr {
+			position : absolute;
+			top      : -9999px;
+			left     : -9999px;
+		}
+
+		tr:not(:first-child) {
+			border-top : 2px solid @base;
+		}
+
+		td {
+			/* Behave  like a "row" */
+			border        :  none;
+			position      :  relative;
+			white-space   :  normal;
+			text-align    :  right;
+
+			&:first-child {
+				border-top : none;
+			}
+		}
+
+		td:before {
+			/* Now like a table header */
+			position      : absolute;
+			/* Top/left values mimic padding */
+			top           : 6px;
+			left          : 10px;
+			padding-right : 10px;
+			white-space   : nowrap;
+			text-align    : left;
+		}
+
+		/*
+		Label the data
+		*/
+		td:before {
+			content : attr(data-title);
+			font-weight : bold;
+		}
 	}
 }
