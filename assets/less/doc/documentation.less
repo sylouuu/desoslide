@@ -29,13 +29,17 @@
 
 // Affix component
 // --------------------------------------------------
+.affix-top,
 .affix {
-	top   : 106px;
 
 	li.active a {
 		font-weight : bold;
 		color       : @firm;
 	}
+}
+
+.affix {
+	top   : 106px;
 
 	@media (max-width : 768px) {
 		position : relative;
@@ -110,6 +114,7 @@
 			border        :  none;
 			position      :  relative;
 			white-space   :  normal;
+			padding-left  :  100px !important;
 			text-align    :  right;
 
 			&:first-child {
