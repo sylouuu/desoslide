@@ -29,7 +29,7 @@
 			})();
 		</script>
 	</head>
-	<body>
+	<body data-spy="scroll" data-target="#sidebar">
 		<header class="navbar navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
@@ -54,7 +54,6 @@
 
 		<div class="container">
 
-			<!-- [BEGIN] DOCUMENTATION -->
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="page-header">
@@ -67,8 +66,8 @@
 
 				<!-- [BEGIN] AFFIX SIDEBAR -->
 				<div class="col-lg-3">
-					<div class="sidebar">
-						<ul class="nav sidenav">
+					<div class="sidebar" id="sidebar">
+						<ul class="nav sidenav" data-toggle="affix" data-spy="affix" data-offset-top="80">
 							<li><a href="#setup">Setup</a></li>
 							<li><a href="#configuration">Configuration</a></li>
 							<li><a href="#controls">Controls</a></li>
