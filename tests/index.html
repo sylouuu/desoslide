@@ -9,16 +9,14 @@
 		<link rel="icon" href="../assets/img/logo/favicon.png">
 
 		<link rel="stylesheet" href="../assets/css/doc/home.css">
-		<link rel="stylesheet" href="jasmine/css/jasmine.css">
+		<link rel="stylesheet" href="qunit/css/qunit.css">
 
 		<script src="../assets/js/jquery/jquery.js"></script>
-		<script src="../dist/js/jquery.desoslide.js"></script>
+		<script src="../dist/js/jquery.desoslide.min.js"></script>
 
-		<script src="jasmine/js/jasmine.js"></script>
-		<script src="jasmine/js/jasmine-html.js"></script>
+		<script src="qunit/js/qunit.js"></script>
 
 		<script src="tests.js"></script>
-		<script src="jasmine/js/run.js"></script>
 
 		<script>
 			var _gaq = _gaq || [];
@@ -30,7 +28,7 @@
 				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
-	  </script>
+		</script>
 
 		<style>.test { display: none; }</style>
 	</head>
@@ -42,7 +40,7 @@
 
 					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-home"></button>
 
-					<a href="./" class="navbar-brand">
+					<a href="../" class="navbar-brand">
 						<img src="../assets/img/logo/desoslide.png" alt="desoslide logo">
 					</a>
 
@@ -69,90 +67,144 @@
 			</div>
 		</header>
 
-		<!-- [BEGIN] Scenario 3 -->
-		<ul id="scenario3" class="test"></ul>
-		<!-- [END] Scenario 3 -->
+		<div class="container">
 
-		<!-- [BEGIN] Scenario 4 -->
-		<ul id="scenario4_thumbs" class="test"></ul>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="page-header">
+						<h2>Tests</h2>
+					</div>
+				</div>
+				<div id="qunit" class="col-lg-12">
+				</div>
+				<div id="qunit-fixture" class="col-lg-12">
+				</div>
+			</div>
 
-		<div id="scenario4" class="test"></div>
-		<!-- [END] Scenario 4 -->
+			<!-- [BEGIN] Scenario 3 -->
+			<ul id="scenario3" class="test"></ul>
+			<!-- [END] Scenario 3 -->
 
-		<!-- [BEGIN] Scenario 5, 6, 7 & 8-->
-		<ul id="scenario5_thumbs" class="test">
-			<li>
-				<a href="../assets/img/examples/wizard/bird.jpg"><img src="../assets/img/examples/wizard/bird_thumb.jpg" alt="bird"></a>
-			</li>
-			<li>
-				<a href="../assets/img/examples/wizard/flower.jpg"><img src="../assets/img/examples/wizard/flower_thumb.jpg" alt="Flower"></a>
-			</li>
-			<li>
-				<a href="../assets/img/examples/wizard/butterfly.jpg"><img src="../assets/img/examples/wizard/butterfly_thumb.jpg" alt="Butterfly"></a>
-			</li>
-			<li>
-				<a href="../assets/img/examples/wizard/rose.jpg"><img src="../assets/img/examples/wizard/rose_thumb.jpg" alt="Rose"></a>
-			</li>
-		</ul>
+			<!-- [BEGIN] Scenario 4 -->
+			<ul id="scenario4_thumbs" class="test"></ul>
 
-		<div id="scenario5" class="test"></div>
-		<!-- [END] Scenario 5, 6, 7 & 8-->
+			<div id="scenario4" class="test"></div>
+			<!-- [END] Scenario 4 -->
 
-		<!-- [BEGIN] Scenario 9 -->
-		<ul id="scenario9_thumbs" class="test">
-			<li>
-				<a href="../assets/img/examples/wizard/bird.jpg"><img src="../assets/img/examples/wizard/bird_thumb.jpg" data-caption="bird"></a>
-			</li>
-			<li>
-				<a href="../assets/img/examples/wizard/flower.jpg"><img src="../assets/img/examples/wizard/flower_thumb.jpg" data-caption="Flower"></a>
-			</li>
-			<li>
-				<a href="../assets/img/examples/wizard/butterfly.jpg"><img src="../assets/img/examples/wizard/butterfly_thumb.jpg" data-caption="Butterfly"></a>
-			</li>
-			<li>
-				<a href="../assets/img/examples/wizard/rose.jpg"><img src="../assets/img/examples/wizard/rose_thumb.jpg" data-caption="Rose"></a>
-			</li>
-		</ul>
+			<!-- [BEGIN] Scenario 5, 6, 7 & 8-->
+			<ul id="scenario5_thumbs" class="test">
+				<li>
+					<a href="../assets/img/examples/wizard/bird.jpg"><img src="../assets/img/examples/wizard/bird_thumb.jpg" alt="bird"></a>
+				</li>
+				<li>
+					<a href="../assets/img/examples/wizard/flower.jpg"><img src="../assets/img/examples/wizard/flower_thumb.jpg" alt="Flower"></a>
+				</li>
+				<li>
+					<a href="../assets/img/examples/wizard/butterfly.jpg"><img src="../assets/img/examples/wizard/butterfly_thumb.jpg" alt="Butterfly"></a>
+				</li>
+				<li>
+					<a href="../assets/img/examples/wizard/rose.jpg"><img src="../assets/img/examples/wizard/rose_thumb.jpg" alt="Rose"></a>
+				</li>
+			</ul>
 
-		<div id="scenario9" class="test"></div>
-		<!-- [END] Scenario 9 -->
+			<div id="scenario5" class="test"></div>
+			<!-- [END] Scenario 5, 6, 7 & 8-->
 
-		<!-- [BEGIN] Scenario 10 -->
-		<ul id="scenario10_thumbs" class="test">
-			<li>
-				<a href="../assets/img/examples/wizard/bird.jpg"><img src="../assets/img/examples/wizard/bird_thumb.jpg" alt="bird"></a>
-			</li>
-			<li>
-				<a href="../assets/img/examples/wizard/flower.jpg"><img src="../assets/img/examples/wizard/flower_thumb.jpg" alt="Flower"></a>
-			</li>
-			<li>
-				<a href="../assets/img/examples/wizard/butterfly.jpg"><img src="../assets/img/examples/wizard/butterfly_thumb.jpg" alt="Butterfly"></a>
-			</li>
-			<li>
-				<a href="../assets/img/examples/wizard/rose.jpg"><img src="../assets/img/examples/wizard/rose_thumb.jpg" alt="Rose"></a>
-			</li>
-		</ul>
+			<!-- [BEGIN] Scenario 9 -->
+			<ul id="scenario9_thumbs" class="test">
+				<li>
+					<a href="../assets/img/examples/wizard/bird.jpg"><img src="../assets/img/examples/wizard/bird_thumb.jpg" data-caption="bird"></a>
+				</li>
+				<li>
+					<a href="../assets/img/examples/wizard/flower.jpg"><img src="../assets/img/examples/wizard/flower_thumb.jpg" data-caption="Flower"></a>
+				</li>
+				<li>
+					<a href="../assets/img/examples/wizard/butterfly.jpg"><img src="../assets/img/examples/wizard/butterfly_thumb.jpg" data-caption="Butterfly"></a>
+				</li>
+				<li>
+					<a href="../assets/img/examples/wizard/rose.jpg"><img src="../assets/img/examples/wizard/rose_thumb.jpg" data-caption="Rose"></a>
+				</li>
+			</ul>
 
-		<div id="scenario10" class="test"></div>
-		<!-- [END] Scenario 10 -->
+			<div id="scenario9" class="test"></div>
+			<!-- [END] Scenario 9 -->
 
-		<!-- [BEGIN] Scenario 11 -->
-		<ul id="scenario11_thumbs" class="test">
-			<li>
-				<a href="../assets/img/examples/wizard/bird.jpg"><img src="../assets/img/examples/wizard/bird_thumb.jpg" alt="bird" data-caption="bird"></a>
-			</li>
-			<li>
-				<a href="../assets/img/examples/wizard/flower.jpg"><img src="../assets/img/examples/wizard/flower_thumb.jpg" alt="Flower" data-caption="Flower"></a>
-			</li>
-			<li>
-				<a href="../assets/img/examples/wizard/butterfly.jpg"><img src="../assets/img/examples/wizard/butterfly_thumb.jpg" alt="Butterfly" data-caption="Butterfly"></a>
-			</li>
-			<li>
-				<a href="../assets/img/examples/wizard/rose.jpg"><img src="../assets/img/examples/wizard/rose_thumb.jpg" alt="Rose" data-caption="Rose"></a>
-			</li>
-		</ul>
+			<!-- [BEGIN] Scenario 10 -->
+			<ul id="scenario10_thumbs" class="test">
+				<li>
+					<a href="../assets/img/examples/wizard/bird.jpg"><img src="../assets/img/examples/wizard/bird_thumb.jpg" alt="bird"></a>
+				</li>
+				<li>
+					<a href="../assets/img/examples/wizard/flower.jpg"><img src="../assets/img/examples/wizard/flower_thumb.jpg" alt="Flower"></a>
+				</li>
+				<li>
+					<a href="../assets/img/examples/wizard/butterfly.jpg"><img src="../assets/img/examples/wizard/butterfly_thumb.jpg" alt="Butterfly"></a>
+				</li>
+				<li>
+					<a href="../assets/img/examples/wizard/rose.jpg"><img src="../assets/img/examples/wizard/rose_thumb.jpg" alt="Rose"></a>
+				</li>
+			</ul>
 
-		<div id="scenario11" class="test"></div>
-		<!-- [END] Scenario 11 -->
+			<div id="scenario10" class="test"></div>
+			<!-- [END] Scenario 10 -->
+
+			<!-- [BEGIN] Scenario 11 -->
+			<ul id="scenario11_thumbs" class="test">
+				<li>
+					<a href="../assets/img/examples/wizard/bird.jpg"><img src="../assets/img/examples/wizard/bird_thumb.jpg" alt="bird" data-caption="bird"></a>
+				</li>
+				<li>
+					<a href="../assets/img/examples/wizard/flower.jpg"><img src="../assets/img/examples/wizard/flower_thumb.jpg" alt="Flower" data-caption="Flower"></a>
+				</li>
+				<li>
+					<a href="../assets/img/examples/wizard/butterfly.jpg"><img src="../assets/img/examples/wizard/butterfly_thumb.jpg" alt="Butterfly" data-caption="Butterfly"></a>
+				</li>
+				<li>
+					<a href="../assets/img/examples/wizard/rose.jpg"><img src="../assets/img/examples/wizard/rose_thumb.jpg" alt="Rose" data-caption="Rose"></a>
+				</li>
+			</ul>
+
+			<div id="scenario11" class="test"></div>
+			<!-- [END] Scenario 11 -->
+		</div>
+
+		<!-- [BEGIN] FOOTER -->
+		<footer class="bottom-menu">
+			<div class="container">
+
+				<div class="row">
+
+					<article class="col-lg-2">
+						<div class="navbar-brand">
+							<img src="../assets/img/logo/desoslide_small.png" alt="desoslide logo">
+						</div>
+					</article>
+
+					<article class="col-lg-8">
+						<ul class="bottom-links">
+							<li><a href="http://chez-syl.fr/">My blog</a></li>
+							<li><a href="https://github.com/sylouuu/desoslide">Project on GitHub</a></li>
+							<li><a href="https://github.com/sylouuu/desoslide/issues">Issues</a></li>
+						</ul>
+					</article>
+
+					<article class="col-lg-2 text-right">
+						<ul class="list-inline no-mg-bt">
+							<li>
+								<a href="https://github.com/sylouuu" title="Visit my GitHub profile">
+									<img src="../assets/img/github/github_logo.png" alt="github logo">
+								</a>
+							</li>
+							<li>
+								<a href="https://twitter.com/amis_du_web" title="Follow me on Twitter (@amis_du_web)">
+									<img src="../assets/img/social/twitter_logo.png" alt="twitter logo">
+								</a>
+							</li>
+						</ul>
+					</article>
+				</div>
+			</div>
+		</footer>
+		<!-- [END] FOOTER -->
 	</body>
 </html>
