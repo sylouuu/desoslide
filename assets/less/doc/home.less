@@ -8,6 +8,28 @@
 
 .jumbotron {
 	background-color : @midnight-blue-bg;
+	text-align       : center;
+
+	.container & {
+		padding-left  : 30px;
+		padding-right : 30px;
+
+	}
+
+	@media (max-width : 768px) {
+		h1 {
+			font-size : 50px;
+		}
+	}
+
+	@media (max-width : 480px) {
+		h1 {
+			font-size : 38px;
+		}
+		h3 {
+			font-size : 28px;
+		}
+	}
 }
 
 .features {
