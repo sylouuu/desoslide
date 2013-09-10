@@ -76,18 +76,14 @@
 				<div id="qunit" class="col-lg-12"></div>
 			</div>
 
-			<!-- [BEGIN] Scenario 3 -->
-			<ul id="scenario3" class="test"></ul>
-			<!-- [END] Scenario 3 -->
+			<!-- Main container -->
+			<div id="main_image" class="test"></div>
 
-			<!-- [BEGIN] Scenario 4 -->
-			<ul id="scenario4_thumbs" class="test"></ul>
+			<!-- Wrong markup with no child -->
+			<ul id="no_thumbs" class="test"></ul>
 
-			<div id="scenario4" class="test"></div>
-			<!-- [END] Scenario 4 -->
-
-			<!-- [BEGIN] Scenario 5, 6, 7 & 8-->
-			<ul id="scenario5_thumbs" class="test">
+			<!-- Accepted markup with alt attribute -->
+			<ul id="alt_thumbs" class="test">
 				<li>
 					<a href="../assets/img/demos/demo1/bird.jpg"><img src="../assets/img/demos/demo1/bird_thumb.jpg" alt="bird"></a>
 				</li>
@@ -102,49 +98,8 @@
 				</li>
 			</ul>
 
-			<div id="scenario5" class="test"></div>
-			<!-- [END] Scenario 5, 6, 7 & 8-->
-
-			<!-- [BEGIN] Scenario 9 -->
-			<ul id="scenario9_thumbs" class="test">
-				<li>
-					<a href="../assets/img/demos/demo1/bird.jpg"><img src="../assets/img/demos/demo1/bird_thumb.jpg" data-caption="bird"></a>
-				</li>
-				<li>
-					<a href="../assets/img/demos/demo1/flower.jpg"><img src="../assets/img/demos/demo1/flower_thumb.jpg" data-caption="Flower"></a>
-				</li>
-				<li>
-					<a href="../assets/img/demos/demo1/butterfly.jpg"><img src="../assets/img/demos/demo1/butterfly_thumb.jpg" data-caption="Butterfly"></a>
-				</li>
-				<li>
-					<a href="../assets/img/demos/demo1/rose.jpg"><img src="../assets/img/demos/demo1/rose_thumb.jpg" data-caption="Rose"></a>
-				</li>
-			</ul>
-
-			<div id="scenario9" class="test"></div>
-			<!-- [END] Scenario 9 -->
-
-			<!-- [BEGIN] Scenario 10 -->
-			<ul id="scenario10_thumbs" class="test">
-				<li>
-					<a href="../assets/img/demos/demo1/bird.jpg"><img src="../assets/img/demos/demo1/bird_thumb.jpg" alt="bird"></a>
-				</li>
-				<li>
-					<a href="../assets/img/demos/demo1/flower.jpg"><img src="../assets/img/demos/demo1/flower_thumb.jpg" alt="Flower"></a>
-				</li>
-				<li>
-					<a href="../assets/img/demos/demo1/butterfly.jpg"><img src="../assets/img/demos/demo1/butterfly_thumb.jpg" alt="Butterfly"></a>
-				</li>
-				<li>
-					<a href="../assets/img/demos/demo1/rose.jpg"><img src="../assets/img/demos/demo1/rose_thumb.jpg" alt="Rose"></a>
-				</li>
-			</ul>
-
-			<div id="scenario10" class="test"></div>
-			<!-- [END] Scenario 10 -->
-
-			<!-- [BEGIN] Scenario 11 -->
-			<ul id="scenario11_thumbs" class="test">
+			<!-- Accepted markup with alt & data-caption attributes -->
+			<ul id="alt_caption_thumbs" class="test">
 				<li>
 					<a href="../assets/img/demos/demo1/bird.jpg"><img src="../assets/img/demos/demo1/bird_thumb.jpg" alt="bird" data-caption="bird"></a>
 				</li>
@@ -159,8 +114,22 @@
 				</li>
 			</ul>
 
-			<div id="scenario11" class="test"></div>
-			<!-- [END] Scenario 11 -->
+			<!-- Wrong markup without alt attribute -->
+			<ul id="no_alt_thumbs" class="test">
+				<li>
+					<a href="../assets/img/demos/demo1/bird.jpg"><img src="../assets/img/demos/demo1/bird_thumb.jpg"></a>
+				</li>
+				<li>
+					<a href="../assets/img/demos/demo1/flower.jpg"><img src="../assets/img/demos/demo1/flower_thumb.jpg"></a>
+				</li>
+				<li>
+					<a href="../assets/img/demos/demo1/butterfly.jpg"><img src="../assets/img/demos/demo1/butterfly_thumb.jpg"></a>
+				</li>
+				<li>
+					<a href="../assets/img/demos/demo1/rose.jpg"><img src="../assets/img/demos/demo1/rose_thumb.jpg"></a>
+				</li>
+			</ul>
+
 		</div>
 
 		<!-- [BEGIN] FOOTER -->

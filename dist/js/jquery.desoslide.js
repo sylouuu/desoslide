@@ -59,7 +59,8 @@ This source code is under the MIT License
 			ms = (p.interval < 1500) ? 1500 : p.interval,
 			timer = false, aExists, hrefExists,
 			src, alt, caption, href,
-			$controlsWrapper, effects;
+			$controlsWrapper, effects,
+			first_error = false;
 
 		// *****************
 		// [END] Variables
@@ -436,30 +437,34 @@ This source code is under the MIT License
 			},
 
 			resultHandler: function(type, msg) {
-				switch(type) {
-					case 'error':
-						if(p.log.errors && typeof console !== 'undefined') {
-							console.error('desoSlide: '+ msg);
-						}
+				if(!first_error) {
+					switch(type) {
+						case 'error':
+							if(p.log.errors && typeof console !== 'undefined') {
+								console.error('desoSlide: '+ msg);
+							}
 
-						if(p.result) {
-							p.result('error');
-						}
-					break;
-					case 'warning':
-						if(p.log.warnings && typeof console !== 'undefined') {
-							console.warn('desoSlide: '+ msg);
-						}
+							if(p.result) {
+								p.result('error');
+							}
 
-						if(p.result) {
-							p.result('warning');
-						}
-					break;
-					default:
-						if(p.result) {
-							p.result('success');
-						}
-					break;
+							first_error = type;
+						break;
+						case 'warning':
+							if(p.log.warnings && typeof console !== 'undefined') {
+								console.warn('desoSlide: '+ msg);
+							}
+
+							if(p.result) {
+								p.result('warning');
+							}
+						break;
+						default:
+							if(p.result) {
+								p.result('success');
+							}
+						break;
+					}
 				}
 			},
 
