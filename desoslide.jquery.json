@@ -1,27 +1,27 @@
 {
-    "name": "desoslide",
-    "title": "jQuery desoSlide",
-    "description": "Simple images slider with thumbnails",
-    "keywords": [
-        "slider",
-        "thumbnails"
-    ],
-    "version": "1.1.0",
-    "author": {
-        "name": "sylouuu",
-        "url": "https://github.com/sylouuu"
-    },
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "https://github.com/sylouuu/desoslide/blob/master/LICENSE.md"
-        }
-    ],
-    "bugs": "https://github.com/sylouuu/desoslide/issues",
-    "homepage": "http://sylouuu.github.io/desoslide",
-    "docs": "http://sylouuu.github.io/desoslide/documentation.html",
-    "download": "https://github.com/sylouuu/desoslide/blob/master/js/jquery.desoslide.js",
-    "dependencies": {
-        "jquery": ">=1.7"
-    }
+	"name": "desoslide",
+	"title": "jQuery desoSlide",
+	"description": "Simple images slider with thumbnails",
+	"keywords": [
+		"slider",
+		"thumbnails"
+	],
+	"version": "1.1.1",
+	"author": {
+		"name": "sylouuu",
+		"url": "https://github.com/sylouuu"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "https://github.com/sylouuu/desoslide/blob/master/LICENSE.md"
+		}
+	],
+	"bugs": "https://github.com/sylouuu/desoslide/issues",
+	"homepage": "http://sylouuu.github.io/desoslide",
+	"docs": "http://sylouuu.github.io/desoslide/documentation.html",
+	"download": "https://github.com/sylouuu/desoslide/blob/master/js/jquery.desoslide.js",
+	"dependencies": {
+		"jquery": ">=1.7"
+	}
 }

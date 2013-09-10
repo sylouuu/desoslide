@@ -1,8 +1,8 @@
-/*
-Version 1.1.0
-jQuery: desoSlide plugin - jquery.desoslide.css
-Copyright - 2013 - https://github.com/sylouuu/desoslide
-This source code is under the MIT License
+/*!
+* Version 1.1.1
+* jQuery: desoSlide plugin - jquery.desoslide.js
+* Copyright - 2013 - https://github.com/sylouuu/desoslide
+* This source code is under the MIT License
 */
 .animated{-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-ms-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-duration:0.5s;-moz-animation-duration:0.5s;-ms-animation-duration:0.5s;-o-animation-duration:0.5s;animation-duration:0.5s;}.animated.hinge{-webkit-animation-duration:0.5s;-moz-animation-duration:0.5s;-ms-animation-duration:0.5s;-o-animation-duration:0.5s;animation-duration:0.5s;}@-webkit-keyframes flipInX {
 	0% {
