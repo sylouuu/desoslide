@@ -5,6 +5,7 @@
 .navbar {
   font-size: ceil(@font-size-base * 1.142); // ~16px
   border-radius: @border-radius-large;
+  border: none;
 
   .navbar-brand {
     border-radius: @border-radius-large 0 0 @border-radius-large;
@@ -56,6 +57,12 @@
           color: @firm;
           .box-shadow(none);
         }
+      }
+      &:first-child {
+        border-radius: @border-radius-large @border-radius-large 0 0;
+      }
+      &:last-child {
+        border-radius: 0 0 @border-radius-large @border-radius-large;
       }
 
       // Second level nav
@@ -145,11 +152,11 @@
         position: relative;
 
         &:first-child {
-          border-radius: 6px 6px 0 0;
+          border-radius: @border-radius-large @border-radius-large 0 0;
           padding-top: 3px;
         }
         &:last-child {
-          border-radius: 0 0 6px 6px;
+          border-radius: 0 0 @border-radius-large @border-radius-large;
         }
         &.active {
           > a,
