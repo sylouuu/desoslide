@@ -2,6 +2,10 @@
 
 ## Changelog
 
+24/11/2013 - **v1.2.0**
+
+* effects: added 'sideFade' and 'sideFadeBig'
+
 10/09/2013 - **v1.1.1**
 
 * logging errors: get only the first one in order to avoid cascade errors

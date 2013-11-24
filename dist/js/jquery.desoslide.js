@@ -1,5 +1,5 @@
 /*!
-* Version 1.1.1
+* Version 1.2.0
 * jQuery: desoSlide plugin - jquery.desoslide.js
 * Copyright - 2013 - https://github.com/sylouuu/desoslide
 * This source code is under the MIT License
@@ -182,6 +182,14 @@
 						'in': 'fadeIn',
 						'out': 'fadeOut'
 					},
+					'sideFade': {
+						'in': 'fadeInLeft',
+						'out': 'fadeOutRight'
+					},
+					'sideFadeBig': {
+						'in': 'fadeInLeftBig',
+						'out': 'fadeOutRightBig'
+					},
 					'flip': {
 						'in': 'flipInX',
 						'out': 'flipOutX'
@@ -222,7 +230,7 @@
 				/* Showing the new one */
 				setTimeout(function() {
 					app.displayImg();
-				}, 600);
+				}, 900);
 			},
 
 			/* Displaying the new image */
@@ -266,7 +274,7 @@
 					/* Adding overlay */
 					setTimeout(function() {
 						app.addOverlay();
-					}, 700);
+					}, 1200);
 
 					/* Starting the loop */
 					if(p.auto.start) {

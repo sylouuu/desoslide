@@ -19,7 +19,7 @@ $(function() {
 			start: true
 		},
 		first: 1,
-		effect: 'roll',
+		effect: 'sideFade',
 		controls: {
 			keys: false
 		}
