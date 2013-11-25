@@ -21,7 +21,7 @@
 			first: 			0, 			/* Index of the first image to show */
 			interval: 		3000, 		/* Interval between each image */
 			effect:  		'fade',		/* Transition effect ("fade", "flip", "light", "roll", "rotate") */
-			overlay: 		'always', 	/* How to show overlay ("always" or "hover") */
+			overlay: 		'always', 	/* How to show overlay ("always", "hover", "none") */
 			caption: 		false, 		/* Show caption: data-caption attribute required */
 			controls: {
 				enable: 	true, 		/* Able to control by clicking (prev/pause/play/next) */
@@ -74,7 +74,7 @@
 
 			checks: function() {
 				/* If the container does not exist */
-				if($thumbsContainer.length == 0) {
+				if(!$thumbsContainer.length) {
 					app.resultHandler('error', $thumbsContainer.selector +' doesn\'t exist.');
 				}
 
@@ -82,19 +82,22 @@
 				if(!p.main.container) {
 					app.resultHandler('error', 'You must specify the "main.container" param. Check out the documentation.');
 				} else {
-					/* iIf the container does not exist */
-					if($(p.main.container).length == 0) {
+					/* If the container does not exist */
+					if(!$(p.main.container).length) {
 						app.resultHandler('error', $(p.main.container).selector +' doesn\'t exist.');
 					}
 				}
 
+				/* Accepted overlay values */
+				var overlay_values = ['always', 'hover', 'none'];
+
 				/* overlay param checker */
-				if(p.overlay != 'always' && p.overlay != 'hover') {
-					app.resultHandler('error', 'Bad value for the "caption.display" param. Check out the documentation.');
+				if(overlay_values.indexOf(p.overlay) === -1) {
+					app.resultHandler('error', 'Bad value for the "overlay" param. Check out the documentation.');
 				}
 
 				if(currentImg >= thumbsCount) {
-					if(thumbsCount == 0) {
+					if(thumbsCount === 0) {
 						app.resultHandler('error', 'You must have at least 1 thumbnail.');
 					} else {
 						app.resultHandler('error', 'The "first" param must be between 0 and '+ (thumbsCount - 1) +'.');
@@ -109,7 +112,7 @@
 				}
 
 				/* W3C check */
-				if(typeof alt === 'undefined' || alt == '') {
+				if(typeof alt === 'undefined' || alt === '') {
 					app.resultHandler('warning', 'The alt attribute is missing on a thumb, it\'s mandatory on <img> tags.');
 				}
 			},
@@ -289,67 +292,69 @@
 
 			/* Adjusting the overlay position */
 			addOverlay: function() {
-				if(p.caption || p.controls.enable) {
-					var width = 0;
-					var height = 0;
+				if(p.overlay !== 'none') {
+					if(p.caption || p.controls.enable) {
+						var width = 0;
+						var height = 0;
 
-					/* Main image position */
-					var pos = $('img', $(p.main.container)).position();
-					var border = parseInt($('img', $(p.main.container)).css('border-left-width'), 10);
+						/* Main image position */
+						var pos = $('img', $(p.main.container)).position();
+						var border = parseInt($('img', $(p.main.container)).css('border-left-width'), 10);
 
-					/* Main image height */
-					var w = $('img', $(p.main.container)).width() + border;
-					var h = $('img', $(p.main.container)).height() + border;
+						/* Main image height */
+						var w = $('img', $(p.main.container)).width() + border;
+						var h = $('img', $(p.main.container)).height() + border;
 
-					if($('.desoSlide-overlay', $(p.main.container)).length == 0) {
-						$('<div>', {
-							'class': 'desoSlide-overlay'
-						}).appendTo($('.desoSlide-wrapper', $(p.main.container)));
-					}
+						if($('.desoSlide-overlay', $(p.main.container)).length == 0) {
+							$('<div>', {
+								'class': 'desoSlide-overlay'
+							}).appendTo($('.desoSlide-wrapper', $(p.main.container)));
+						}
 
-					$overlay = $('.desoSlide-overlay', $(p.main.container));
+						$overlay = $('.desoSlide-overlay', $(p.main.container));
 
-					width = w;
+						width = w;
 
-					/* Calculate new height with paddings */
-					var paddingTop = parseInt($overlay.css('padding-top').replace('px', ''), 10);
-					var paddingBottom = parseInt($overlay.css('padding-bottom').replace('px', ''), 10);
-					var paddingLeft = parseInt($overlay.css('padding-left').replace('px', ''), 10);
-					var paddingRight = parseInt($overlay.css('padding-right').replace('px', ''), 10);
+						/* Calculate new height with paddings */
+						var paddingTop = parseInt($overlay.css('padding-top').replace('px', ''), 10);
+						var paddingBottom = parseInt($overlay.css('padding-bottom').replace('px', ''), 10);
+						var paddingLeft = parseInt($overlay.css('padding-left').replace('px', ''), 10);
+						var paddingRight = parseInt($overlay.css('padding-right').replace('px', ''), 10);
 
-					var overlayHeight = parseInt($overlay.css('height').replace('px', ''), 10) - (paddingLeft + paddingRight);
-					overlayHeight = (parseInt(h, 10) - overlayHeight - (paddingTop + paddingBottom));
+						var overlayHeight = parseInt($overlay.css('height').replace('px', ''), 10) - (paddingLeft + paddingRight);
+						overlayHeight = (parseInt(h, 10) - overlayHeight - (paddingTop + paddingBottom));
 
-					var top = pos.top + overlayHeight;
-					var left = pos.left;
+						var top = pos.top + overlayHeight;
+						var left = pos.left;
 
-					/* Update the overlay position */
-					$overlay.css({
-						'left': 	left +'px',
-						'top': 		top +'px',
-						'width': 	width +'px'
-					});
+						/* Update the overlay position */
+						$overlay.css({
+							'left': 	left +'px',
+							'top': 		top +'px',
+							'width': 	width +'px'
+						});
 
-					/* Showing the overlay if needed */
-					if(p.overlay == 'always') {
-						$overlay.animate({
-							opacity: 0.7
-						}, 500);
-					}
+						/* Showing the overlay if needed */
+						if(p.overlay == 'always') {
+							$overlay.animate({
+								opacity: 0.7
+							}, 500);
+						}
 
-					/* Add caption */
-					if(p.caption) {
-						app.updateCaption();
+						/* Add caption */
+						if(p.caption) {
+							app.updateCaption();
+							app.addLink();
+						}
+
+					} else {
 						app.addLink();
 					}
 
-				} else {
-					app.addLink();
-				}
-
-				/* Add controls */
-				if(p.controls.enable) {
-					app.addControls();
+					/* Add controls */
+					if(p.controls.enable) {
+						app.addControls();
+					}
 				}
 			},
 
@@ -521,7 +526,7 @@
 				});
 
 				/* Hover on overlay */
-				if(p.overlay == 'hover') {
+				if(p.overlay === 'hover') {
 					$(p.main.container).on({
 						mouseover: function() {
 							$overlay.stop().animate({
