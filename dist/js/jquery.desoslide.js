@@ -7,7 +7,9 @@
 (function($) {
 	$.fn.desoSlide = function(options) {
 
-		/* Default values */
+		/**
+		* Default values
+		*/
 		var defaults = {
 			main: {
 				container: 	false, 		/* Container for the main image */
@@ -34,13 +36,14 @@
 			result: 		false 		/* The slider result ("success", "error", "warning") */
 		};
 
-		/* Extend options */
+		/**
+		* Extend options
+		*/
 		var p = $.extend(true, defaults, options);
 
-		// *****************
-		// [BEGIN] Variables
-		// *****************
-
+		/**
+		* Delay
+		*/
 		var delay = (function() {
 			var timer = 0;
 			return function(callback, ms){
@@ -49,6 +52,9 @@
 			};
 		})();
 
+		/**
+		* Working variables
+		*/
 		var
 			$thumbsContainer = this,
 			$thumbs = $('li', $thumbsContainer),
@@ -62,36 +68,44 @@
 			$controlsWrapper, effects,
 			first_error = false;
 
-		// *****************
-		// [END] Variables
-		// *****************
-
+		/**
+		* Main object plugin
+		*/
 		var app = {
 
-			// *****************
-			// [BEGIN] Checks
-			// *****************
-
+			/**
+			* Function that checks the configuration
+			*/
 			checks: function() {
-				/* If the container does not exist */
+				/**
+				* If the container does not exist
+				*/
 				if(!$thumbsContainer.length) {
 					app.resultHandler('error', $thumbsContainer.selector +' doesn\'t exist.');
 				}
 
-				/* main.container param checks */
+				/**
+				* main.container param checks
+				*/
 				if(!p.main.container) {
 					app.resultHandler('error', 'You must specify the "main.container" param. Check out the documentation.');
 				} else {
-					/* If the container does not exist */
+					/**
+					* If the container does not exist
+					*/
 					if(!$(p.main.container).length) {
 						app.resultHandler('error', $(p.main.container).selector +' doesn\'t exist.');
 					}
 				}
 
-				/* Accepted overlay values */
+				/**
+				* Accepted overlay values
+				*/
 				var overlay_values = ['always', 'hover', 'none'];
 
-				/* overlay param checker */
+				/**
+				* overlay param checker
+				*/
 				if(overlay_values.indexOf(p.overlay) === -1) {
 					app.resultHandler('error', 'Bad value for the "overlay" param. Check out the documentation.');
 				}
@@ -105,28 +119,32 @@
 				}
 			},
 
+			/**
+			* Function that checks the markup
+			*/
 			checkData: function() {
-				/* Captions checks */
+				/**
+				* Captions checks
+				*/
 				if(p.caption && (typeof caption === 'undefined' || caption == '')) {
 					app.resultHandler('warning', 'The captions are enabled and the data-desoslide-caption attribute is missing on a thumb. Add it or disable captions. Check out the documention.');
 				}
 
-				/* W3C check */
+				/**
+				* W3C check
+				*/
 				if(typeof alt === 'undefined' || alt === '') {
 					app.resultHandler('warning', 'The alt attribute is missing on a thumb, it\'s mandatory on <img> tags.');
 				}
 			},
 
-			// *****************
-			// [END] Checks
-			// *****************
-
-			// *****************
-			// [BEGIN] Init
-			// *****************
-
+			/**
+			* Function that initiliazes the plugin
+			*/
 			init: function() {
-				/* Auto load images */
+				/**
+				* Auto load images
+				*/
 				if(p.auto.load) {
 					$('a', $thumbs).each(function(i, item) {
 						$('<img>', {
@@ -141,25 +159,25 @@
 				app.addWrapper();
 			},
 
-			// *****************
-			// [END] Init
-			// *****************
-
-			// *****************
-			// [BEGIN] Functions
-			// *****************
-
-			/* Adding the wrapper */
+			/**
+			* Function that adds the wrapper
+			*/
 			addWrapper: function() {
-				/* The wrapper tag */
+				/**
+				* The wrapper tag
+				*/
 				var $wrapper = $('<div>', {
 					'class': 'desoSlide-wrapper'
 				});
 
-				/* The img tag */
+				/**
+				* The img tag
+				*/
 				var $img = $('<img>').addClass(p.main.cssClass).css('opacity', 0);
 
-				/* DOM insertion */
+				/**
+				* DOM insertion
+				*/
 				switch(p.main.insertion) {
 					case 'prepend':
 						$img.prependTo($(p.main.container)).wrap($wrapper);
@@ -178,8 +196,13 @@
 				app.displayImg();
 			},
 
+			/**
+			* Function that handles the effect
+			*/
 			effectHandler: function() {
-				/* Available effects with in/out matches */
+				/**
+				* Available effects with in/out matches
+				*/
 				effects = {
 					'fade': { /* Default */
 						'in': 'fadeIn',
@@ -211,7 +234,9 @@
 					}
 				};
 
-				/* Bad effect value */
+				/**
+				* Bad effect value
+				*/
 				if(!(p.effect in effects)) {
 					var i = 0;
 					$.each(effects, function(key, item) {
@@ -225,44 +250,64 @@
 
 			},
 
-			/* Making the out image effect */
+			/**
+			* Function that makes the out image effect
+			*/
 			outEffect: function() {
-				/* Hiding the old one */
+				/**
+				* Hiding the old one
+				*/
 				$('img', $(p.main.container)).removeClass('animated '+ effects[p.effect].in).addClass('animated '+ effects[p.effect].out);
 
-				/* Showing the new one */
+				/**
+				* Showing the new one
+				*/
 				setTimeout(function() {
 					app.displayImg();
 				}, 900);
 			},
 
-			/* Displaying the new image */
+			/**
+			* Function that displays the new image
+			*/
 			displayImg: function() {
-				/* Callback */
+				/**
+				* Callback
+				*/
 				app.resultHandler();
 
 				imgToShow = 0;
 
-				/* Count reset */
+				/**
+				* Count reset
+				*/
 				if(currentImg < 0){
 					currentImg = thumbsCount - 1;
 				}
 
-				/* Count reset */
+				/**
+				* Count reset
+				*/
 				if(currentImg >= thumbsCount) {
 					currentImg = 0;
 				}
 
-				/* Next image */
+				/**
+				* Next image
+				*/
 				imgToShow = currentImg;
 
-				/* Data */
+				/**
+				* Data
+				*/
 				src 	= $('a', $thumbs).eq(imgToShow).attr('href');
 				alt 	= $('img', $thumbs).eq(imgToShow).attr('alt');
 				caption = $('img', $thumbs).eq(imgToShow).data('desoslide-caption');
 				href 	= $('img', $thumbs).eq(imgToShow).data('desoslide-href');
 
-				/* Checking the data */
+				/**
+				* Checking the data
+				*/
 				app.checkData();
 
 				$('img', $(p.main.container)).attr({
@@ -270,16 +315,21 @@
 					'alt': alt,
 					'data-desoslide-caption': caption
 				}).one('load', function() {
-
-					/* Showing */
+					/**
+					* Showing
+					*/
 					$(this).removeClass('animated '+ effects[p.effect].out).addClass('animated '+ effects[p.effect].in);
 
-					/* Adding overlay */
+					/**
+					* Adding overlay
+					*/
 					setTimeout(function() {
 						app.addOverlay();
 					}, 1200);
 
-					/* Starting the loop */
+					/**
+					* Starting the loop
+					*/
 					if(p.auto.start) {
 						currentImg++;
 
@@ -290,18 +340,24 @@
 				});
 			},
 
-			/* Adjusting the overlay position */
+			/**
+			* Function that adjusts the overlay position
+			*/
 			addOverlay: function() {
 				if(p.overlay !== 'none') {
 					if(p.caption || p.controls.enable) {
 						var width = 0;
 						var height = 0;
 
-						/* Main image position */
+						/**
+						* Main image position
+						*/
 						var pos = $('img', $(p.main.container)).position();
 						var border = parseInt($('img', $(p.main.container)).css('border-left-width'), 10);
 
-						/* Main image height */
+						/**
+						* Main image height
+						*/
 						var w = $('img', $(p.main.container)).width() + border;
 						var h = $('img', $(p.main.container)).height() + border;
 
@@ -315,7 +371,9 @@
 
 						width = w;
 
-						/* Calculate new height with paddings */
+						/**
+						* Calculate new height with paddings
+						*/
 						var paddingTop = parseInt($overlay.css('padding-top').replace('px', ''), 10);
 						var paddingBottom = parseInt($overlay.css('padding-bottom').replace('px', ''), 10);
 						var paddingLeft = parseInt($overlay.css('padding-left').replace('px', ''), 10);
@@ -327,21 +385,27 @@
 						var top = pos.top + overlayHeight;
 						var left = pos.left;
 
-						/* Update the overlay position */
+						/**
+						* Update the overlay position
+						*/
 						$overlay.css({
 							'left': 	left +'px',
 							'top': 		top +'px',
 							'width': 	width +'px'
 						});
 
-						/* Showing the overlay if needed */
+						/**
+						* Showing the overlay if needed
+						*/
 						if(p.overlay == 'always') {
 							$overlay.animate({
 								opacity: 0.7
 							}, 500);
 						}
 
-						/* Add caption */
+						/**
+						* Add caption
+						*/
 						if(p.caption) {
 							app.updateCaption();
 							app.addLink();
@@ -351,24 +415,32 @@
 						app.addLink();
 					}
 
-					/* Add controls */
+					/**
+					* Add controls
+					*/
 					if(p.controls.enable) {
 						app.addControls();
 					}
 				}
 			},
 
-			/* Updating the caption */
+			/**
+			* Function that updates the caption
+			*/
 			updateCaption: function() {
 				$overlay.html(caption);
 			},
 
-			/* Adding the link on the main image & caption */
+			/**
+			* Function that adds the link on the main image & caption
+			*/
 			addLink: function() {
 				aExists = ($('a.desoslide-link', $(p.main.container)).length > 0) ? true : false;
 				hrefExists = (typeof href !== 'undefined' && href != '') ? true : false;
 
-				/* The link tag */
+				/**
+				* The link tag
+				*/
 				var $a = $('<a>', {
 					'class':	'desoslide-link',
 					'href': 	href,
@@ -376,39 +448,55 @@
 				});
 
 				if(aExists && hrefExists) {
-					/* Update the href */
-					 $('a.desoslide-link', $(p.main.container)).attr('href', href);
+					/**
+					* Updating the href
+					*/
+					$('a.desoslide-link', $(p.main.container)).attr('href', href);
 				} else if(aExists && !hrefExists) {
-					/* Replace the <a> tag with this content */
+					/**
+					* Replacing the <a> tag with this content
+					*/
 					$('a.desoslide-link', $(p.main.container)).replaceWith($a);
 				} else if(!aExists && hrefExists) {
-					/* Adding the link tag */
+					/**
+					* Adding the link tag
+					*/
 					$('.desoSlide-wrapper', $(p.main.container)).append($a);
 				}
 			},
 
-			/* Add controls */
+			/**
+			* Function that adds the controls
+			*/
 			addControls: function() {
 				$('.desoSlide-controls-wrapper', $(p.main.container)).remove();
 
-				/* Controls buttons */
+				/**
+				* Controls buttons
+				*/
 				var $prev	= '<a href="#prev"><span class="desoSlide-controls prev"></span></a>';
 				var $pause	= '<a href="#pause"><span class="desoSlide-controls pause"></span></a>';
 				var $play	= '<a href="#play"><span class="desoSlide-controls play"></span></a>';
 				var $next	= '<a href="#next"><span class="desoSlide-controls next"></span></a>';
 
-				/* The wrapper */
+				/**
+				* The wrapper
+				*/
 				var $controls = $('<div>', {
 					'class': 'desoSlide-controls-wrapper'
 				}).append($prev + $pause + $play + $next);
 
-				/* Dynamic positioning */
+				/**
+				* Dynamic positioning
+				*/
 				$controls.css({
 					'width': $overlay.css('width'),
 					'left': $overlay.css('left')
 				});
 
-				/* Adding the controls wrapper */
+				/**
+				* Adding the controls wrapper
+				*/
 				if($('a.desoslide-link', $(p.main.container)).length > 0) {
 					$controls.appendTo($('a.desoslide-link', $(p.main.container)));
 				} else {
@@ -417,6 +505,9 @@
 
 				$controlsWrapper = $('.desoSlide-controls-wrapper', $(p.main.container));
 
+				/**
+				* Triggering "play" if autostart
+				*/
 				if(p.auto.start) {
 					$('a[href="#play"]', $controlsWrapper).hide().parent().find('a[href="#pause"]').show();
 				} else {
@@ -424,6 +515,9 @@
 				}
 			},
 
+			/**
+			* Function that pauses the diaporama
+			*/
 			pause: function() {
 				if(p.auto.start && timer) {
 					p.auto.start = false;
@@ -435,6 +529,9 @@
 				}
 			},
 
+			/**
+			* Function that plays the diaporama
+			*/
 			play: function() {
 				if(!p.auto.start) {
 					p.auto.start = true;
@@ -449,10 +546,22 @@
 				}
 			},
 
+			/**
+			* Function that handles the plugin "result"
+			*/
 			resultHandler: function(type, msg) {
+				/**
+				* It's not the first error
+				*/
 				if(!first_error) {
+					/**
+					* Depending on the result
+					*/
 					switch(type) {
 						case 'error':
+							/**
+							* Logging
+							*/
 							if(p.log.errors && typeof console !== 'undefined') {
 								console.error('desoSlide: '+ msg);
 							}
@@ -464,6 +573,9 @@
 							first_error = type;
 						break;
 						case 'warning':
+							/**
+							* Logging
+							*/
 							if(p.log.warnings && typeof console !== 'undefined') {
 								console.warn('desoSlide: '+ msg);
 							}
@@ -481,37 +593,47 @@
 				}
 			},
 
-			// *****************
-			// [END] Functions
-			// *****************
-
-			// ***********************
-			// [BEGIN] Events handlers
-			// ***********************
-
+			/**
+			* Function that handles the plugin events
+			*/
 			events: function() {
 
-				/* Clicking on thumbnail */
+				/**
+				* Clicking on thumbnail
+				*/
 				$('a', $thumbs).on('click', function(e) {
 					e.preventDefault();
 					var $this = $(this);
 
-					/* If the clicked image is not already displayed */
+					/**
+					* If the clicked image is not already displayed
+					*/
 					if($this.parent('li').index() !== currentImg) {
-						/* Hiding the overlay */
+						/**
+						* Hiding the overlay
+						*/
 						$overlay.animate({ opacity: 0 });
 
-						/* Set the current image index */
+						/**
+						* Setting the current image index
+						*/
 						currentImg = $this.parent('li').index();
 
-						/* Call the displayer */
+						/**
+						* Calling the displayer
+						*/
 						app.outEffect();
 
+						/**
+						* Pausing
+						*/
 						app.pause();
 					}
 				});
 
-				/* Hover on thumb */
+				/**
+				* Hover on thumb
+				*/
 				$('img', $thumbs).on({
 					mouseover: function() {
 						$(this).stop(true, true).animate({
@@ -525,7 +647,9 @@
 					}
 				});
 
-				/* Hover on overlay */
+				/**
+				* Hover on overlay
+				*/
 				if(p.overlay === 'hover') {
 					$(p.main.container).on({
 						mouseover: function() {
@@ -542,7 +666,9 @@
 				}
 
 				if(p.controls.enable && p.controls.keys) {
-					/* Keys binder */
+					/**
+					* Keys binder
+					*/
 					$(document).on('keydown', function(e){
 						switch(e.which) {
 							case 37: /* Left arrow */
@@ -559,7 +685,9 @@
 					});
 				}
 
-				/* Click on control */
+				/**
+				* Click on control
+				*/
 				$(p.main.container).on('click', '.desoSlide-controls-wrapper a', $(p.main.container), function(e) {
 					e.preventDefault();
 
@@ -579,31 +707,41 @@
 					}
 				});
 
-				/* On prev */
+				/**
+				* On previous
+				*/
 				$(p.main.container).on('prev.desoslide', function() {
 					app.pause();
 					currentImg--;
 					app.outEffect();
 				});
 
-				/* On pause */
+				/**
+				* On pause
+				*/
 				$(p.main.container).on('pause.desoslide', function() {
 					app.pause();
 				});
 
-				/* On play */
+				/**
+				* On play
+				*/
 				$(p.main.container).on('play.desoslide', function() {
 					app.play();
 				});
 
-				/* On next */
+				/**
+				* On next
+				*/
 				$(p.main.container).on('next.desoslide', function() {
 					app.pause();
 					currentImg++;
 					app.outEffect();
 				});
 
-				/* New overlay position when resizing */
+				/**
+				* New overlay position when resizing
+				*/
 				$(window).bind('resize', function() {
 					if(p.caption && app.resultHandler.selector == $thumbsContainer.selector) {
 						delay(function(){
@@ -611,18 +749,17 @@
 						}, 100);
 					}
 				});
-
-			},
-
-			// ***********************
-			// [END] Events handlers
-			// ***********************
+			}
 
 		};
 
-		/* All images are loaded */
+		/**
+		* All images are loaded
+		*/
 		$(window).load(function() {
-			/* Initializing */
+			/**
+			* Initializing
+			*/
 			app.checks();
 			app.init();
 			app.events();
