@@ -100,22 +100,22 @@
 <pre><code>&lt;ul id="my_thumbs">
     &lt;li>
         &lt;a href="assets/img/bird.jpg">
-            &lt;img src="assets/img/bird_thumb.jpg" alt="Bird" data-caption="A bird, click me to open http://chez-syl.fr/" data-href="http://chez-syl.fr/">
+            &lt;img src="assets/img/bird_thumb.jpg" alt="Bird" data-desoslide-caption="A bird, click me to open http://chez-syl.fr/" data-desoslide-href="http://chez-syl.fr/">
         &lt;/a>
     &lt;/li>
     &lt;li>
         &lt;a href="assets/img/flower.jpg">
-            &lt;img src="assets/img/flower_thumb.jpg" alt="Flower" data-caption="A flower" data-caption="A flower, click me to open README.md file" data-href="README.md">
+            &lt;img src="assets/img/flower_thumb.jpg" alt="Flower" data-desoslide-caption="A flower" data-desoslide-caption="A flower, click me to open README.md file" data-desoslide-href="README.md">
         &lt;/a>
     &lt;/li>
     &lt;li>
         &lt;a href="assets/img/butterfly.jpg">
-            &lt;img src="assets/img/butterfly_thumb.jpg" alt="Butterfly" data-caption="A butterfly" data-caption="A butterfly, click me to open LICENSE.md file" data-href="LICENSE.md">
+            &lt;img src="assets/img/butterfly_thumb.jpg" alt="Butterfly" data-desoslide-caption="A butterfly" data-desoslide-caption="A butterfly, click me to open LICENSE.md file" data-desoslide-href="LICENSE.md">
         &lt;/a>
     &lt;/li>
     &lt;li>
         &lt;a href="assets/img/rose.jpg">
-            &lt;img src="assets/img/rose_thumb.jpg" alt="Rose" data-caption="A rose, you can't click me, got no link">
+            &lt;img src="assets/img/rose_thumb.jpg" alt="Rose" data-desoslide-caption="A rose, you can't click me, got no link">
         &lt;/a>
     &lt;/li>
 &lt;/ul></code></pre>
@@ -124,8 +124,8 @@
 							<p>Explanations:</p>
 							<ul class="list-unstyled">
 								<li><span class="label label-danger">mandatory</span>&emsp;Specify your images links and the <code>alt</code> attribute</li>
-								<li><span class="label label-primary">optional</span>&emsp;&emsp;The <code>data-caption</code> attribute is used for the caption</li>
-								<li><span class="label label-primary">optional</span>&emsp;&emsp;The <code>data-href</code> attribute contains the link to the page that will be active on the main image</li>
+								<li><span class="label label-primary">optional</span>&emsp;&emsp;The <code>data-desoslide-caption</code> attribute is used for the caption</li>
+								<li><span class="label label-primary">optional</span>&emsp;&emsp;The <code>data-desoslide-href</code> attribute contains the link to the page that will be active on the main image</li>
 							</ul>
 						</div>
 					</div>
@@ -248,7 +248,7 @@
 							</tr>
 							<tr>
 								<td data-title="Options"><code>overlay</code></td>
-								<td data-title="Values"><code>'always'</code> <code>'hover'</code></td>
+								<td data-title="Values"><code>'always'</code> <code>'hover'</code> <code>'none'</code></td>
 								<td data-title="Default"><code>'always'</code></td>
 								<td data-title="Description">How to show overlay.</td>
 							</tr>
@@ -256,7 +256,7 @@
 								<td data-title="Options"><code>caption</code></td>
 								<td data-title="Values">Boolean</td>
 								<td data-title="Default"><code>false</code></td>
-								<td data-title="Description">If <code>true</code>, be sure that you have specify the <code>data-caption</code> attribute on thumbnails.</td>
+								<td data-title="Description">If <code>true</code>, be sure that you have specify the <code>data-desoslide-caption</code> attribute on thumbnails.</td>
 							</tr>
 							<tr>
 								<td data-title="Options"><code>controls.enable</code></td>

@@ -1,5 +1,5 @@
 /*!
-* Version 1.2.0
+* Version 1.2.1-dev
 * jQuery: desoSlide plugin - jquery.desoslide.js
 * Copyright - 2013 - https://github.com/sylouuu/desoslide
 * This source code is under the MIT License
@@ -22,7 +22,7 @@
 			interval: 		3000, 		/* Interval between each image */
 			effect:  		'fade',		/* Transition effect ("fade", "flip", "light", "roll", "rotate") */
 			overlay: 		'always', 	/* How to show overlay ("always", "hover", "none") */
-			caption: 		false, 		/* Show caption: data-caption attribute required */
+			caption: 		false, 		/* Show caption: data-desoslide-caption attribute required */
 			controls: {
 				enable: 	true, 		/* Able to control by clicking (prev/pause/play/next) */
 				keys: 		true 		/* Able to control by using the keyboard shortcuts (left/right/space) */
@@ -108,7 +108,7 @@
 			checkData: function() {
 				/* Captions checks */
 				if(p.caption && (typeof caption === 'undefined' || caption == '')) {
-					app.resultHandler('warning', 'The captions are enabled and the data-caption attribute is missing on a thumb. Add it or disable captions. Check out the documention.');
+					app.resultHandler('warning', 'The captions are enabled and the data-desoslide-caption attribute is missing on a thumb. Add it or disable captions. Check out the documention.');
 				}
 
 				/* W3C check */
@@ -259,8 +259,8 @@
 				/* Data */
 				src 	= $('a', $thumbs).eq(imgToShow).attr('href');
 				alt 	= $('img', $thumbs).eq(imgToShow).attr('alt');
-				caption = $('img', $thumbs).eq(imgToShow).data('caption');
-				href 	= $('img', $thumbs).eq(imgToShow).data('href');
+				caption = $('img', $thumbs).eq(imgToShow).data('desoslide-caption');
+				href 	= $('img', $thumbs).eq(imgToShow).data('desoslide-href');
 
 				/* Checking the data */
 				app.checkData();
@@ -268,7 +268,7 @@
 				$('img', $(p.main.container)).attr({
 					'src': src,
 					'alt': alt,
-					'data-caption': caption
+					'data-desoslide-caption': caption
 				}).one('load', function() {
 
 					/* Showing */
