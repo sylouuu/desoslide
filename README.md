@@ -2,6 +2,11 @@
 
 ## Changelog
 
+25/11/2013 - **v1.2.1**
+
+* added the 'desoslide' namespace for data API
+* added the 'none' value for overlay option
+
 24/11/2013 - **v1.2.0**
 
 * effects: added 'sideFade' and 'sideFadeBig'
