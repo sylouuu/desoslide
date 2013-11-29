@@ -4,7 +4,12 @@
 * Copyright - 2013 - https://github.com/sylouuu/desoslide
 * This source code is under the MIT License
 */
+
+/*jslint browser: true, devel: true, eqeq: true, plusplus: true, unparam: true, vars: true, white: true */
 (function($) {
+
+    // 'use strict';
+
     $.fn.desoSlide = function(options) {
 
         /**
@@ -39,7 +44,7 @@
         /**
         * Extend options
         */
-        var p = $.extend(true, defaults, options);
+        var p = $.extend({}, defaults, options);
 
         /**
         * Delay
@@ -50,7 +55,7 @@
                 clearTimeout(timer);
                 timer = setTimeout(callback, ms);
             };
-        })();
+        }());
 
         /**
         * Working variables
@@ -63,9 +68,15 @@
             imgToShow,
             $overlay = $('.desoSlide-overlay', $(p.main.container)),
             ms = (p.interval < 1500) ? 1500 : p.interval,
-            timer = false, aExists, hrefExists,
-            src, alt, caption, href,
-            $controlsWrapper, effects,
+            timer = false,
+            aExists,
+            hrefExists,
+            src,
+            alt,
+            caption,
+            href,
+            $controlsWrapper,
+            effects,
             first_error = false;
 
         /**
@@ -126,14 +137,14 @@
                 /**
                 * Captions checks
                 */
-                if(p.caption && (typeof caption === 'undefined' || caption === '')) {
+                if(p.caption && (caption === undefined || caption === '')) {
                     app.resultHandler('warning', 'The captions are enabled and the data-desoslide-caption attribute is missing on a thumb. Add it or disable captions. Check out the documention.');
                 }
 
                 /**
                 * W3C check
                 */
-                if(typeof alt === 'undefined' || alt === '') {
+                if(alt === undefined || alt === '') {
                     app.resultHandler('warning', 'The alt attribute is missing on a thumb, it\'s mandatory on <img> tags.');
                 }
             },
@@ -143,7 +154,7 @@
             */
             init: function() {
                 /**
-                * Auto load images
+                * Auto load images TODO: sortir ce bloc if
                 */
                 if(p.auto.load) {
                     $('a', $thumbs).each(function(i, item) {
@@ -157,6 +168,8 @@
                 app.effectHandler();
 
                 app.addWrapper();
+
+                app.displayImg();
             },
 
             /**
@@ -192,8 +205,6 @@
                         app.resultHandler('error', 'Bad value for the "insertion" param. Check out the documentation.');
                     break;
                 }
-
-                app.displayImg();
             },
 
             /**
@@ -237,14 +248,9 @@
                 /**
                 * Bad effect value
                 */
-                if(!(p.effect in effects)) {
-                    var i = 0;
-                    $.each(effects, function(key) {
-                        if(i === 0) {
-                            p.effect = key; /* Get the default effect */
-                        }
-                        i++;
-                    });
+                if(!effects.hasOwnProperty(p.effect)) {
+                    p.effect = defaults.effect; /* Get the default effect */
+                    alert(p.effect);
                     app.resultHandler('error', 'Bad value for the "effect" param. Default value is used. Check out the documentation.');
                 }
 
@@ -300,17 +306,17 @@
                 /**
                 * Data
                 */
-                src     = $('a', $thumbs).eq(imgToShow).attr('href');
-                alt     = $('img', $thumbs).eq(imgToShow).attr('alt');
-                caption = $('img', $thumbs).eq(imgToShow).data('desoslide-caption');
-                href    = $('img', $thumbs).eq(imgToShow).data('desoslide-href');
+                src     = $thumbs.find('a').eq(imgToShow).attr('href');
+                alt     = $thumbs.find('img').eq(imgToShow).attr('alt');
+                caption = $thumbs.find('img').eq(imgToShow).data('desoslide-caption');
+                href    = $thumbs.find('img').eq(imgToShow).data('desoslide-href');
 
                 /**
                 * Checking the data
                 */
                 app.checkData();
 
-                $('img', $(p.main.container)).attr({
+                $(p.main.container).find('img').attr({
                     'src': src,
                     'alt': alt,
                     'data-desoslide-caption': caption
@@ -321,7 +327,7 @@
                     $(this).removeClass('animated '+ effects[p.effect].out).addClass('animated '+ effects[p.effect].in);
 
                     /**
-                    * Adding overlay
+                    * Adding overlay TODO: use js event animationEnd
                     */
                     setTimeout(function() {
                         app.addOverlay();
@@ -346,29 +352,25 @@
             addOverlay: function() {
                 if(p.overlay !== 'none') {
                     if(p.caption || p.controls.enable) {
-                        var width;
-
                         /**
                         * Main image position
                         */
-                        var pos = $('img', $(p.main.container)).position();
-                        var border = parseInt($('img', $(p.main.container)).css('border-left-width'), 10);
+                        var pos = $(p.main.container).find('img').position();
+                        var border = parseInt($(p.main.container).find('img').css('border-left-width'), 10);
 
                         /**
                         * Main image height
                         */
-                        var w = $('img', $(p.main.container)).width() + border;
-                        var h = $('img', $(p.main.container)).height() + border;
+                        var width_plus_border = $('img', $(p.main.container)).width() + border;
+                        var height_plus_border = $('img', $(p.main.container)).height() + border;
 
-                        if(!$('.desoSlide-overlay', $(p.main.container)).length) {
+                        if($(p.main.container).find('.desoSlide-overlay').length === 0) {
                             $('<div>', {
                                 'class': 'desoSlide-overlay'
                             }).appendTo($('.desoSlide-wrapper', $(p.main.container)));
                         }
 
                         $overlay = $('.desoSlide-overlay', $(p.main.container));
-
-                        width = w;
 
                         /**
                         * Calculate new height with paddings
@@ -379,7 +381,7 @@
                         var paddingRight = parseInt($overlay.css('padding-right').replace('px', ''), 10);
 
                         var overlayHeight = parseInt($overlay.css('height').replace('px', ''), 10) - (paddingLeft + paddingRight);
-                        overlayHeight = (parseInt(h, 10) - overlayHeight - (paddingTop + paddingBottom));
+                        overlayHeight = (parseInt(height_plus_border, 10) - overlayHeight - (paddingTop + paddingBottom));
 
                         var top = pos.top + overlayHeight;
                         var left = pos.left;
@@ -390,13 +392,13 @@
                         $overlay.css({
                             'left':     left +'px',
                             'top':      top +'px',
-                            'width':    width +'px'
+                            'width':    width_plus_border +'px'
                         });
 
                         /**
                         * Showing the overlay if needed
                         */
-                        if(p.overlay == 'always') {
+                        if(p.overlay === 'always') {
                             $overlay.animate({
                                 opacity: 0.7
                             }, 500);
@@ -434,8 +436,8 @@
             * Function that adds the link on the main image & caption
             */
             addLink: function() {
-                aExists = ($('a.desoslide-link', $(p.main.container)).length > 0) ? true : false;
-                hrefExists = (typeof href !== 'undefined' && href !== '') ? true : false;
+                aExists = ($(p.main.container).find('a.desoslide-link').length > 0) ? true : false;
+                hrefExists = (href !== undefined && href !== '') ? true : false;
 
                 /**
                 * The link tag
@@ -450,25 +452,30 @@
                     /**
                     * Updating the href
                     */
-                    $('a.desoslide-link', $(p.main.container)).attr('href', href);
-                } else if(aExists && !hrefExists) {
-                    /**
-                    * Replacing the <a> tag with this content
-                    */
-                    $('a.desoslide-link', $(p.main.container)).replaceWith($a);
-                } else if(!aExists && hrefExists) {
-                    /**
-                    * Adding the link tag
-                    */
-                    $('.desoSlide-wrapper', $(p.main.container)).append($a);
+                    $(p.main.container).find('a.desoslide-link').attr('href', href);
+                } else {
+                    if(aExists && !hrefExists) {
+                        /**
+                        * Replacing the <a> tag with this content
+                        */
+                        $(p.main.container).find('a.desoslide-link').replaceWith($a);
+                    } else {
+                        if(!aExists && hrefExists) {
+                            /**
+                            * Adding the link tag
+                            */
+                            $(p.main.container).find('.desoSlide-wrapper').append($a);
+                        }
+                    }
                 }
+
             },
 
             /**
             * Function that adds the controls
             */
             addControls: function() {
-                $('.desoSlide-controls-wrapper', $(p.main.container)).remove();
+                $(p.main.container).find('.desoSlide-controls-wrapper').remove();
 
                 /**
                 * Controls buttons
@@ -497,9 +504,9 @@
                 * Adding the controls wrapper
                 */
                 if($('a.desoslide-link', $(p.main.container)).length > 0) {
-                    $controls.appendTo($('a.desoslide-link', $(p.main.container)));
+                    $controls.appendTo($(p.main.container).find('a.desoslide-link'));
                 } else {
-                    $controls.appendTo($('.desoSlide-wrapper', $(p.main.container)));
+                    $controls.appendTo($(p.main.container).find('.desoSlide-wrapper'));
                 }
 
                 $controlsWrapper = $('.desoSlide-controls-wrapper', $(p.main.container));
@@ -535,7 +542,7 @@
                 if(!p.auto.start) {
                     p.auto.start = true;
 
-                    if(imgToShow == currentImg) {
+                    if(imgToShow === currentImg) {
                         currentImg++;
                     }
 
@@ -547,6 +554,9 @@
 
             /**
             * Function that handles the plugin "result"
+            *
+            * @param string type
+            * @param string msg
             */
             resultHandler: function(type, msg) {
                 /**
@@ -561,7 +571,7 @@
                             /**
                             * Logging
                             */
-                            if(p.log.errors && typeof console !== 'undefined') {
+                            if(p.log.errors && console !== undefined) {
                                 console.error('desoSlide: '+ msg);
                             }
 
@@ -575,7 +585,7 @@
                             /**
                             * Logging
                             */
-                            if(p.log.warnings && typeof console !== 'undefined') {
+                            if(p.log.warnings && console !== undefined) {
                                 console.warn('desoSlide: '+ msg);
                             }
 
@@ -600,14 +610,15 @@
                 /**
                 * Clicking on thumbnail
                 */
-                $('a', $thumbs).on('click', function(e) {
+                $thumbs.find('a').on('click', function(e) {
                     e.preventDefault();
                     var $this = $(this);
+                    var index = $this.parent('li').index();
 
                     /**
                     * If the clicked image is not already displayed
                     */
-                    if($this.parent('li').index() !== currentImg) {
+                    if(index !== currentImg) {
                         /**
                         * Hiding the overlay
                         */
@@ -616,7 +627,7 @@
                         /**
                         * Setting the current image index
                         */
-                        currentImg = $this.parent('li').index();
+                        currentImg = index;
 
                         /**
                         * Calling the displayer
@@ -742,7 +753,7 @@
                 * New overlay position when resizing
                 */
                 $(window).bind('resize', function() {
-                    if(p.caption && app.resultHandler.selector == $thumbsContainer.selector) {
+                    if(p.caption) {
                         delay(function(){
                             app.addOverlay();
                         }, 100);
@@ -765,6 +776,5 @@
         });
 
         return this;
-
     };
-})(jQuery);
+}(jQuery));
