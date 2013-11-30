@@ -8,10 +8,6 @@ $(function() {
 		main: {
 			container: '#no_thumbs'
 		},
-		log: {
-			errors: false,
-			warnings: false
-		},
 		result: function(result) {
 			thumbs_container_test1 = result;
 		}
@@ -20,10 +16,6 @@ $(function() {
 	$('#no_thumbs').desoSlide({
 		main: {
 			container: '#main_image'
-		},
-		log: {
-			errors: false,
-			warnings: false
 		},
 		result: function(result) {
 			thumbs_container_test2 = result;
@@ -42,10 +34,6 @@ $(function() {
 	var main_container_test1, main_container_test2;
 
 	$('#alt_thumbs').desoSlide({
-		log: {
-			errors: false,
-			warnings: false
-		},
 		result: function(result) {
 			main_container_test1 = result;
 		}
@@ -80,10 +68,6 @@ $(function() {
 			container: '#main_image'
 		},
 		first: 4,
-		log: {
-			errors: false,
-			warnings: false
-		},
 		result: function(result) {
 			first_test1 = result;
 		}
@@ -94,10 +78,6 @@ $(function() {
 			container: '#main_image'
 		},
 		first: 3,
-		log: {
-			errors: false,
-			warnings: false
-		},
 		result: function(result) {
 			first_test2 = result;
 		}
@@ -119,10 +99,6 @@ $(function() {
 			container: '#main_image'
 		},
 		overlay: 'fail',
-		log: {
-			errors: false,
-			warnings: false
-		},
 		result: function(result) {
 			overlay_test1 = result;
 		}
@@ -133,10 +109,6 @@ $(function() {
 			container: '#main_image'
 		},
 		overlay: 'always',
-		log: {
-			errors: false,
-			warnings: false
-		},
 		result: function(result) {
 			overlay_test2 = result;
 		}
@@ -158,10 +130,6 @@ $(function() {
 			container: '#main_image',
 			insertion: 'fail'
 		},
-		log: {
-			errors: false,
-			warnings: false
-		},
 		result: function(result) {
 			insertion_test1 = result;
 		}
@@ -171,10 +139,6 @@ $(function() {
 		main: {
 			container: '#main_image',
 			insertion: 'prepend'
-		},
-		log: {
-			errors: false,
-			warnings: false
 		},
 		result: function(result) {
 			insertion_test2 = result;
@@ -197,10 +161,6 @@ $(function() {
 			container: '#main_image'
 		},
 		effect: 'test',
-		log: {
-			errors: false,
-			warnings: false
-		},
 		result: function(result) {
 			effect_test1 = result;
 		}
@@ -211,10 +171,6 @@ $(function() {
 			container: '#main_image'
 		},
 		effect: 'rotate',
-		log: {
-			errors: false,
-			warnings: false
-		},
 		result: function(result) {
 			effect_test2 = result;
 		}
@@ -235,10 +191,6 @@ $(function() {
 		main: {
 			container: '#main_image'
 		},
-		log: {
-			errors: false,
-			warnings: false
-		},
 		result: function(result) {
 			alt_test1 = result;
 		}
@@ -247,10 +199,6 @@ $(function() {
 	$('#alt_thumbs').desoSlide({
 		main: {
 			container: '#main_image'
-		},
-		log: {
-			errors: false,
-			warnings: false
 		},
 		result: function(result) {
 			alt_test2 = result;
@@ -273,10 +221,6 @@ $(function() {
 			container: '#main_image'
 		},
 		caption: true,
-		log: {
-			errors: false,
-			warnings: false
-		},
 		result: function(result) {
 			data_caption_test1 = result;
 		}
@@ -287,10 +231,6 @@ $(function() {
 			container: '#main_image'
 		},
 		caption: true,
-		log: {
-			errors: false,
-			warnings: false
-		},
 		result: function(result) {
 			data_caption_test2 = result;
 		}
