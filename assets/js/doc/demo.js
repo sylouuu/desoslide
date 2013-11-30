@@ -19,7 +19,7 @@ $(function() {
 			start: true
 		},
 		first: 1,
-		effect: 'sideFade2',
+		effect: 'sideFadeBig',
 		controls: {
 			keys: false
 		}

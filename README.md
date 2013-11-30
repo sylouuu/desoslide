@@ -2,6 +2,12 @@
 
 ## Changelog
 
+30/11/2013 - **1.2.2**
+
+* optimized source code
+* added 'animationend' event to recalculate overlay positioning after each effect ; instead of using an arbitrary timeout
+* removed 'log' option (enabled by default in case of error or warning)
+
 25/11/2013 - **1.2.1**
 
 * added the 'desoslide' namespace for data API
