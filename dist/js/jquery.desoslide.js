@@ -100,10 +100,10 @@
                 }
 
                 /**
-                * main.container param checks
+                * main.container option checks
                 */
                 if(!p.main.container) {
-                    app.resultHandler('error', 'You must specify the "main.container" param. Check out the documentation.');
+                    app.resultHandler('error', 'You must specify the "main.container" option. Check out the documentation.');
                 } else {
                     /**
                     * If the container does not exist
@@ -119,17 +119,17 @@
                 var overlay_values = ['always', 'hover', 'none'];
 
                 /**
-                * overlay param checker
+                * overlay option checker
                 */
                 if(overlay_values.indexOf(p.overlay) === -1) {
-                    app.resultHandler('error', 'Bad value for the "overlay" param. Check out the documentation.');
+                    app.resultHandler('error', 'Incorrect value for the "overlay" option. Check out the documentation.');
                 }
 
                 if(current_img >= total_thumbs) {
                     if(total_thumbs === 0) {
                         app.resultHandler('error', 'You must have at least 1 thumbnail.');
                     } else {
-                        app.resultHandler('error', 'The "first" param must be between 0 and '+ (total_thumbs - 1) +'.');
+                        app.resultHandler('error', 'The "first" option must be between 0 and '+ (total_thumbs - 1) +'.');
                     }
                 }
             },
@@ -181,41 +181,6 @@
             },
 
             /**
-            * Function that adds the wrapper
-            */
-            addWrapper: function() {
-                /**
-                * The wrapper tag
-                */
-                var $wrapper = $('<div>', {
-                    'class': 'desoSlide-wrapper'
-                });
-
-                /**
-                * The img tag
-                */
-                var $img = $('<img>').addClass(p.main.cssClass).css('opacity', 0);
-
-                /**
-                * DOM insertion
-                */
-                switch(p.main.insertion) {
-                    case 'prepend':
-                        $img.prependTo($(p.main.container)).wrap($wrapper);
-                    break;
-                    case 'append':
-                        $img.appendTo($(p.main.container)).wrap($wrapper);
-                    break;
-                    case 'replace':
-                        $(p.main.container).html($img).wrapInner($wrapper);
-                    break;
-                    default:
-                        app.resultHandler('error', 'Bad value for the "insertion" param. Check out the documentation.');
-                    break;
-                }
-            },
-
-            /**
             * Function that handles the effect
             */
             effectHandler: function() {
@@ -254,7 +219,7 @@
                 };
 
                 /**
-                * Bad effect value
+                * Incorrect effect value
                 */
                 if(!effects.hasOwnProperty(p.effect)) {
                     /**
@@ -262,7 +227,7 @@
                     */
                     p.effect = defaults.effect;
 
-                    app.resultHandler('error', 'Bad value for the "effect" param. Default value is used. Check out the documentation.');
+                    app.resultHandler('error', 'Incorrect value for the "effect" option. Default value is used. Check out the documentation.');
                 }
 
             },
@@ -282,6 +247,41 @@
                 setTimeout(function() {
                     app.displayImg();
                 }, 900);
+            },
+
+            /**
+            * Function that adds the wrapper
+            */
+            addWrapper: function() {
+                /**
+                * The wrapper tag
+                */
+                var $wrapper = $('<div>', {
+                    'class': 'desoSlide-wrapper'
+                });
+
+                /**
+                * The img tag
+                */
+                var $img = $('<img>').addClass(p.main.cssClass).css('opacity', 0);
+
+                /**
+                * DOM insertion
+                */
+                switch(p.main.insertion) {
+                    case 'prepend':
+                        $img.prependTo($(p.main.container)).wrap($wrapper);
+                    break;
+                    case 'append':
+                        $img.appendTo($(p.main.container)).wrap($wrapper);
+                    break;
+                    case 'replace':
+                        $(p.main.container).html($img).wrapInner($wrapper);
+                    break;
+                    default:
+                        app.resultHandler('error', 'Incorrect value for the "insertion" option. Check out the documentation.');
+                    break;
+                }
             },
 
             /**
@@ -368,14 +368,16 @@
                         /**
                         * Main image position
                         */
-                        var pos = $(p.main.container).find('img').position();
-                        var border = parseInt($(p.main.container).find('img').css('border-left-width'), 10);
+                        var
+                            pos = $(p.main.container).find('img').position(),
+                            border = parseInt($(p.main.container).find('img').css('border-left-width'), 10);
 
                         /**
                         * Main image height
                         */
-                        var width_plus_border = $(p.main.container).find('img').width() + border;
-                        var height_plus_border = $(p.main.container).find('img').height() + border;
+                        var
+                            width_plus_border = $(p.main.container).find('img').width() + border,
+                            height_plus_border = $(p.main.container).find('img').height() + border;
 
                         if($(p.main.container).find('.desoSlide-overlay').length === 0) {
                             $('<div>', {
@@ -388,16 +390,18 @@
                         /**
                         * Calculate new height with paddings
                         */
-                        var paddingTop = parseInt($overlay.css('padding-top').replace('px', ''), 10);
-                        var paddingBottom = parseInt($overlay.css('padding-bottom').replace('px', ''), 10);
-                        var paddingLeft = parseInt($overlay.css('padding-left').replace('px', ''), 10);
-                        var paddingRight = parseInt($overlay.css('padding-right').replace('px', ''), 10);
+                        var
+                            paddingTop = parseInt($overlay.css('padding-top').replace('px', ''), 10),
+                            paddingBottom = parseInt($overlay.css('padding-bottom').replace('px', ''), 10),
+                            paddingLeft = parseInt($overlay.css('padding-left').replace('px', ''), 10),
+                            paddingRight = parseInt($overlay.css('padding-right').replace('px', ''), 10);
 
                         var overlayHeight = parseInt($overlay.css('height').replace('px', ''), 10) - (paddingLeft + paddingRight);
                         overlayHeight = (parseInt(height_plus_border, 10) - overlayHeight - (paddingTop + paddingBottom));
 
-                        var top = pos.top + overlayHeight;
-                        var left = pos.left;
+                        var
+                            top = pos.top + overlayHeight,
+                            left = pos.left;
 
                         /**
                         * Update the overlay position
@@ -625,8 +629,8 @@
                 */
                 $thumbs.find('a').on('click', function(e) {
                     e.preventDefault();
-                    var $this = $(this);
-                    var index = $this.parent('li').index();
+                    var $this = $(this),
+                    index = $this.parent('li').index();
 
                     /**
                     * If the clicked image is not already displayed
