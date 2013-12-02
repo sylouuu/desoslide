@@ -3,8 +3,9 @@
 	"title": "jQuery desoSlide",
 	"description": "Simple images slider with thumbnails",
 	"keywords": [
+		"image",
 		"slider",
-		"thumbnails"
+		"thumbnail"
 	],
 	"version": "1.2.2",
 	"author": {
@@ -19,8 +20,9 @@
 	],
 	"bugs": "https://github.com/sylouuu/desoslide/issues",
 	"homepage": "http://sylouuu.github.io/desoslide",
+	"demo": "http://sylouuu.github.io/desoslide/demo.html",
 	"docs": "http://sylouuu.github.io/desoslide/documentation.html",
-	"download": "https://github.com/sylouuu/desoslide/blob/master/js/jquery.desoslide.js",
+	"download": "https://github.com/sylouuu/desoslide/releases",
 	"dependencies": {
 		"jquery": ">=1.7"
 	}
