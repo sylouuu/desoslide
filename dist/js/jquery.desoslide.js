@@ -36,6 +36,7 @@
                 keys:       true        /* Able to control by using the keyboard shortcuts (left/right/space) */
             },
             events: {
+                thumbClick: false,      /* On thumb click */
                 prev:       false,      /* On previous */
                 pause:      false,      /* On pause */
                 play:       false,      /* On play */
@@ -650,6 +651,13 @@
                         * Pausing
                         */
                         app.pause();
+                    }
+
+                    /**
+                    * Callback
+                    */
+                    if(p.events.thumbClick) {
+                        p.events.thumbClick();
                     }
                 });
 

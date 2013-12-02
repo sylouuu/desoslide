@@ -6,7 +6,7 @@ http://sylouuu.github.io/desoslide
 
 ??/12/2013 - **1.2.3**
 
-* added 4 callbacks in the new 'events' option: 'prev', 'pause', 'play' and 'next'
+* added 5 callbacks in the new 'events' option: 'thumbClick', 'prev', 'pause', 'play' and 'next'
 * moved 'result' option in 'events.completed'
 
 30/11/2013 - **1.2.2**
