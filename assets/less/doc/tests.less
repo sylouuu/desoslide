@@ -30,16 +30,20 @@
 	font-size        : 14px;
 }
 
-#qunit-tests .pass {
-	background-color : @midnight-blue-bg;
-	font-size        : 14px;
-	color            : @firm;
-}
+#qunit-tests {
 
-#qunit-tests .pass .test-name {
-	color : @base;
-}
+	.pass {
+		background-color : @midnight-blue-bg;
+		font-size        : 14px;
+		color            : @firm;
 
-#qunit-tests li li.pass {
-	border-left-color : #2ECC71;
+		.test-name {
+			color : @base;
+		}
+	}
+
+	li li.pass {
+		border-left-color : #2ECC71;
+	}
+
 }
