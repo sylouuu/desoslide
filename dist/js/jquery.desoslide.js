@@ -1,11 +1,12 @@
 /*!
-* Version 1.2.2
+* Version 1.2.3-dev
 * jQuery: desoSlide plugin - jquery.desoslide.js
 * Copyright - 2013 - https://github.com/sylouuu/desoslide
 * This source code is under the MIT License
 */
 
 /*jslint browser: true, devel: true, eqeq: true, plusplus: true, unparam: true, vars: true, white: true */
+/*global $, jQuery*/
 (function($) {
 
     'use strict';
@@ -34,7 +35,13 @@
                 enable:     true,       /* Able to control by clicking (prev/pause/play/next) */
                 keys:       true        /* Able to control by using the keyboard shortcuts (left/right/space) */
             },
-            result:         false       /* The slider result ("success", "error", "warning") */
+            events: {
+                prev:       false,      /* On previous */
+                pause:      false,      /* On pause */
+                play:       false,      /* On play */
+                next:       false,      /* On next */
+                completed:  false       /* The slider result ("success", "error", "warning") */
+            }
         };
 
         /**
@@ -580,8 +587,8 @@
                                 console.error('desoSlide: '+ msg);
                             }
 
-                            if(p.result) {
-                                p.result('error');
+                            if(p.events.completed) {
+                                p.events.completed('error');
                             }
 
                             first_error = type;
@@ -594,13 +601,13 @@
                                 console.warn('desoSlide: '+ msg);
                             }
 
-                            if(p.result) {
-                                p.result('warning');
+                            if(p.events.completed) {
+                                p.events.completed('warning');
                             }
                         break;
                         default:
-                            if(p.result) {
-                                p.result('success');
+                            if(p.events.completed) {
+                                p.events.completed('success');
                             }
                         break;
                     }
@@ -726,44 +733,100 @@
                 * On previous
                 */
                 $(p.main.container).on('prev.desoslide', function() {
+                    /**
+                    * Pausing
+                    */
                     app.pause();
+
+                    /**
+                    * Previous image
+                    */
                     current_img--;
+
+                    /**
+                    * Applying the out effect
+                    */
                     app.outEffect();
+
+                    /**
+                    * Callback
+                    */
+                    if(p.events.prev) {
+                        p.events.prev();
+                    }
                 });
 
                 /**
                 * On pause
                 */
                 $(p.main.container).on('pause.desoslide', function() {
+                    /**
+                    * Pausing
+                    */
                     app.pause();
+
+                    /**
+                    * Callback
+                    */
+                    if(p.events.pause) {
+                        p.events.pause();
+                    }
                 });
 
                 /**
                 * On play
                 */
                 $(p.main.container).on('play.desoslide', function() {
+                    /**
+                    * Playing
+                    */
                     app.play();
+
+                    /**
+                    * Callback
+                    */
+                    if(p.events.play) {
+                        p.events.play();
+                    }
                 });
 
                 /**
                 * On next
                 */
                 $(p.main.container).on('next.desoslide', function() {
+                    /**
+                    * Pausing
+                    */
                     app.pause();
+
+                    /**
+                    * Next image
+                    */
                     current_img++;
+
+                    /**
+                    * Applying the out effect
+                    */
                     app.outEffect();
+
+                    /**
+                    * Callback
+                    */
+                    if(p.events.next) {
+                        p.events.next();
+                    }
                 });
 
                 /**
                 * New overlay position when resizing
                 */
-                $(window).bind('resize', function() {
-                    if(p.caption) {
-                        delay(function(){
+                if(p.overlay !== 'none') {
+                    $(window).bind('resize', function() {
+                        delay(function() {
                             app.addOverlay();
                         }, 100);
-                    }
-                });
+                    });
+                }
             }
 
         };
@@ -773,13 +836,24 @@
         */
         $(window).load(function() {
             /**
-            * Initializing
+            * Basic checks
             */
             app.checks();
+
+            /**
+            * Initializing
+            */
             app.init();
+
+            /**
+            * Bindings events
+            */
             app.events();
         });
 
+        /**
+        * Preserving chainability
+        */
         return this;
     };
 }(jQuery));

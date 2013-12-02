@@ -1,6 +1,13 @@
-## http://sylouuu.github.io/desoslide
+## Overview, demos, documentation & unit tests
+
+http://sylouuu.github.io/desoslide
 
 ## Changelog
+
+??/12/2013 - **1.2.3**
+
+* added 4 callbacks in the new 'events' option: 'prev', 'pause', 'play' and 'next'
+* moved 'result' option in 'events.completed'
 
 30/11/2013 - **1.2.2**
 
