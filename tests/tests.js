@@ -1,246 +1,296 @@
 $(function() {
 
-	/* Thumbs container tests */
+    'use strict';
 
-	var thumbs_container_test1, thumbs_container_test2;
+    // Thumbs container tests
+    // -------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
-	$('#invisible_thumbs').desoSlide({
-		main: {
-			container: '#no_thumbs'
-		},
-		result: function(result) {
-			thumbs_container_test1 = result;
-		}
-	});
+    var thumbs_container_test1, thumbs_container_test2;
 
-	$('#no_thumbs').desoSlide({
-		main: {
-			container: '#main_image'
-		},
-		result: function(result) {
-			thumbs_container_test2 = result;
-		}
-	});
+    $('#invisible_thumbs').desoSlide({
+        main: {
+            container: '#no_thumbs'
+        },
+        events: {
+            completed: function(result) {
+                thumbs_container_test1 = result;
+            }
+        }
+    });
 
-	test('The "thumbs" container', function() {
+    $('#no_thumbs').desoSlide({
+        main: {
+            container: '#main_image'
+        },
+        events: {
+            completed: function(result) {
+                thumbs_container_test2 = result;
+            }
+        }
+    });
 
-		ok(thumbs_container_test1 == 'error', 'doesn\'t exist: error expected');
-		ok(thumbs_container_test2 == 'error', 'exists but has no child: error expected');
+    test('The "thumbs" container', function() {
 
-	});
+        ok(thumbs_container_test1 === 'error', 'doesn\'t exist: error expected');
+        ok(thumbs_container_test2 === 'error', 'exists but has no child: error expected');
 
-	/* Main container tests */
+    });
 
-	var main_container_test1, main_container_test2;
+    // Main container tests
+    // -------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
-	$('#alt_thumbs').desoSlide({
-		result: function(result) {
-			main_container_test1 = result;
-		}
-	});
+    var main_container_test1, main_container_test2;
 
-	$('#alt_thumbs').desoSlide({
-		main: {
-			container: '#no_container'
-		},
-		log: {
-			errors: false,
-			warnings: false
-		},
-		result: function(result) {
-			main_container_test2 = result;
-		}
-	});
+    $('#alt_thumbs').desoSlide({
+        events: {
+            completed: function(result) {
+                main_container_test1 = result;
+            }
+        }
+    });
 
-	test('The "main" container option', function() {
+    $('#alt_thumbs').desoSlide({
+        main: {
+            container: '#no_container'
+        },
+        log: {
+            errors: false,
+            warnings: false
+        },
+        events: {
+            completed: function(result) {
+                main_container_test2 = result;
+            }
+        }
+    });
 
-		ok(main_container_test1 == 'error', 'isn\'t specified: error expected');
-		ok(main_container_test2 == 'error', 'is specified, but the selector doesn\'t exist: error expected');
+    test('The "main" container option', function() {
 
-	});
+        ok(main_container_test1 === 'error', 'isn\'t specified: error expected');
+        ok(main_container_test2 === 'error', 'is specified, but the selector doesn\'t exist: error expected');
 
-	/* "First" tests */
+    });
 
-	var first_test1, first_test2;
+    // "First" tests
+    // -------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
-	$('#alt_thumbs').desoSlide({
-		main: {
-			container: '#main_image'
-		},
-		first: 4,
-		result: function(result) {
-			first_test1 = result;
-		}
-	});
+    var first_test1, first_test2;
 
-	$('#alt_thumbs').desoSlide({
-		main: {
-			container: '#main_image'
-		},
-		first: 3,
-		result: function(result) {
-			first_test2 = result;
-		}
-	});
+    $('#alt_thumbs').desoSlide({
+        main: {
+            container: '#main_image'
+        },
+        first: 4,
+        events: {
+            completed: function(result) {
+                first_test1 = result;
+            }
+        }
+    });
 
-	test('The "first" option', function() {
+    $('#alt_thumbs').desoSlide({
+        main: {
+            container: '#main_image'
+        },
+        first: 3,
+        events: {
+            completed: function(result) {
+                first_test2 = result;
+            }
+        }
+    });
 
-		ok(first_test1 == 'error', 'has a wrong value: error expected');
-		ok(first_test2 == 'success', 'has an accepted value: success expected');
+    test('The "first" option', function() {
 
-	});
+        ok(first_test1 === 'error', 'has a wrong value: error expected');
+        ok(first_test2 === 'success', 'has an accepted value: success expected');
 
-	/* "Overlay" tests */
+    });
 
-	var overlay_test1, overlay_test2;
+    // "Overlay" tests
+    // -------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
-	$('#alt_thumbs').desoSlide({
-		main: {
-			container: '#main_image'
-		},
-		overlay: 'fail',
-		result: function(result) {
-			overlay_test1 = result;
-		}
-	});
+    var overlay_test1, overlay_test2;
 
-	$('#alt_thumbs').desoSlide({
-		main: {
-			container: '#main_image'
-		},
-		overlay: 'always',
-		result: function(result) {
-			overlay_test2 = result;
-		}
-	});
+    $('#alt_thumbs').desoSlide({
+        main: {
+            container: '#main_image'
+        },
+        overlay: 'fail',
+        events: {
+            completed: function(result) {
+                overlay_test1 = result;
+            }
+        }
+    });
 
-	test('The "overlay" option', function() {
+    $('#alt_thumbs').desoSlide({
+        main: {
+            container: '#main_image'
+        },
+        overlay: 'always',
+        events: {
+            completed: function(result) {
+                overlay_test2 = result;
+            }
+        }
+    });
 
-		ok(overlay_test1 == 'error', 'has a wrong value: error expected');
-		ok(overlay_test2 == 'success', 'has an accepted value: success expected');
+    test('The "overlay" option', function() {
 
-	});
+        ok(overlay_test1 === 'error', 'has a wrong value: error expected');
+        ok(overlay_test2 === 'success', 'has an accepted value: success expected');
 
-	/* "Insertion" tests */
+    });
 
-	var insertion_test1, insertion_test2;
+    // "Insertion" tests
+    // -------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
-	$('#alt_thumbs').desoSlide({
-		main: {
-			container: '#main_image',
-			insertion: 'fail'
-		},
-		result: function(result) {
-			insertion_test1 = result;
-		}
-	});
+    var insertion_test1, insertion_test2;
 
-	$('#alt_thumbs').desoSlide({
-		main: {
-			container: '#main_image',
-			insertion: 'prepend'
-		},
-		result: function(result) {
-			insertion_test2 = result;
-		}
-	});
+    $('#alt_thumbs').desoSlide({
+        main: {
+            container: '#main_image',
+            insertion: 'fail'
+        },
+        events: {
+            completed: function(result) {
+                insertion_test1 = result;
+            }
+        }
+    });
 
-	test('The "insertion" option', function() {
+    $('#alt_thumbs').desoSlide({
+        main: {
+            container: '#main_image',
+            insertion: 'prepend'
+        },
+        events: {
+            completed: function(result) {
+                insertion_test2 = result;
+            }
+        }
+    });
 
-		ok(insertion_test1 == 'error', 'has a wrong value: error expected');
-		ok(insertion_test2 == 'success', 'has an accepted value: success expected');
+    test('The "insertion" option', function() {
 
-	});
+        ok(insertion_test1 === 'error', 'has a wrong value: error expected');
+        ok(insertion_test2 === 'success', 'has an accepted value: success expected');
 
-	/* "Effect" tests */
+    });
 
-	var effect_test1, effect_test2;
+    // "Effect" tests
+    // -------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
-	$('#alt_thumbs').desoSlide({
-		main: {
-			container: '#main_image'
-		},
-		effect: 'test',
-		result: function(result) {
-			effect_test1 = result;
-		}
-	});
+    var effect_test1, effect_test2;
 
-	$('#alt_thumbs').desoSlide({
-		main: {
-			container: '#main_image'
-		},
-		effect: 'rotate',
-		result: function(result) {
-			effect_test2 = result;
-		}
-	});
+    $('#alt_thumbs').desoSlide({
+        main: {
+            container: '#main_image'
+        },
+        effect: 'test',
+        events: {
+            completed: function(result) {
+                effect_test1 = result;
+            }
+        }
+    });
 
-	test('The "effect" option', function() {
+    $('#alt_thumbs').desoSlide({
+        main: {
+            container: '#main_image'
+        },
+        effect: 'rotate',
+        events: {
+            completed: function(result) {
+                effect_test2 = result;
+            }
+        }
+    });
 
-		ok(effect_test1 == 'error', 'has a bad value: error expected');
-		ok(effect_test2 == 'success', 'has an accepted value: success expected');
+    test('The "effect" option', function() {
 
-	});
+        ok(effect_test1 === 'error', 'has a bad value: error expected');
+        ok(effect_test2 === 'success', 'has an accepted value: success expected');
 
-	/* "alt" attribute tests */
+    });
 
-	var alt_test1, alt_test2;
+    // "alt" attribute tests
+    // -------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
-	$('#no_alt_thumbs').desoSlide({
-		main: {
-			container: '#main_image'
-		},
-		result: function(result) {
-			alt_test1 = result;
-		}
-	});
+    var alt_test1, alt_test2;
 
-	$('#alt_thumbs').desoSlide({
-		main: {
-			container: '#main_image'
-		},
-		result: function(result) {
-			alt_test2 = result;
-		}
-	});
+    $('#no_alt_thumbs').desoSlide({
+        main: {
+            container: '#main_image'
+        },
+        events: {
+            completed: function(result) {
+                alt_test1 = result;
+            }
+        }
+    });
 
-	test('The "alt" attribute', function() {
+    $('#alt_thumbs').desoSlide({
+        main: {
+            container: '#main_image'
+        },
+        events: {
+            completed: function(result) {
+                alt_test2 = result;
+            }
+        }
+    });
 
-		ok(alt_test1 == 'warning', 'isn\'t specified: warning expected');
-		ok(alt_test2 == 'success', 'is specified: success expected');
+    test('The "alt" attribute', function() {
 
-	});
+        ok(alt_test1 === 'warning', 'isn\'t specified: warning expected');
+        ok(alt_test2 === 'success', 'is specified: success expected');
 
-	/* "data-caption" attribute tests */
+    });
 
-	var data_caption_test1, data_caption_test2;
+    // "data-desoslide-caption" attribute tests
+    // -------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
-	$('#alt_thumbs').desoSlide({
-		main: {
-			container: '#main_image'
-		},
-		caption: true,
-		result: function(result) {
-			data_caption_test1 = result;
-		}
-	});
+    var data_caption_test1, data_caption_test2;
 
-	$('#alt_caption_thumbs').desoSlide({
-		main: {
-			container: '#main_image'
-		},
-		caption: true,
-		result: function(result) {
-			data_caption_test2 = result;
-		}
-	});
+    $('#alt_thumbs').desoSlide({
+        main: {
+            container: '#main_image'
+        },
+        caption: true,
+        events: {
+            completed: function(result) {
+                data_caption_test1 = result;
+            }
+        }
+    });
 
-	test('The "data-caption" attribute', function() {
+    $('#alt_caption_thumbs').desoSlide({
+        main: {
+            container: '#main_image'
+        },
+        caption: true,
+        events: {
+            completed: function(result) {
+                data_caption_test2 = result;
+            }
+        }
+    });
 
-		ok(data_caption_test1 == 'warning', 'isn\'t specified: warning expected');
-		ok(data_caption_test2 == 'success', 'is specified: success expected');
+    test('The "data-desoslide-caption" attribute', function() {
 
-	});
+        ok(data_caption_test1 === 'warning', 'isn\'t specified: warning expected');
+        ok(data_caption_test2 === 'success', 'is specified: success expected');
+
+    });
 
 });

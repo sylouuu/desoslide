@@ -3,7 +3,7 @@ $(function() {
 	/* First demo */
 	$('#demo1_thumbs').desoSlide({
 		main: {
-			container: '#demo1_mainImage',
+			container: '#demo1_main_image',
 			cssClass: 'img-responsive'
 		},
 		caption: true
@@ -12,7 +12,7 @@ $(function() {
 	/* Second demo */
 	$('#demo2_thumbs').desoSlide({
 		main: {
-			container: '#demo2_mainImage',
+			container: '#demo2_main_image',
 			cssClass: 'img-responsive'
 		},
 		auto: {
@@ -28,7 +28,7 @@ $(function() {
 	/* Third demo */
 	$('#demo3_thumbs').desoSlide({
 		main: {
-			container: '#demo3_mainImage',
+			container: '#demo3_main_image',
 			cssClass: 'img-responsive'
 		},
 		effect: 'flip',
@@ -39,4 +39,22 @@ $(function() {
 			keys: false
 		}
 	});
+
+	/* Fourth demo */
+	$('#demo4_thumbs').desoSlide({
+		main: {
+			container: '#demo4_main_image',
+			cssClass: 'img-responsive'
+		},
+		auto: {
+			start: true
+		},
+		effect: 'rotate',
+		overlay: 'none',
+		controls: {
+			enable: false,
+			keys: false
+		}
+	});
+
 });
