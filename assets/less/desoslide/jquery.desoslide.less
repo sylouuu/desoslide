@@ -24,7 +24,8 @@
     // Variables
     // ----------------------------------------------
 
-    @sprite-controls-url: '../img/desoSlide_controls.png';
+    @sprite-controls-uri:   '../img/desoSlide_controls.png';
+    @spinner-color:         #34495e;
 
     // Wrapper
     // ----------------------------------------------
@@ -70,17 +71,17 @@
 
     .desoSlide-controls {
         display:            inline-block;
-        background-image:   url(@sprite-controls-url);
+        background-image:   url(@sprite-controls-uri);
         background-position:0 0;
         background-repeat:  no-repeat;
 
         // 16 * 16 icons
         // ------------------------------------------
 
-        &.prev { width: 16px; height: 16px; background-position: 0 -54px; }
+        &.prev  { width: 16px; height: 16px; background-position: 0 -54px; }
         &.pause { width: 16px; height: 16px; background-position: 0 -18px; }
-        &.play { width: 16px; height: 16px; background-position: 0 -36px; }
-        &.next { width: 16px; height: 16px; background-position: 0 0; }
+        &.play  { width: 16px; height: 16px; background-position: 0 -36px; }
+        &.next  { width: 16px; height: 16px; background-position: 0 0;     }
     }
 
     // Spinner
@@ -89,11 +90,10 @@
     .desoSlide-spinner {
         width:          50px;
         height:         50px;
-        border:         solid #000000;
+        border:         solid @spinner-color;
         border-width:   3px 0px 0px 0px;
         display:        inline-block;
         vertical-align: middle;
-        text-align:left;
 
         .radius(50%);
 
