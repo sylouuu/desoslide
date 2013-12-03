@@ -73,18 +73,18 @@
             $overlay = $(p.main.container).find('.desoSlide-overlay'),
             ms = (p.interval < 1500) ? 1500 : p.interval,
             timer = false,
-            anchor_exists,
-            href_exists,
-            src,
             alt,
             caption,
             href,
             $controls_wrapper,
             effects,
+            $spinner,
             first_error = false;
 
+
+
         /**
-        * Main object plugin
+        * Main object
         */
         var app = {
 
@@ -157,13 +157,35 @@
             * Function that initiliazes the plugin
             */
             init: function() {
+                /**
+                * Basic checks
+                */
+                app.checks();
+
+                /**
+                * Autoloading images
+                */
                 app.loadImages();
 
+                /**
+                * Handling transition effect
+                */
                 app.effectHandler();
 
+                /**
+                * Adding wraper
+                */
                 app.addWrapper();
 
+                /**
+                * Showing main image
+                */
                 app.displayImg();
+
+                /**
+                * Bindings events
+                */
+                app.events();
             },
 
             /**
@@ -285,6 +307,30 @@
             },
 
             /**
+            * Function that adds the spinner
+            */
+            addSpinner: function() {
+                /**
+                * The spinner
+                */
+                $spinner = $('<div>').addClass('desoSlide-spinner');
+
+                /**
+                * Adding
+                */
+                $(p.main.container).css('text-align', 'center').prepend($spinner);
+            },
+
+            /**
+            * Function that removes the spinner
+            */
+            removeSpinner: function() {
+                if($spinner.length) {
+                    $spinner.remove();
+                }
+            },
+
+            /**
             * Function that displays the new image
             */
             displayImg: function() {
@@ -317,7 +363,7 @@
                 /**
                 * Data
                 */
-                src     = $thumbs.find('a').eq(img_to_show).attr('href');
+                var src     = $thumbs.find('a').eq(img_to_show).attr('href');
                 alt     = $thumbs.find('img').eq(img_to_show).attr('alt');
                 caption = $thumbs.find('img').eq(img_to_show).data('desoslide-caption');
                 href    = $thumbs.find('img').eq(img_to_show).data('desoslide-href');
@@ -453,8 +499,8 @@
             * Function that adds the link on the main image & caption
             */
             addLink: function() {
-                anchor_exists = ($(p.main.container).find('a.desoslide-link').length > 0) ? true : false;
-                href_exists = (href !== undefined && href !== '') ? true : false;
+                var anchor_exists = ($(p.main.container).find('a.desoslide-link').length > 0) ? true : false;
+                var href_exists = (href !== undefined && href !== '') ? true : false;
 
                 /**
                 * The link tag
@@ -844,23 +890,23 @@
         };
 
         /**
+        * Adding spinner
+        */
+        app.addSpinner();
+
+        /**
         * All images are loaded
         */
         $(window).load(function() {
             /**
-            * Basic checks
+            * Removing spinner
             */
-            app.checks();
+            app.removeSpinner();
 
             /**
             * Initializing
             */
             app.init();
-
-            /**
-            * Bindings events
-            */
-            app.events();
         });
 
         /**

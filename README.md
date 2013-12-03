@@ -1,6 +1,6 @@
 ## Overview, demos, documentation & unit tests
 
-http://sylouuu.github.io/desoslide
+**http://sylouuu.github.io/desoslide**
 
 ## Changelog
 
@@ -8,6 +8,7 @@ http://sylouuu.github.io/desoslide
 
 * added 5 callbacks in the new 'events' option: 'thumbClick', 'prev', 'pause', 'play' and 'next'
 * moved 'result' option in 'events.completed'
+* added spinner for waiting
 
 30/11/2013 - **1.2.2**
 

@@ -1,0 +1,50 @@
+// Mixins
+// --------------------------------------------------
+// --------------------------------------------------
+
+    // Spin rotation
+    // ----------------------------------------------
+
+    .spin-rotate() {
+        from { .transform(rotate(0deg)); }
+        to   { .transform(rotate(359deg)); }
+    }
+
+    // Radius
+    // ----------------------------------------------
+
+    .radius(@radius) {
+        -webkit-border-radius: @radius;
+        -moz-border-radius:    @radius;
+        border-radius:         @radius;
+    }
+
+    // Animation
+    // ----------------------------------------------
+
+    .animation(@name, @duration: 300ms, @delay: 0, @ease: ease) {
+        -webkit-animation: @name @duration @delay @ease;
+        -moz-animation:    @name @duration @delay @ease;
+        -ms-animation:     @name @duration @delay @ease;
+        animation:         @name @duration @delay @ease;
+    }
+
+    // Opacity
+    // ----------------------------------------------
+
+    .opacity(@opacity: 0) {
+        @ieOpacity: @opacity * 100;
+
+        opacity:    @opacity;
+        filter: alpha(opacity=@ieOpacity);
+    }
+
+    // Transform
+    // ----------------------------------------------
+
+    .transform(@string){
+        -webkit-transform:  @string;
+        -moz-transform:     @string;
+        -ms-transform:      @string;
+        -o-transform:       @string;
+    }
