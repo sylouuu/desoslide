@@ -290,6 +290,81 @@
             </div>
             <!-- [END] DEMO #3 -->
 
+            <!-- [BEGIN] DEMO #4 -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-header">
+                        <h3>#4</h3>
+                    </div>
+                    <p class="lead">
+                        Autoloading. Hiding the overlay.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <h5>Result</h5>
+                </div>
+                <div class="col-lg-9">
+
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <ul id="demo4_thumbs" class="list-inline">
+                                <li>
+                                    <a href="assets/img/demos/demo4/dolmens.jpg"><img src="assets/img/demos/demo4/dolmens_thumb.jpg" alt="dolmens"></a>
+                                </li>
+                                <li>
+                                    <a href="assets/img/demos/demo4/lighthouse.jpg"><img src="assets/img/demos/demo4/lighthouse_thumb.jpg" alt="lighthouse"></a>
+                                </li>
+                                <li>
+                                    <a href="assets/img/demos/demo4/road.jpg"><img src="assets/img/demos/demo4/road_thumb.jpg" alt="road"></a>
+                                </li>
+                                <li>
+                                    <a href="assets/img/demos/demo4/wheat.jpg"><img src="assets/img/demos/demo4/wheat_thumb.jpg" alt="wheat"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <div id="demo4_main_image" class="inline-block"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-3">
+                    <h5>Code</h5>
+                </div>
+
+                <br>
+
+                <div class="col-lg-9">
+<pre><code>$('#demo4_thumbs').desoSlide({
+    main: {
+        container: '#demo4_main_image',
+        cssClass: 'img-responsive'
+    },
+    auto: {
+        start: true
+    },
+    effect: 'rotate',
+    overlay: 'none',
+    controls: {
+        enable: false,
+        keys: false
+    }
+});
+</code></pre>
+                </div>
+            </div>
+            <!-- [END] DEMO #3 -->
+
             <!-- [BEGIN] MAKE YOUR OWN -->
             <div class="row">
                 <div class="col-lg-12">

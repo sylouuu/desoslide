@@ -39,4 +39,22 @@ $(function() {
 			keys: false
 		}
 	});
+
+	/* Fourth demo */
+	$('#demo4_thumbs').desoSlide({
+		main: {
+			container: '#demo4_main_image',
+			cssClass: 'img-responsive'
+		},
+		auto: {
+			start: true
+		},
+		effect: 'rotate',
+		overlay: 'none',
+		controls: {
+			enable: false,
+			keys: false
+		}
+	});
+
 });
