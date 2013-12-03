@@ -4,6 +4,10 @@
 
 ## Changelog
 
+03/12/2013 - **1.2.3.1**
+
+* fixed undefined if no overlay
+
 03/12/2013 - **1.2.3**
 
 * added 5 callbacks in the new 'events' option: 'thumbClick', 'prev', 'pause', 'play' and 'next'

@@ -1,5 +1,5 @@
 /*!
-* Version 1.2.3
+* Version 1.2.3.1
 * jQuery: desoSlide plugin - jquery.desoslide.js
 * Copyright - 2013 - https://github.com/sylouuu/desoslide
 * This source code is under the MIT License
@@ -574,13 +574,15 @@
 
                 $controls_wrapper = $(p.main.container).find('.desoSlide-controls-wrapper');
 
-                /**
-                * Triggering "play" if autostart
-                */
-                if(p.auto.start) {
-                    $controls_wrapper.find('a[href="#play"]').hide().parent().find('a[href="#pause"]').show();
-                } else {
-                    $controls_wrapper.find('a[href="#pause"]').hide().parent().find('a[href="#play"]').show();
+                if($controls_wrapper.length) {
+                    /**
+                    * Triggering "play" if autostart
+                    */
+                    if(p.auto.start) {
+                        $controls_wrapper.find('a[href="#play"]').hide().parent().find('a[href="#pause"]').show();
+                    } else {
+                        $controls_wrapper.find('a[href="#pause"]').hide().parent().find('a[href="#play"]').show();
+                    }
                 }
             },
 
@@ -594,7 +596,9 @@
                     clearTimeout(timer);
                     current_img--;
 
-                    $controls_wrapper.find('a[href="#pause"]').hide().parent().find('a[href="#play"]').show();
+                    if($controls_wrapper) {
+                        $controls_wrapper.find('a[href="#pause"]').hide().parent().find('a[href="#play"]').show();
+                    }
                 }
             },
 
@@ -611,7 +615,9 @@
 
                     app.outEffect();
 
-                    $controls_wrapper.find('a[href="#play"]').hide().parent().find('a[href="#pause"]').show();
+                    if($controls_wrapper) {
+                        $controls_wrapper.find('a[href="#play"]').hide().parent().find('a[href="#pause"]').show();
+                    }
                 }
             },
 
