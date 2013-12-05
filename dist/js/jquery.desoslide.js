@@ -169,11 +169,6 @@
                 app.loadImages();
 
                 /**
-                * Handling transition effect
-                */
-                app.effectHandler();
-
-                /**
                 * Adding wraper
                 */
                 app.addWrapper();
@@ -238,7 +233,13 @@
             * Function that handles the effect
             */
             effectHandler: function() {
-                if(p.effect !== 'random') {
+                if(p.effect === 'random') {
+                    /**
+                    * Get a random effect
+                    */
+                    current_effect = app.getRandomEffect();
+                    console.log($(p.main.container).selector +': '+ current_effect);
+                } else {
                     /**
                     * Incorrect effect value
                     */
@@ -252,13 +253,7 @@
                     } else {
                         current_effect = p.effect;
                     }
-                } else {
-                    /**
-                    * Get a random effect
-                    */
-                    current_effect = app.getRandomEffect();
                 }
-                console.log(current_effect);
             },
 
             /**
@@ -267,7 +262,7 @@
             getRandomEffect: function() {
                 var result, count = 0;
 
-                for(var prop in effects) {
+                for(var prop in app.effects) {
                     if(Math.random() < 1 / ++count) {
                         result = prop;
                     }
@@ -385,7 +380,7 @@
                 /**
                 * Data
                 */
-                var src     = $thumbs.find('a').eq(img_to_show).attr('href');
+                var src = $thumbs.find('a').eq(img_to_show).attr('href');
                 alt     = $thumbs.find('img').eq(img_to_show).attr('alt');
                 caption = $thumbs.find('img').eq(img_to_show).data('desoslide-caption');
                 href    = $thumbs.find('img').eq(img_to_show).data('desoslide-href');
@@ -394,6 +389,11 @@
                 * Checking the data
                 */
                 app.checkData();
+
+                /**
+                * Handling transition effect
+                */
+                app.effectHandler();
 
                 $(p.main.container).find('img').attr({
                     'src': src,
@@ -412,7 +412,7 @@
                             * Adding overlay
                             */
                             app.addOverlay();
-                    });
+                        });
 
                     /**
                     * Starting the loop
