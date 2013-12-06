@@ -1,5 +1,5 @@
 /*!
-* Version 1.2.3.1
+* Version 1.2.4
 * jQuery: desoSlide plugin - jquery.desoslide.js
 * Copyright - 2013 - https://github.com/sylouuu/desoslide
 * This source code is under the MIT License
@@ -28,7 +28,7 @@
             },
             first:          0,          /* Index of the first image to show */
             interval:       3000,       /* Interval between each image */
-            effect:         'fade',     /* Transition effect ("fade", "flip", "light", "roll", "rotate") */
+            effect:         'fade',     /* Transition effect ("fade", "flip", "light", "roll", "rotate", "random") */
             overlay:        'always',   /* How to show overlay ("always", "hover", "none") */
             caption:        false,      /* Show caption: data-desoslide-caption attribute required */
             controls: {
@@ -78,6 +78,7 @@
             href,
             $controls_wrapper,
             effects,
+            current_effect,
             $spinner,
             first_error = false;
 
@@ -168,14 +169,19 @@
                 app.loadImages();
 
                 /**
-                * Handling transition effect
+                * Removing spinner
                 */
-                app.effectHandler();
+                app.removeSpinner();
 
                 /**
                 * Adding wraper
                 */
                 app.addWrapper();
+
+                /**
+                * Handling effect
+                */
+                app.effectHandler();
 
                 /**
                 * Showing main image
@@ -186,6 +192,37 @@
                 * Bindings events
                 */
                 app.events();
+            },
+
+            effects: {
+                'fade': { /* Default */
+                    'in': 'fadeIn',
+                    'out': 'fadeOut'
+                },
+                'sideFade': {
+                    'in': 'fadeInLeft',
+                    'out': 'fadeOutRight'
+                },
+                'sideFadeBig': {
+                    'in': 'fadeInLeftBig',
+                    'out': 'fadeOutRightBig'
+                },
+                'flip': {
+                    'in': 'flipInX',
+                    'out': 'flipOutX'
+                },
+                'light': {
+                    'in': 'lightSpeedIn',
+                    'out': 'lightSpeedOut'
+                },
+                'roll': {
+                    'in': 'rollIn',
+                    'out': 'rollOut'
+                },
+                'rotate': {
+                    'in': 'rotateIn',
+                    'out': 'rotateOut'
+                }
             },
 
             /**
@@ -206,52 +243,41 @@
             * Function that handles the effect
             */
             effectHandler: function() {
-                /**
-                * Available effects with in/out matches
-                */
-                effects = {
-                    'fade': { /* Default */
-                        'in': 'fadeIn',
-                        'out': 'fadeOut'
-                    },
-                    'sideFade': {
-                        'in': 'fadeInLeft',
-                        'out': 'fadeOutRight'
-                    },
-                    'sideFadeBig': {
-                        'in': 'fadeInLeftBig',
-                        'out': 'fadeOutRightBig'
-                    },
-                    'flip': {
-                        'in': 'flipInX',
-                        'out': 'flipOutX'
-                    },
-                    'light': {
-                        'in': 'lightSpeedIn',
-                        'out': 'lightSpeedOut'
-                    },
-                    'roll': {
-                        'in': 'rollIn',
-                        'out': 'rollOut'
-                    },
-                    'rotate': {
-                        'in': 'rotateIn',
-                        'out': 'rotateOut'
-                    }
-                };
-
-                /**
-                * Incorrect effect value
-                */
-                if(!effects.hasOwnProperty(p.effect)) {
+                if(p.effect === 'random') {
                     /**
-                    * Get the default effect
+                    * Get a random effect
                     */
-                    p.effect = defaults.effect;
+                    current_effect = app.getRandomEffect();
+                } else {
+                    /**
+                    * Incorrect effect value
+                    */
+                    if(!app.effects.hasOwnProperty(p.effect)) {
+                        /**
+                        * Get the default effect
+                        */
+                        current_effect = defaults.effect;
 
-                    app.resultHandler('error', 'Incorrect value for the "effect" option. Default value is used. Check out the documentation.');
+                        app.resultHandler('error', 'Incorrect value for the "effect" option. Default value is used. Check out the documentation.');
+                    } else {
+                        current_effect = p.effect;
+                    }
+                }
+            },
+
+            /**
+            * Function that gets a random effect name
+            */
+            getRandomEffect: function() {
+                var result, count = 0;
+
+                for(var prop in app.effects) {
+                    if(Math.random() < 1 / ++count) {
+                        result = prop;
+                    }
                 }
 
+                return result;
             },
 
             /**
@@ -261,7 +287,7 @@
                 /**
                 * Hiding the old one
                 */
-                $(p.main.container).find('img').removeClass('animated '+ effects[p.effect].in).addClass('animated '+ effects[p.effect].out);
+                $(p.main.container).find('img').removeClass('animated '+ app.effects[current_effect].in).addClass('animated '+ app.effects[current_effect].out);
 
                 /**
                 * Showing the new one
@@ -363,7 +389,7 @@
                 /**
                 * Data
                 */
-                var src     = $thumbs.find('a').eq(img_to_show).attr('href');
+                var src = $thumbs.find('a').eq(img_to_show).attr('href');
                 alt     = $thumbs.find('img').eq(img_to_show).attr('alt');
                 caption = $thumbs.find('img').eq(img_to_show).data('desoslide-caption');
                 href    = $thumbs.find('img').eq(img_to_show).data('desoslide-href');
@@ -381,7 +407,7 @@
                     /**
                     * Showing
                     */
-                    $(this).removeClass('animated '+ effects[p.effect].out).addClass('animated '+ effects[p.effect].in)
+                    $(this).removeClass('animated '+ app.effects[current_effect].out).addClass('animated '+ app.effects[current_effect].in)
                         /**
                         * Animation done
                         */
@@ -390,7 +416,7 @@
                             * Adding overlay
                             */
                             app.addOverlay();
-                    });
+                        });
 
                     /**
                     * Starting the loop
@@ -904,11 +930,6 @@
         * All images are loaded
         */
         $(window).load(function() {
-            /**
-            * Removing spinner
-            */
-            app.removeSpinner();
-
             /**
             * Initializing
             */
