@@ -4,9 +4,10 @@
 
 ## Changelog
 
-03/12/2013 - **1.2.3.1**
+06/12/2013 - **1.2.4**
 
 * fixed undefined if no overlay
+* added 'random' effect
 
 03/12/2013 - **1.2.3**
 

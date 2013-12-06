@@ -1,5 +1,5 @@
 /*!
-* Version 1.2.3.1
+* Version 1.2.4
 * jQuery: desoSlide plugin - jquery.desoslide.js
 * Copyright - 2013 - https://github.com/sylouuu/desoslide
 * This source code is under the MIT License
@@ -169,9 +169,19 @@
                 app.loadImages();
 
                 /**
+                * Removing spinner
+                */
+                app.removeSpinner();
+
+                /**
                 * Adding wraper
                 */
                 app.addWrapper();
+
+                /**
+                * Handling effect
+                */
+                app.effectHandler();
 
                 /**
                 * Showing main image
@@ -238,7 +248,6 @@
                     * Get a random effect
                     */
                     current_effect = app.getRandomEffect();
-                    console.log($(p.main.container).selector +': '+ current_effect);
                 } else {
                     /**
                     * Incorrect effect value
@@ -389,11 +398,6 @@
                 * Checking the data
                 */
                 app.checkData();
-
-                /**
-                * Handling transition effect
-                */
-                app.effectHandler();
 
                 $(p.main.container).find('img').attr({
                     'src': src,
@@ -926,11 +930,6 @@
         * All images are loaded
         */
         $(window).load(function() {
-            /**
-            * Removing spinner
-            */
-            app.removeSpinner();
-
             /**
             * Initializing
             */

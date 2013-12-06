@@ -6,8 +6,7 @@ $(function() {
 			container: '#demo1_main_image',
 			cssClass: 'img-responsive'
 		},
-		caption: true,
-		effect: 'random'
+		caption: true
 	});
 
 	/* Second demo */
