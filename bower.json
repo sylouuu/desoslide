@@ -1,0 +1,19 @@
+{
+  "name": "desoslide",
+  "version": "1.2.4",
+  "homepage": "https://github.com/sylouuu/desoslide",
+  "description": "Simple images slider with thumbnails",
+  "keywords": [
+    "image",
+    "slider",
+    "thumbnails"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "assets",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">=1.7.0"
+  }
+}
