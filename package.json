@@ -1,0 +1,26 @@
+{
+  "name": "desoslide",
+  "version": "1.2.4",
+  "description": "**http://sylouuu.github.io/desoslide**",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sylouuu/desoslide.git"
+  },
+  "author": "sylouuu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sylouuu/desoslide/issues"
+  },
+  "homepage": "https://github.com/sylouuu/desoslide",
+  "devDependencies": {
+    "gulp-minify-css": "~0.2.0",
+    "gulp-uglify": "~0.2.0",
+    "gulp-util": "~2.2.13",
+    "gulp": "~3.5.0",
+    "gulp-less": "~1.2.1",
+    "gulp-rename": "~0.2.2"
+  }
+}
