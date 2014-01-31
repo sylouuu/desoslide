@@ -2,6 +2,12 @@
 
 **http://sylouuu.github.io/desoslide**
 
+## Build
+
+* Install gulp ```npm install -g gulp```
+* Set gulp to the project: ````npm install gulp gulp-uglify gulp-util gulp-less gulp-minify-css gulp-rename --save-dev``
+* Build:  ```gulp```
+
 ## Changelog
 
 06/12/2013 - **1.2.4**
