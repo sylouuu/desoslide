@@ -15,7 +15,7 @@
 
 ## Changelog
 
-09/02/2013 - **1.3.0**
+09/02/2014 - **1.3.0**
 
 * added animate.css as a dependency (used for transitions), it needs to be loaded separately
 
