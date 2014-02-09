@@ -2,11 +2,16 @@
 
 **http://sylouuu.github.io/desoslide**
 
+## Dependencies
+
+* jQuery >= 1.7.0
+* [animate.css](https://github.com/daneden/animate.css) ~3.0.0
+
 ## Build
 
 * Install gulp ```npm install -g gulp```
-* Set gulp to the project: ````npm install gulp gulp-uglify gulp-util gulp-less gulp-minify-css gulp-rename --save-dev``
-* Build:  ```gulp```
+* Install dependencies: ```npm install```
+* Type:  ```gulp```
 
 ## Changelog
 
