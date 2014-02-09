@@ -4,4 +4,5 @@ Thumbs.db
 # Mac crap
 .DS_Store
 
+bower_components
 node_modules

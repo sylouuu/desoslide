@@ -1,7 +1,7 @@
 /*!
-* Version 1.2.4
+* Version 1.3.0
 * jQuery: desoSlide plugin - jquery.desoslide.js
-* Copyright - 2013 - https://github.com/sylouuu/desoslide
+* Copyright - 2014 - https://github.com/sylouuu/desoslide
 * This source code is under the MIT License
 */
 
