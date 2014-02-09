@@ -15,6 +15,10 @@
 
 ## Changelog
 
+09/02/2013 - **1.3.0**
+
+* added animate.css as a dependency (used for transitions), it needs to be loaded separately
+
 06/12/2013 - **1.2.4**
 
 * fixed undefined if no overlay
