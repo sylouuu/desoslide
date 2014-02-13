@@ -1,3 +1,5 @@
+[![devDependency Status](https://david-dm.org/sylouuu/desoslide/dev-status.svg?theme=shields.io)](https://david-dm.org/sylouuu/desoslide/lovely#info=devDependencies)
+
 ## Overview, demos, documentation & unit tests
 
 **http://sylouuu.github.io/desoslide**
