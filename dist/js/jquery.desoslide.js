@@ -77,7 +77,6 @@
             caption,
             href,
             $controls_wrapper,
-            effects,
             current_effect,
             $spinner,
             first_error = false;
