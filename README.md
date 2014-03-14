@@ -1,4 +1,6 @@
-## desoSlide
+<p align="center">
+    <img src="https://raw.github.com/sylouuu/desoslide/master/assets/img/logo/desoslide.png" alt="icon">
+</p>
 
 [![devDependency Status](https://david-dm.org/sylouuu/desoslide/dev-status.svg?theme=shields.io)](https://david-dm.org/sylouuu/desoslide#info=devDependencies)
 [![Bower version](https://badge.fury.io/bo/desoslide.png)](http://badge.fury.io/bo/desoslide)
@@ -41,38 +43,43 @@
 * added 'animationend' event to recalculate overlay positioning after each effect ; instead of using an arbitrary timeout
 * removed 'log' option (enabled by default in case of error or warning)
 
-25/11/2013 - **1.2.1**
+2013-11-25 - **1.2.1**
 
 * added the 'desoslide' namespace for data API
 * added the 'none' value for overlay option
 
-24/11/2013 - **1.2.0**
+2013-11-24 - **1.2.0**
 
 * effects: added 'sideFade' and 'sideFadeBig'
 
-10/09/2013 - **1.1.1**
+2013-09-10 - **1.1.1**
 
 * logging errors: get only the first one in order to avoid cascade errors
 
-01/09/2013 - **1.1.0**
+2013-09-01 - **1.1.0**
 
 * Totally remade the options syntax (check out documentation)
 
-31/08/2013 - **1.0.3**
+2013-08-31 - **1.0.3**
 
 * Added 5 transition effects
 * Added mainImageClass option
 * Fixed overlay positioning
 * Fixed included links on captions
 
-12/07/2013 - **1.0.2**
+2013-07-12 - **1.0.2**
 
 * Fixed bad border value retrieved in Firefox
 
-12/07/2013 - **1.0.1**
+2013-07-12 - **1.0.1**
 
 * Added the border value while creating the overlay
 
-17/05/2013 - **1.0.0**
+2013-05-17 - **1.0.0**
 
 * First release
+
+<p align="center">
+    <img src="https://raw.github.com/sylouuu/desoslide/master/assets/img/logo/favicon.png" alt="icon">
+</p>
+
