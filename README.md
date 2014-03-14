@@ -5,14 +5,14 @@
 [![devDependency Status](https://david-dm.org/sylouuu/desoslide/dev-status.svg?theme=shields.io)](https://david-dm.org/sylouuu/desoslide#info=devDependencies)
 [![Bower version](https://badge.fury.io/bo/desoslide.png)](http://badge.fury.io/bo/desoslide)
 
-## Overview, demos, documentation & unit tests
+## Overview, demo, documentation & unit tests
 
 **http://sylouuu.github.io/desoslide**
 
 ## Dependencies
 
 * jQuery >= 1.7.0
-* [animate.css](https://github.com/daneden/animate.css) ~3.0.0
+* [animate.css](https://github.com/daneden/animate.css) ~3.1.0
 
 ## Build
 
