@@ -1,11 +1,11 @@
 /*!
 * Version 1.3.0
-* jQuery: desoSlide plugin - jquery.desoslide.js
+* jQuery: desoSlide plugin
 * Copyright - 2014 - https://github.com/sylouuu/desoslide
 * This source code is under the MIT License
 */
 
-/*jslint browser: true, devel: true, eqeq: true, plusplus: true, unparam: true, vars: true, white: true */
+/*jslint browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: true*/
 /*global $, jQuery*/
 (function($) {
 
@@ -268,11 +268,13 @@
             * Function that gets a random effect name
             */
             getRandomEffect: function() {
-                var result, count = 0;
+                var result, count = 0, prop;
 
-                for(var prop in app.effects) {
-                    if(Math.random() < 1 / ++count) {
-                        result = prop;
+                for(prop in app.effects) {
+                    if (app.effects.hasOwnProperty(prop)) {
+                        if(Math.random() < 1 / ++count) {
+                            result = prop;
+                        }
                     }
                 }
 
@@ -568,10 +570,11 @@
                 /**
                 * Controls buttons
                 */
-                var $prev   = '<a href="#prev"><span class="desoSlide-controls prev"></span></a>';
-                var $pause  = '<a href="#pause"><span class="desoSlide-controls pause"></span></a>';
-                var $play   = '<a href="#play"><span class="desoSlide-controls play"></span></a>';
-                var $next   = '<a href="#next"><span class="desoSlide-controls next"></span></a>';
+                var
+                    $prev   = '<a href="#prev"><span class="desoSlide-controls prev"></span></a>',
+                    $pause  = '<a href="#pause"><span class="desoSlide-controls pause"></span></a>',
+                    $play   = '<a href="#play"><span class="desoSlide-controls play"></span></a>',
+                    $next   = '<a href="#next"><span class="desoSlide-controls next"></span></a>';
 
                 /**
                 * The wrapper

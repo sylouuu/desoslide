@@ -7,9 +7,9 @@ var gulp = require('gulp');
 // ------------------------------------------------------------------------------------------------------
 var
     uglify      = require('gulp-uglify'),
-    less        = require('gulp-less'),
     minifyCSS   = require('gulp-minify-css'),
-    rename      = require('gulp-rename');
+    rename      = require('gulp-rename'),
+    jshint      = require('gulp-jshint');
 
 // Source path
 // ------------------------------------------------------------------------------------------------------
@@ -33,10 +33,14 @@ var tasks = {
 gulp.task('js', function() {
 
     return gulp
-        .src([tasks.js.source])
-        .pipe(uglify())
-        .pipe(rename(function (dir, base, ext) {
-            return base + '.min' + ext;
+        .src(tasks.js.source)
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'))
+        .pipe(uglify({
+            preserveComments: 'some'
+        }))
+        .pipe(rename({
+            suffix: '.min',
         }))
         .pipe(gulp.dest(tasks.js.dest));
 
@@ -47,11 +51,12 @@ gulp.task('js', function() {
 gulp.task('css', function() {
 
     return gulp
-        .src([tasks.css.source])
-        .pipe(less())
-        .pipe(minifyCSS())
-        .pipe(rename(function (dir, base, ext) {
-            return base + '.min' + ext;
+        .src(tasks.css.source)
+        .pipe(minifyCSS({
+            keepSpecialComments: 1
+        }))
+        .pipe(rename({
+            suffix: '.min',
         }))
         .pipe(gulp.dest(tasks.css.dest));
 
