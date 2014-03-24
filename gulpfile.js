@@ -7,7 +7,6 @@ var gulp = require('gulp');
 // ------------------------------------------------------------------------------------------------------
 var
     uglify      = require('gulp-uglify'),
-    less        = require('gulp-less'),
     minifyCSS   = require('gulp-minify-css'),
     rename      = require('gulp-rename'),
     jshint      = require('gulp-jshint');
@@ -53,7 +52,6 @@ gulp.task('css', function() {
 
     return gulp
         .src(tasks.css.source)
-        .pipe(less())
         .pipe(minifyCSS({
             keepSpecialComments: 1
         }))
