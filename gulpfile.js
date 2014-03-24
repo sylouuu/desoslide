@@ -9,7 +9,8 @@ var
     uglify      = require('gulp-uglify'),
     less        = require('gulp-less'),
     minifyCSS   = require('gulp-minify-css'),
-    rename      = require('gulp-rename');
+    rename      = require('gulp-rename'),
+    jshint      = require('gulp-jshint');
 
 // Source path
 // ------------------------------------------------------------------------------------------------------
@@ -33,7 +34,9 @@ var tasks = {
 gulp.task('js', function() {
 
     return gulp
-        .src([tasks.js.source])
+        .src(tasks.js.source)
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'))
         .pipe(uglify({
             preserveComments: 'some'
         }))
@@ -49,7 +52,7 @@ gulp.task('js', function() {
 gulp.task('css', function() {
 
     return gulp
-        .src([tasks.css.source])
+        .src(tasks.css.source)
         .pipe(less())
         .pipe(minifyCSS({
             keepSpecialComments: 1
