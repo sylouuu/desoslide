@@ -1,6 +1,6 @@
 /*!
 * Version 1.3.0
-* jQuery: desoSlide plugin - jquery.desoslide.js
+* jQuery: desoSlide plugin
 * Copyright - 2014 - https://github.com/sylouuu/desoslide
 * This source code is under the MIT License
 */
@@ -268,11 +268,13 @@
             * Function that gets a random effect name
             */
             getRandomEffect: function() {
-                var result, count = 0;
+                var result, count = 0, prop;
 
-                for(var prop in app.effects) {
-                    if(Math.random() < 1 / ++count) {
-                        result = prop;
+                for(prop in app.effects) {
+                    if (app.effects.hasOwnProperty(prop)) {
+                        if(Math.random() < 1 / ++count) {
+                            result = prop;
+                        }
                     }
                 }
 
