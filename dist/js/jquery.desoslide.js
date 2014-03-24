@@ -570,10 +570,11 @@
                 /**
                 * Controls buttons
                 */
-                var $prev   = '<a href="#prev"><span class="desoSlide-controls prev"></span></a>';
-                var $pause  = '<a href="#pause"><span class="desoSlide-controls pause"></span></a>';
-                var $play   = '<a href="#play"><span class="desoSlide-controls play"></span></a>';
-                var $next   = '<a href="#next"><span class="desoSlide-controls next"></span></a>';
+                var
+                    $prev   = '<a href="#prev"><span class="desoSlide-controls prev"></span></a>',
+                    $pause  = '<a href="#pause"><span class="desoSlide-controls pause"></span></a>',
+                    $play   = '<a href="#play"><span class="desoSlide-controls play"></span></a>',
+                    $next   = '<a href="#next"><span class="desoSlide-controls next"></span></a>';
 
                 /**
                 * The wrapper
