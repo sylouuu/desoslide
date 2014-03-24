@@ -22,22 +22,22 @@
 
 ## Changelog
 
-09/02/2014 - **1.3.0**
+2014-02-09 - **1.3.0**
 
 * added animate.css as a dependency (used for transitions), it needs to be loaded separately
 
-06/12/2013 - **1.2.4**
+2013-12-06 - **1.2.4**
 
 * fixed undefined if no overlay
 * added 'random' effect
 
-03/12/2013 - **1.2.3**
+2013-12-03 - **1.2.3**
 
 * added 5 callbacks in the new 'events' option: 'thumbClick', 'prev', 'pause', 'play' and 'next'
 * moved 'result' option in 'events.completed'
 * added spinner for waiting
 
-30/11/2013 - **1.2.2**
+2013-11-30 - **1.2.2**
 
 * optimized source code
 * added 'animationend' event to recalculate overlay positioning after each effect ; instead of using an arbitrary timeout
