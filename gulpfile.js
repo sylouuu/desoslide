@@ -34,9 +34,11 @@ gulp.task('js', function() {
 
     return gulp
         .src([tasks.js.source])
-        .pipe(uglify())
-        .pipe(rename(function (dir, base, ext) {
-            return base + '.min' + ext;
+        .pipe(uglify({
+            preserveComments: 'some'
+        }))
+        .pipe(rename({
+            suffix: '.min',
         }))
         .pipe(gulp.dest(tasks.js.dest));
 
@@ -49,9 +51,11 @@ gulp.task('css', function() {
     return gulp
         .src([tasks.css.source])
         .pipe(less())
-        .pipe(minifyCSS())
-        .pipe(rename(function (dir, base, ext) {
-            return base + '.min' + ext;
+        .pipe(minifyCSS({
+            keepSpecialComments: 1
+        }))
+        .pipe(rename({
+            suffix: '.min',
         }))
         .pipe(gulp.dest(tasks.css.dest));
 
