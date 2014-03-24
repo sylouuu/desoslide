@@ -5,7 +5,7 @@
 * This source code is under the MIT License
 */
 
-/*jslint browser: true, devel: true, eqeq: true, plusplus: true, unparam: true, vars: true, white: true */
+/*jslint browser: true, devel: true, plusplus: true, unparam: true, vars: true, white: true*/
 /*global $, jQuery*/
 (function($) {
 
