@@ -1,175 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Tests suite &middot; jQuery plugin desoSlide</title>
+        <title>Tests suite &middot; jQuery plugin desoSlide</title>
 
-		<link rel="icon" href="../assets/img/logo/favicon.png">
+        <link rel="icon" href="../assets/img/logo/favicon.png">
 
-		<link rel="stylesheet" href="qunit/css/qunit.css">
-		<link rel="stylesheet" href="../assets/css/doc/tests.css">
+        <link rel="stylesheet" href="qunit/css/qunit.css">
+        <link rel="stylesheet" href="../assets/css/doc/tests.css">
 
-		<script src="../assets/js/jquery/jquery.js"></script>
-		<script src="../dist/js/jquery.desoslide.min.js"></script>
-		<script src="../assets/js/bootstrap/bootstrap.min.js"></script>
+        <script src="../assets/js/jquery/jquery.js"></script>
+        <script src="../dist/js/jquery.desoslide.min.js"></script>
+        <script src="../assets/js/bootstrap/bootstrap.min.js"></script>
 
-		<script src="qunit/js/qunit.js"></script>
+        <script src="qunit/js/qunit.js"></script>
 
-		<script src="tests.js"></script>
+        <script src="tests.js"></script>
 
-		<script>
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-27524593-3']);
-			_gaq.push(['_trackPageview']);
+        <script>
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-27524593-3']);
+            _gaq.push(['_trackPageview']);
 
-			(function() {
-				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			})();
-		</script>
-	</head>
-	<body>
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </head>
+    <body>
 
-		<header class="navbar navbar-fixed-top">
-			<div class="navbar-inner">
-				<div class="container">
+        <header class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
 
-					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-home"></button>
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-home"></button>
 
-					<a href="../" class="navbar-brand">
-						<img src="../assets/img/logo/desoslide.png" alt="desoslide logo">
-					</a>
+                    <a href="../" class="navbar-brand">
+                        <img src="../assets/img/logo/desoslide.png" alt="desoslide logo">
+                    </a>
 
-					<div class="nav-collapse collapse" id="nav-collapse-home">
-						<ul class="nav">
-							<li><a href="../">Home</a></li>
-							<li><a href="../demo.html">Demo</a></li>
-							<li>
-								<a href="../documentation.html">Documentation</a>
-								<ul>
-									<li><a href="../documentation.html#setup">Setup</a></li>
-									<li><a href="../documentation.html#configuration">Configuration</a></li>
-									<li><a href="../documentation.html#controls">Controls</a></li>
-									<li><a href="../documentation.html#options">Options</a></li>
-									<li><a href="../documentation.html#return_value">Return value</a></li>
-									<li><a href="../documentation.html#browser_compatibility">Browser compatibility</a></li>
-									<li><a href="../documentation.html#contributors">Contributors</a></li>
-								</ul>
-							</li>
-							<li class="active"><a href="./">Tests</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</header>
+                    <div class="nav-collapse collapse" id="nav-collapse-home">
+                        <ul class="nav">
+                            <li><a href="../">Home</a></li>
+                            <li><a href="../demo.html">Demo</a></li>
+                            <li>
+                                <a href="../documentation.html">Documentation</a>
+                                <ul>
+                                    <li><a href="../documentation.html#setup">Setup</a></li>
+                                    <li><a href="../documentation.html#configuration">Configuration</a></li>
+                                    <li><a href="../documentation.html#controls">Controls</a></li>
+                                    <li><a href="../documentation.html#options">Options</a></li>
+                                    <li><a href="../documentation.html#return_value">Return value</a></li>
+                                    <li><a href="../documentation.html#browser_compatibility">Browser compatibility</a></li>
+                                    <li><a href="../documentation.html#contributors">Contributors</a></li>
+                                </ul>
+                            </li>
+                            <li class="active"><a href="./">Tests</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-		<div class="container">
+        <div class="container">
 
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="page-header">
-						<h2>Tests</h2>
-					</div>
-				</div>
-				<div id="qunit" class="col-lg-12"></div>
-			</div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-header">
+                        <h2>Tests</h2>
+                    </div>
+                </div>
+                <div id="qunit" class="col-lg-12"></div>
+            </div>
 
-			<!-- Main container -->
-			<div id="main_image" class="test"></div>
+            <!-- Main container -->
+            <div id="main_image" class="test"></div>
 
-			<!-- Wrong markup with no child -->
-			<ul id="no_thumbs" class="test"></ul>
+            <!-- Wrong markup with no child -->
+            <ul id="no_thumbs" class="test"></ul>
 
-			<!-- Accepted markup with alt attribute -->
-			<ul id="alt_thumbs" class="test">
-				<li>
-					<a href="../assets/img/demos/demo1/bird.jpg"><img src="../assets/img/demos/demo1/bird_thumb.jpg" alt="bird"></a>
-				</li>
-				<li>
-					<a href="../assets/img/demos/demo1/flower.jpg"><img src="../assets/img/demos/demo1/flower_thumb.jpg" alt="Flower"></a>
-				</li>
-				<li>
-					<a href="../assets/img/demos/demo1/butterfly.jpg"><img src="../assets/img/demos/demo1/butterfly_thumb.jpg" alt="Butterfly"></a>
-				</li>
-				<li>
-					<a href="../assets/img/demos/demo1/rose.jpg"><img src="../assets/img/demos/demo1/rose_thumb.jpg" alt="Rose"></a>
-				</li>
-			</ul>
+            <!-- Accepted markup with alt attribute -->
+            <ul id="alt_thumbs" class="test">
+                <li>
+                    <a href="../assets/img/demos/demo1/bird.jpg"><img src="../assets/img/demos/demo1/bird_thumb.jpg" alt="bird"></a>
+                </li>
+                <li>
+                    <a href="../assets/img/demos/demo1/flower.jpg"><img src="../assets/img/demos/demo1/flower_thumb.jpg" alt="Flower"></a>
+                </li>
+                <li>
+                    <a href="../assets/img/demos/demo1/butterfly.jpg"><img src="../assets/img/demos/demo1/butterfly_thumb.jpg" alt="Butterfly"></a>
+                </li>
+                <li>
+                    <a href="../assets/img/demos/demo1/rose.jpg"><img src="../assets/img/demos/demo1/rose_thumb.jpg" alt="Rose"></a>
+                </li>
+            </ul>
 
-			<!-- Accepted markup with alt & data-desoslide-caption attributes -->
-			<ul id="alt_caption_thumbs" class="test">
-				<li>
-					<a href="../assets/img/demos/demo1/bird.jpg"><img src="../assets/img/demos/demo1/bird_thumb.jpg" alt="bird" data-desoslide-caption="bird"></a>
-				</li>
-				<li>
-					<a href="../assets/img/demos/demo1/flower.jpg"><img src="../assets/img/demos/demo1/flower_thumb.jpg" alt="Flower" data-desoslide-caption="Flower"></a>
-				</li>
-				<li>
-					<a href="../assets/img/demos/demo1/butterfly.jpg"><img src="../assets/img/demos/demo1/butterfly_thumb.jpg" alt="Butterfly" data-desoslide-caption="Butterfly"></a>
-				</li>
-				<li>
-					<a href="../assets/img/demos/demo1/rose.jpg"><img src="../assets/img/demos/demo1/rose_thumb.jpg" alt="Rose" data-desoslide-caption="Rose"></a>
-				</li>
-			</ul>
+            <!-- Accepted markup with alt & data-desoslide-caption attributes -->
+            <ul id="alt_caption_thumbs" class="test">
+                <li>
+                    <a href="../assets/img/demos/demo1/bird.jpg"><img src="../assets/img/demos/demo1/bird_thumb.jpg" alt="bird" data-desoslide-caption="bird"></a>
+                </li>
+                <li>
+                    <a href="../assets/img/demos/demo1/flower.jpg"><img src="../assets/img/demos/demo1/flower_thumb.jpg" alt="Flower" data-desoslide-caption="Flower"></a>
+                </li>
+                <li>
+                    <a href="../assets/img/demos/demo1/butterfly.jpg"><img src="../assets/img/demos/demo1/butterfly_thumb.jpg" alt="Butterfly" data-desoslide-caption="Butterfly"></a>
+                </li>
+                <li>
+                    <a href="../assets/img/demos/demo1/rose.jpg"><img src="../assets/img/demos/demo1/rose_thumb.jpg" alt="Rose" data-desoslide-caption="Rose"></a>
+                </li>
+            </ul>
 
-			<!-- Wrong markup without alt attribute -->
-			<ul id="no_alt_thumbs" class="test">
-				<li>
-					<a href="../assets/img/demos/demo1/bird.jpg"><img src="../assets/img/demos/demo1/bird_thumb.jpg"></a>
-				</li>
-				<li>
-					<a href="../assets/img/demos/demo1/flower.jpg"><img src="../assets/img/demos/demo1/flower_thumb.jpg"></a>
-				</li>
-				<li>
-					<a href="../assets/img/demos/demo1/butterfly.jpg"><img src="../assets/img/demos/demo1/butterfly_thumb.jpg"></a>
-				</li>
-				<li>
-					<a href="../assets/img/demos/demo1/rose.jpg"><img src="../assets/img/demos/demo1/rose_thumb.jpg"></a>
-				</li>
-			</ul>
+            <!-- Wrong markup without alt attribute -->
+            <ul id="no_alt_thumbs" class="test">
+                <li>
+                    <a href="../assets/img/demos/demo1/bird.jpg"><img src="../assets/img/demos/demo1/bird_thumb.jpg"></a>
+                </li>
+                <li>
+                    <a href="../assets/img/demos/demo1/flower.jpg"><img src="../assets/img/demos/demo1/flower_thumb.jpg"></a>
+                </li>
+                <li>
+                    <a href="../assets/img/demos/demo1/butterfly.jpg"><img src="../assets/img/demos/demo1/butterfly_thumb.jpg"></a>
+                </li>
+                <li>
+                    <a href="../assets/img/demos/demo1/rose.jpg"><img src="../assets/img/demos/demo1/rose_thumb.jpg"></a>
+                </li>
+            </ul>
 
-		</div>
+        </div>
 
-		<!-- [BEGIN] FOOTER -->
-		<footer class="bottom-menu">
-			<div class="container">
+        <!-- [BEGIN] FOOTER -->
+        <footer class="bottom-menu">
+            <div class="container">
 
-				<div class="row">
+                <div class="row">
 
-					<article class="col-sm-3 col-md-2 col-lg-2">
-						<div class="navbar-brand">
-							<img src="../assets/img/logo/desoslide_small.png" alt="desoslide logo">
-						</div>
-					</article>
+                    <article class="col-sm-3 col-md-2 col-lg-2">
+                        <div class="navbar-brand">
+                            <img src="../assets/img/logo/desoslide_small.png" alt="desoslide logo">
+                        </div>
+                    </article>
 
-					<article class="col-sm-7 col-md-8 col-lg-8">
-						<ul class="bottom-links">
-							<li><a href="http://chez-syl.fr/">My blog</a></li>
-							<li><a href="https://github.com/sylouuu/desoslide">Project on GitHub</a></li>
-							<li><a href="https://github.com/sylouuu/desoslide/issues">Issues</a></li>
-						</ul>
-					</article>
+                    <article class="col-sm-7 col-md-8 col-lg-8">
+                        <ul class="bottom-links">
+                            <li><a href="http://sylouuu.github.io/">My home</a></li>
+                            <li><a href="https://github.com/sylouuu/desoslide">Project on GitHub</a></li>
+                            <li><a href="https://github.com/sylouuu/desoslide/issues">Issues</a></li>
+                        </ul>
+                    </article>
 
-					<article class="col-sm-2 col-md-2 col-lg-2 text-right">
-						<ul class="list-inline no-mg-bt">
-							<li>
-								<a href="https://github.com/sylouuu" title="Visit my GitHub profile">
-									<img src="../assets/img/social/github_logo.png" alt="github logo">
-								</a>
-							</li>
-							<li>
-								<a href="https://twitter.com/sylwebdev" title="Follow me on Twitter (@sylwebdev)">
-									<img src="../assets/img/social/twitter_logo.png" alt="twitter logo">
-								</a>
-							</li>
-						</ul>
-					</article>
-				</div>
-			</div>
-		</footer>
-		<!-- [END] FOOTER -->
-	</body>
+                    <article class="col-sm-2 col-md-2 col-lg-2 text-right">
+                        <ul class="list-inline no-mg-bt">
+                            <li>
+                                <a href="https://github.com/sylouuu" title="Visit my GitHub profile">
+                                    <img src="../assets/img/social/github_logo.png" alt="github logo">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/sylwebdev" title="Follow me on Twitter (@sylwebdev)">
+                                    <img src="../assets/img/social/twitter_logo.png" alt="twitter logo">
+                                </a>
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </footer>
+        <!-- [END] FOOTER -->
+    </body>
 </html>
