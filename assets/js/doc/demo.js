@@ -19,7 +19,10 @@ $(function() {
             start: true
         },
         first: 1,
-        effect: 'sideFadeBig',
+        effect: {
+            provider: 'magic',
+            name: 'tin'
+        },
         controls: {
             keys: false
         }
@@ -31,7 +34,10 @@ $(function() {
             container: '#demo3_main_image',
             cssClass: 'img-responsive'
         },
-        effect: 'flip',
+        effect: {
+            provider: 'animate',
+            name: 'flip'
+        },
         overlay: 'hover',
         caption: true,
         controls: {
@@ -49,7 +55,10 @@ $(function() {
         auto: {
             start: true
         },
-        effect: 'rotate',
+        effect: {
+            provider: 'animate',
+            name: 'rotate'
+        },
         overlay: 'none',
         controls: {
             enable: false,
