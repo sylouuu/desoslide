@@ -2,10 +2,9 @@
     <img src="https://raw.github.com/sylouuu/desoslide/master/assets/img/logo/desoslide.png" alt="icon">
 </p>
 
-[![Build Status](https://travis-ci.org/sylouuu/desoslide.png)](https://travis-ci.org/sylouuu/desoslide)
 [![GitHub version](https://badge.fury.io/gh/sylouuu%2Fdesoslide.svg)](http://badge.fury.io/gh/sylouuu%2Fdesoslide)
-[![Bower version](https://badge.fury.io/bo/desoslide.png)](http://badge.fury.io/bo/desoslide)
 [![devDependency Status](https://david-dm.org/sylouuu/desoslide/dev-status.svg?theme=shields.io)](https://david-dm.org/sylouuu/desoslide#info=devDependencies)
+[![Bower version](https://badge.fury.io/bo/desoslide.png)](http://badge.fury.io/bo/desoslide)
 
 ## Overview, demo, documentation & unit tests
 
@@ -14,13 +13,15 @@
 ## Dependencies
 
 * jQuery >= 1.7.0
-* [animate.css](https://github.com/daneden/animate.css) ~3.1.0
+* [animate.css](https://github.com/daneden/animate.css) ~3.1.0 for using `effect.provider: 'animate'`
+* [magic](https://github.com/miniMAC/magic) for using `effect.provider: 'magic'`
 
-## Build
+## Build `dist/`
 
-* Install gulp ```npm install -g gulp```
-* Install dependencies: ```npm install```
-* Type:  ```gulp```
+```
+npm install
+gulp tests
+```
 
 ## Changelog
 
