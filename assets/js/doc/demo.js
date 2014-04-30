@@ -1,20 +1,14 @@
 $(function() {
 
     /* First demo */
-    $('#demo1_thumbs').desoSlide({
-        main: {
-            container: '#demo1_main_image',
-            cssClass: 'img-responsive'
-        },
+    $('#demo1_image').desoSlide({
+        thumbs: $('#demo1_thumbs').find('li > a'),
         caption: true
     });
 
     /* Second demo */
-    $('#demo2_thumbs').desoSlide({
-        main: {
-            container: '#demo2_main_image',
-            cssClass: 'img-responsive'
-        },
+    $('#demo2_image').desoSlide({
+        thumbs: $('#demo2_thumbs').find('li > a'),
         auto: {
             start: true
         },
@@ -29,11 +23,8 @@ $(function() {
     });
 
     /* Third demo */
-    $('#demo3_thumbs').desoSlide({
-        main: {
-            container: '#demo3_main_image',
-            cssClass: 'img-responsive'
-        },
+    $('#demo3_image').desoSlide({
+        thumbs: $('#demo3_thumbs').find('li > a'),
         effect: {
             provider: 'animate',
             name: 'flip'
@@ -47,11 +38,8 @@ $(function() {
     });
 
     /* Fourth demo */
-    $('#demo4_thumbs').desoSlide({
-        main: {
-            container: '#demo4_main_image',
-            cssClass: 'img-responsive'
-        },
+    $('#demo4_image').desoSlide({
+        thumbs: $('#demo4_thumbs').find('li > a'),
         auto: {
             start: true
         },
