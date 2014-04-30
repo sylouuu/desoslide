@@ -20,6 +20,13 @@
 
 ```
 npm install
+gulp build
+```
+
+## Run tests
+
+```
+npm install
 gulp tests
 ```
 
