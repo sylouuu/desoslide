@@ -13,12 +13,15 @@
 ## Dependencies
 
 * jQuery >= 1.7.0
-* [animate.css](https://github.com/daneden/animate.css) ~3.1.0
+* [animate.css](https://github.com/daneden/animate.css) ~3.1.0 for using `effect.provider: 'animate'`
+* [magic](https://github.com/miniMAC/magic) for using `effect.provider: 'magic'`
 
 ## Build `dist/`
 
-* `$ npm install`
-* `$ gulp tests`
+```
+npm install
+gulp tests
+```
 
 ## Changelog
 
