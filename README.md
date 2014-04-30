@@ -15,11 +15,10 @@
 * jQuery >= 1.7.0
 * [animate.css](https://github.com/daneden/animate.css) ~3.1.0
 
-## Build
+## Build `dist/`
 
-* Install gulp ```npm install -g gulp```
-* Install dependencies: ```npm install```
-* Type:  ```gulp```
+* `$ npm install`
+* `$ gulp tests`
 
 ## Changelog
 
