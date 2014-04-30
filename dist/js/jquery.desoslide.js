@@ -27,10 +27,10 @@
             name:       'fade'            // Transition effect ("fade", "sideFade", "sideFadeBig", "flip", "light", "roll", "rotate", "foolish", "swash", "tin", "puff", "twister", "random")
         },
         overlay:        'always',         // How to show overlay ("always", "hover", "none")
-        caption:        false,            // Show caption: data-desoslide-caption-title attribute required
+        caption:        false,            // Show caption: use data-desoslide-caption-title attribute
         controls: {
             enable:     true,             // Able to control by clicking (prev/pause/play/next)
-            keys:       true              // Able to control by using the keyboard shortcuts (left/right/space)
+            keys:       true              // Able to control by using the keyboard shortcuts (left/space/right)
         },
         events: {
             onThumbClick:   null,         // On thumb click
@@ -146,6 +146,9 @@
 
     Plugin.prototype = {
 
+        /**
+        * Initialize the plugin
+        */
         _init: function () {
             var self = this;
 
@@ -291,7 +294,7 @@
         */
         pause: function () {
             if($(this.options.thumbs).length > 1) {
-                if(this.options.auto.start && this.props.img.timer) {
+                if(this.options.auto.start === true && this.props.img.timer) {
                     this.options.auto.start = false;
 
                     clearTimeout(this.props.img.timer);
@@ -650,10 +653,10 @@
 
                     // Calculate new height with paddings
                     var
-                        paddingTop = parseInt(this.props.img.$overlay.css('padding-top').replace('px', ''), 10),
-                        paddingBottom = parseInt(this.props.img.$overlay.css('padding-bottom').replace('px', ''), 10),
-                        paddingLeft = parseInt(this.props.img.$overlay.css('padding-left').replace('px', ''), 10),
-                        paddingRight = parseInt(this.props.img.$overlay.css('padding-right').replace('px', ''), 10);
+                        paddingTop      = parseInt(this.props.img.$overlay.css('padding-top').replace('px', ''), 10),
+                        paddingBottom   = parseInt(this.props.img.$overlay.css('padding-bottom').replace('px', ''), 10),
+                        paddingLeft     = parseInt(this.props.img.$overlay.css('padding-left').replace('px', ''), 10),
+                        paddingRight    = parseInt(this.props.img.$overlay.css('padding-right').replace('px', ''), 10);
 
                     var overlayHeight = parseInt(this.props.img.$overlay.css('height').replace('px', ''), 10) - (paddingLeft + paddingRight);
                     overlayHeight = (parseInt(height_plus_border, 10) - overlayHeight - (paddingTop + paddingBottom));
@@ -664,9 +667,9 @@
 
                     // Update the overlay position
                     this.props.img.$overlay.css({
-                        'left':     left +'px',
-                        'top':      top +'px',
-                        'width':    width_plus_border +'px'
+                        'left':  left +'px',
+                        'top':   top +'px',
+                        'width': width_plus_border +'px'
                     });
 
                     // Showing the overlay if needed
@@ -771,6 +774,9 @@
             }
         },
 
+        /**
+        * Events management
+        */
         _events: function () {
             var self = this;
 
