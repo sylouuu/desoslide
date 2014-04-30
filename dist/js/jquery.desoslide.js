@@ -43,7 +43,9 @@
             onPause:        null,         // On pause
             onPlay:         null,         // On play
             onNext:         null,         // On next
-            onComplete:     null          // On the slider complete ("success", "error", "warning")
+            onError:        null,         // On error
+            onWarning:      null,         // On warning
+            onSuccess:      null          // On success
         }
     };
 
@@ -893,8 +895,8 @@
                             console.error(this._name +': '+ msg +' Check out the documentation.');
                         }
 
-                        if(this.options.events.onComplete) {
-                            this.options.events.onComplete('error');
+                        if(this.options.events.onError) {
+                            this.options.events.onError();
                         }
 
                         this.props.first_error = type;
@@ -905,15 +907,15 @@
                             console.warn(this._name +': '+ msg);
                         }
 
-                        if(this.options.events.onComplete) {
-                            this.options.events.onComplete('warning');
+                        if(this.options.events.onWarning) {
+                            this.options.events.onWarning();
                         }
 
                         this.props.plugin_status = type;
                     break;
                     default:
-                        if(this.options.events.onComplete) {
-                            this.options.events.onComplete('success');
+                        if(this.options.events.onSuccess) {
+                            this.options.events.onSuccess();
                         }
 
                         this.props.plugin_status = type;

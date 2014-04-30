@@ -10,8 +10,8 @@ $(function() {
 
     $('#image_test1').desoSlide({
         events: {
-            onComplete: function(result) {
-                thumbs_test1 = result;
+            onError: function() {
+                thumbs_test1 = 'error';
             }
         }
     });
@@ -19,8 +19,8 @@ $(function() {
     $('#image_test2').desoSlide({
         thumbs: $('#no_thumbs').find('a'),
         events: {
-            onComplete: function(result) {
-                thumbs_test2 = result;
+            onError: function() {
+                thumbs_test2 = 'error';
             }
         }
     });
@@ -42,8 +42,8 @@ $(function() {
         thumbs: $('#alt_thumbs').find('li > a'),
         overlay: 'fail',
         events: {
-            onComplete: function(result) {
-                overlay_test1 = result;
+            onError: function() {
+                overlay_test1 = 'error';
             }
         }
     });
@@ -52,8 +52,8 @@ $(function() {
         thumbs: $('#alt_thumbs').find('li > a'),
         overlay: 'always',
         events: {
-            onComplete: function(result) {
-                overlay_test2 = result;
+            onSuccess: function() {
+                overlay_test2 = 'success';
             }
         }
     });
@@ -74,9 +74,8 @@ $(function() {
     $('#image_test5').desoSlide({
         thumbs: $('#no_alt_thumbs').find('li > a'),
         events: {
-            onComplete: function(result) {
-                alt_test1 = result;
-                console.log(result);
+            onWarning: function() {
+                alt_test1 = 'warning';
             }
         }
     });
@@ -84,8 +83,8 @@ $(function() {
     $('#image_test6').desoSlide({
         thumbs: $('#alt_thumbs').find('li > a'),
         events: {
-            onComplete: function(result) {
-                alt_test2 = result;
+            onSuccess: function() {
+                alt_test2 = 'success';
             }
         }
     });
@@ -107,8 +106,8 @@ $(function() {
         thumbs: $('#alt_thumbs').find('li > a'),
         first: 4,
         events: {
-            onComplete: function(result) {
-                first_test1 = result;
+            onError: function() {
+                first_test1 = 'error';
             }
         }
     });
@@ -117,8 +116,8 @@ $(function() {
         thumbs: $('#alt_thumbs').find('li > a'),
         first: 1,
         events: {
-            onComplete: function(result) {
-                first_test2 = result;
+            onSuccess: function() {
+                first_test2 = 'success';
             }
         }
     });
@@ -143,8 +142,8 @@ $(function() {
             name: 'fade'
         },
         events: {
-            onComplete: function(result) {
-                effect_test1 = result;
+            onError: function() {
+                effect_test1 = 'error';
             }
         }
     });
@@ -156,8 +155,8 @@ $(function() {
             name: 'fail'
         },
         events: {
-            onComplete: function(result) {
-                effect_test2 = result;
+            onError: function() {
+                effect_test2 = 'error';
             }
         }
     });
@@ -169,8 +168,8 @@ $(function() {
             name: 'rotate'
         },
         events: {
-            onComplete: function(result) {
-                effect_test3 = result;
+            onSuccess: function() {
+                effect_test3 = 'success';
             }
         }
     });
