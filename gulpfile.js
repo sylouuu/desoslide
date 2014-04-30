@@ -181,7 +181,8 @@
         // --------------------------------------------------------------------------------------------------
         gulp.watch(tasks.doc_less_main.source, ['doc_less_main']);
         gulp.watch(doc_path +'less/app/**/*.less', ['doc_less_views']);
-        gulp.watch(doc_path +'less/layouts/**/*.less', ['doc_less_views']);
+        gulp.watch(doc_path +'less/components/**/*.less', ['doc_less_main', 'doc_less_views']);
+        gulp.watch(doc_path +'less/layouts/**/*.less', ['doc_less_main', 'doc_less_views']);
         gulp.watch(doc_path +'less/views/**/*.less', ['doc_less_views']);
 
     });
