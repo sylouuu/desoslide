@@ -25,7 +25,7 @@
     // Source path
     // ------------------------------------------------------------------------------------------------------
     var dist_path   = 'dist/';
-    var doc_path    = 'assets/';
+    var doc_path    = 'doc/assets/';
 
     // Tasks configuration
     // ------------------------------------------------------------------------------------------------------
@@ -38,9 +38,13 @@
             source: dist_path +'less/jquery.desoslide.less',
             dest:   dist_path +'css'
         },
-        'doc_less': {
-            source: doc_path +'less/doc/*/*.less',
-            dest:   doc_path +'css/doc'
+        'doc_less_main': {
+            source: doc_path +'less/app/main.less',
+            dest:   doc_path +'css/app'
+        },
+        'doc_less_views': {
+            source: doc_path +'less/app/views/**/*.less',
+            dest:   doc_path +'css/app/views'
         }
     };
 
@@ -111,16 +115,34 @@
 
     });
 
-    gulp.task('doc_less', function() {
+    gulp.task('doc_less_main', function() {
 
         return gulp
-            .src(tasks.doc_less.source)
+            .src(tasks.doc_less_main.source)
             .pipe(less())
             .pipe(minifyCSS())
-            .pipe(gulp.dest(tasks.doc_less.dest))
+            .pipe(gulp.dest(tasks.doc_less_main.dest))
             .pipe(notify({
                 title: 'LESS',
-                message: 'Files compiled successfully',
+                message: 'Main compiled successfully',
+                onLast: true
+            }))
+            .on('error', notify.onError(function (error) {
+                return 'Message to the notifier: '+ error.message;
+            }));
+
+    });
+
+    gulp.task('doc_less_views', function() {
+
+        return gulp
+            .src(tasks.doc_less_views.source)
+            .pipe(less())
+            .pipe(minifyCSS())
+            .pipe(gulp.dest(tasks.doc_less_views.dest))
+            .pipe(notify({
+                title: 'LESS',
+                message: 'Views compiled successfully',
                 onLast: true
             }))
             .on('error', notify.onError(function (error) {
@@ -151,15 +173,24 @@
     // ------------------------------------------------------------------------------------------------------
     gulp.task('watch', function() {
 
+        // Javascript
+        // --------------------------------------------------------------------------------------------------
         gulp.watch(tasks.dist_js.source, ['dist_js_lint']);
-        gulp.watch(tasks.doc_less.source, ['less']);
+
+        // LESS
+        // --------------------------------------------------------------------------------------------------
+        gulp.watch(tasks.doc_less_main.source, ['doc_less_main']);
+        gulp.watch(doc_path +'less/app/**/*.less', ['doc_less_views']);
+        gulp.watch(doc_path +'less/layouts/**/*.less', ['doc_less_views']);
+        gulp.watch(doc_path +'less/views/**/*.less', ['doc_less_views']);
 
     });
 
     // Default tasks (called when running `gulp` from cli)
     // ------------------------------------------------------------------------------------------------------
     gulp.task('default', [
-        'doc_less',
+        'doc_less_main',
+        'doc_less_views',
         'watch'
     ]);
 
