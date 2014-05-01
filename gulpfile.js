@@ -97,6 +97,23 @@
         return gulp
             .src(tasks.dist_less.source)
             .pipe(less())
+            .pipe(gulp.dest(tasks.dist_less.dest))
+            .pipe(notify({
+                title: 'LESS',
+                message: 'File compiled successfully',
+                onLast: true
+            }))
+            .on('error', notify.onError(function (error) {
+                return 'Message to the notifier: '+ error.message;
+            }));
+
+    });
+
+    gulp.task('dist_less_min', function() {
+
+        return gulp
+            .src(tasks.dist_less.source)
+            .pipe(less())
             .pipe(minifyCSS({
                 keepSpecialComments: 1
             }))
@@ -166,7 +183,8 @@
     gulp.task('build', [
         'dist_js_lint',
         'dist_js_min',
-        'dist_less'
+        'dist_less',
+        'dist_less_min'
     ]);
 
     // Watching files
