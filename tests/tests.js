@@ -182,4 +182,50 @@ $(function() {
 
     });
 
+    // Public methods
+    // -------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
+
+    // getThumbs()
+    // -------------------------------------------------------------------------
+
+    var get_thumbs_test1, get_thumbs_test2, get_thumbs_test3;
+
+    get_thumbs_test1 = $('#image_test4').desoSlide('getThumbs');
+    get_thumbs_test2 = $('#image_test4').desoSlide('getThumbs', 1);
+    get_thumbs_test3 = $('#image_test4').desoSlide('getThumbs', 10);
+
+    test('getThumbs method', function() {
+
+        ok(get_thumbs_test1.length === 2, 'the thumbs object has a size of 2');
+        ok(get_thumbs_test2.alt === 'Flower', 'the wanted thumb has been retrieved successfully');
+        ok(get_thumbs_test3 === null, 'returns `null`');
+
+    });
+
+    // setEffect()
+    // -------------------------------------------------------------------------
+
+    var set_effect_test1, set_effect_test2, set_effect_test3, set_effect_test4, set_effect_test5, set_effect_test6, set_effect_test7;
+
+    set_effect_test1 = $('#image_test4').desoSlide('setEffect', { provider: 'animate', name: 'random' });
+    set_effect_test2 = $('#image_test4').desoSlide('setEffect', { provider: 'magic', name: 'random' });
+    set_effect_test3 = $('#image_test4').desoSlide('setEffect', { provider: 'magic', name: 'puff' });
+    set_effect_test4 = $('#image_test4').desoSlide('setEffect', { provider: 'fail', name: 'puff' });
+    set_effect_test5 = $('#image_test4').desoSlide('setEffect', { provider: 'animate', name: 'fail' });
+    set_effect_test6 = $('#image_test4').desoSlide('setEffect');
+    set_effect_test7 = $('#image_test4').desoSlide('setEffect', {});
+
+    test('setEffect method', function() {
+
+        ok(set_effect_test1.provider === 'animate' && typeof set_effect_test1.name === 'string', 'has an accepted provider and a random effect');
+        ok(set_effect_test2.provider === 'magic' && typeof set_effect_test2.name === 'string', 'has an accepted provider and a random effect');
+        ok(set_effect_test3.provider === 'magic' && set_effect_test3.name === 'puff', 'has an accepted provider and effect');
+        ok(set_effect_test4.provider === 'animate' && set_effect_test4.name === 'fade', 'has a bad provider: default provider and effect used');
+        ok(set_effect_test5.provider === 'animate' && set_effect_test5.name === 'fade', 'has a bad effect: default provider and effect used');
+        ok(set_effect_test6.provider === 'animate' && set_effect_test6.name === 'fade', 'has a bad parameter: default provider and effect used');
+        ok(set_effect_test7.provider === 'animate' && set_effect_test7.name === 'fade', 'has a bad parameter: default provider and effect used');
+
+    });
+
 });

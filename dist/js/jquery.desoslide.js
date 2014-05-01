@@ -138,7 +138,6 @@
                 $wrapper:   null
             },
 
-            first_error:    false,
             plugin_status:  null
         };
 
@@ -155,10 +154,10 @@
             var self = this;
 
             // Thumbs checks
-            if(this.options.thumbs === null) {
+            if (this.options.thumbs === null) {
                 this._errorHandler('error', 'The `thumbs` option doesn\'t exist.');
             } else {
-                if($(this.options.thumbs).length === 0) {
+                if ($(this.options.thumbs).length === 0) {
                     this._errorHandler('error', 'The `thumbs` selector ('+ $(this.options.thumbs).selector +') doesn\'t exist.');
                 }
             }
@@ -166,7 +165,7 @@
             // Overlay check
             var overlay_values = ['always', 'hover', 'none'];
 
-            if(overlay_values.indexOf(this.options.overlay) === -1) {
+            if (overlay_values.indexOf(this.options.overlay) === -1) {
                 this._errorHandler('error', 'Incorrect value for the `overlay` option. Default value is used.');
 
                 // Default value
@@ -183,17 +182,15 @@
                     caption_link:   $(item).find('img:first').data(self._namespace +'-caption-link')  || null
                 });
 
-                if($(item).find('img:first').attr('alt') === undefined) {
-                    self._errorHandler('warning', 'The `alt` attribute is missing on the thumb with index '+ i +', it\'s mandatory on <img> tags.');
+                if ($(item).find('img:first').attr('alt') === undefined) {
+                    self._errorHandler('warning', 'The `alt` attribute is missing on the '+ i +'-indexed thumb, it\'s mandatory on <img> tags.');
                 }
 
                 $(item).attr('data-'+ self._namespace +'-index', i);
             });
 
-            // console.log(this.options.first +' '+ this.props.thumbs.length);
-
             // `first` check
-            if(this.options.first >= this.props.thumbs.length) {
+            if (this.options.first >= this.props.thumbs.length) {
                 this._errorHandler('error', 'The `first` option must be between 0 and '+ (this.props.thumbs.length - 1) +'. Default value is used.');
 
                 // Default value
@@ -213,7 +210,7 @@
                 name:       self.options.effect.name
             });
 
-            if(this.props.thumbs[this.props.img.to_show] !== undefined) {
+            if (this.props.thumbs[this.props.img.to_show] !== undefined) {
                 // Show the first image
                 self._showImage();
             }
@@ -244,14 +241,22 @@
         * @return object
         */
         getThumbs: function (index) {
-            return (index === undefined) ? this.props.thumbs : this.props.thumbs[index];
+            if (index !== undefined) {
+                if (this._isThumbExists(index) === true) {
+                    return this.props.thumbs[index];
+                } else {
+                    return null;
+                }
+            } else {
+                return this.props.thumbs;
+            }
         },
 
         /**
         * Set the effect
         *
         * @param object effect
-        * @return object $(this.elem)
+        * @return object response
         */
         setEffect: function (effect) {
             var response = {
@@ -259,34 +264,41 @@
                 name:       null
             };
 
-            if(!this.props.effect.list.hasOwnProperty(effect.provider)) {
+            if (effect !== undefined && effect.provider !== null && effect.name !== null) {
+                if (!this.props.effect.list.hasOwnProperty(effect.provider)) {
+                    response.provider = this._defaults.effect.provider;
+                    response.name     = this._defaults.effect.name;
+
+                    this._errorHandler('error', 'Incorrect value for the `effect.provider` option. Default value is used.');
+                } else {
+                    // Random effect asked for a specific provider
+                    if (effect.name === 'random') {
+                        // Get a random effect
+                        response.provider = effect.provider;
+                        response.name     = this.getRandomEffect(effect.provider);
+                    } else {
+                        if (!this.props.effect.list[effect.provider].hasOwnProperty(effect.name)) {
+                            response.provider = this._defaults.effect.provider;
+                            response.name     = this._defaults.effect.name;
+
+                            this._errorHandler('error', 'Incorrect value for the `effect.name` option. Default value is used.');
+                        } else {
+                            response.provider = effect.provider;
+                            response.name     = effect.name;
+                        }
+                    }
+                }
+            } else {
                 response.provider = this._defaults.effect.provider;
                 response.name     = this._defaults.effect.name;
 
-                this._errorHandler('error', 'Incorrect value for the `effect.provider` option. Default value is used.');
-            } else {
-                // Random effect asked for a specific provider
-                if(effect.name === 'random') {
-                    // Get a random effect
-                    response.provider = effect.provider;
-                    response.name     = this.getRandomEffect(effect.provider);
-                } else {
-                    if(!this.props.effect.list[effect.provider].hasOwnProperty(effect.name)) {
-                        response.provider = this._defaults.effect.provider;
-                        response.name     = this._defaults.effect.name;
-
-                        this._errorHandler('error', 'Incorrect value for the `effect.name` option. Default value is used.');
-                    } else {
-                        response.provider = effect.provider;
-                        response.name     = effect.name;
-                    }
-                }
+                this._errorHandler('error', 'Incorrect values for `effect.provider` and `effect.name` option. Default value is used.');
             }
 
             this.props.effect.provider  = response.provider;
             this.props.effect.name      = response.name;
 
-            return $(this.elem);
+            return response;
         },
 
         /**
@@ -295,18 +307,18 @@
         * @return object $(this.elem)
         */
         pause: function () {
-            if($(this.options.thumbs).length > 1) {
-                if(this.options.auto.start === true && this.props.img.timer) {
+            if ($(this.options.thumbs).length > 1) {
+                if (this.options.auto.start === true && this.props.img.timer) {
                     this.options.auto.start = false;
 
                     clearTimeout(this.props.img.timer);
 
-                    if(this.props.controls.$wrapper) {
+                    if (this.props.controls.$wrapper) {
                         this.props.controls.$wrapper.find('a[href="#pause"]').hide().parent().find('a[href="#play"]').show();
                     }
 
                     // Callback
-                    if(this.options.events.onPause) {
+                    if (this.options.events.onPause) {
                         this.options.events.onPause();
                     }
                 }
@@ -324,19 +336,19 @@
         * @return object $(this.elem)
         */
         play: function () {
-            if($(this.options.thumbs).length > 1) {
-                if(this.options.auto.start === false) {
+            if ($(this.options.thumbs).length > 1) {
+                if (this.options.auto.start === false) {
                     this.options.auto.start = true;
 
                     this.goNext(true);
 
-                    if(this.props.controls.$wrapper) {
+                    if (this.props.controls.$wrapper) {
                         this.props.controls.$wrapper.find('a[href="#play"]').hide().parent().find('a[href="#pause"]').show();
                     }
                 }
 
                 // Callback
-                if(this.options.events.onPlay) {
+                if (this.options.events.onPlay) {
                     this.options.events.onPlay();
                 }
 
@@ -354,10 +366,10 @@
         * @return object $(this.elem)
         */
         goPrev: function (from_script) {
-            if($(this.options.thumbs).length > 1) {
+            if ($(this.options.thumbs).length > 1) {
                 var self = this;
 
-                if(!from_script && this.options.auto.start === true) {
+                if (!from_script && this.options.auto.start === true) {
                     // Pausing
                     this.pause();
                 }
@@ -365,7 +377,7 @@
                 // Decrementing index
                 this.props.img.to_show--;
 
-                if(this.props.img.to_show < 0){
+                if (this.props.img.to_show < 0){
                     // Taking the last index
                     this.props.img.to_show = $(this.options.thumbs).length - 1;
                 }
@@ -375,7 +387,7 @@
                 });
 
                 // Callback
-                if(this.options.events.onPrev) {
+                if (this.options.events.onPrev) {
                     this.options.events.onPrev();
                 }
 
@@ -393,10 +405,10 @@
         * @return object $(this.elem)
         */
         goNext: function (from_script) {
-            if($(this.options.thumbs).length > 1) {
+            if ($(this.options.thumbs).length > 1) {
                 var self = this;
 
-                if(!from_script && this.options.auto.start === true) {
+                if (!from_script && this.options.auto.start === true) {
                     // Pausing
                     this.pause();
                 }
@@ -404,7 +416,7 @@
                 // Incrementing index
                 this.props.img.to_show++;
 
-                if(this.props.img.to_show >= $(this.options.thumbs).length) {
+                if (this.props.img.to_show >= $(this.options.thumbs).length) {
                     // Taking the first index
                     this.props.img.to_show = 0;
                 }
@@ -414,7 +426,7 @@
                 });
 
                 // Callback
-                if(this.options.events.onNext) {
+                if (this.options.events.onNext) {
                     this.options.events.onNext();
                 }
 
@@ -432,16 +444,16 @@
         * @return object $(this.elem)
         */
         goTo: function (index) {
-            if($(this.options.thumbs).length > 1) {
+            if ($(this.options.thumbs).length > 1 && this._isThumbExists(index) === true) {
                 var self = this;
 
-                if(this.options.auto.start === true) {
+                if (this.options.auto.start === true) {
                     this.pause();
                 }
 
-                if(index !== this.props.img.to_show) {
+                if (index !== this.props.img.to_show) {
                     // Hiding the overlay
-                    if(this.props.img.$overlay !== null) {
+                    if (this.props.img.$overlay !== null) {
                         this.props.img.$overlay.animate({ opacity: 0 });
                     }
 
@@ -459,6 +471,24 @@
         // Private methods
         // ----------------------------------------------------------------------------------------------------------
         // ----------------------------------------------------------------------------------------------------------
+
+        /**
+        * Is thumb exists
+        *
+        * @param number index
+        * @return bool
+        */
+        _isThumbExists: function (index) {
+            if (typeof index === 'number') {
+                if (this.props.thumbs[index] !== undefined) {
+                    return true;
+                } else {
+                    this._errorHandler('error', 'The '+ index +'-indexed thumb doesn\'t exist.');
+
+                    return false;
+                }
+            }
+        },
 
         /**
         * Load images
@@ -492,7 +522,7 @@
         _clearEffectClass: function () {
             var self = this, key, key2;
 
-            if($(this.elem).find('img:first').attr('class') !== undefined) {
+            if ($(this.elem).find('img:first').attr('class') !== undefined) {
                 // Retrieve CSS classes
                 var classes = $(this.elem).find('img:first').attr('class').split(/\s+/);
 
@@ -501,18 +531,18 @@
                     if (self.props.effect.list.hasOwnProperty(key)) {
                         for (key2 in self.props.effect.list[key]) {
                             if (self.props.effect.list[key].hasOwnProperty(key2)) {
-                                if(classes.indexOf(self.props.effect.list[key][key2]) !== -1) {
+                                if (classes.indexOf(self.props.effect.list[key][key2]) !== -1) {
                                     $(this.elem).find('img:first').removeClass(self.props.effect.list[key][key2]);
                                 }
 
-                                if(self.props.effect.list[key][key2].in) {
-                                    if(classes.indexOf(self.props.effect.list[key][key2].in) !== -1) {
+                                if (self.props.effect.list[key][key2].in) {
+                                    if (classes.indexOf(self.props.effect.list[key][key2].in) !== -1) {
                                         $(this.elem).find('img:first').removeClass(self.props.effect.list[key][key2].in);
                                     }
                                 }
 
-                                if(self.props.effect.list[key][key2].out) {
-                                    if(classes.indexOf(self.props.effect.list[key][key2].out) !== -1) {
+                                if (self.props.effect.list[key][key2].out) {
+                                    if (classes.indexOf(self.props.effect.list[key][key2].out) !== -1) {
                                         $(this.elem).find('img:first').removeClass(self.props.effect.list[key][key2].out);
                                     }
                                 }
@@ -534,7 +564,7 @@
 
             for(prop in this.props.effect.list[provider]) {
                 if (this.props.effect.list[provider].hasOwnProperty(prop) && prop !== 'css') {
-                    if(Math.random() < 1 / ++count) {
+                    if (Math.random() < 1 / ++count) {
                         random = prop;
                     }
                 }
@@ -549,12 +579,12 @@
         _showImage: function () {
             var self = this;
 
-            if(this.props.plugin_status === null) {
+            if (this.props.plugin_status === null) {
                 // Success
                 this._errorHandler();
             }
 
-            if(self.options.events.onImageShow) {
+            if (self.options.events.onImageShow) {
                 self.options.events.onImageShow($(self.elem).find('img:first'));
             }
 
@@ -578,13 +608,13 @@
                             // Adding overlay
                             self._addOverlay();
 
-                            if(self.options.events.onImageShown) {
+                            if (self.options.events.onImageShown) {
                                 self.options.events.onImageShown($(self.elem).find('img:first'));
                             }
                         });
 
                     // Starting the loop
-                    if(self.options.auto.start === true) {
+                    if (self.options.auto.start === true) {
                         self.props.img.timer = setTimeout(function() {
                             self.goNext(true);
                         }, (self.options.interval < 1500) ? 1500 : self.options.interval);
@@ -602,7 +632,7 @@
 
             this._clearEffectClass();
 
-            if(self.options.events.onImageHide) {
+            if (self.options.events.onImageHide) {
                 self.options.events.onImageHide($(self.elem).find('img:first'));
             }
 
@@ -618,11 +648,11 @@
 
                 // Animation done
                 .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-                    if(self.options.events.onImageHidden) {
+                    if (self.options.events.onImageHidden) {
                         self.options.events.onImageHidden($(self.elem).find('img:first'));
                     }
 
-                    if(callback) {
+                    if (callback) {
                         callback();
                     }
                 });
@@ -633,9 +663,9 @@
         */
         _addOverlay: function () {
             // Overlay needed
-            if(this.options.overlay !== 'none') {
+            if (this.options.overlay !== 'none') {
                 // Caption or controls
-                if(this.options.caption === true || this.options.controls.enable === true) {
+                if (this.options.caption === true || this.options.controls.enable === true) {
 
                     // Main image position
                     var pos = $(this.elem).find('img').position();
@@ -645,7 +675,7 @@
                     var width_plus_border = $(this.elem).find('img').width() + border;
                     var height_plus_border = $(this.elem).find('img').height() + border;
 
-                    if($(this.elem).find('.'+ this._namespace +'-overlay').length === 0) {
+                    if ($(this.elem).find('.'+ this._namespace +'-overlay').length === 0) {
                         $('<div>', {
                             'class': this._namespace +'-overlay'
                         }).appendTo($(this.elem).find('.'+ this._namespace +'-wrapper'));
@@ -675,19 +705,19 @@
                     });
 
                     // Showing the overlay if needed
-                    if(this.options.overlay === 'always') {
+                    if (this.options.overlay === 'always') {
                         this.props.img.$overlay.animate({
                             opacity: 0.7
                         }, 500);
                     }
 
-                    if(this.options.caption === true) {
+                    if (this.options.caption === true) {
                         this._setCaptionTitle(this.props.thumbs[this.props.img.to_show].caption_title);
                         this._addCaptionLink();
                     }
                 }
 
-                if(this.options.controls.enable === true) {
+                if (this.options.controls.enable === true) {
                     this._addControls();
                 }
             }
@@ -712,7 +742,7 @@
             }).append($prev + $pause + $play + $next);
 
             // Adding the controls wrapper
-            if(this.props.img.$overlay.find('a:first').length > 0) {
+            if (this.props.img.$overlay.find('a:first').length > 0) {
                 $controls.appendTo(this.props.img.$overlay.find('a:first'));
             } else {
                 $controls.appendTo(this.props.img.$overlay);
@@ -720,9 +750,9 @@
 
             this.props.controls.$wrapper = $(this.elem).find('.'+ this._namespace +'-controls-wrapper');
 
-            if(this.props.controls.$wrapper.length) {
+            if (this.props.controls.$wrapper.length) {
                 // Showing the right button
-                if(this.options.auto.start) {
+                if (this.options.auto.start) {
                     this.props.controls.$wrapper.find('a[href="#play"]').hide().parent().find('a[href="#pause"]').show();
                 } else {
                     this.props.controls.$wrapper.find('a[href="#pause"]').hide().parent().find('a[href="#play"]').show();
@@ -736,7 +766,7 @@
         * @param string caption
         */
         _setCaptionTitle: function (caption) {
-            if(caption !== null) {
+            if (caption !== null) {
                 this.props.img.$overlay.html('<span>'+ caption +'</span>');
             }
         },
@@ -751,12 +781,12 @@
             // Anchor tag
             var anchor = '<a href="'+ this.props.thumbs[this.props.img.to_show].caption_link +'" target="_blank"></a>';
 
-            if(anchor_exists === true && href_exists === true) {
+            if (anchor_exists === true && href_exists === true) {
                 // Updating the href
                 this.props.img.$overlay.find('a:first').attr('href', this.props.thumbs[this.props.img.to_show].caption_link);
             } else {
                 // Anchor already exists but no caption title to show
-                if(anchor_exists === true && href_exists === false) {
+                if (anchor_exists === true && href_exists === false) {
                     var
                         $link = this.props.img.$overlay.find('a:first'),
                         $clone = $link.children().clone(),
@@ -768,7 +798,7 @@
                         // Removing existing caption title
                         this.props.img.$overlay.find('span:first').empty();
                 } else {
-                    if(anchor_exists === false && href_exists === true) {
+                    if (anchor_exists === false && href_exists === true) {
                         // Wrapping the caption
                         $(this.elem).find('.'+ this._namespace +'-overlay span:first').wrap(anchor);
                     }
@@ -789,7 +819,7 @@
                 self.goTo($(this).data(self._namespace +'-index'));
 
                 // Callback
-                if(self.options.events.onThumbClick) {
+                if (self.options.events.onThumbClick) {
                     self.options.events.onThumbClick();
                 }
             });
@@ -799,7 +829,7 @@
                 e.preventDefault();
 
                 // Callback
-                if(self.options.events.onImageClick) {
+                if (self.options.events.onImageClick) {
                     self.options.events.onImageClick();
                 }
             });
@@ -825,7 +855,7 @@
             });
 
             // Hover on overlay
-            if(this.options.overlay === 'hover' && self.props.img.$overlay !== null && self.props.img.$overlay.length > 0) {
+            if (this.options.overlay === 'hover' && self.props.img.$overlay !== null && self.props.img.$overlay.length > 0) {
                 $(this.elem).find('img:first').on({
                     mouseover: function() {
                         self.props.img.$overlay.stop().animate({
@@ -840,7 +870,7 @@
                 });
             }
 
-            if(this.options.controls.enable === true && this.options.controls.keys === true) {
+            if (this.options.controls.enable === true && this.options.controls.keys === true) {
                 // Keys binder
                 $(document).on('keydown', function(e) {
                     switch(e.which) {
@@ -853,7 +883,7 @@
                         case 32: // Space
                             e.preventDefault();
 
-                            if(self.options.auto.start === true) {
+                            if (self.options.auto.start === true) {
                                 self.pause();
                             } else {
                                 self.play();
@@ -872,7 +902,7 @@
             }());
 
             // New overlay position when resizing
-            if(this.options.overlay !== 'none') {
+            if (this.options.overlay !== 'none') {
                 $(window).bind('resize', function() {
                     delay(function() {
                         self._addOverlay();
@@ -888,39 +918,36 @@
         * @param string msg
         */
         _errorHandler: function(type, msg) {
-            if(this.props.first_error === false) {
-                switch(type) {
-                    case 'error':
-                        if(console !== undefined) {
-                            console.error(this._name +': '+ msg +' Check out the documentation.');
-                        }
+            switch(type) {
+                case 'error':
+                    if (console !== undefined) {
+                        console.error(this._name +': '+ msg +' Check out the documentation.');
+                    }
 
-                        if(this.options.events.onError) {
-                            this.options.events.onError();
-                        }
+                    if (this.options.events.onError) {
+                        this.options.events.onError();
+                    }
 
-                        this.props.first_error = type;
-                        this.props.plugin_status = type;
-                    break;
-                    case 'warning':
-                        if(console !== undefined) {
-                            console.warn(this._name +': '+ msg);
-                        }
+                    this.props.plugin_status = type;
+                break;
+                case 'warning':
+                    if (console !== undefined) {
+                        console.warn(this._name +': '+ msg);
+                    }
 
-                        if(this.options.events.onWarning) {
-                            this.options.events.onWarning();
-                        }
+                    if (this.options.events.onWarning) {
+                        this.options.events.onWarning();
+                    }
 
-                        this.props.plugin_status = type;
-                    break;
-                    default:
-                        if(this.options.events.onSuccess) {
-                            this.options.events.onSuccess();
-                        }
+                    this.props.plugin_status = type;
+                break;
+                default:
+                    if (this.options.events.onSuccess) {
+                        this.options.events.onSuccess();
+                    }
 
-                        this.props.plugin_status = type;
-                    break;
-                }
+                    this.props.plugin_status = type;
+                break;
             }
         }
     };
@@ -938,7 +965,10 @@
         } else if (typeof options === 'string' && options[0] !== '_') {
             // Break the chainability and call a public method
             instance = $.data(this[0], 'plugin_' + plugin_name);
-            response = instance[options].apply(instance, Array.prototype.slice.call(args, 1));
+
+            if (instance[options] !== undefined) {
+                response = instance[options].apply(instance, Array.prototype.slice.call(args, 1));
+            }
         } else {
             // Invoke the speficied method on each selected element and preserve the chainability
             response = this.each(function() {
