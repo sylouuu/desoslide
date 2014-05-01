@@ -1,6 +1,6 @@
 /*!
 * Version 2.0.0-rc1
-* jQuery: desoslide plugin
+* jQuery: desoSlide plugin
 * Copyright - 2014 - https://github.com/sylouuu/desoslide
 * This source code is under the MIT License
 */
@@ -16,11 +16,9 @@
   bottom: 8px;
   z-index: 100;
   opacity: 1;
-  filter: alpha(opacity=100);
 }
 .desoslide-controls-wrapper a:hover {
   opacity: 0.7;
-  filter: alpha(opacity=100);
 }
 .desoslide-overlay {
   height: 36px;
@@ -32,7 +30,6 @@
   background-color: black;
   padding: 8px;
   opacity: 0;
-  filter: alpha(opacity=100);
 }
 .desoslide-overlay a {
   color: white;
