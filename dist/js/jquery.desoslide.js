@@ -308,6 +308,8 @@
         */
         pause: function () {
             if ($(this.options.thumbs).length > 1) {
+
+                console.log(this.props.img.timer);
                 if (this.options.auto.start === true && this.props.img.timer) {
                     this.options.auto.start = false;
 
@@ -316,7 +318,7 @@
                     if (this.props.controls.$wrapper) {
                         this.props.controls.$wrapper.find('a[href="#pause"]').hide().parent().find('a[href="#play"]').show();
                     }
-
+                    alert('pause');
                     // Callback
                     if (this.options.events.onPause) {
                         this.options.events.onPause();
