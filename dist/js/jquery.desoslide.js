@@ -23,10 +23,10 @@
         first:          0,                // Index of the first image to show
         interval:       3000,             // Interval between each images
         effect: {
-            provider:   'animate',        // Effect provider ("animate", "magic")
-            name:       'fade'            // Transition effect ("fade", "sideFade", "sideFadeBig", "flip", "light", "roll", "rotate", "foolish", "swash", "tin", "puff", "twister", "random")
+            provider:   'animate',        // Effect provider ('animate', 'magic')
+            name:       'fade'            // Transition effect ('fade', 'sideFade', 'sideFadeBig', 'flip', 'light', 'roll', 'rotate', 'foolish', 'swash', 'tin', 'puff', 'twister', 'random')
         },
-        overlay:        'always',         // How to show overlay ("always", "hover", "none")
+        overlay:        'always',         // How to show overlay ('always', 'hover', 'none')
         caption:        false,            // Show caption: use data-desoslide-caption-title attribute
         controls: {
             enable:     true,             // Able to control by clicking (prev/pause/play/next)
@@ -734,6 +734,7 @@
         * Add controls
         */
         _addControls: function () {
+            // Removing the existing controls wrapper
             $(this.elem).find('.'+ this._namespace +'-controls-wrapper').remove();
 
             // Controls buttons
