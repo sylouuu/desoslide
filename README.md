@@ -2,9 +2,9 @@
     <img src="https://raw.github.com/sylouuu/desoslide/master/assets/img/logo/desoslide.png" alt="icon">
 </p>
 
+[![Build Status](https://travis-ci.org/sylouuu/desoslide.png)](https://travis-ci.org/sylouuu/desoslide)
 [![GitHub version](https://badge.fury.io/gh/sylouuu%2Fdesoslide.svg)](http://badge.fury.io/gh/sylouuu%2Fdesoslide)
 [![devDependency Status](https://david-dm.org/sylouuu/desoslide/dev-status.svg?theme=shields.io)](https://david-dm.org/sylouuu/desoslide#info=devDependencies)
-[![Bower version](https://badge.fury.io/bo/desoslide.png)](http://badge.fury.io/bo/desoslide)
 
 ## Overview, demo, documentation & unit tests
 

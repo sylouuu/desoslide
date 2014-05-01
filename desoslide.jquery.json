@@ -1,16 +1,16 @@
 {
     "name": "desoslide",
-    "title": "jQuery desoSlide",
-    "description": "Simple images slider with thumbnails",
-    "keywords": [
-        "image",
-        "slider",
-        "thumbnail"
-    ],
+    "title": "desoSlide",
     "version": "1.3.0",
+    "description": "Take control of your slideshow with this powerful jQuery plugin",
+    "keywords": [
+        "slider",
+        "slideshow",
+        "thumbnails"
+    ],
     "author": {
         "name": "sylouuu",
-        "url": "https://github.com/sylouuu"
+        "url": "http://sylouuu.github.io/"
     },
     "licenses": [
         {
@@ -20,8 +20,8 @@
     ],
     "bugs": "https://github.com/sylouuu/desoslide/issues",
     "homepage": "http://sylouuu.github.io/desoslide",
-    "demo": "http://sylouuu.github.io/desoslide/demo.html",
-    "docs": "http://sylouuu.github.io/desoslide/documentation.html",
+    "demo": "http://sylouuu.github.io/desoslide/doc/demo.html",
+    "docs": "http://sylouuu.github.io/desoslide/doc/documentation.html",
     "download": "https://github.com/sylouuu/desoslide/releases",
     "dependencies": {
         "jquery": ">=1.7"
