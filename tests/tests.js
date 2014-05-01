@@ -25,7 +25,7 @@ $(function() {
         }
     });
 
-    test('The `thumbs`', function() {
+    test('`thumbs`', function() {
 
         ok(thumbs_test1 === 'error', 'option doesn\'t exist: error expected');
         ok(thumbs_test2 === 'error', 'selector doesn\'t exist: error expected');
@@ -58,7 +58,7 @@ $(function() {
         }
     });
 
-    test('The `overlay` option', function() {
+    test('`overlay` option', function() {
 
         ok(overlay_test1 === 'error', 'has a wrong value: error expected');
         ok(overlay_test2 === 'success', 'has an accepted value: success expected');
@@ -89,7 +89,7 @@ $(function() {
         }
     });
 
-    test('The `alt` attribute', function() {
+    test('`alt` attribute', function() {
 
         ok(alt_test1 === 'warning', 'isn\'t specified: warning expected');
         ok(alt_test2 === 'success', 'is specified: success expected');
@@ -122,7 +122,7 @@ $(function() {
         }
     });
 
-    test('The `first` option', function() {
+    test('`first` option', function() {
 
         ok(first_test1 === 'error', 'has a wrong value: error expected');
         ok(first_test2 === 'success', 'has an accepted value: success expected');
@@ -174,7 +174,7 @@ $(function() {
         }
     });
 
-    test('The `effect` option', function() {
+    test('`effect` option', function() {
 
         ok(effect_test1 === 'error', 'has a bad `provider` value: error expected');
         ok(effect_test2 === 'error', 'has a bad `name` value: success expected');
@@ -225,6 +225,38 @@ $(function() {
         ok(set_effect_test5.provider === 'animate' && set_effect_test5.name === 'fade', 'has a bad effect: default provider and effect used');
         ok(set_effect_test6.provider === 'animate' && set_effect_test6.name === 'fade', 'has a bad parameter: default provider and effect used');
         ok(set_effect_test7.provider === 'animate' && set_effect_test7.name === 'fade', 'has a bad parameter: default provider and effect used');
+
+    });
+
+    // player
+    // -------------------------------------------------------------------------
+
+    var player_test1, player_test2, player_test3;
+
+    $('#image_test12').desoSlide({
+        thumbs: $('#alt_thumbs').find('li > a'),
+        events: {
+            onPrev: function() {
+                player_test1 = 'ok';
+            },
+            onPlay: function() {
+                player_test2 = 'ok';
+            },
+            onNext: function() {
+                player_test3 = 'ok';
+            }
+        }
+    });
+
+    $('#image_test12').desoSlide('goPrev');
+    $('#image_test12').desoSlide('play');
+    $('#image_test12').desoSlide('goNext');
+
+    test('player methods', function() {
+
+        ok(player_test1 === 'ok', 'prev');
+        ok(player_test2 === 'ok', 'play');
+        ok(player_test3 === 'ok', 'next');
 
     });
 
