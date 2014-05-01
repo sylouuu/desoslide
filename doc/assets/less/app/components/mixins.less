@@ -1,0 +1,16 @@
+
+.btn-circle-variant(@btn; @border; @color; @hover-bg) {
+    &.@{btn}
+    {
+        border-color : @border;
+        color        : @color;
+
+        &:hover,
+        &:focus
+        {
+            outline          : none;
+            background-color : @hover-bg;
+            color            : @white;
+        }
+    }
+}

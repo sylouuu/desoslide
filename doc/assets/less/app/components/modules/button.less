@@ -13,3 +13,38 @@
 {
     .button-variant(@white, @btn-github-color, @btn-github-hover-bg);
 }
+
+.btn-circle {
+    height           : 38px;
+    width            : 38px;
+    padding          : 0 8px;
+    border           : 2px solid;
+    border-radius    : 50%;
+    background-color : transparent;
+    font-size        : 25px;
+    .transition(~"border .25s linear, color .25s linear, background-color .25s linear");
+
+    .btn-circle-variant(btn-default; @gray-light; @gray-light; @gray-light);
+    .btn-circle-variant(btn-primary; @brand-primary; @brand-primary; @brand-primary);
+    .btn-circle-variant(btn-info; @brand-info; @brand-info; @brand-info);
+    .btn-circle-variant(btn-danger; @brand-danger; @brand-danger; @brand-danger);
+    .btn-circle-variant(btn-success; @brand-success; @brand-success; @brand-success);
+    .btn-circle-variant(btn-warning; @brand-warning; @brand-warning; @brand-warning);
+
+    &.btn-hg {
+        padding     : 7px 16px;
+        width       : 70px;
+        height      : 70px;
+        line-height : 1.4;
+        font-size   : 40px;
+    }
+
+    &.btn-lg
+    {
+        padding     : 0 12px;
+        width       : 50px;
+        height      : 50px;
+        line-height : 1.4;
+        font-size   : 35px;
+    }
+}
