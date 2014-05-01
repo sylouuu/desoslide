@@ -5,6 +5,7 @@
 @import '../components/variables.less';
 @import '../components/mixins.less';
 @import '../components/fonts.less';
+@import '../components/typography.less';
 @import '../layouts/header.less';
 @import '../layouts/body.less';
 @import '../layouts/footer.less';
@@ -42,10 +43,7 @@
 
 .jumbotron
 {
-    position : absolute;
-    top      : 0;
-    right    : 0;
-    left     : 0;
+    margin-top : -53px;
 
     h1
     {
@@ -58,4 +56,23 @@
     {
         padding       : 120px 180px 100px;
     }
+}
+
+#features
+{
+    padding-top    : 40px;
+    padding-bottom : 40px;
+
+    h2
+    {
+        margin-bottom : 30px;
+        font-size     : 36px;
+    }
+
+    article
+    {
+        padding-top    : 30px;
+        padding-bottom : 30px;
+    }
+
 }

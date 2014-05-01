@@ -27,198 +27,199 @@
     </script>
 </head>
 <body>
+    <section>
+        <header class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="./">desoSlide</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="doc/demo.html">Demo</a>
+                        </li>
+                        <li>
+                            <a href="doc/documentation.html">Documentation</a>
+                        </li>
+                        <li>
+                            <a href="doc/changelog.html">Changelog</a>
+                        </li>
+                        <li>
+                            <a href="tests/">Tests</a>
+                        </li>
+                        <li>
+                            <a href="#">Github</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
 
-<header class="navbar navbar-default navbar-static-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="./">desoSlide</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
+        <div class="jumbotron text-center">
+            <h1>Take control of your slideshow with powerful desoSlide jQuery plugin</h1>
+
+            <ul class="list-inline">
                 <li>
-                    <a href="doc/demo.html">Demo</a>
+                    <a class="btn btn-primary btn-hg" href="doc/demo.html">Demo</a>
                 </li>
                 <li>
-                    <a href="doc/documentation.html">Documentation</a>
-                </li>
-                <li>
-                    <a href="doc/changelog.html">Changelog</a>
-                </li>
-                <li>
-                    <a href="tests/">Tests</a>
-                </li>
-                <li>
-                    <a href="#">Github</a>
+                    <a class="btn btn-danger btn-hg" href="">Download</a>
                 </li>
             </ul>
+
+            <small>
+                Current stable: 2.0.0
+            </small>
         </div>
-    </div>
-</header>
+    </section>
 
-<section>
-    <div class="jumbotron text-center">
-        <h1>Take control of your slideshow with powerful desoSlide jQuery plugin</h1>
+    <section id="features">
+        <div class="container-fluid">
 
-        <ul class="list-inline">
-            <li>
-                <a class="btn btn-primary btn-hg" href="doc/documentation.html">Learn more</a>
-            </li>
-            <li>
-                <a class="btn btn-danger btn-hg" href="">Download</a>
-            </li>
-        </ul>
+            <h2 class="text-center">The core of desoSlide</h2>
 
-        <small>
-            Current version: 2.0.0
-        </small>
-    </div>
-</section>
+            <article class="col-sm-4 col-md-4 col-lg-4 text-center">
+                <p><img src="doc/assets/img/flat-ui/gift.png" alt="gift"></p>
 
-<!--
-<header class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-home"></button>
-
-            <a href="./" class="navbar-brand">
-                <img src="doc/assets/img/logo/desoslide.png" alt="desoslide logo">
-            </a>
-
-            <div class="nav-collapse collapse" id="nav-collapse-home">
-                <ul class="nav">
-                    <li class="active"><a href="./">Home</a></li>
-                    <li><a href="doc/demo.html">Demo</a></li>
-                    <li>
-                        <a href="doc/documentation.html">Documentation</a>
-                        <ul>
-                            <li><a href="doc/documentation.html#setup">Setup</a></li>
-                            <li><a href="doc/documentation.html#configuration">Configuration</a></li>
-                            <li><a href="doc/documentation.html#controls">Controls</a></li>
-                            <li><a href="doc/documentation.html#options">Options</a></li>
-                            <li><a href="doc/documentation.html#return_value">Return value</a></li>
-                            <li><a href="doc/documentation.html#browser_compatibility">Browser compatibility</a></li>
-                            <li><a href="doc/documentation.html#contributors">Contributors</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="tests/">Tests</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</header>
-
-<div class="container">
-
-    <div class="jumbotron">
-        <h1>Simple images slider...</h1>
-        <h3>... with thumbnails!</h3>
-
-        <br>
-
-        <ul class="list-inline text-muted">
-            <li>
-                <a href="https://github.com/sylouuu/desoslide/releases" class="btn btn-primary btn-hg">
-                    <span class="glyphicon glyphicon-download-alt"></span> Download
-                </a>
-            </li>
-            <li>Version 1.3.0</li>
-        </ul>
-    </div>
-
-    <div class="features">
-
-        <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-                <img src="doc/assets/img/flat_ui/gift.png" alt="gift">
                 <h3>Free</h3>
+
                 <p>
-                    This jQuery plugin is open source, under the <a href="http://en.wikipedia.org/wiki/MIT_License">MIT license</a>.<br>
-                    Feel free to contribute on the <a href="https://github.com/sylouuu/desoslide">repository</a>.
+                    This jQuery plugin is open source, under the
+                    <a href="http://en.wikipedia.org/wiki/MIT_License">MIT license</a>.
+                    <br>
+                    Feel free to contribute on the
+                    <a href="https://github.com/sylouuu/desoslide">repository</a>.
                 </p>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-                <img src="doc/assets/img/flat_ui/settings.png" alt="settings">
+            </article>
+
+            <article class="col-sm-4 col-md-4 col-lg-4 text-center">
+                <p><img src="doc/assets/img/flat-ui/settings.png" alt="settings"></p>
+
                 <h3>Customizable</h3>
-                <p>Use your own CSS, many options are avalaible (including effects) in the <a href="doc/documentation.html">documentation</a>.</p>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-                <img src="doc/assets/img/flat_ui/goal.png" alt="goal">
+                <p>
+                    Use your own CSS, many options are avalaible (including effects) in the
+                    <a href="doc/documentation.html">documentation</a>.
+                </p>
+            </article>
+
+            <article class="col-sm-4 col-md-4 col-lg-4 text-center">
+                <p><img src="doc/assets/img/flat-ui/goal.png" alt="goal"></p>
+
                 <h3>Controls</h3>
+
                 <p>Control the slider by clicking or pressing your keyboard keys.</p>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-                <img src="doc/assets/img/flat_ui/picture.png" alt="picture">
+            </article>
+        </div>
+
+        <div class="container-fluid">
+            <article class="col-sm-4 col-md-4 col-lg-4 text-center">
+                <p><img src="doc/assets/img/flat-ui/picture.png" alt="picture"></p>
+
                 <h3>Caption</h3>
+
                 <p>Specify a caption and a link for each image to show more informations.</p>
-            </div>
-        </div>
+            </article>
 
-        <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-                <img src="doc/assets/img/flat_ui/infinite.png" alt="infinite">
+            <article class="col-sm-4 col-md-4 col-lg-4 text-center">
+                <p><img src="doc/assets/img/flat-ui/infinite.png" alt="infinite"></p>
+
                 <h3>Multiple</h3>
+
                 <p>Create as many instances as you want on a same page.</p>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-                <img src="doc/assets/img/flat_ui/tests.png" alt="tests">
+            </article>
+
+            <article class="col-sm-4 col-md-4 col-lg-4 text-center">
+                <p><img src="doc/assets/img/flat-ui/tests.png" alt="tests"></p>
+
                 <h3>Tests suite</h3>
+
                 <p>A <a href="tests/">tests suite</a> shows that the plugin passes the basics specifications.</p>
-            </div>
+            </article>
         </div>
-    </div>
+    </section>
 
-</div>
+    <!--
 
-
-<footer class="bottom-menu">
     <div class="container">
 
-        <div class="row">
+        <div class="features">
 
-            <article class="col-sm-3 col-md-2 col-lg-2">
-                <div class="navbar-brand">
-                    <img src="doc/assets/img/logo/desoslide_small.png" alt="desoslide logo">
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+                    <img src="doc/assets/img/flat-ui/goal.png" alt="goal">
+                    <h3>Controls</h3>
+                    <p>Control the slider by clicking or pressing your keyboard keys.</p>
                 </div>
-            </article>
+                <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+                    <img src="doc/assets/img/flat-ui/picture.png" alt="picture">
+                    <h3>Caption</h3>
+                    <p>Specify a caption and a link for each image to show more informations.</p>
+                </div>
+            </div>
 
-            <article class="col-sm-7 col-md-8 col-lg-8">
-                <ul class="bottom-links">
-                    <li><a href="http://sylouuu.github.io/">My home</a></li>
-                    <li><a href="https://github.com/sylouuu/desoslide">Project on GitHub</a></li>
-                    <li><a href="https://github.com/sylouuu/desoslide/issues">Issues</a></li>
-                </ul>
-            </article>
-
-            <article class="col-sm-2 col-md-2 col-lg-2 text-right">
-                <ul class="list-inline no-mg-bt">
-                    <li>
-                        <a href="https://github.com/sylouuu" title="Visit my GitHub profile">
-                            <img src="doc/assets/img/social/github_logo.png" alt="github logo">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/sylwebdev" title="Follow me on Twitter (@sylwebdev)">
-                            <img src="doc/assets/img/social/twitter_logo.png" alt="twitter logo">
-                        </a>
-                    </li>
-                </ul>
-            </article>
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+                    <img src="doc/assets/img/flat-ui/infinite.png" alt="infinite">
+                    <h3>Multiple</h3>
+                    <p>Create as many instances as you want on a same page.</p>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+                    <img src="doc/assets/img/flat-ui/tests.png" alt="tests">
+                    <h3>Tests suite</h3>
+                    <p>A <a href="tests/">tests suite</a> shows that the plugin passes the basics specifications.</p>
+                </div>
+            </div>
         </div>
-    </div>
-</footer>
--->
 
-<script src="doc/assets/js/vendor/jquery/jquery.js"></script>
-<script src="doc/assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+    </div>
+
+
+    <footer class="bottom-menu">
+        <div class="container">
+
+            <div class="row">
+
+                <article class="col-sm-3 col-md-2 col-lg-2">
+                    <div class="navbar-brand">
+                        <img src="doc/assets/img/logo/desoslide_small.png" alt="desoslide logo">
+                    </div>
+                </article>
+
+                <article class="col-sm-7 col-md-8 col-lg-8">
+                    <ul class="bottom-links">
+                        <li><a href="http://sylouuu.github.io/">My home</a></li>
+                        <li><a href="https://github.com/sylouuu/desoslide">Project on GitHub</a></li>
+                        <li><a href="https://github.com/sylouuu/desoslide/issues">Issues</a></li>
+                    </ul>
+                </article>
+
+                <article class="col-sm-2 col-md-2 col-lg-2 text-right">
+                    <ul class="list-inline no-mg-bt">
+                        <li>
+                            <a href="https://github.com/sylouuu" title="Visit my GitHub profile">
+                                <img src="doc/assets/img/social/github_logo.png" alt="github logo">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/sylwebdev" title="Follow me on Twitter (@sylwebdev)">
+                                <img src="doc/assets/img/social/twitter_logo.png" alt="twitter logo">
+                            </a>
+                        </li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </footer>
+    -->
+
+    <script src="doc/assets/js/vendor/jquery/jquery.js"></script>
+    <script src="doc/assets/js/vendor/bootstrap/bootstrap.min.js"></script>
 </body>
 </html>
