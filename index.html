@@ -27,59 +27,61 @@
     </script>
 </head>
 <body>
-    <section>
-        <header class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="./">desoSlide</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="doc/demo.html">Demo</a>
-                        </li>
-                        <li>
-                            <a href="doc/documentation.html">Documentation</a>
-                        </li>
-                        <li>
-                            <a href="doc/changelog.html">Changelog</a>
-                        </li>
-                        <li>
-                            <a href="tests/">Tests</a>
-                        </li>
-                        <li>
-                            <a href="#">Github</a>
-                        </li>
-                    </ul>
-                </div>
+
+    <!-- Header -->
+    <header class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">desoSlide</a>
             </div>
-        </header>
-
-        <div class="jumbotron text-center">
-            <h1>Take control of your slideshow with this powerful jQuery plugin</h1>
-
-            <ul class="list-inline">
-                <li>
-                    <a class="btn btn-primary btn-hg" href="doc/demo.html">
-                        <i class="fa fa-picture-o"></i> Demo</a>
-                </li>
-                <li>
-                    <a class="btn btn-danger btn-hg" href=""><i class="fa fa-download"></i> Download</a>
-                </li>
-            </ul>
-
-            <small>
-                Current stable: 2.0.0
-            </small>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="doc/demo.html">Demo</a>
+                    </li>
+                    <li>
+                        <a href="doc/documentation.html">Documentation</a>
+                    </li>
+                    <li>
+                        <a href="doc/changelog.html">Changelog</a>
+                    </li>
+                    <li>
+                        <a href="tests/">Tests</a>
+                    </li>
+                    <li>
+                        <a href="#">Github</a>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </header>
+
+    <!-- Introduction section -->
+    <section class="jumbotron text-center">
+        <h1>Take control of your slideshow with this powerful jQuery plugin</h1>
+
+        <ul class="list-inline">
+            <li>
+                <a class="btn btn-primary btn-hg" href="doc/demo.html">
+                    <i class="fa fa-picture-o"></i> Demo</a>
+            </li>
+            <li>
+                <a class="btn btn-danger btn-hg" href=""><i class="fa fa-download"></i> Download</a>
+            </li>
+        </ul>
+
+        <small>
+            Current stable: 2.0.0
+        </small>
     </section>
 
+    <!-- Features section -->
     <section id="features">
         <div class="container-fluid">
 
@@ -90,12 +92,11 @@
 
                 <h4>Free</h4>
 
-                <p>
-                    This jQuery plugin is open source, under the
+                <p class="text-justify">
+                    DesoSlide jQuery plugin is open source, under the
                     <a href="http://en.wikipedia.org/wiki/MIT_License">MIT license</a>.
-                    <br>
                     Feel free to contribute on the
-                    <a href="https://github.com/sylouuu/desoslide">repository</a>.
+                    <a href="https://github.com/sylouuu/desoslide">Github repository</a>.
                 </p>
             </article>
 
@@ -104,7 +105,7 @@
 
                 <h4>Customizable</h4>
 
-                <p>
+                <p class="text-justify">
                     Use your own CSS, many options are avalaible (including effects) in the
                     <a href="doc/documentation.html">documentation</a>.
                 </p>
@@ -115,7 +116,7 @@
 
                 <h4>Controls</h4>
 
-                <p>Control the slider by clicking or pressing your keyboard keys.</p>
+                <p class="text-justify">Control the slider by clicking or pressing your keyboard keys.</p>
             </article>
         </div>
 
@@ -125,27 +126,70 @@
 
                 <h4>Caption</h4>
 
-                <p>Specify a caption and a link for each image to show more information.</p>
+                <p class="text-justify">Specify a caption and a link for each image to show more information.</p>
             </article>
 
             <article class="col-sm-4 col-md-4 col-lg-4 text-center">
                 <p><img src="doc/assets/img/flat-ui/infinite.png" alt="infinite"></p>
 
-                <h4>Multiple</h4>
+                <h4>Infinite</h4>
 
-                <p>Create as many instances as you want on a same page.</p>
+                <p class="text-justify">Create as many instances as you want on a same page.</p>
             </article>
 
             <article class="col-sm-4 col-md-4 col-lg-4 text-center">
                 <p><img src="doc/assets/img/flat-ui/tests.png" alt="tests"></p>
 
-                <h4>Tests suite</h4>
+                <h4>Reliable</h4>
 
-                <p>A <a href="tests/">tests suite</a> shows that the plugin passes the basics specifications.</p>
+                <p class="text-justify">
+                    A <a href="tests/">tests suite</a> shows that the plugin passes the basics specifications.
+                </p>
             </article>
         </div>
     </section>
 
+    <!-- Core section -->
+    <section id="core">
+        <div class="container-fluid">
+
+            <h2 class="text-center">Core</h2>
+
+            <article class="col-sm-4 col-md-4 col-lg-4 text-center">
+                <p><img src="doc/assets/img/core/jquery.png" class="img-circle" alt="jQuery"></p>
+
+                <h4>jQuery</h4>
+
+                <p class="text-justify">
+                    <a href="http://jquery.com/">jQuery</a> is a fast, small, and feature-rich JavaScript library.
+                </p>
+            </article>
+
+            <article class="col-sm-4 col-md-4 col-lg-4 text-center">
+                <p><img src="doc/assets/img/core/animate.png" class="img-circle" alt="Animate"></p>
+
+                <h4>Animate</h4>
+
+                <p class="text-justify">
+                    <a href="http://daneden.github.io/animate.css/">Animate</a>
+                    is a cross-browser library of CSS3 animations.
+                </p>
+            </article>
+
+            <article class="col-sm-4 col-md-4 col-lg-4 text-center">
+                <p><img src="doc/assets/img/core/magic.png" class="img-circle" alt="Magic"></p>
+
+                <h4>Magic</h4>
+
+                <p class="text-justify">
+                    <a href="http://minimamente.com/example/magic_animations/">Magic</a>
+                    is CSS3 animations with special effects.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Team section -->
     <section id="team">
         <div class="container-fluid">
 
