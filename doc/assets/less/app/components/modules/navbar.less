@@ -1,0 +1,77 @@
+
+.navbar-default
+{
+    margin-bottom    : 0;
+    background-color : @ebony-clay;
+
+    .navbar-brand
+    {
+        color       : @white;
+        font-size   : 28px;
+        font-weight : 400;
+
+        &:hover,
+        &:focus
+        {
+            color : @picton-blue;
+        }
+    }
+
+    .navbar-nav
+    {
+        > li
+        {
+            > a
+            {
+                color       : @white;
+                font-weight : 400;
+
+                &:hover,
+                &:focus
+                {
+                    color      : @picton-blue;
+                    box-shadow : inset 0px -3px 0px @picton-blue;
+                }
+            }
+        }
+
+        > .dropdown
+        {
+            > a
+            {
+                .caret
+                {
+                    border-top-color    : @white;
+                    border-bottom-color : @white;
+                }
+
+                &:hover,
+                &:focus
+                {
+                    .caret
+                    {
+                        border-top-color    : @picton-blue;
+                        border-bottom-color : @picton-blue;
+                    }
+                }
+            }
+        }
+
+        // Remove background color from open dropdown
+        > .open > a
+        {
+            &,
+            &:hover,
+            &:focus
+            {
+                color : @picton-blue;
+
+                .caret
+                {
+                    border-top-color    : @picton-blue;
+                    border-bottom-color : @picton-blue;
+                }
+            }
+        }
+    }
+}

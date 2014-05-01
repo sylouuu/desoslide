@@ -1,0 +1,61 @@
+@import '../../vendor/bootstrap/variables.less';
+@import '../../vendor/bootstrap/mixins.less';
+@import '../../vendor/flat-ui/variables.less';
+@import '../../vendor/flat-ui/mixins.less';
+@import '../components/variables.less';
+@import '../components/mixins.less';
+@import '../components/fonts.less';
+@import '../layouts/header.less';
+@import '../layouts/body.less';
+@import '../layouts/footer.less';
+@import '../components/modules/navbar.less';
+@import '../components/modules/button.less';
+@import '../components/modules/jumbotron.less';
+
+.navbar-default
+{
+    background-color : transparent;
+
+    .navbar-nav
+    {
+        > li
+        {
+            > a
+            {
+
+                &:hover,
+                &:focus
+                {
+                    box-shadow : none;
+                }
+            }
+        }
+    }
+
+    @media (min-width : @screen-sm)
+    {
+        position      : relative;
+        z-index       : 2;
+        top           : 55px;
+    }
+}
+
+.jumbotron
+{
+    position : absolute;
+    top      : 0;
+    right    : 0;
+    left     : 0;
+
+    h1
+    {
+        margin      : 100px 0 40px 0;
+        line-height : 40px;
+        font-size   : 38px;
+    }
+
+    @media (min-width : @screen-md)
+    {
+        padding       : 120px 180px 100px;
+    }
+}

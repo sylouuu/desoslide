@@ -1,0 +1,23 @@
+
+.jumbotron
+{
+    background-color : @ebony-clay;
+    color            : @white;
+
+    h1
+    {
+        font-weight : 400;
+        font-size   : 50px;
+    }
+
+    .btn-primary
+    {
+        background-color : lighten(@ebony-clay, 10%);
+
+        &:hover,
+        &:focus
+        {
+            background-color : lighten(@ebony-clay, 20%);
+        }
+    }
+}
