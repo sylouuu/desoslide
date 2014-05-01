@@ -1,3 +1,5 @@
+/*jslint vars: true, white: true*/
+/*global $, jQuery, ok, test*/
 $(function() {
 
     'use strict';
@@ -228,35 +230,46 @@ $(function() {
 
     });
 
-    // player
+    // Events
     // -------------------------------------------------------------------------
 
-    var player_test1, player_test2, player_test3;
+    var events_test1, events_test2, events_test3, events_test4, events_test5;
 
     $('#image_test12').desoSlide({
         thumbs: $('#alt_thumbs').find('li > a'),
         events: {
+            onThumbClick: function() {
+                events_test1 = 'ok';
+            },
+            onImageClick: function() {
+                events_test2 = 'ok';
+            },
             onPrev: function() {
-                player_test1 = 'ok';
+                events_test3 = 'ok';
             },
             onPlay: function() {
-                player_test2 = 'ok';
+                events_test4 = 'ok';
             },
             onNext: function() {
-                player_test3 = 'ok';
+                events_test5 = 'ok';
             }
         }
     });
+
+    $('#alt_thumbs').find('li:first > a').trigger('click');
+    $('#image_test12').find('img:first').trigger('click');
 
     $('#image_test12').desoSlide('goPrev');
     $('#image_test12').desoSlide('play');
     $('#image_test12').desoSlide('goNext');
 
-    test('player methods', function() {
+    test('events', function() {
 
-        ok(player_test1 === 'ok', 'prev');
-        ok(player_test2 === 'ok', 'play');
-        ok(player_test3 === 'ok', 'next');
+        ok(events_test1 === 'ok', 'onThumbClick');
+        ok(events_test2 === 'ok', 'onImageClick');
+        ok(events_test3 === 'ok', 'onPrev');
+        ok(events_test4 === 'ok', 'onPlay');
+        ok(events_test5 === 'ok', 'onNext');
 
     });
 
