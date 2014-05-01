@@ -6,18 +6,26 @@ footer
     background-color : @ebony-clay;
     color            : @white;
 
-    p
+    a, p
     {
-        font-size : 18px;
-    }
-
-    a.btn
-    {
-        margin-bottom : 30px;
+        display     : inline-block;
+        line-height : 50px;
+        font-size   : 18px;
+        font-weight : 400;
+        color       : @white;
     }
 
     .fa
     {
         font-size : 22px;
+    }
+
+    @media (max-width : @screen-sm)
+    {
+        article,
+        article.text-right
+        {
+            text-align : center;
+        }
     }
 }
