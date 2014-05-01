@@ -238,18 +238,21 @@
         * Get thumbs data
         *
         * @param number index
-        * @return object
+        * @return object|null response
         */
         getThumbs: function (index) {
+            var response;
             if (index !== undefined) {
                 if (this._isThumbExists(index) === true) {
-                    return this.props.thumbs[index];
+                    response = this.props.thumbs[index];
                 } else {
-                    return null;
+                    response = null;
                 }
             } else {
-                return this.props.thumbs;
+                response = this.props.thumbs;
             }
+
+            return response;
         },
 
         /**
@@ -308,8 +311,6 @@
         */
         pause: function () {
             if ($(this.options.thumbs).length > 1) {
-
-                console.log(this.props.img.timer);
                 if (this.options.auto.start === true && this.props.img.timer) {
                     this.options.auto.start = false;
 
@@ -478,18 +479,22 @@
         * Is thumb exists
         *
         * @param number index
-        * @return bool
+        * @return bool response
         */
         _isThumbExists: function (index) {
+            var response;
+
             if (typeof index === 'number') {
                 if (this.props.thumbs[index] !== undefined) {
-                    return true;
+                    response = true;
                 } else {
                     this._errorHandler('error', 'The '+ index +'-indexed thumb doesn\'t exist.');
 
-                    return false;
+                    response = false;
                 }
             }
+
+            return response;
         },
 
         /**
@@ -958,7 +963,7 @@
         var args = arguments, instance, response;
 
         if (options === undefined || typeof options === 'object') {
-            // Create a plugin instance for each selected element.
+            // Create a plugin instance for each selected element
             response = this.each(function() {
                 if (!$.data(this, 'plugin_' + plugin_name)) {
                     $.data(this, 'plugin_' + plugin_name, new Plugin(this, options));
@@ -975,6 +980,7 @@
             // Invoke the speficied method on each selected element and preserve the chainability
             response = this.each(function() {
                 instance = $.data(this, 'plugin_' + plugin_name);
+
                 if (instance instanceof Plugin && typeof instance[options] === 'function') {
                     instance[options].apply(instance, Array.prototype.slice.call(args, 1));
                 }
