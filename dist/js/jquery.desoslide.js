@@ -18,7 +18,7 @@
         imageClass:         'img-responsive',   // Image class(es)
         auto: {
             load:           true,               // Preloading images
-            start:          false               // Autostarting diaporama
+            start:          false               // Autostarting slideshow
         },
         first:              0,                  // Index of the first image to show
         interval:           3000,               // Interval between each images
@@ -27,9 +27,8 @@
             name:           'fade'              // Transition effect ('fade', 'sideFade', 'sideFadeBig', 'flip', 'light', 'roll', 'rotate', 'foolish', 'swash', 'tin', 'puff', 'twister', 'random')
         },
         overlay:            'always',           // How to show overlay ('always', 'hover', 'none')
-        caption:            false,              // Show caption: use data-desoslide-caption-title attribute
         controls: {
-            enable:         true,               // Able to control by clicking (prev/pause/play/next)
+            show:           true,               // Shows the player controls (prev/pause/play/next)
             keys:           true                // Able to control by using the keyboard shortcuts (left/space/right)
         },
         events: {
@@ -319,7 +318,7 @@
                     if (this.props.controls.$wrapper) {
                         this.props.controls.$wrapper.find('a[href="#pause"]').hide().parent().find('a[href="#play"]').show();
                     }
-                    alert('pause');
+
                     // Callback
                     if (this.options.events.onPause) {
                         this.options.events.onPause();
@@ -671,8 +670,8 @@
         _addOverlay: function () {
             // Overlay needed
             if (this.options.overlay !== 'none') {
-                // Caption or controls
-                if (this.options.caption === true || this.options.controls.enable === true) {
+                // Controls
+                if (this.options.controls.show === true) {
 
                     // Main image position
                     var pos = $(this.elem).find('img').position();
@@ -718,13 +717,10 @@
                         }, 500);
                     }
 
-                    if (this.options.caption === true) {
-                        this._setCaptionTitle(this.props.thumbs[this.props.img.to_show].caption_title);
-                        this._addCaptionLink();
-                    }
+                    this._captionManagement();
                 }
 
-                if (this.options.controls.enable === true) {
+                if (this.options.controls.show === true) {
                     this._addControls();
                 }
             }
@@ -769,46 +765,39 @@
         },
 
         /**
-        * Set caption title
-        *
-        * @param string caption
+        * Caption management
         */
-        _setCaptionTitle: function (caption) {
-            if (caption !== null) {
-                this.props.img.$overlay.html('<span>'+ caption +'</span>');
-            }
-        },
+        _captionManagement: function () {
+            if (this.props.thumbs[this.props.img.to_show].caption_title !== null) {
+                this.props.img.$overlay.html('<span>'+ this.props.thumbs[this.props.img.to_show].caption_title +'</span>');
 
-        /**
-        * Add caption link
-        */
-        _addCaptionLink: function () {
-            var anchor_exists   = (this.props.img.$overlay.find('a:first').length > 0) ? true : false;
-            var href_exists     = (this.props.thumbs[this.props.img.to_show].caption_link !== null) ? true : false;
+                var anchor_exists   = (this.props.img.$overlay.find('a:first').length > 0) ? true : false;
+                var href_exists     = (this.props.thumbs[this.props.img.to_show].caption_link !== null) ? true : false;
 
-            // Anchor tag
-            var anchor = '<a href="'+ this.props.thumbs[this.props.img.to_show].caption_link +'" target="_blank"></a>';
+                // Anchor tag
+                var anchor = '<a href="'+ this.props.thumbs[this.props.img.to_show].caption_link +'" target="_blank"></a>';
 
-            if (anchor_exists === true && href_exists === true) {
-                // Updating the href
-                this.props.img.$overlay.find('a:first').attr('href', this.props.thumbs[this.props.img.to_show].caption_link);
-            } else {
-                // Anchor already exists but no caption title to show
-                if (anchor_exists === true && href_exists === false) {
-                    var
-                        $link = this.props.img.$overlay.find('a:first'),
-                        $clone = $link.children().clone(),
-                        $parent = $link.parent();
-
-                        $link.remove();
-                        $clone.appendTo($parent);
-
-                        // Removing existing caption title
-                        this.props.img.$overlay.find('span:first').empty();
+                if (anchor_exists === true && href_exists === true) {
+                    // Updating the href
+                    this.props.img.$overlay.find('a:first').attr('href', this.props.thumbs[this.props.img.to_show].caption_link);
                 } else {
-                    if (anchor_exists === false && href_exists === true) {
-                        // Wrapping the caption
-                        $(this.elem).find('.'+ this._namespace +'-overlay span:first').wrap(anchor);
+                    // Anchor already exists but no caption title to show
+                    if (anchor_exists === true && href_exists === false) {
+                        var
+                            $link = this.props.img.$overlay.find('a:first'),
+                            $clone = $link.children().clone(),
+                            $parent = $link.parent();
+
+                            $link.remove();
+                            $clone.appendTo($parent);
+
+                            // Removing existing caption title
+                            this.props.img.$overlay.find('span:first').empty();
+                    } else {
+                        if (anchor_exists === false && href_exists === true) {
+                            // Wrapping the caption
+                            $(this.elem).find('.'+ this._namespace +'-overlay span:first').wrap(anchor);
+                        }
                     }
                 }
             }
@@ -878,7 +867,7 @@
                 });
             }
 
-            if (this.options.controls.enable === true && this.options.controls.keys === true) {
+            if (this.options.controls.keys === true) {
                 // Keys binder
                 $(document).on('keydown', function(e) {
                     switch(e.which) {
