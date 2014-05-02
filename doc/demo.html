@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="assets/css/app/main.css" />
     <link rel="stylesheet" href="assets/css/app/views/demo.css" />
 
-    <link rel="stylesheet" href="assets/css/magic.min.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/vendor/magic/magic.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/animate/animate.min.css">
 
     <link rel="stylesheet" href="../dist/css/jquery.desoslide.css">
 
@@ -104,13 +104,13 @@
             <div class="row">
 
                 <!-- Result 1 -->
-                <article class="col-lg-8 col-md-7">
+                <article class="col-lg-8 col-md-8">
                     <h4>Result</h4>
 
                     <div class="row">
 
-                        <div class="col-md-2 col-lg-2">
-                            <ul id="demo1_thumbs" class="list-inline">
+                        <div class="col-lg-2 col-md-3">
+                            <ul id="demo1_thumbs" class="desoslide-thumbs-vertical">
                                 <li>
                                     <a href="assets/img/demos/demo1/bird.jpg">
                                         <img src="assets/img/demos/demo1/bird_thumb.jpg"
@@ -144,12 +144,12 @@
                             </ul>
                         </div>
 
-                        <div id="demo1_image" class="col-md-10 col-lg-10"></div>
+                        <div id="demo1_image" class="col-lg-10 col-md-9"></div>
                     </div>
                 </article>
 
                 <!-- Code 1 -->
-                <article class="col-lg-4 col-md-5">
+                <article class="col-lg-4 col-md-4">
                     <h4>Code</h4>
 <pre><code>$('#demo1_thumbs').desoSlide({
     main: {
@@ -171,15 +171,14 @@
             <div class="row">
 
                 <!-- Result 2 -->
-                <article class="col-lg-8 col-md-7">
+                <article class="col-lg-7 col-md-7">
                     <h4>Result</h4>
 
                     <div class="row">
+                        <div id="demo2_image" class="col-lg-11 col-md-10"></div>
 
-                        <div id="demo2_image" class="col-md-10 col-lg-10"></div>
-
-                        <div class="col-md-2 col-lg-2">
-                            <ul id="demo2_thumbs" class="list-unstyled">
+                        <div class="col-lg-1 col-md-2">
+                            <ul id="demo2_thumbs" class="desoslide-thumbs-vertical">
                                 <li>
                                     <a href="assets/img/demos/demo2/city.jpg">
                                         <img src="assets/img/demos/demo2/city_thumb.jpg" alt="city">
@@ -206,7 +205,7 @@
                 </article>
 
                 <!-- Code 2 -->
-                <article class="col-lg-4 col-md-5">
+                <article class="col-lg-offset-1 col-md-offset-1 col-lg-4 col-md-4">
                     <h4>Code</h4>
 <pre><code>$('#demo2_thumbs').desoSlide({
     main: {
@@ -235,47 +234,47 @@
             <div class="row">
 
                 <!-- Result 3 -->
-                <article class="col-lg-8 col-md-7">
+                <article class="col-lg-8 col-md-8">
                     <h4>Result</h4>
 
                     <div class="row">
+                        <div id="demo3_image" class="col-lg-12"></div>
+                    </div>
 
-                        <div class="row">
-                            <div class="col-lg-12 text-center">
-                                <div id="demo3_image" class="inline-block"></div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-12 text-center">
-                                <ul id="demo3_thumbs" class="list-inline">
-                                    <li>
-                                        <a href="assets/img/demos/demo3/tortoise.jpg"><img
-                                                src="assets/img/demos/demo3/tortoise_thumb.jpg" alt="tortoise"
-                                                data-desoslide-caption="A tortoise"></a>
-                                    </li>
-                                    <li>
-                                        <a href="assets/img/demos/demo3/tiger.jpg"><img src="assets/img/demos/demo3/tiger_thumb.jpg"
-                                                                                        alt="tiger" data-desoslide-caption="A tiger">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="assets/img/demos/demo3/lynx.jpg"><img src="assets/img/demos/demo3/lynx_thumb.jpg"
-                                                                                       alt="lynx" data-desoslide-caption="A lynx"></a>
-                                    </li>
-                                    <li>
-                                        <a href="assets/img/demos/demo3/dog.jpg"><img src="assets/img/demos/demo3/dog_thumb.jpg"
-                                                                                      alt="dog" data-desoslide-caption="A dog"></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
+                    <div class="row">
+                        <article class="col-lg-12">
+                            <ul id="demo3_thumbs" class="desoslide-thumbs-horizontal">
+                                <li>
+                                    <a href="assets/img/demos/demo3/tortoise.jpg">
+                                        <img src="assets/img/demos/demo3/tortoise_thumb.jpg" class="img-responsive"
+                                             alt="tortoise" data-desoslide-caption="A tortoise">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="assets/img/demos/demo3/tiger.jpg">
+                                        <img src="assets/img/demos/demo3/tiger_thumb.jpg" class="img-responsive"
+                                             alt="tiger" data-desoslide-caption="A tiger">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="assets/img/demos/demo3/lynx.jpg">
+                                        <img src="assets/img/demos/demo3/lynx_thumb.jpg" class="img-responsive"
+                                             alt="lynx" data-desoslide-caption="A lynx">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="assets/img/demos/demo3/dog.jpg">
+                                        <img src="assets/img/demos/demo3/dog_thumb.jpg" class="img-responsive"
+                                             alt="dog" data-desoslide-caption="A dog">
+                                    </a>
+                                </li>
+                            </ul>
+                        </article>
                     </div>
                 </article>
 
                 <!-- Code 3 -->
-                <article class="col-lg-4 col-md-5">
+                <article class="col-lg-4 col-md-4">
                     <h4>Code</h4>
 <pre><code>$('#demo3_thumbs').desoSlide({
     main: {
@@ -301,49 +300,43 @@
             <div class="row">
 
                 <!-- Result 4 -->
-                <article class="col-lg-8 col-md-7">
+                <article class="col-lg-8 col-md-8">
                     <h4>Result</h4>
 
                     <div class="row">
-
-                        <div class="row">
-                            <div class="col-lg-12 text-center">
-                                <ul id="demo4_thumbs" class="list-inline">
-                                    <li>
-                                        <a href="assets/img/demos/demo4/dolmens.jpg">
-                                            <img src="assets/img/demos/demo4/dolmens_thumb.jpg"
-                                                 alt="dolmens">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="assets/img/demos/demo4/lighthouse.jpg">
-                                            <img src="assets/img/demos/demo4/lighthouse_thumb.jpg" alt="lighthouse">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="assets/img/demos/demo4/road.jpg">
-                                            <img src="assets/img/demos/demo4/road_thumb.jpg" alt="road">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="assets/img/demos/demo4/wheat.jpg">
-                                            <img src="assets/img/demos/demo4/wheat_thumb.jpg" alt="wheat">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="col-lg-12">
+                            <ul id="demo4_thumbs" class="desoslide-thumbs-horizontal">
+                                <li>
+                                    <a href="assets/img/demos/demo4/dolmens.jpg">
+                                        <img src="assets/img/demos/demo4/dolmens_thumb.jpg" alt="dolmens">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="assets/img/demos/demo4/lighthouse.jpg">
+                                        <img src="assets/img/demos/demo4/lighthouse_thumb.jpg" alt="lighthouse">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="assets/img/demos/demo4/road.jpg">
+                                        <img src="assets/img/demos/demo4/road_thumb.jpg" alt="road">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="assets/img/demos/demo4/wheat.jpg">
+                                        <img src="assets/img/demos/demo4/wheat_thumb.jpg" alt="wheat">
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
+                    </div>
 
-                        <div class="row">
-                            <div class="col-lg-12 text-center">
-                                <div id="demo4_image" class="inline-block"></div>
-                            </div>
-                        </div>
+                    <div class="row">
+                        <div id="demo4_image" class="col-lg-12"></div>
                     </div>
                 </article>
 
                 <!-- Code 4 -->
-                <article class="col-lg-4 col-md-5">
+                <article class="col-lg-4 col-md-4">
                     <h4>Code</h4>
 <pre><code>$('#demo4_thumbs').desoSlide({
     main: {
@@ -363,7 +356,7 @@
                 </article>
             </div>
 
-            <!-- Demo 5 -->
+            <!-- Demo more -->
             <h3 class="page-header">
                 <span class="label label-primary">+</span> More examples ?
             </h3>
