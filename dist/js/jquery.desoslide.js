@@ -848,20 +848,22 @@
             });
 
             // Hover on overlay
-            if (this.options.overlay === 'hover' && self.props.img.$overlay !== null && self.props.img.$overlay.length > 0) {
-                $(this.elem).find('img:first').on({
-                    mouseover: function() {
+            $(this.elem).find('.'+ this._namespace +'-wrapper').on({
+                mouseover: function() {
+                    if (self.options.overlay === 'hover' && self.props.img.$overlay !== null) {
                         self.props.img.$overlay.stop().animate({
                             opacity: 0.7
                         }, 400);
-                    },
-                    mouseleave: function() {
+                    }
+                },
+                mouseleave: function() {
+                    if (self.options.overlay === 'hover' && self.props.img.$overlay !== null) {
                         self.props.img.$overlay.stop().animate({
                             opacity: 0
                         }, 400);
                     }
-                });
-            }
+                }
+            });
 
             if (this.options.controls.keys === true) {
                 // Keys binder
