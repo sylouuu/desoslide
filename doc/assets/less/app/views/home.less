@@ -44,7 +44,7 @@
 {
     margin-top     : -53px;
     padding-top    : 55px;
-    padding-bottom : 170px;
+    padding-bottom : 120px;
 
     h1
     {
@@ -83,6 +83,17 @@
     article
     {
         padding : 40px;
+    }
+
+    @media (max-width  : @screen-sm)
+    {
+        padding-top    : 120px;
+        padding-bottom : 120px;
+
+        p
+        {
+            text-align : center;
+        }
     }
 }
 
@@ -151,5 +162,26 @@
     {
         border-color     : @ebony-clay;
         background-color : @brand-danger;
+    }
+
+    @media (max-width : @screen-md)
+    {
+        top           : -85px;
+        width         : 170px;
+        height        : 170px;
+        margin-left   : -85px;
+        padding       : 38px 10px 10px;
+        border        : 10px solid;
+
+        .section-icon
+        {
+            font-size : 55px;
+        }
+
+        .section-text
+        {
+            margin    : 5px 0 0;
+            font-size : 20px;
+        }
     }
 }
