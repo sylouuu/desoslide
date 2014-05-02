@@ -56,15 +56,19 @@
             transition    : border .25s linear, opacity .25s linear;
         }
 
-        &:hover,
-        &:focus
+        > li
         {
-            img
+            &:hover,
+            &:focus
             {
-                border-color : @brand-danger;
-                opacity      : .8;
+                img
+                {
+                    border-color : @brand-danger;
+                    opacity      : .8;
+                }
             }
         }
+
     }
 
     .desoslide-thumbs-vertical
@@ -73,7 +77,7 @@
 
         > li
         {
-            margin     : 20px 0;
+            margin : 20px 0;
 
             @media (max-width : @screen-md)
             {
@@ -101,7 +105,7 @@
             margin       : 20px 0;
             padding-left : 20px;
 
-            @media(min-width: @screen-md)
+            @media (min-width : @screen-md)
             {
                 &:first-child
                 {
@@ -117,9 +121,9 @@
     {
         .desoslide-wrapper
         {
-            @media(min-width: @screen-md)
+            @media (min-width : @screen-md)
             {
-                margin-left : 0;
+                margin-left   : 0;
             }
         }
     }
