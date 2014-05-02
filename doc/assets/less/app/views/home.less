@@ -15,8 +15,6 @@
 
 .navbar-default
 {
-    border-bottom : none;
-
     .navbar-nav
     {
         > li
@@ -38,18 +36,20 @@
         position      : relative;
         z-index       : 2;
         top           : 55px;
+        border-bottom : none;
     }
 }
 
 .jumbotron
 {
     margin-top     : -53px;
-    padding-top    : 80px;
+    padding-top    : 55px;
     padding-bottom : 170px;
 
     h1
     {
-        margin : 100px 0 40px 0;
+        line-height : 1.35em;
+        margin      : 100px 0 40px 0;
     }
 
     @media (max-width : @screen-xs)
