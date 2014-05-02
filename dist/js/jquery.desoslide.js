@@ -14,38 +14,38 @@
     var plugin_name = 'desoSlide',
     // Default options
     defaults = {
-        thumbs:         null,             // Any selector with `<a>` as a target
-        imageClass:     'img-responsive',
+        thumbs:             null,               // Any selector with `<a>` as a target
+        imageClass:         'img-responsive',   // Image class(es)
         auto: {
-            load:       true,             // Preloading images
-            start:      false             // Autostarting diaporama
+            load:           true,               // Preloading images
+            start:          false               // Autostarting diaporama
         },
-        first:          0,                // Index of the first image to show
-        interval:       3000,             // Interval between each images
+        first:              0,                  // Index of the first image to show
+        interval:           3000,               // Interval between each images
         effect: {
-            provider:   'animate',        // Effect provider ('animate', 'magic')
-            name:       'fade'            // Transition effect ('fade', 'sideFade', 'sideFadeBig', 'flip', 'light', 'roll', 'rotate', 'foolish', 'swash', 'tin', 'puff', 'twister', 'random')
+            provider:       'animate',          // Effect provider ('animate', 'magic')
+            name:           'fade'              // Transition effect ('fade', 'sideFade', 'sideFadeBig', 'flip', 'light', 'roll', 'rotate', 'foolish', 'swash', 'tin', 'puff', 'twister', 'random')
         },
-        overlay:        'always',         // How to show overlay ('always', 'hover', 'none')
-        caption:        false,            // Show caption: use data-desoslide-caption-title attribute
+        overlay:            'always',           // How to show overlay ('always', 'hover', 'none')
+        caption:            false,              // Show caption: use data-desoslide-caption-title attribute
         controls: {
-            enable:     true,             // Able to control by clicking (prev/pause/play/next)
-            keys:       true              // Able to control by using the keyboard shortcuts (left/space/right)
+            enable:         true,               // Able to control by clicking (prev/pause/play/next)
+            keys:           true                // Able to control by using the keyboard shortcuts (left/space/right)
         },
         events: {
-            onThumbClick:   null,         // On thumb click
-            onImageShow:    null,         // On image show
-            onImageShown:   null,         // On image shown
-            onImageHide:    null,         // On image hide
-            onImageHidden:  null,         // On image hidden
-            onImageClick:   null,         // On image click
-            onPrev:         null,         // On previous
-            onPause:        null,         // On pause
-            onPlay:         null,         // On play
-            onNext:         null,         // On next
-            onError:        null,         // On error
-            onWarning:      null,         // On warning
-            onSuccess:      null          // On success
+            onThumbClick:   null,               // On thumb click
+            onImageShow:    null,               // On image show
+            onImageShown:   null,               // On image shown
+            onImageHide:    null,               // On image hide
+            onImageHidden:  null,               // On image hidden
+            onImageClick:   null,               // On image click
+            onPrev:         null,               // On previous
+            onPause:        null,               // On pause
+            onPlay:         null,               // On play
+            onNext:         null,               // On next
+            onError:        null,               // On error
+            onWarning:      null,               // On warning
+            onSuccess:      null                // On success
         }
     };
 
