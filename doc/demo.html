@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="Build powerful slideshow with desoSlide, a jQuery plugin" />
+    <meta name="description" content="Examples of desoSlide jQuery plugin" />
     <meta name="author" content="Sylvain, Jaoued" />
     <meta name="copyright" content="DesoSlide jQuery plugin is open source, under the MIT license" />
 
@@ -45,7 +45,9 @@
                     <span class="sr-only">Toggle navigation</span>
                     <i class="fa fa-align-justify"></i>
                 </button>
-                <a class="navbar-brand" href="../">desoSlide</a>
+                <a class="navbar-brand" href="../">
+                    <span class="brand-deso">deso</span><span class="brand-slide">Slide</span>
+                </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -79,391 +81,334 @@
         </div>
     </section>
 
+    <!-- Breadcrumb section -->
     <section class="section-breadcrumb">
         <div class="container">
             <div class="row">
                 <p>
-                    Please refer to the <a href="documentation.html">documentation</a> for installation instructions.
+                    For installation instructions, refer to the <a href="documentation.html">documentation</a>.
                 </p>
             </div>
         </div>
     </section>
 
-<div class="container">
+    <!-- Demo section -->
+    <section class="section-demo">
+        <div class="container">
 
+            <!-- Demo 1 -->
+            <h3 class="page-header">
+                <span class="label label-primary">1</span> Default options, with caption
+            </h3>
 
-<!-- [BEGIN] DEMO #1 -->
-<div class="row">
-    <div class="col-lg-12">
-        <div class="page-header no-mg-tp">
-            <h3>#1</h3>
-        </div>
-        <p class="lead">
-            Default options, with caption.
-        </p>
-    </div>
-</div>
+            <div class="row">
 
-<div class="row">
-    <div class="col-lg-3">
-        <h5>Result</h5>
-    </div>
-    <div class="col-lg-9">
+                <!-- Result 1 -->
+                <article class="col-lg-8 col-md-7">
+                    <h4>Result</h4>
 
-        <div class="row">
+                    <div class="row">
 
-            <div class="col-md-2 col-lg-2">
-                <ul id="demo1_thumbs" class="list-inline">
-                    <li>
-                        <a href="assets/img/demos/demo1/bird.jpg">
-                            <img src="assets/img/demos/demo1/bird_thumb.jpg"
-                                 alt="Bird"
-                                 data-desoslide-caption="A bird, click me to open http://chez-syl.fr/"
-                                 data-desoslide-href="http://chez-syl.fr/"></a>
-                    </li>
-                    <li>
-                        <a href="assets/img/demos/demo1/flower.jpg">
-                            <img src="assets/img/demos/demo1/flower_thumb.jpg"
-                                 alt="Flower"
-                                 data-desoslide-caption="A flower, click me to open README.md file"
-                                 data-desoslide-href="README.md"></a>
-                    </li>
-                    <li>
-                        <a href="assets/img/demos/demo1/butterfly.jpg">
-                            <img src="assets/img/demos/demo1/butterfly_thumb.jpg" alt="Butterfly"
-                                 data-desoslide-caption="A butterfly, click me to open LICENSE.md file"
-                                 data-desoslide-href="LICENSE.md"></a>
-                    </li>
-                    <li>
-                        <a href="assets/img/demos/demo1/rose.jpg">
-                            <img src="assets/img/demos/demo1/rose_thumb.jpg"
-                                 alt="Rose"
-                                 data-desoslide-caption="A rose, you can't click me, got no link">
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                        <div class="col-md-2 col-lg-2">
+                            <ul id="demo1_thumbs" class="list-inline">
+                                <li>
+                                    <a href="assets/img/demos/demo1/bird.jpg">
+                                        <img src="assets/img/demos/demo1/bird_thumb.jpg"
+                                             alt="Bird"
+                                             data-desoslide-caption="A bird, click me to open http://chez-syl.fr/"
+                                             data-desoslide-href="http://chez-syl.fr/">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="assets/img/demos/demo1/flower.jpg">
+                                        <img src="assets/img/demos/demo1/flower_thumb.jpg"
+                                             alt="Flower"
+                                             data-desoslide-caption="A flower, click me to open README.md file"
+                                             data-desoslide-href="README.md">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="assets/img/demos/demo1/butterfly.jpg">
+                                        <img src="assets/img/demos/demo1/butterfly_thumb.jpg" alt="Butterfly"
+                                             data-desoslide-caption="A butterfly, click me to open LICENSE.md file"
+                                             data-desoslide-href="LICENSE.md">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="assets/img/demos/demo1/rose.jpg">
+                                        <img src="assets/img/demos/demo1/rose_thumb.jpg"
+                                             alt="Rose"
+                                             data-desoslide-caption="A rose, you can't click me, got no link">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
 
-            <div id="demo1_image" class="col-md-10 col-lg-10"></div>
-        </div>
-    </div>
-</div>
+                        <div id="demo1_image" class="col-md-10 col-lg-10"></div>
+                    </div>
+                </article>
 
-<div class="row">
-
-    <div class="col-lg-3">
-        <h5>Code</h5>
-    </div>
-
-    <br>
-
-    <div class="col-lg-9">
+                <!-- Code 1 -->
+                <article class="col-lg-4 col-md-5">
+                    <h4>Code</h4>
 <pre><code>$('#demo1_thumbs').desoSlide({
-           main: {
-           container: '#demo1_main_image',
-           cssClass: 'img-responsive'
-           },
-           caption: true
-           });
-</code></pre>
-    </div>
-</div>
-<!-- [END] DEMO #1 -->
-
-<!-- [BEGIN] DEMO #2 -->
-<div class="row">
-    <div class="col-lg-12">
-        <div class="page-header">
-            <h3>#2</h3>
-        </div>
-        <p class="lead">
-            Autostarting, displaying the second image at loading. No link and no keys. Just standard controls.
-        </p>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-lg-3">
-        <h5>Result</h5>
-    </div>
-    <div class="col-lg-9">
-
-        <div class="row">
-
-            <div class="col-md-2 col-lg-2">
-                <ul id="demo2_thumbs" class="list-unstyled">
-                    <li>
-                        <a href="assets/img/demos/demo2/city.jpg"><img src="assets/img/demos/demo2/city_thumb.jpg"
-                                                                       alt="city"></a>
-                    </li>
-                    <li>
-                        <a href="assets/img/demos/demo2/building.jpg"><img
-                                src="assets/img/demos/demo2/building_thumb.jpg" alt="building"></a>
-                    </li>
-                    <li>
-                        <a href="assets/img/demos/demo2/eiffel.jpg"><img src="assets/img/demos/demo2/eiffel_thumb.jpg"
-                                                                         alt="eiffel"></a>
-                    </li>
-                    <li>
-                        <a href="assets/img/demos/demo2/bridge.jpg"><img src="assets/img/demos/demo2/bridge_thumb.jpg"
-                                                                         alt="bridge"></a>
-                    </li>
-                </ul>
+    main: {
+        container: '#demo1_main_image',
+        cssClass: 'img-responsive'
+    },
+    caption: true
+});</code></pre>
+                </article>
             </div>
 
-            <div id="demo2_image" class="col-md-10 col-lg-10"></div>
-        </div>
-    </div>
-</div>
+            <!-- Demo 2 -->
+            <h3 class="page-header">
+                <span class="label label-primary">2</span> Autostarting, displaying the second image at loading
+            </h3>
 
-<div class="row">
+            <p>No link and no keys. Just standard controls.</p>
 
-    <div class="col-lg-3">
-        <h5>Code</h5>
-    </div>
+            <div class="row">
 
-    <br>
+                <!-- Result 2 -->
+                <article class="col-lg-8 col-md-7">
+                    <h4>Result</h4>
 
-    <div class="col-lg-9">
+                    <div class="row">
+
+                        <div id="demo2_image" class="col-md-10 col-lg-10"></div>
+
+                        <div class="col-md-2 col-lg-2">
+                            <ul id="demo2_thumbs" class="list-unstyled">
+                                <li>
+                                    <a href="assets/img/demos/demo2/city.jpg">
+                                        <img src="assets/img/demos/demo2/city_thumb.jpg" alt="city">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="assets/img/demos/demo2/building.jpg">
+                                        <img src="assets/img/demos/demo2/building_thumb.jpg" alt="building">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="assets/img/demos/demo2/eiffel.jpg">
+                                        <img src="assets/img/demos/demo2/eiffel_thumb.jpg" alt="eiffel">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="assets/img/demos/demo2/bridge.jpg">
+                                        <img src="assets/img/demos/demo2/bridge_thumb.jpg" alt="bridge">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Code 2 -->
+                <article class="col-lg-4 col-md-5">
+                    <h4>Code</h4>
 <pre><code>$('#demo2_thumbs').desoSlide({
-           main: {
-           container: '#demo2_main_image',
-           cssClass: 'img-responsive'
-           },
-           auto: {
-           start: true
-           },
-           first: 1,
-           effect: 'sideFade',
-           controls: {
-           keys: false
-           }
-           });
-</code></pre>
-    </div>
-</div>
-<!-- [END] DEMO #2 -->
-
-<!-- [BEGIN] DEMO #3 -->
-<div class="row">
-    <div class="col-lg-12">
-        <div class="page-header">
-            <h3>#3</h3>
-        </div>
-        <p class="lead">
-            Displaying the overlay by hovering the main image. No link provided and no controls.
-        </p>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-lg-3">
-        <h5>Result</h5>
-    </div>
-    <div class="col-lg-9">
-
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div id="demo3_image" class="inline-block"></div>
+    main: {
+        container: '#demo2_main_image',
+        cssClass: 'img-responsive'
+    },
+    auto: {
+        start: true
+    },
+    first: 1,
+    effect: 'sideFade',
+    controls: {
+        keys: false
+    }
+});</code></pre>
+                </article>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <ul id="demo3_thumbs" class="list-inline">
-                    <li>
-                        <a href="assets/img/demos/demo3/tortoise.jpg"><img
-                                src="assets/img/demos/demo3/tortoise_thumb.jpg" alt="tortoise"
-                                data-desoslide-caption="A tortoise"></a>
-                    </li>
-                    <li>
-                        <a href="assets/img/demos/demo3/tiger.jpg"><img src="assets/img/demos/demo3/tiger_thumb.jpg"
-                                                                        alt="tiger" data-desoslide-caption="A tiger">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="assets/img/demos/demo3/lynx.jpg"><img src="assets/img/demos/demo3/lynx_thumb.jpg"
-                                                                       alt="lynx" data-desoslide-caption="A lynx"></a>
-                    </li>
-                    <li>
-                        <a href="assets/img/demos/demo3/dog.jpg"><img src="assets/img/demos/demo3/dog_thumb.jpg"
-                                                                      alt="dog" data-desoslide-caption="A dog"></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+            <!-- Demo 3 -->
+            <h3 class="page-header">
+                <span class="label label-primary">3</span> Displaying the overlay by hovering the main image
+            </h3>
 
-<div class="row">
+            <p>No link provided and no controls.</p>
 
-    <div class="col-lg-3">
-        <h5>Code</h5>
-    </div>
+            <div class="row">
 
-    <br>
+                <!-- Result 3 -->
+                <article class="col-lg-8 col-md-7">
+                    <h4>Result</h4>
 
-    <div class="col-lg-9">
+                    <div class="row">
+
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <div id="demo3_image" class="inline-block"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <ul id="demo3_thumbs" class="list-inline">
+                                    <li>
+                                        <a href="assets/img/demos/demo3/tortoise.jpg"><img
+                                                src="assets/img/demos/demo3/tortoise_thumb.jpg" alt="tortoise"
+                                                data-desoslide-caption="A tortoise"></a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo3/tiger.jpg"><img src="assets/img/demos/demo3/tiger_thumb.jpg"
+                                                                                        alt="tiger" data-desoslide-caption="A tiger">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo3/lynx.jpg"><img src="assets/img/demos/demo3/lynx_thumb.jpg"
+                                                                                       alt="lynx" data-desoslide-caption="A lynx"></a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo3/dog.jpg"><img src="assets/img/demos/demo3/dog_thumb.jpg"
+                                                                                      alt="dog" data-desoslide-caption="A dog"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+                <!-- Code 3 -->
+                <article class="col-lg-4 col-md-5">
+                    <h4>Code</h4>
 <pre><code>$('#demo3_thumbs').desoSlide({
-           main: {
-           container: '#demo3_main_image',
-           cssClass: 'img-responsive'
-           },
-           effect: 'flip',
-           overlay: 'hover',
-           caption: true,
-           controls: {
-           enable: false,
-           keys: false
-           }
-           });
-</code></pre>
-    </div>
-</div>
-<!-- [END] DEMO #3 -->
-
-<!-- [BEGIN] DEMO #4 -->
-<div class="row">
-    <div class="col-lg-12">
-        <div class="page-header">
-            <h3>#4</h3>
-        </div>
-        <p class="lead">
-            Autoloading. Hiding the overlay.
-        </p>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-lg-3">
-        <h5>Result</h5>
-    </div>
-    <div class="col-lg-9">
-
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <ul id="demo4_thumbs" class="list-inline">
-                    <li>
-                        <a href="assets/img/demos/demo4/dolmens.jpg">
-                            <img src="assets/img/demos/demo4/dolmens_thumb.jpg"
-                                 alt="dolmens">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="assets/img/demos/demo4/lighthouse.jpg">
-                            <img src="assets/img/demos/demo4/lighthouse_thumb.jpg" alt="lighthouse">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="assets/img/demos/demo4/road.jpg">
-                            <img src="assets/img/demos/demo4/road_thumb.jpg" alt="road">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="assets/img/demos/demo4/wheat.jpg">
-                            <img src="assets/img/demos/demo4/wheat_thumb.jpg" alt="wheat">
-                        </a>
-                    </li>
-                </ul>
+    main: {
+        container: '#demo3_main_image',
+        cssClass: 'img-responsive'
+    },
+    effect: 'flip',
+    overlay: 'hover',
+    caption: true,
+    controls: {
+        enable: false,
+        keys: false
+    }
+});</code></pre>
+                </article>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div id="demo4_image" class="inline-block"></div>
-            </div>
-        </div>
+            <!-- Demo 4 -->
+            <h3 class="page-header">
+                <span class="label label-primary">4</span> Autoloading, hiding the overlay
+            </h3>
 
-    </div>
-</div>
+            <div class="row">
 
-<div class="row">
+                <!-- Result 4 -->
+                <article class="col-lg-8 col-md-7">
+                    <h4>Result</h4>
 
-    <div class="col-lg-3">
-        <h5>Code</h5>
-    </div>
+                    <div class="row">
 
-    <br>
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <ul id="demo4_thumbs" class="list-inline">
+                                    <li>
+                                        <a href="assets/img/demos/demo4/dolmens.jpg">
+                                            <img src="assets/img/demos/demo4/dolmens_thumb.jpg"
+                                                 alt="dolmens">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo4/lighthouse.jpg">
+                                            <img src="assets/img/demos/demo4/lighthouse_thumb.jpg" alt="lighthouse">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo4/road.jpg">
+                                            <img src="assets/img/demos/demo4/road_thumb.jpg" alt="road">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo4/wheat.jpg">
+                                            <img src="assets/img/demos/demo4/wheat_thumb.jpg" alt="wheat">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
 
-    <div class="col-lg-9">
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <div id="demo4_image" class="inline-block"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Code 4 -->
+                <article class="col-lg-4 col-md-5">
+                    <h4>Code</h4>
 <pre><code>$('#demo4_thumbs').desoSlide({
-           main: {
-           container: '#demo4_main_image',
-           cssClass: 'img-responsive'
-           },
-           auto: {
-           start: true
-           },
-           effect: 'rotate',
-           overlay: 'none',
-           controls: {
-           enable: false,
-           keys: false
-           }
-           });
-</code></pre>
-    </div>
-</div>
-<!-- [END] DEMO #4 -->
+    main: {
+        container: '#demo4_main_image',
+        cssClass: 'img-responsive'
+    },
+    auto: {
+        start: true
+    },
+    effect: 'rotate',
+    overlay: 'none',
+    controls: {
+        enable: false,
+        keys: false
+    }
+});</code></pre>
+                </article>
+            </div>
 
-<!-- [BEGIN] MAKE YOUR OWN -->
-<div class="row">
-    <div class="col-lg-12">
-        <div class="page-header">
-            <h3>#?</h3>
+            <!-- Demo 5 -->
+            <h3 class="page-header">
+                <span class="label label-primary">+</span> More examples ?
+            </h3>
+
+            <p>Make your own slider based on all <a href="documentation.html#options">options</a> !</p>
         </div>
+    </section>
 
-        <div class="dialog dialog-inverse">
-            <div class="container">
-                <p class="no-mg-bt">Make your own slider based on all
-                    <a href="documentation.html#options">options</a>
-                                    !
-                </p>
+    <!-- Footer section -->
+    <footer>
+        <div class="container">
+            <div class="row">
+
+                <article class="col-lg-3 col-md-3 col-sm-4">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="https://github.com/sylouuu/desoslide">Contribute</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/sylouuu/desoslide/issues?state=open">Issues</a>
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="col-lg-6 col-md-6 col-sm-5 text-center">
+                    <p>
+                        <a href="demo.html" class="btn btn-danger"><i class="fa fa-arrow-up"></i></a>
+                    </p>
+                </article>
+
+                <article class="col-lg-3 col-md-3 col-sm-3 text-right">
+                    <p>&copy; 2014 desoSlide</p>
+                </article>
             </div>
         </div>
-    </div>
-</div>
+    </footer>
 
+    <script src="assets/js/vendor/jquery/jquery.js"></script>
+    <script src="assets/js/vendor/bootstrap/bootstrap.min.js"></script>
 
-</div>
+    <!--[if !IE]><!-->
+    <script src="assets/js/app/highlight.min.js"></script>
+    <!--<![endif]-->
 
-<!-- Footer section -->
-<footer>
-    <div class="container">
-        <div class="row">
-
-            <article class="col-lg-3 col-md-3 col-sm-4">
-                <ul class="list-inline">
-                    <li>
-                        <a href="https://github.com/sylouuu/desoslide">Contribute</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/sylouuu/desoslide/issues?state=open">Issues</a>
-                    </li>
-                </ul>
-            </article>
-
-            <article class="col-lg-6 col-md-6 col-sm-5 text-center">
-                <p>
-                    <a href="demo.html" class="btn btn-danger"><i class="fa fa-arrow-up"></i></a>
-                </p>
-            </article>
-
-            <article class="col-lg-3 col-md-3 col-sm-3 text-right">
-                <p>&copy; 2014 desoSlide</p>
-            </article>
-        </div>
-    </div>
-</footer>
-
-<script src="assets/js/vendor/jquery/jquery.js"></script>
-<script src="assets/js/vendor/bootstrap/bootstrap.min.js"></script>
-
-<!--[if !IE]><!-->
-<script src="assets/js/app/highlight.min.js"></script>
-<!--<![endif]-->
-
-<script src="../dist/js/jquery.desoslide.js"></script>
-<script src="assets/js/app/demo.js"></script>
+    <script src="../dist/js/jquery.desoslide.js"></script>
+    <script src="assets/js/app/demo.js"></script>
 </body>
 </html>
