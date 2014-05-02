@@ -34,11 +34,16 @@
 .desoslide-overlay a {
   color: white;
 }
+.desoslide-overlay .desoslide-caption-title {
+  display: inline-block;
+  max-width: 90%;
+  max-height: 24px;
+  font-size: 14px;
+  overflow: hidden;
+}
 .desoslide-controls {
   display: inline-block;
-  background-image: url('../img/desoslide_controls.png');
-  background-position: 0 0;
-  background-repeat: no-repeat;
+  background: url('../img/desoslide_controls.png') no-repeat 0 0;
 }
 .desoslide-controls.prev {
   width: 16px;
