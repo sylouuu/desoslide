@@ -300,6 +300,8 @@
             this.props.effect.provider  = response.provider;
             this.props.effect.name      = response.name;
 
+            console.log(response);
+
             return response;
         },
 

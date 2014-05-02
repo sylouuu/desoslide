@@ -108,13 +108,13 @@
             <div class="row">
 
                 <!-- Result 1 -->
-                <article class="col-lg-8 col-md-8">
+                <article class="col-lg-12 col-md-12">
                     <h4>Result</h4>
 
                     <div class="row">
 
                         <div class="col-lg-2 col-md-3">
-                            <ul id="demo1_thumbs" class="desoslide-thumbs-vertical">
+                            <ul id="demo1_thumbs_list1" class="desoslide-thumbs-vertical">
                                 <li>
                                     <a href="assets/img/demos/demo1/bird.jpg">
                                         <img src="assets/img/demos/demo1/bird_thumb.jpg"
@@ -148,17 +148,83 @@
                             </ul>
                         </div>
 
-                        <div id="demo1_image" class="col-lg-10 col-md-9"></div>
+                        <div id="demo1_image" class="col-lg-8 col-md-6"></div>
+
+                        <div class="col-lg-2 col-md-3">
+                            <ul id="demo1_thumbs_list2" class="desoslide-thumbs-vertical">
+                                <li>
+                                    <a href="assets/img/demos/demo1/bird.jpg">
+                                        <img src="assets/img/demos/demo1/bird_thumb.jpg"
+                                             alt="Bird"
+                                             data-desoslide-caption-title="A bird, click me to open http://chez-syl.fr/"
+                                             data-desoslide-caption-link="http://chez-syl.fr/">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="assets/img/demos/demo1/flower.jpg">
+                                        <img src="assets/img/demos/demo1/flower_thumb.jpg"
+                                             alt="Flower"
+                                             data-desoslide-caption-title="A flower, click me to open README.md file"
+                                             data-desoslide-caption-link="README.md">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="assets/img/demos/demo1/butterfly.jpg">
+                                        <img src="assets/img/demos/demo1/butterfly_thumb.jpg" alt="Butterfly"
+                                             data-desoslide-caption-title="A butterfly, click me to open LICENSE.md file"
+                                             data-desoslide-caption-link="LICENSE.md">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="assets/img/demos/demo1/rose.jpg">
+                                        <img src="assets/img/demos/demo1/rose_thumb.jpg"
+                                             alt="Rose"
+                                             data-desoslide-caption-title="A rose, you can't click me, got no link">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+                </article>
+            </div>
+
+            <div class="row">
+                <!-- Code 1 -->
+                <article class="col-lg-4 col-md-4">
+                    <h4>Choose your effect</h4>
+
+                    <form id="effect_selector_form" action="/" method="get" accept-charset="utf-8" role="form">
+
+                        <div class="form-group">
+                            <label for="effect_provider">Effect provider</label>
+
+                            <select id="effect_provider" name="provider" class="form-control">
+                                <option value="animate">animate</option>
+                                <option value="magic">magic</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="effect_name">Effect name</label>
+
+                            <select id="effect_name" name="effect" class="form-control">
+                            </select>
+                        </div>
+
+                    </form>
+
                 </article>
 
                 <!-- Code 1 -->
-                <article class="col-lg-4 col-md-4">
+                <article class="col-lg-8 col-md-8">
                     <h4>Code</h4>
-<pre><code>$('#demo1_image').desoSlide({
-    thumbs: $('#demo1_thumbs li > a')
-});
-</code></pre>
+<pre><code id="code1">$('#demo1_image').desoSlide({
+    thumbs: $('#demo1_thumbs_list1, #demo1_thumbs_list2').find('li > a'),
+    effect: {
+        provider: 'animate',
+        name: 'fade'
+    }
+});</code></pre>
                 </article>
             </div>
 
