@@ -27,7 +27,8 @@ $(function() {
         },
         overlay: 'hover',
         controls: {
-            show: false
+            show: false,
+            keys: true
         }
     });
 
@@ -41,10 +42,7 @@ $(function() {
             provider: 'magic',
             name: 'twister'
         },
-        overlay: 'none',
-        controls: {
-            show: false
-        }
+        overlay: 'none'
     });
 
 });

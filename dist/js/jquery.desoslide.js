@@ -29,7 +29,7 @@
         overlay:            'always',           // How to show overlay ('always', 'hover', 'none')
         controls: {
             show:           true,               // Shows the player controls (prev/pause/play/next)
-            keys:           true                // Able to control by using the keyboard shortcuts (left/space/right)
+            keys:           false               // Able to control by using the keyboard shortcuts (left/space/right)
         },
         events: {
             onThumbClick:   null,               // On thumb click
@@ -670,55 +670,51 @@
         _addOverlay: function () {
             // Overlay needed
             if (this.options.overlay !== 'none') {
-                // Controls
-                if (this.options.controls.show === true) {
+                // Main image position
+                var pos = $(this.elem).find('img').position();
+                var border = parseInt($(this.elem).find('img').css('border-left-width'), 10);
 
-                    // Main image position
-                    var pos = $(this.elem).find('img').position();
-                    var border = parseInt($(this.elem).find('img').css('border-left-width'), 10);
+                // Main image height
+                var width_plus_border = $(this.elem).find('img').width() + border;
+                var height_plus_border = $(this.elem).find('img').height() + border;
 
-                    // Main image height
-                    var width_plus_border = $(this.elem).find('img').width() + border;
-                    var height_plus_border = $(this.elem).find('img').height() + border;
-
-                    if ($(this.elem).find('.'+ this._namespace +'-overlay').length === 0) {
-                        $('<div>', {
-                            'class': this._namespace +'-overlay'
-                        }).appendTo($(this.elem).find('.'+ this._namespace +'-wrapper'));
-                    }
-
-                    this.props.img.$overlay = $(this.elem).find('.'+ this._namespace +'-overlay');
-
-                    // Calculate new height with paddings
-                    var
-                        paddingTop      = parseInt(this.props.img.$overlay.css('padding-top').replace('px', ''), 10),
-                        paddingBottom   = parseInt(this.props.img.$overlay.css('padding-bottom').replace('px', ''), 10),
-                        paddingLeft     = parseInt(this.props.img.$overlay.css('padding-left').replace('px', ''), 10),
-                        paddingRight    = parseInt(this.props.img.$overlay.css('padding-right').replace('px', ''), 10);
-
-                    var overlayHeight = parseInt(this.props.img.$overlay.css('height').replace('px', ''), 10) - (paddingLeft + paddingRight);
-                    overlayHeight = (parseInt(height_plus_border, 10) - overlayHeight - (paddingTop + paddingBottom));
-
-                    var
-                        top = pos.top + overlayHeight,
-                        left = pos.left;
-
-                    // Update the overlay position
-                    this.props.img.$overlay.css({
-                        'left':  left +'px',
-                        'top':   top +'px',
-                        'width': width_plus_border +'px'
-                    });
-
-                    // Showing the overlay if needed
-                    if (this.options.overlay === 'always') {
-                        this.props.img.$overlay.animate({
-                            opacity: 0.7
-                        }, 500);
-                    }
-
-                    this._captionManagement();
+                if ($(this.elem).find('.'+ this._namespace +'-overlay').length === 0) {
+                    $('<div>', {
+                        'class': this._namespace +'-overlay'
+                    }).appendTo($(this.elem).find('.'+ this._namespace +'-wrapper'));
                 }
+
+                this.props.img.$overlay = $(this.elem).find('.'+ this._namespace +'-overlay');
+
+                // Calculate new height with paddings
+                var
+                    paddingTop      = parseInt(this.props.img.$overlay.css('padding-top').replace('px', ''), 10),
+                    paddingBottom   = parseInt(this.props.img.$overlay.css('padding-bottom').replace('px', ''), 10),
+                    paddingLeft     = parseInt(this.props.img.$overlay.css('padding-left').replace('px', ''), 10),
+                    paddingRight    = parseInt(this.props.img.$overlay.css('padding-right').replace('px', ''), 10);
+
+                var overlayHeight = parseInt(this.props.img.$overlay.css('height').replace('px', ''), 10) - (paddingLeft + paddingRight);
+                overlayHeight = (parseInt(height_plus_border, 10) - overlayHeight - (paddingTop + paddingBottom));
+
+                var
+                    top = pos.top + overlayHeight,
+                    left = pos.left;
+
+                // Update the overlay position
+                this.props.img.$overlay.css({
+                    'left':  left +'px',
+                    'top':   top +'px',
+                    'width': width_plus_border +'px'
+                });
+
+                // Showing the overlay if needed
+                if (this.options.overlay === 'always') {
+                    this.props.img.$overlay.animate({
+                        opacity: 0.7
+                    }, 500);
+                }
+
+                this._captionManagement();
 
                 if (this.options.controls.show === true) {
                     this._addControls();
@@ -769,7 +765,7 @@
         */
         _captionManagement: function () {
             if (this.props.thumbs[this.props.img.to_show].caption_title !== null) {
-                this.props.img.$overlay.html('<span>'+ this.props.thumbs[this.props.img.to_show].caption_title +'</span>');
+                this.props.img.$overlay.html('<span class="'+ this._namespace +'-caption-title">'+ this.props.thumbs[this.props.img.to_show].caption_title +'</span>');
 
                 var anchor_exists   = (this.props.img.$overlay.find('a:first').length > 0) ? true : false;
                 var href_exists     = (this.props.thumbs[this.props.img.to_show].caption_link !== null) ? true : false;
