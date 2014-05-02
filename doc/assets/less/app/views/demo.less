@@ -16,10 +16,33 @@
 
 .section-demo
 {
-    .label
+    .page-header
     {
-        padding       : 0.2em 0.6em;
-        border-radius : 1em;
+        position : relative;
+
+        .label
+        {
+            padding       : 0.2em 0.6em;
+            border-radius : 1em;
+        }
+
+        @media (max-width : @screen-md)
+        {
+            text-align    : center;
+            font-size     : 32px;
+
+            .label
+            {
+                position    : absolute;
+                left        : 50%;
+                top         : -60px;
+                height      : 54px;
+                width       : 54px;
+                margin-left : -27px;
+                padding-top : 11px;
+                font-size   : 30px;
+            }
+        }
     }
 
     .desoslide-wrapper
