@@ -119,30 +119,30 @@
                                     <a href="assets/img/demos/demo1/bird.jpg">
                                         <img src="assets/img/demos/demo1/bird_thumb.jpg"
                                              alt="Bird"
-                                             data-desoslide-caption="A bird, click me to open http://chez-syl.fr/"
-                                             data-desoslide-href="http://chez-syl.fr/">
+                                             data-desoslide-caption-title="A bird, click me to open http://chez-syl.fr/"
+                                             data-desoslide-caption-link="http://chez-syl.fr/">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="assets/img/demos/demo1/flower.jpg">
                                         <img src="assets/img/demos/demo1/flower_thumb.jpg"
                                              alt="Flower"
-                                             data-desoslide-caption="A flower, click me to open README.md file"
-                                             data-desoslide-href="README.md">
+                                             data-desoslide-caption-title="A flower, click me to open README.md file"
+                                             data-desoslide-caption-link="README.md">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="assets/img/demos/demo1/butterfly.jpg">
                                         <img src="assets/img/demos/demo1/butterfly_thumb.jpg" alt="Butterfly"
-                                             data-desoslide-caption="A butterfly, click me to open LICENSE.md file"
-                                             data-desoslide-href="LICENSE.md">
+                                             data-desoslide-caption-title="A butterfly, click me to open LICENSE.md file"
+                                             data-desoslide-caption-link="LICENSE.md">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="assets/img/demos/demo1/rose.jpg">
                                         <img src="assets/img/demos/demo1/rose_thumb.jpg"
                                              alt="Rose"
-                                             data-desoslide-caption="A rose, you can't click me, got no link">
+                                             data-desoslide-caption-title="A rose, you can't click me, got no link">
                                     </a>
                                 </li>
                             </ul>
@@ -155,13 +155,10 @@
                 <!-- Code 1 -->
                 <article class="col-lg-4 col-md-4">
                     <h4>Code</h4>
-<pre><code>$('#demo1_thumbs').desoSlide({
-    main: {
-        container: '#demo1_main_image',
-        cssClass: 'img-responsive'
-    },
-    caption: true
-});</code></pre>
+<pre><code>$('#demo1_image').desoSlide({
+    thumbs: $('#demo1_thumbs li > a')
+});
+</code></pre>
                 </article>
             </div>
 
@@ -211,18 +208,15 @@
                 <!-- Code 2 -->
                 <article class="col-lg-offset-1 col-md-offset-1 col-lg-4 col-md-4">
                     <h4>Code</h4>
-<pre><code>$('#demo2_thumbs').desoSlide({
-    main: {
-        container: '#demo2_main_image',
-        cssClass: 'img-responsive'
-    },
+<pre><code>$('#demo2_image').desoSlide({
+    thumbs: $('#demo2_thumbs li > a'),
     auto: {
         start: true
     },
     first: 1,
-    effect: 'sideFade',
-    controls: {
-        keys: false
+    effect: {
+        provider: 'magic',
+        name: 'tin'
     }
 });</code></pre>
                 </article>
@@ -251,25 +245,25 @@
                                 <li>
                                     <a href="assets/img/demos/demo3/tortoise.jpg">
                                         <img src="assets/img/demos/demo3/tortoise_thumb.jpg" class="img-responsive"
-                                             alt="tortoise" data-desoslide-caption="A tortoise">
+                                             alt="tortoise" data-desoslide-caption-title="A tortoise">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="assets/img/demos/demo3/tiger.jpg">
                                         <img src="assets/img/demos/demo3/tiger_thumb.jpg" class="img-responsive"
-                                             alt="tiger" data-desoslide-caption="A tiger">
+                                             alt="tiger" data-desoslide-caption-title="A tiger">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="assets/img/demos/demo3/lynx.jpg">
                                         <img src="assets/img/demos/demo3/lynx_thumb.jpg" class="img-responsive"
-                                             alt="lynx" data-desoslide-caption="A lynx">
+                                             alt="lynx" data-desoslide-caption-title="A lynx">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="assets/img/demos/demo3/dog.jpg">
                                         <img src="assets/img/demos/demo3/dog_thumb.jpg" class="img-responsive"
-                                             alt="dog" data-desoslide-caption="A dog">
+                                             alt="dog" data-desoslide-caption-title="A dog">
                                     </a>
                                 </li>
                             </ul>
@@ -280,17 +274,15 @@
                 <!-- Code 3 -->
                 <article class="col-lg-4 col-md-4">
                     <h4>Code</h4>
-<pre><code>$('#demo3_thumbs').desoSlide({
-    main: {
-        container: '#demo3_main_image',
-        cssClass: 'img-responsive'
+<pre><code>$('#demo3_image').desoSlide({
+    thumbs: $('#demo3_thumbs li > a'),
+    effect: {
+        provider: 'animate',
+        name: 'flip'
     },
-    effect: 'flip',
     overlay: 'hover',
-    caption: true,
     controls: {
-        enable: false,
-        keys: false
+        show: false
     }
 });</code></pre>
                 </article>
@@ -342,19 +334,18 @@
                 <!-- Code 4 -->
                 <article class="col-lg-4 col-md-4">
                     <h4>Code</h4>
-<pre><code>$('#demo4_thumbs').desoSlide({
-    main: {
-        container: '#demo4_main_image',
-        cssClass: 'img-responsive'
-    },
+<pre><code>$('#demo4_image').desoSlide({
+    thumbs: $('#demo4_thumbs li > a'),
     auto: {
         start: true
     },
-    effect: 'rotate',
+    effect: {
+        provider: 'magic',
+        name: 'twister'
+    },
     overlay: 'none',
     controls: {
-        enable: false,
-        keys: false
+        show: false
     }
 });</code></pre>
                 </article>
@@ -366,7 +357,7 @@
             </h3>
 
             <p class="lead text-center">
-                Make your own slider based on all <a href="documentation.html#options">options</a>!
+                Make your own slideshow based on all <a href="documentation.html#options">options</a>!
             </p>
         </div>
     </section>

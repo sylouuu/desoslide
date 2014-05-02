@@ -2,13 +2,12 @@ $(function() {
 
     /* First demo */
     $('#demo1_image').desoSlide({
-        thumbs: $('#demo1_thumbs').find('li > a'),
-        caption: true
+        thumbs: $('#demo1_thumbs li > a')
     });
 
     /* Second demo */
     $('#demo2_image').desoSlide({
-        thumbs: $('#demo2_thumbs').find('li > a'),
+        thumbs: $('#demo2_thumbs li > a'),
         auto: {
             start: true
         },
@@ -16,41 +15,35 @@ $(function() {
         effect: {
             provider: 'magic',
             name: 'tin'
-        },
-        controls: {
-            keys: false
         }
     });
 
     /* Third demo */
     $('#demo3_image').desoSlide({
-        thumbs: $('#demo3_thumbs').find('li > a'),
+        thumbs: $('#demo3_thumbs li > a'),
         effect: {
             provider: 'animate',
             name: 'flip'
         },
         overlay: 'hover',
-        caption: true,
         controls: {
-            enable: false,
-            keys: false
+            show: false
         }
     });
 
     /* Fourth demo */
     $('#demo4_image').desoSlide({
-        thumbs: $('#demo4_thumbs').find('li > a'),
+        thumbs: $('#demo4_thumbs li > a'),
         auto: {
             start: true
         },
         effect: {
-            provider: 'animate',
-            name: 'rotate'
+            provider: 'magic',
+            name: 'twister'
         },
         overlay: 'none',
         controls: {
-            enable: false,
-            keys: false
+            show: false
         }
     });
 
