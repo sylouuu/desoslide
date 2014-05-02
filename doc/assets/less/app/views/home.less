@@ -43,7 +43,8 @@
 
 .jumbotron
 {
-    margin-top : -53px;
+    margin-top     : -53px;
+    padding-bottom : 170px;
 
     h1
     {
@@ -54,7 +55,7 @@
 
     @media (min-width : @screen-md)
     {
-        padding       : 120px 180px 100px;
+        padding       : 120px 180px 210px;
     }
 }
 
@@ -62,14 +63,9 @@
 #team,
 #features
 {
-    padding-top    : 40px;
-    padding-bottom : 40px;
-
-    h2
-    {
-        margin-bottom : 30px;
-        font-size     : 48px;
-    }
+    position       : relative;
+    padding-top    : 150px;
+    padding-bottom : 150px;
 
     h4
     {
@@ -93,13 +89,59 @@
 
 #core
 {
-    background-color : #f8f9fa;
+    background-color : @ebony-clay;
+    color            : @white;
 }
 
 #team
 {
-    .fa
+    .btn .fa
     {
         font-size : 22px;
+    }
+}
+
+.section-title
+{
+    position      : absolute;
+    top           : -110px;
+    left          : 50%;
+    z-index       : 3;
+    width         : 220px;
+    height        : 220px;
+    margin-left   : -110px;
+    padding       : 35px 10px 10px;
+    border        : 12px solid;
+    color         : @white;
+    text-align    : center;
+    border-radius : 50%;
+
+    .section-icon
+    {
+        font-size : 75px;
+    }
+
+    .section-text
+    {
+        margin    : 10px 0 0;
+        font-size : 30px;
+    }
+
+    &.section-features
+    {
+        border-color     : @ebony-clay;
+        background-color : @brand-danger;
+    }
+
+    &.section-core
+    {
+        border-color     : @white;
+        background-color : @curious-blue;
+    }
+
+    &.section-team
+    {
+        border-color     : @ebony-clay;
+        background-color : @brand-danger;
     }
 }
