@@ -1,0 +1,74 @@
+@import '../../vendor/bootstrap/variables.less';
+@import '../../vendor/bootstrap/mixins.less';
+@import '../../vendor/flat-ui/variables.less';
+@import '../../vendor/flat-ui/mixins.less';
+@import '../components/variables.less';
+@import '../components/mixins.less';
+@import '../components/fonts.less';
+@import '../components/typography.less';
+@import '../layouts/header.less';
+@import '../layouts/body.less';
+@import '../layouts/footer.less';
+@import '../components/modules/navbar.less';
+@import '../components/modules/button.less';
+@import '../components/modules/jumbotron.less';
+@import '../components/modules/label.less';
+
+.changelog
+{
+    position       : relative;
+    padding-top    : 55px;
+    padding-bottom : 55px;
+
+    article.col-lg-12
+    {
+        padding : 30px;
+    }
+
+    @media (max-width : @screen-sm)
+    {
+
+        p
+        {
+            text-align : center;
+        }
+    }
+
+    @media (min-width : @screen-sm)
+    {
+        .container
+        {
+            max-width : 70%;
+        }
+    }
+}
+
+.section-title
+{
+    position       : relative;
+    top            : 0px;
+    padding-top    : 20px;
+    padding-bottom : 20px;
+
+    .label
+    {
+        margin-top : 10px;
+        display    : inline-block;
+    }
+}
+
+.list-changelog
+{
+    margin-top : 30px;
+
+    > li
+    {
+        margin-bottom : 20px;
+
+        &:last-child
+        {
+            margin-bottom : 0;
+        }
+    }
+}
+
