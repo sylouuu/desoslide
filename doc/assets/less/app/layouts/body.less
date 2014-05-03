@@ -107,3 +107,37 @@ a
 {
     width : 100%;
 }
+
+#section_demo,
+#section_documentation
+{
+    .page-header
+    {
+        position : relative;
+
+        .label
+        {
+            display       : inline-block;
+            height        : 54px;
+            width         : 54px;
+            padding       : 0.38em 0em;
+            border-radius : 1em;
+        }
+
+        @media (max-width : @screen-md)
+        {
+            text-align    : center;
+            font-size     : 32px;
+
+            .label
+            {
+                position    : absolute;
+                left        : 50%;
+                top         : -60px;
+                margin-left : -27px;
+                padding-top : 11px;
+                font-size   : 30px;
+            }
+        }
+    }
+}
