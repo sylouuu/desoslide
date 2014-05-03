@@ -45,7 +45,7 @@ $(function() {
         overlay: 'fail',
         events: {
             onError: function() {
-                overlay_test1 = 'error';
+                // overlay_test1 = 'error';
             }
         }
     });
