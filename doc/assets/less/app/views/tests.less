@@ -58,15 +58,9 @@
     li
     {
         border         : 3px none;
-        padding-top    : 10px;
-        padding-bottom : 10px;
+        padding-top    : 12px;
+        padding-bottom : 12px;
         font-size      : 14px;
-        color          : @text-color;
-
-        .test-name
-        {
-            color : @text-color;
-        }
 
         li
         {
@@ -86,19 +80,29 @@
                 border-right      : none;
                 border-bottom     : none;
             }
+        }
 
+        &.pass,
+        &.fail
+        {
+            background-color : #f8f9fa;
+
+            .test-name
+            {
+                color : @text-color;
+            }
         }
 
         &.pass
         {
-            border-left      : solid @brand-success;
-            background-color : #F8F9FA;
+            border-left : solid @brand-success;
+            color       : @brand-success;
         }
 
         &.fail
         {
-            border-left      : solid @brand-danger;
-            background-color : #F8F9FA;
+            border-left : solid @brand-danger;
+            color       : @brand-danger;
         }
     }
 
