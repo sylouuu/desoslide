@@ -173,19 +173,29 @@
 
             // Looping thumbs anchors
             $(this.options.thumbs).each(function(i, item) {
-                // Building thumbs array
-                self.props.thumbs.push({
-                    src:            $(item).attr('href'),
-                    alt:            $(item).find('img:first').attr('alt') || null,
-                    caption_title:  $(item).find('img:first').data(self._namespace +'-caption-title') || null,
-                    caption_link:   $(item).find('img:first').data(self._namespace +'-caption-link')  || null
-                });
+                // Has `href`
+                if ($(item).attr('href') !== undefined) {
+                    // Has `img` child
+                    if ($(item).find('img').length) {
+                        // Building thumbs array
+                        self.props.thumbs.push({
+                            src:            $(item).attr('href'),
+                            alt:            $(item).find('img').attr('alt') || null,
+                            caption_title:  $(item).find('img').data(self._namespace +'-caption-title') || null,
+                            caption_link:   $(item).find('img').data(self._namespace +'-caption-link')  || null
+                        });
 
-                if ($(item).find('img:first').attr('alt') === undefined) {
-                    self._errorHandler('warning', 'The `alt` attribute is missing on the '+ i +'-indexed thumb, it\'s mandatory on <img> tags.');
+                        if ($(item).find('img').attr('alt') === undefined) {
+                            self._errorHandler('warning', 'The `alt` attribute is missing on the '+ i +'-indexed thumb, it\'s mandatory on <img> tags.');
+                        }
+
+                        $(item).attr('data-'+ self._namespace +'-index', i);
+                    } else {
+                        self._errorHandler('error', 'Your link on the '+ i +'-indexed thumb must have an <img> tag as a child.');
+                    }
+                } else {
+                    self._errorHandler('error', 'The `href` attribute is missing on the '+ i +'-indexed thumb, it\'s mandatory on <a> tags.');
                 }
-
-                $(item).attr('data-'+ self._namespace +'-index', i);
             });
 
             // `first` check
@@ -299,8 +309,6 @@
 
             this.props.effect.provider  = response.provider;
             this.props.effect.name      = response.name;
-
-            console.log(response);
 
             return response;
         },

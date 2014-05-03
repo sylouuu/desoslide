@@ -8,7 +8,7 @@ $(function() {
     // -------------------------------------------------------------------------
     // -------------------------------------------------------------------------
 
-    var thumbs_test1, thumbs_test2;
+    var thumbs_test1, thumbs_test2, thumbs_test3, thumbs_test4;
 
     $('#image_test1').desoSlide({
         events: {
@@ -27,10 +27,30 @@ $(function() {
         }
     });
 
+    $('#image_test13').desoSlide({
+        thumbs: $('#no_href_thumbs').find('a'),
+        events: {
+            onError: function() {
+                thumbs_test3 = 'error';
+            }
+        }
+    });
+
+    $('#image_test14').desoSlide({
+        thumbs: $('#no_img_thumbs').find('a'),
+        events: {
+            onError: function() {
+                thumbs_test4 = 'error';
+            }
+        }
+    });
+
     test('`thumbs`', function() {
 
         ok(thumbs_test1 === 'error', 'option doesn\'t exist: error expected');
         ok(thumbs_test2 === 'error', 'selector doesn\'t exist: error expected');
+        ok(thumbs_test3 === 'error', '`href` attribute on `<a>` doesn\'t exist: error expected');
+        ok(thumbs_test4 === 'error', 'doesn\'t contain <img> tag as a child: error expected');
 
     });
 

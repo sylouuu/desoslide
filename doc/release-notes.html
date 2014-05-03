@@ -1,221 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="List of changes in desoSlide jQuery plugin" />
-    <meta name="author" content="Sylvain, Jaoued" />
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="description" content="List of changes in desoSlide jQuery plugin" />
+        <meta name="author" content="Sylvain, Jaoued" />
 
-    <title>Release Notes &middot; desoSlide jQuery plugin</title>
+        <title>Release Notes &middot; desoSlide jQuery plugin</title>
 
-    <link rel="icon" href="../favicon.png">
+        <link rel="icon" href="../favicon.png">
 
-    <!--[if lt IE 9]>
-    <script src="assets/js/vendor/html5shiv/html5shiv.min.js"></script>
-    <![endif]-->
+        <!--[if lt IE 9]>
+        <script src="assets/js/vendor/html5shiv/html5shiv.min.js"></script>
+        <![endif]-->
 
-    <link rel="stylesheet" href="assets/css/app/main.css" />
-    <link rel="stylesheet" href="assets/css/app/views/changelog.css" />
+        <link rel="stylesheet" href="assets/css/app/main.css" />
+        <link rel="stylesheet" href="assets/css/app/views/changelog.css" />
 
-    <script>
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-27524593-3']);
-        _gaq.push(['_trackPageview']);
+        <script>
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-27524593-3']);
+            _gaq.push(['_trackPageview']);
 
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
-</head>
-<body>
+            (function () {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </head>
+    <body>
 
-    <!-- Header -->
-    <header class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <i class="fa fa-align-justify"></i>
-                </button>
-                <a class="navbar-brand" href="../">
-                    <span class="brand-deso">deso</span><span class="brand-slide">Slide</span>
-                </a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="demo.html"><i class="fa fa-picture-o"></i> Demo</a>
-                    </li>
-                    <li>
-                        <a href="./"><i class="fa fa-book"></i> Documentation</a>
-                    </li>
-                    <li class="active">
-                        <a href="release-notes.html"><i class="fa fa-list-alt"></i> Release Notes</a>
-                    </li>
-                    <li>
-                        <a href="../tests/"><i class="fa fa-check"></i> Tests</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/sylouuu/desoslide"><i class="fa fa-github"></i> Github</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </header>
-
-    <!-- Introduction section -->
-    <section class="jumbotron">
-        <div class="container">
-            <div class="row">
-
-                <!--[if lt IE 9]>
-                <div class="container">
-                    <div class="row">
-                        <article class="dialog dialog-danger">
-                            <h3>Your browser is too old!</h3>
-                            <p class="lead">
-                                desoSlide is not compatible with lower version of Internet Explorer 9.
-                                <br/>
-                                <a href="http://browsehappy.com/?locale=en">Upgrade</a> your browser today!
-                            </p>
-                        </article>
-                    </div>
+        <!-- Header -->
+        <header class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                    <a class="navbar-brand" href="../">
+                        <span class="brand-deso">deso</span><span class="brand-slide">Slide</span>
+                    </a>
                 </div>
-                <![endif]-->
-
-                <article class="col-lg-12">
-                    <h1>Release Notes</h1>
-                    <p class="lead">All the history of desoSlide can be found here</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Breadcrumb section -->
-    <section class="section-breadcrumb">
-        <div class="container">
-            <div class="row">
-                <article class="col-lg-12">
-                    <p>
-                        Current stable release: 2.0.0
-                    </p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Changelog section -->
-    <section class="changelog">
-
-        <!-- Release date 2.0 -->
-        <article class="section-title section-ebony">
-            <i class="fa fa-calendar section-icon"></i>
-            <h2 class="section-text">
-                2014-05-05
-                <br />
-                <span class="label label-primary">2.0.0-rc1</span>
-            </h2>
-        </article>
-
-        <!-- Changelog 2.0 -->
-        <div class="container text-center">
-            <div class="row">
-                <article class="col-lg-12">
-                    <ul class="list-unstyled list-changelog text-justify">
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <span class="label label-success">New</span>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            <a href="demo.html"><i class="fa fa-picture-o"></i> Demo</a>
                         </li>
                         <li>
-                            <span class="label label-danger">Fixed</span>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            <a href="./"><i class="fa fa-book"></i> Documentation</a>
+                        </li>
+                        <li class="active">
+                            <a href="release-notes.html"><i class="fa fa-list-alt"></i> Release Notes</a>
                         </li>
                         <li>
-                            <span class="label label-warning">Changed</span>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            <a href="../tests/"><i class="fa fa-check"></i> Tests</a>
                         </li>
                         <li>
-                            <span class="label label-info">Enhanced</span>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            <a href="https://github.com/sylouuu/desoslide"><i class="fa fa-github"></i> Github</a>
                         </li>
                     </ul>
-                </article>
+                </div>
             </div>
-        </div>
+        </header>
 
-        <!-- Release date 1.3 -->
-        <article class="section-title section-curious">
-            <i class="fa fa-calendar section-icon"></i>
-            <h2 class="section-text">
-                2014-02-09
-                <br />
-                <span class="label label-info">1.3.0</span>
-            </h2>
-        </article>
+        <!-- Introduction section -->
+        <section class="jumbotron">
+            <div class="container">
+                <div class="row">
 
-        <!-- Changelog 1.3 -->
-        <div class="container text-center">
-            <div class="row">
-                <article class="col-lg-12">
-                    <ul class="list-unstyled list-changelog text-justify">
-                        <li>
-                            <span class="label label-success">New</span>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </li>
-                        <li>
-                            <span class="label label-danger">Fixed</span>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </li>
-                        <li>
-                            <span class="label label-warning">Changed</span>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </li>
-                        <li>
-                            <span class="label label-info">Enhanced</span>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </li>
-                    </ul>
-                </article>
+                    <!--[if lt IE 9]>
+                    <div class="container">
+                        <div class="row">
+                            <article class="dialog dialog-danger">
+                                <h3>Your browser is too old!</h3>
+                                <p class="lead">
+                                    desoSlide is not compatible with lower version of Internet Explorer 9.
+                                    <br/>
+                                    <a href="http://browsehappy.com/?locale=en">Upgrade</a> your browser today!
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                    <![endif]-->
+
+                    <article class="col-lg-12">
+                        <h1>Release Notes</h1>
+                        <p class="lead">All the history of desoSlide can be found here</p>
+                    </article>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer section -->
-    <footer>
-        <div class="container">
-            <div class="row">
-
-                <article class="col-lg-3 col-md-3 col-sm-4">
-                    <ul class="list-inline">
-                        <li>
-                            <a href="https://github.com/sylouuu/desoslide">Contribute</a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/sylouuu/desoslide/issues?state=open">Issues</a>
-                        </li>
-                    </ul>
-                </article>
-
-                <article class="col-lg-6 col-md-6 col-sm-5 text-center">
-                    <p>
-                        <a href="demo.html" class="btn btn-danger"><i class="fa fa-arrow-up"></i></a>
-                    </p>
-                </article>
-
-                <article class="col-lg-3 col-md-3 col-sm-3 text-right">
-                    <p>&copy; 2014 desoSlide</p>
-                </article>
+        <!-- Breadcrumb section -->
+        <section class="section-breadcrumb">
+            <div class="container">
+                <div class="row">
+                    <article class="col-lg-12">
+                        <p>
+                            Current stable release: 2.0.0
+                        </p>
+                    </article>
+                </div>
             </div>
-        </div>
-    </footer>
+        </section>
 
-    <script src="assets/js/vendor/jquery/jquery.js"></script>
-    <script src="assets/js/vendor/bootstrap/bootstrap.min.js"></script>
-</body>
+        <!-- Changelog section -->
+        <section class="changelog">
+
+            <!-- Release date 2.0 -->
+            <article class="section-title section-ebony">
+                <i class="fa fa-calendar section-icon"></i>
+                <h2 class="section-text">
+                    2014-05-05
+                    <br />
+                    <span class="label label-primary">2.0.0-rc1</span>
+                </h2>
+            </article>
+
+            <!-- Changelog 2.0 -->
+            <div class="container text-center">
+                <div class="row">
+                    <article class="col-lg-12">
+                        <ul class="list-unstyled list-changelog text-justify">
+                            <li>
+                                <span class="label label-success">New</span>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </li>
+                            <li>
+                                <span class="label label-danger">Fixed</span>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </li>
+                            <li>
+                                <span class="label label-warning">Changed</span>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </li>
+                            <li>
+                                <span class="label label-info">Enhanced</span>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Release date 1.3 -->
+            <article class="section-title section-curious">
+                <i class="fa fa-calendar section-icon"></i>
+                <h2 class="section-text">
+                    2014-02-09
+                    <br />
+                    <span class="label label-info">1.3.0</span>
+                </h2>
+            </article>
+
+            <!-- Changelog 1.3 -->
+            <div class="container text-center">
+                <div class="row">
+                    <article class="col-lg-12">
+                        <ul class="list-unstyled list-changelog text-justify">
+                            <li>
+                                <span class="label label-success">New</span>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </li>
+                            <li>
+                                <span class="label label-danger">Fixed</span>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </li>
+                            <li>
+                                <span class="label label-warning">Changed</span>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </li>
+                            <li>
+                                <span class="label label-info">Enhanced</span>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer section -->
+        <footer>
+            <div class="container">
+                <div class="row">
+
+                    <article class="col-lg-3 col-md-3 col-sm-4">
+                        <ul class="list-inline">
+                            <li>
+                                <a href="https://github.com/sylouuu/desoslide">Contribute</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/sylouuu/desoslide/issues?state=open">Issues</a>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="col-lg-6 col-md-6 col-sm-5 text-center">
+                        <p>
+                            <a href="release-notes.html" class="btn btn-danger back-to-top"><i class="fa fa-arrow-up"></i></a>
+                        </p>
+                    </article>
+
+                    <article class="col-lg-3 col-md-3 col-sm-3 text-right">
+                        <p>&copy; 2014 desoSlide</p>
+                    </article>
+                </div>
+            </div>
+        </footer>
+
+        <script src="assets/js/vendor/jquery/jquery.js"></script>
+        <script src="assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+
+        <script type="text/javascript">
+            $(function() {
+                $('a.back-to-top').on('click', function(e) {
+                    e.preventDefault();
+
+                    $('html, body').stop().animate({
+                        scrollTop: $('html, body').offset().top
+                    }, 1000);
+                });
+            });
+        </script>
+
+    </body>
 </html>
-

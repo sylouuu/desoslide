@@ -131,8 +131,10 @@
             <div id="image_test10" class="test"></div>
             <div id="image_test11" class="test"></div>
             <div id="image_test12" class="test"></div>
+            <div id="image_test13" class="test"></div>
+            <div id="image_test14" class="test"></div>
 
-            <!-- Thumbs -->
+            <!-- Thumbs OK -->
             <ul id="alt_thumbs" class="test">
                 <li>
                     <a href="../doc/assets/img/demos/demo1/bird.jpg"><img src="../doc/assets/img/demos/demo1/bird_thumb.jpg" alt="Bird"></a>
@@ -142,12 +144,33 @@
                 </li>
             </ul>
 
+            <!-- Thumbs without `alt` -->
             <ul id="no_alt_thumbs" class="test">
                 <li>
                     <a href="../doc/assets/img/demos/demo1/bird.jpg"><img src="../doc/assets/img/demos/demo1/bird_thumb.jpg"></a>
                 </li>
                 <li>
                     <a href="../doc/assets/img/demos/demo1/flower.jpg"><img src="../doc/assets/img/demos/demo1/flower_thumb.jpg"></a>
+                </li>
+            </ul>
+
+            <!-- Thumbs without `href` -->
+            <ul id="no_href_thumbs" class="test">
+                <li>
+                    <a><img src="../doc/assets/img/demos/demo1/bird_thumb.jpg" alt="Bird"></a>
+                </li>
+                <li>
+                    <a><img src="../doc/assets/img/demos/demo1/flower_thumb.jpg" alt="Flower"></a>
+                </li>
+            </ul>
+
+            <!-- Thumbs without `<img>` -->
+            <ul id="no_img_thumbs" class="test">
+                <li>
+                    <a href="../doc/assets/img/demos/demo1/bird.jpg"></a>
+                </li>
+                <li>
+                    <a href="../doc/assets/img/demos/demo1/flower.jpg"></a>
                 </li>
             </ul>
 
@@ -167,7 +190,7 @@
 
                     <article class="col-lg-6 col-md-6 col-sm-5 text-center">
                         <p>
-                            <a href="./" class="btn btn-danger"><i class="fa fa-arrow-up"></i></a>
+                        <a href="./" class="btn btn-danger back-to-top"><i class="fa fa-arrow-up"></i></a>
                         </p>
                     </article>
 
@@ -185,5 +208,18 @@
         <script src="qunit/js/qunit.js"></script>
 
         <script src="tests.js"></script>
+
+        <script type="text/javascript">
+            $(function() {
+                $('a.back-to-top').on('click', function(e) {
+                    e.preventDefault();
+
+                    $('html, body').stop().animate({
+                        scrollTop: $('html, body').offset().top
+                    }, 1000);
+                });
+            });
+        </script>
+
     </body>
 </html>
