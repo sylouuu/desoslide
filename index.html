@@ -10,6 +10,11 @@
 
     <link rel="icon" href="favicon.png" />
 
+    <!--[if lt IE 9]>
+    <script src="doc/assets/js/vendor/html5shiv/html5shiv.min.js"></script>
+    <script src="doc/assets/js/vendor/respond/respond.min.js"></script>
+    <![endif]-->
+
     <link rel="stylesheet" href="doc/assets/css/app/main.css" />
     <link rel="stylesheet" href="doc/assets/css/app/views/home.css" />
 
@@ -68,7 +73,23 @@
     <section class="jumbotron text-center">
         <div class="container">
             <div class="row">
+
                 <h1>Take control of your slideshow with this powerful jQuery plugin</h1>
+
+                <!--[if lt IE 9]>
+                <div class="container">
+                    <div class="row">
+                        <article class="dialog dialog-danger">
+                            <h3>Your browser is too old!</h3>
+                            <p class="lead">
+                                desoSlide is not compatible with lower version of Internet Explorer 9.
+                                <br/>
+                                <a href="http://browsehappy.com/?locale=en">Upgrade</a> your browser today!
+                            </p>
+                        </article>
+                    </div>
+                </div>
+                <![endif]-->
 
                 <ul class="list-inline">
                     <li>
@@ -88,6 +109,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Features section -->
     <section id="features">
