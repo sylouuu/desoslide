@@ -72,8 +72,14 @@ a
 
     .label
     {
-        margin-top : 10px;
         display    : inline-block;
+        margin-top : 10px;
+
+       @media (min-width: @screen-md)
+       {
+           padding    : 0.2em 0.3em 0.3em;
+           font-size  : 65%;
+       }
     }
 
     .section-icon
