@@ -21,23 +21,6 @@
     @import '../components/modules/dialog.less';
 }
 
-.btn-circle-variant(@btn; @border; @color; @hover-bg)
-{
-    &.@{btn}
-    {
-        border-color : @border;
-        color        : @color;
-
-        &:hover,
-        &:focus
-        {
-            outline          : none;
-            background-color : @hover-bg;
-            color            : @white;
-        }
-    }
-}
-
 .dialog-bg-color(@color)
 {
     background-color : lighten(@color, 45%);
