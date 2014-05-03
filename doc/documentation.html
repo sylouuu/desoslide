@@ -91,268 +91,292 @@
     <section id="section_documentation">
         <div class="container">
             <div class="row">
-            <div class="col-sm-9 col-md-9 col-lg-9">
+                <div class="col-sm-9 col-md-9 col-lg-9">
 
-            <!-- Setup -->
-            <h3 id="setup" class="page-header">
-                <span class="label label-danger"><i class="fa fa-download"></i></span> Setup
-            </h3>
+                    <!-- Setup -->
+                    <h3 id="setup" class="page-header">
+                        <span class="label label-danger"><i class="fa fa-download"></i></span> Setup
+                    </h3>
 
-            <p>
-                At first, include jQuery, <a href="https://github.com/daneden/animate.css">animate.css</a> and the desoSlide files in your page.
-            </p>
+                    <p>
+                        At first, include jQuery, <a href="https://github.com/daneden/animate.css">animate.css</a> and the desoSlide files in your page.
+                    </p>
+
 <pre><code>&lt;link rel="stylesheet" href="css/animate.css">
-           &lt;link rel="stylesheet" href="css/jquery.desoslide.css">
+&lt;link rel="stylesheet" href="css/jquery.desoslide.css">
 
-           &lt;script src="js/jquery.js">&lt;/script>
-           &lt;script src="js/jquery.desoslide.min.js">&lt;/script></code></pre>
-            <p>
-                Then, you need to create your thumbnails list with that markup. Don't forget to specify your images links and the <code>alt</code> attribute.
-            </p>
+&lt;script src="js/jquery.js">&lt;/script>
+&lt;script src="js/jquery.desoslide.min.js">&lt;/script></code></pre>
+
+                    <p>
+                        Then, you need to create your thumbnails list with that markup. Don't forget to specify your images links and the <code>alt</code> attribute.
+                    </p>
+
 <pre><code>&lt;ul id="my_thumbs">
-           &lt;li>
-           &lt;a href="assets/img/bird.jpg">
-           &lt;img src="assets/img/bird_thumb.jpg" alt="Bird" data-desoslide-caption="A bird, click me to open http://chez-syl.fr/" data-desoslide-href="http://chez-syl.fr/">
-           &lt;/a>
-           &lt;/li>
-           &lt;li>
-           &lt;a href="assets/img/flower.jpg">
-           &lt;img src="assets/img/flower_thumb.jpg" alt="Flower" data-desoslide-caption="A flower" data-desoslide-caption="A flower, click me to open README.md file" data-desoslide-href="README.md">
-           &lt;/a>
-           &lt;/li>
-           &lt;li>
-           &lt;a href="assets/img/butterfly.jpg">
-           &lt;img src="assets/img/butterfly_thumb.jpg" alt="Butterfly" data-desoslide-caption="A butterfly" data-desoslide-caption="A butterfly, click me to open LICENSE.md file" data-desoslide-href="LICENSE.md">
-           &lt;/a>
-           &lt;/li>
-           &lt;li>
-           &lt;a href="assets/img/rose.jpg">
-           &lt;img src="assets/img/rose_thumb.jpg" alt="Rose" data-desoslide-caption="A rose, you can't click me, got no link">
-           &lt;/a>
-           &lt;/li>
-           &lt;/ul></code></pre>
-            <div class="dialog dialog-info">
-                <div class="container text-left">
-                    <p>Explanations:</p>
-                    <ul class="list-unstyled">
-                        <li><span class="label label-danger">mandatory</span>&emsp;Specify your images links and the <code>alt</code> attribute</li>
-                        <li><span class="label label-primary">optional</span>&emsp;&emsp;The <code>data-desoslide-caption</code> attribute is used for the caption</li>
-                        <li><span class="label label-primary">optional</span>&emsp;&emsp;The <code>data-desoslide-href</code> attribute contains the link to the page that will be active on the main image</li>
-                    </ul>
-                </div>
-            </div>
-            <!-- [END] SETUP -->
+    &lt;li>
+        &lt;a href="assets/img/bird.jpg">
+            &lt;img src="assets/img/bird_thumb.jpg" alt="Bird"
+                data-desoslide-caption="A bird, click me to open http://chez-syl.fr/"
+                data-desoslide-href="http://chez-syl.fr/">
+        &lt;/a>
+    &lt;/li>
+    &lt;li>
+        &lt;a href="assets/img/flower.jpg">
+            &lt;img src="assets/img/flower_thumb.jpg" alt="Flower"
+                data-desoslide-caption="A flower"
+                data-desoslide-caption="A flower, click me to open README.md file"
+                data-desoslide-href="README.md">
+        &lt;/a>
+    &lt;/li>
+    &lt;li>
+        &lt;a href="assets/img/butterfly.jpg">
+            &lt;img src="assets/img/butterfly_thumb.jpg" alt="Butterfly"
+                data-desoslide-caption="A butterfly"
+                data-desoslide-caption="A butterfly, click me to open LICENSE.md file"
+                data-desoslide-href="LICENSE.md">
+        &lt;/a>
+    &lt;/li>
+    &lt;li>
+        &lt;a href="assets/img/rose.jpg">
+            &lt;img src="assets/img/rose_thumb.jpg" alt="Rose"
+                data-desoslide-caption="A rose, you can't click me, got no link">
+        &lt;/a>
+    &lt;/li>
+&lt;/ul></code></pre>
 
-            <!-- [BEGIN] CONFIGURATION -->
-            <h3 id="configuration" class="page-header">
-                <span class="label label-danger"><i class="fa fa-wrench"></i></span> Configuration
-            </h3>
+                    <div class="dialog dialog-info">
+                        <h4>Explanations</h4>
 
-            <p>
-                Call the plugin "desoSlide" on your list of thumbnails by specifying the target where the main image will be generated:
-            </p>
+                        <ul class="list-unstyled">
+                            <li>
+                                <span class="label label-danger">mandatory</span>
+                                &emsp;Specify your images links and the <code>alt</code> attribute
+                            </li>
+                            <li>
+                                <span class="label label-primary">optional</span>
+                                &emsp;&emsp;The <code>data-desoslide-caption</code> attribute is used for the caption
+                            </li>
+                            <li>
+                                <span class="label label-primary">optional</span>
+                                &emsp;&emsp;The <code>data-desoslide-href</code> attribute contains the link to the page that
+                                will be active on the main image
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Configuration -->
+                    <h3 id="configuration" class="page-header">
+                        <span class="label label-danger"><i class="fa fa-wrench"></i></span> Configuration
+                    </h3>
+
+                    <p>
+                        Call the plugin "desoSlide" on your list of thumbnails by specifying the target where the main image
+                        will be generated:
+                    </p>
+
 <pre><code>$(function() {
-           $('#my_thumbs').desoSlide({
-           main: {
-           container: '#demo_main_image',
-           cssClass: 'img-responsive'
-           },
-           caption: true
-           });
-           });
-</code></pre>
-            <p>
-                Here, the main image will be generated inside <code>#demo_main_image</code>.
-            </p>
-            <div class="dialog dialog-info">
-                <div class="container">
-                    <p class="no-mg-bt">View the result on the <a href="demo.html">demo page</a>.</p>
-                </div>
-            </div>
-            <!-- [END] CONFIGURATION -->
+    $('#my_thumbs').desoSlide({
+        main: {
+            container: '#demo_main_image',
+            cssClass: 'img-responsive'
+        },
+        caption: true
+    });
+});</code></pre>
 
-            <!-- Controls -->
-            <h3 id="controls" class="page-header">
-                <span class="label label-danger"><i class="fa fa-play"></i></span> Controls
-            </h3>
+                    <p>
+                        Here, the main image will be generated inside <code>#demo_main_image</code>.
+                    </p>
 
-            <p>
-                You can control the slider by clicking on the pictos. Previous, pause, play and next are supported.
-                Also, you are able to use your keyboard keys to control it:
-            </p>
+                    <div class="dialog dialog-info">
+                        <h4>Demo</h4>
+                        <p>View the result on the <a href="demo.html">demo page</a>.</p>
+                    </div>
 
-            <ul>
-                <li>
-                    <p>press <code>left arrow</code> to trigger <b>previous</b></p>
-                </li>
-                <li>
-                    <p>press <code>right arrow</code> to trigger <b>next</b></p>
-                </li>
-                <li>
-                    <p>press <code>space</code> to toggle <b>play/pause</b></p>
-                </li>
-            </ul>
+                    <!-- Controls -->
+                    <h3 id="controls" class="page-header">
+                        <span class="label label-danger"><i class="fa fa-play"></i></span> Controls
+                    </h3>
 
-            <p>
-                As this feature is binded on the document, if you have more than one slider on your page and you press a key, all sliders will be triggered.
-                I recommend to you to enable the keys control on only one slider, by disabling the other ones with <code>controls.keys: false</code>.
-            </p>
-            <!-- [END] CONTROLS -->
+                    <p>
+                        You can control the slider by clicking on the pictos. Previous, pause, play and next are supported.
+                        Also, you are able to use your keyboard keys to control it:
+                    </p>
 
-            <!-- Options -->
-            <h3 id="options" class="page-header">
-                <span class="label label-danger"><i class="fa fa-cog"></i></span> Options
-            </h3>
+                    <ul>
+                        <li>
+                            <p>Press <code>left arrow</code> to trigger <b>previous</b></p>
+                        </li>
+                        <li>
+                            <p>Press <code>right arrow</code> to trigger <b>next</b></p>
+                        </li>
+                        <li>
+                            <p>Press <code>space</code> to toggle <b>play/pause</b></p>
+                        </li>
+                    </ul>
 
-            <p>Find below all the available options.</p>
+                    <p>
+                        As this feature is binded on the document, if you have more than one slider on your page and you press
+                        a key, all sliders will be triggered. I recommend to you to enable the keys control on only one slider,
+                        by disabling the other ones with <code>controls.keys: false</code>.
+                    </p>
 
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Options</th>
-                        <th>Values</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-title="Options"><code>main.container</code></td>
-                        <td data-title="Values">Your target container</td>
-                        <td data-title="Default"><code>false</code></td>
-                        <td data-title="Description">Container for the main image. If you don't specify a valid selector, you'll receive an error.</td>
-                    </tr>
-                    <tr>
-                        <td data-title="Options"><code>main.cssClass</code></td>
-                        <td data-title="Values">String</td>
-                        <td data-title="Default"><code>''</code></td>
-                        <td data-title="Description">Class(es) name(s) of your main image.</td>
-                    </tr>
-                    <tr>
-                        <td data-title="Options"><code>main.insertion</code></td>
-                        <td data-title="Values"><code>'append'</code> <code>'prepend'</code> <code>'replace'</code></td>
-                        <td data-title="Default"><code>'append'</code></td>
-                        <td data-title="Description">How to create the main image, by prepending, appending or replace all the selector's content (overwriting).</td>
-                    </tr>
-                    <tr>
-                        <td data-title="Options"><code>auto.load</code></td>
-                        <td data-title="Values">Boolean</td>
-                        <td data-title="Default"><code>true</code></td>
-                        <td data-title="Description">All thumbnails links (full size images) are auto loaded in background (invisible). </td>
-                    </tr>
-                    <tr>
-                        <td data-title="Options"><code>auto.start</code></td>
-                        <td data-title="Values">Boolean</td>
-                        <td data-title="Default"><code>false</code></td>
-                        <td data-title="Description">Autostarting a diaporama.</td>
-                    </tr>
-                    <tr>
-                        <td data-title="Options"><code>first</code></td>
-                        <td data-title="Values">Integer between 0 and the number of thumbnails (-1)</td>
-                        <td data-title="Default"><code>0</code></td>
-                        <td data-title="Description">The index of the thumbnail that you want to display first.</td>
-                    </tr>
-                    <tr>
-                        <td data-title="Options"><code>interval</code></td>
-                        <td data-title="Values">Integer, minimum 1500</td>
-                        <td data-title="Default"><code>3000</code></td>
-                        <td data-title="Description">Interval in milliseconds between each image.</td>
-                    </tr>
-                    <tr>
-                        <td data-title="Options"><code>effect</code></td>
-                        <td data-title="Values"><code>'fade'</code> <code>'sideFade'</code> <code>'sideFadeBig'</code> <code>'flip'</code> <code>'light'</code> <code>'roll'</code> <code>'rotate'</code> <code>'random'</code></td>
-                        <td data-title="Default"><code>'fade'</code></td>
-                        <td data-title="Description">Transition effect provided by <a href="http://daneden.me/animate/">animate.css</a>. <code>'random'</code> chooses the effect for you.</td>
-                    </tr>
-                    <tr>
-                        <td data-title="Options"><code>overlay</code></td>
-                        <td data-title="Values"><code>'always'</code> <code>'hover'</code> <code>'none'</code></td>
-                        <td data-title="Default"><code>'always'</code></td>
-                        <td data-title="Description">How to show overlay.</td>
-                    </tr>
-                    <tr>
-                        <td data-title="Options"><code>caption</code></td>
-                        <td data-title="Values">Boolean</td>
-                        <td data-title="Default"><code>false</code></td>
-                        <td data-title="Description">If <code>true</code>, be sure that you have specified the <code>data-desoslide-caption</code> attribute on thumbnails.</td>
-                    </tr>
-                    <tr>
-                        <td data-title="Options"><code>controls.enable</code></td>
-                        <td data-title="Values">Boolean</td>
-                        <td data-title="Default"><code>true</code></td>
-                        <td data-title="Description">Able to control by clicking (prev/pause/play/next).</td>
-                    </tr>
-                    <tr>
-                        <td data-title="Options"><code>controls.keys</code></td>
-                        <td data-title="Values">Boolean</td>
-                        <td data-title="Default"><code>true</code></td>
-                        <td data-title="Description">Able to control by pressing the keyboard keys (left/right/space).</td>
-                    </tr>
-                    <tr>
-                        <td data-title="Options"><code>events.thumbClick</code></td>
-                        <td data-title="Values">function()</td>
-                        <td data-title="Default"><code>false</code></td>
-                        <td data-title="Description">Callback when clicking on a thumbnail.</td>
-                    </tr>
-                    <tr>
-                        <td data-title="Options"><code>events.prev</code></td>
-                        <td data-title="Values">function()</td>
-                        <td data-title="Default"><code>false</code></td>
-                        <td data-title="Description">Callback when triggering <code>prev</code>.</td>
-                    </tr>
-                    <tr>
-                        <td data-title="Options"><code>events.pause</code></td>
-                        <td data-title="Values">function()</td>
-                        <td data-title="Default"><code>false</code></td>
-                        <td data-title="Description">Callback when triggering <code>pause</code>.</td>
-                    </tr>
-                    <tr>
-                        <td data-title="Options"><code>events.play</code></td>
-                        <td data-title="Values">function()</td>
-                        <td data-title="Default"><code>false</code></td>
-                        <td data-title="Description">Callback when triggering <code>play</code>.</td>
-                    </tr>
-                    <tr>
-                        <td data-title="Options"><code>events.next</code></td>
-                        <td data-title="Values">function()</td>
-                        <td data-title="Default"><code>false</code></td>
-                        <td data-title="Description">Callback when triggering <code>next</code>.</td>
-                    </tr>
-                    <tr>
-                        <td data-title="Options"><code>events.completed</code></td>
-                        <td data-title="Values">function(result)</td>
-                        <td data-title="Default"><code>false</code></td>
-                        <td data-title="Description">Get the slider result. The first argument outputs one of these values: "success", "error" or "warning".</td>
-                    </tr>
-                </tbody>
-            </table>
-            <!-- [END] OPTIONS -->
 
-            <!-- Return value -->
-            <h3 id="return_value" class="page-header">
-                <span class="label label-danger"><i class="fa fa-mail-reply"></i></span> Return value
-            </h3>
+                    <!-- Options -->
+                    <h3 id="options" class="page-header">
+                        <span class="label label-danger"><i class="fa fa-cog"></i></span> Options
+                    </h3>
 
-            <p>The returned value by the <code>.desoSlide()</code> call is the jQuery object to maintain the chainability.</p>
-            <p>If you want to know if the slider is well generated, use the <code>events.completed</code> function.</p>
+                    <p>Find below all the available options.</p>
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Options</th>
+                                <th>Values</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-title="Options"><code>main.container</code></td>
+                                <td data-title="Values">Your target container</td>
+                                <td data-title="Default"><code>false</code></td>
+                                <td data-title="Description">Container for the main image. If you don't specify a valid selector, you'll receive an error.</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Options"><code>main.cssClass</code></td>
+                                <td data-title="Values">String</td>
+                                <td data-title="Default"><code>''</code></td>
+                                <td data-title="Description">Class(es) name(s) of your main image.</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Options"><code>main.insertion</code></td>
+                                <td data-title="Values"><code>'append'</code> <code>'prepend'</code> <code>'replace'</code></td>
+                                <td data-title="Default"><code>'append'</code></td>
+                                <td data-title="Description">How to create the main image, by prepending, appending or replace all the selector's content (overwriting).</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Options"><code>auto.load</code></td>
+                                <td data-title="Values">Boolean</td>
+                                <td data-title="Default"><code>true</code></td>
+                                <td data-title="Description">All thumbnails links (full size images) are auto loaded in background (invisible). </td>
+                            </tr>
+                            <tr>
+                                <td data-title="Options"><code>auto.start</code></td>
+                                <td data-title="Values">Boolean</td>
+                                <td data-title="Default"><code>false</code></td>
+                                <td data-title="Description">Autostarting a diaporama.</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Options"><code>first</code></td>
+                                <td data-title="Values">Integer between 0 and the number of thumbnails (-1)</td>
+                                <td data-title="Default"><code>0</code></td>
+                                <td data-title="Description">The index of the thumbnail that you want to display first.</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Options"><code>interval</code></td>
+                                <td data-title="Values">Integer, minimum 1500</td>
+                                <td data-title="Default"><code>3000</code></td>
+                                <td data-title="Description">Interval in milliseconds between each image.</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Options"><code>effect</code></td>
+                                <td data-title="Values"><code>'fade'</code> <code>'sideFade'</code> <code>'sideFadeBig'</code> <code>'flip'</code> <code>'light'</code> <code>'roll'</code> <code>'rotate'</code> <code>'random'</code></td>
+                                <td data-title="Default"><code>'fade'</code></td>
+                                <td data-title="Description">Transition effect provided by <a href="http://daneden.me/animate/">animate.css</a>. <code>'random'</code> chooses the effect for you.</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Options"><code>overlay</code></td>
+                                <td data-title="Values"><code>'always'</code> <code>'hover'</code> <code>'none'</code></td>
+                                <td data-title="Default"><code>'always'</code></td>
+                                <td data-title="Description">How to show overlay.</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Options"><code>caption</code></td>
+                                <td data-title="Values">Boolean</td>
+                                <td data-title="Default"><code>false</code></td>
+                                <td data-title="Description">If <code>true</code>, be sure that you have specified the <code>data-desoslide-caption</code> attribute on thumbnails.</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Options"><code>controls.enable</code></td>
+                                <td data-title="Values">Boolean</td>
+                                <td data-title="Default"><code>true</code></td>
+                                <td data-title="Description">Able to control by clicking (prev/pause/play/next).</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Options"><code>controls.keys</code></td>
+                                <td data-title="Values">Boolean</td>
+                                <td data-title="Default"><code>true</code></td>
+                                <td data-title="Description">Able to control by pressing the keyboard keys (left/right/space).</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Options"><code>events.thumbClick</code></td>
+                                <td data-title="Values">function()</td>
+                                <td data-title="Default"><code>false</code></td>
+                                <td data-title="Description">Callback when clicking on a thumbnail.</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Options"><code>events.prev</code></td>
+                                <td data-title="Values">function()</td>
+                                <td data-title="Default"><code>false</code></td>
+                                <td data-title="Description">Callback when triggering <code>prev</code>.</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Options"><code>events.pause</code></td>
+                                <td data-title="Values">function()</td>
+                                <td data-title="Default"><code>false</code></td>
+                                <td data-title="Description">Callback when triggering <code>pause</code>.</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Options"><code>events.play</code></td>
+                                <td data-title="Values">function()</td>
+                                <td data-title="Default"><code>false</code></td>
+                                <td data-title="Description">Callback when triggering <code>play</code>.</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Options"><code>events.next</code></td>
+                                <td data-title="Values">function()</td>
+                                <td data-title="Default"><code>false</code></td>
+                                <td data-title="Description">Callback when triggering <code>next</code>.</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Options"><code>events.completed</code></td>
+                                <td data-title="Values">function(result)</td>
+                                <td data-title="Default"><code>false</code></td>
+                                <td data-title="Description">Get the slider result. The first argument outputs one of these values: "success", "error" or "warning".</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Return value -->
+                    <h3 id="return_value" class="page-header">
+                        <span class="label label-danger"><i class="fa fa-mail-reply"></i></span> Return value
+                    </h3>
+
+                    <p>
+                        The returned value by the <code>.desoSlide()</code> call is the jQuery object to maintain the chainability.
+                        If you want to know if the slider is well generated, use the <code>events.completed</code> function.
+                    </p>
+
 <pre><code>$('#demo_thumbs').desoSlide({
-           main: {
-           container: '#demo'
-           },
-           events: {
-           completed: function(result) {
-           switch(result) {
-           case 'success': // success handler
-           break;
-           case 'warning': // warning handler
-           break;
-           case 'error': // error handler
-           break;
-           }
-           }
-           }
-           });
-</code></pre>
+    main: {
+        container: '#demo'
+    },
+    events: {
+        completed: function(result) {
+            switch(result) {
+                case 'success': // success handler
+                    break;
+                case 'warning': // warning handler
+                    break;
+                case 'error': // error handler
+                    break;
+            }
+        }
+    }
+});</code></pre>
                     <!-- Browser compatibility -->
                     <h3 id="browser_compatibility" class="page-header">
                         <span class="label label-danger"><i class="fa fa-globe"></i></span> Browser compatibility

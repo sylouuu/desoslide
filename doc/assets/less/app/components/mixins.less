@@ -18,9 +18,11 @@
     @import '../components/modules/jumbotron.less';
     @import '../components/modules/label.less';
     @import '../components/modules/form.less';
+    @import '../components/modules/dialog.less';
 }
 
-.btn-circle-variant(@btn; @border; @color; @hover-bg) {
+.btn-circle-variant(@btn; @border; @color; @hover-bg)
+{
     &.@{btn}
     {
         border-color : @border;
@@ -33,6 +35,19 @@
             background-color : @hover-bg;
             color            : @white;
         }
+    }
+}
+
+.dialog-bg-color(@color)
+{
+    background-color : lighten(@color, 45%);
+}
+
+.dialog-title-color(@color)
+{
+    h1, h2, h3, h4, h5, h6
+    {
+        color : @color;
     }
 }
 
