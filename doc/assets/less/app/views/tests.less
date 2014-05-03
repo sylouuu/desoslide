@@ -44,6 +44,7 @@
 
 #qunit-testresult
 {
+    border-bottom    : none;
     background-color : lighten(@ebony-clay, 10%);
     font-family      : @font-family-base;
     font-size        : 14px;
@@ -54,30 +55,50 @@
 {
     font-family : @font-family-base;
 
-    .pass
+    li
     {
-        border           : 2px solid @brand-success;
-        border-top       : none;
-        background-color : #f1f2f3;
-        font-size        : 14px;
-        color            : @text-color;
+        border         : 3px none;
+        padding-top    : 10px;
+        padding-bottom : 10px;
+        font-size      : 14px;
+        color          : @text-color;
 
         .test-name
         {
             color : @text-color;
         }
-    }
 
-    li
-    {
-        padding-top    : 10px;
-        padding-bottom : 10px;
-
-        li.pass
+        li
         {
-            border-left-color : @brand-success;
-            border-bottom     : none;
-            border-right      : none;
+
+            &.pass
+            {
+                border-left-color : @brand-success;
+                border-top        : none;
+                border-right      : none;
+                border-bottom     : none;
+            }
+
+            &.fail
+            {
+                border-left-color : @brand-danger;
+                border-top        : none;
+                border-right      : none;
+                border-bottom     : none;
+            }
+
+        }
+
+        &.pass
+        {
+            border-left      : solid @brand-success;
+            background-color : #F8F9FA;
+        }
+
+        &.fail
+        {
+            border-left      : solid @brand-danger;
+            background-color : #F8F9FA;
         }
     }
 
