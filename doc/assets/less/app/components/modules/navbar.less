@@ -62,12 +62,17 @@
             {
                 > a
                 {
-                    color : @curious-blue;
+                    color : @brand-danger;
 
                     &:hover,
                     &:focus
                     {
-                        color : @curious-blue;
+                        color : @brand-danger;
+
+                        @media (min-width : @screen-sm)
+                        {
+                            box-shadow    : inset 0px -3px 0px @brand-danger;
+                        }
                     }
                 }
             }
