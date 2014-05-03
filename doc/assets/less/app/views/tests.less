@@ -2,3 +2,89 @@
 @import '../components/variables.less';
 @import '../components/mixins.less';
 .importAppFiles();
+
+.test,
+#qunit-header,
+#qunit-banner,
+#qunit-testrunner-toolbar
+{
+    display : none;
+}
+
+#qunit
+{
+    padding-top    : 50px;
+    padding-bottom : 50px;
+}
+
+#qunit-userAgent
+{
+    line-height             : 20px;
+    padding                 : 8px 20px;
+    border-top-left-radius  : 6px;
+    border-top-right-radius : 6px;
+    background-color        : @ebony-clay;
+    font-family             : @font-family-base;
+    font-size               : 15px;
+    color                   : white;
+    text-shadow             : none;
+}
+
+#qunit-testresult
+{
+    background-color : lighten(@ebony-clay, 10%);
+    font-family      : @font-family-base;
+    font-size        : 14px;
+    color            : @white;
+}
+
+#qunit-tests
+{
+    font-family : @font-family-base;
+
+    .pass
+    {
+        border           : 2px solid @brand-success;
+        border-top       : none;
+        background-color : #f1f2f3;
+        font-size        : 14px;
+        color            : @text-color;
+
+        .test-name
+        {
+            color : @text-color;
+        }
+    }
+
+    li
+    {
+        padding-top    : 10px;
+        padding-bottom : 10px;
+
+        li.pass
+        {
+            border-left-color : @brand-success;
+            border-bottom     : none;
+            border-right      : none;
+        }
+    }
+
+    b
+    {
+        &.counts
+        {
+            color : @text-color;
+        }
+
+        .failed
+        {
+            color : @brand-danger;
+        }
+
+        .passed
+        {
+            color : @brand-success;
+        }
+    }
+
+}
