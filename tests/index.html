@@ -190,7 +190,7 @@
 
                     <article class="col-lg-6 col-md-6 col-sm-5 text-center">
                         <p>
-                            <a href="./" class="btn btn-danger"><i class="fa fa-arrow-up"></i></a>
+                        <a href="./" class="btn btn-danger back-to-top"><i class="fa fa-arrow-up"></i></a>
                         </p>
                     </article>
 
@@ -208,5 +208,18 @@
         <script src="qunit/js/qunit.js"></script>
 
         <script src="tests.js"></script>
+
+        <script type="text/javascript">
+            $(function() {
+                $('a.back-to-top').on('click', function(e) {
+                    e.preventDefault();
+
+                    $('html, body').stop().animate({
+                        scrollTop: $('html, body').offset().top
+                    }, 1000);
+                });
+            });
+        </script>
+
     </body>
 </html>

@@ -1,513 +1,526 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="Instructions for installation, configuration and browser compatibility" />
-    <meta name="author" content="Sylvain, Jaoued" />
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="description" content="Instructions for installation, configuration and browser compatibility" />
+        <meta name="author" content="Sylvain, Jaoued" />
 
-    <title>Documentation &middot; desoSlide jQuery plugin</title>
+        <title>Documentation &middot; desoSlide jQuery plugin</title>
 
-    <link rel="icon" href="../favicon.png">
+        <link rel="icon" href="../favicon.png">
 
-    <!--[if lt IE 9]>
-    <script src="assets/js/vendor/html5shiv/html5shiv.min.js"></script>
-    <![endif]-->
+        <!--[if lt IE 9]>
+        <script src="assets/js/vendor/html5shiv/html5shiv.min.js"></script>
+        <![endif]-->
 
-    <link rel="stylesheet" href="assets/css/app/main.css" />
-    <link rel="stylesheet" href="assets/css/app/views/documentation.css" />
+        <link rel="stylesheet" href="assets/css/app/main.css" />
+        <link rel="stylesheet" href="assets/css/app/views/documentation.css" />
 
-    <script>
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-27524593-3']);
-        _gaq.push(['_trackPageview']);
+        <script>
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-27524593-3']);
+            _gaq.push(['_trackPageview']);
 
-        (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
-</head>
-<body>
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </head>
+    <body>
 
-    <!-- Header -->
-    <header class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <i class="fa fa-align-justify"></i>
-                </button>
-                <a class="navbar-brand" href="../">
-                    <span class="brand-deso">deso</span><span class="brand-slide">Slide</span>
-                </a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="demo.html"><i class="fa fa-picture-o"></i> Demo</a>
-                    </li>
-                    <li class="active">
-                        <a href="./"><i class="fa fa-book"></i> Documentation</a>
-                    </li>
-                    <li>
-                        <a href="release-notes.html"><i class="fa fa-list-alt"></i> Release Notes</a>
-                    </li>
-                    <li>
-                        <a href="../tests/"><i class="fa fa-check"></i> Tests</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/sylouuu/desoslide"><i class="fa fa-github"></i> Github</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </header>
-
-    <!-- Introduction section -->
-    <section class="jumbotron">
-        <div class="container">
-            <div class="row">
-
-                <!--[if lt IE 9]>
-                <div class="container">
-                    <div class="row">
-                        <article class="dialog dialog-danger">
-                            <h3>Your browser is too old!</h3>
-                            <p class="lead">
-                                desoSlide is not compatible with lower version of Internet Explorer 9.
-                                <br/>
-                                <a href="http://browsehappy.com/?locale=en">Upgrade</a> your browser today!
-                            </p>
-                        </article>
-                    </div>
+        <!-- Header -->
+        <header class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                    <a class="navbar-brand" href="../">
+                        <span class="brand-deso">deso</span><span class="brand-slide">Slide</span>
+                    </a>
                 </div>
-                <![endif]-->
-
-                <article class="col-lg-12">
-                    <h1>Documentation</h1>
-                    <p class="lead">Instructions for installation, configuration and browser compatibility</p>
-                </article>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="demo.html"><i class="fa fa-picture-o"></i> Demo</a>
+                        </li>
+                        <li class="active">
+                            <a href="./"><i class="fa fa-book"></i> Documentation</a>
+                        </li>
+                        <li>
+                            <a href="release-notes.html"><i class="fa fa-list-alt"></i> Release Notes</a>
+                        </li>
+                        <li>
+                            <a href="../tests/"><i class="fa fa-check"></i> Tests</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/sylouuu/desoslide"><i class="fa fa-github"></i> Github</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <!-- Breadcrumb section -->
-    <section class="section-breadcrumb">
-        <div class="container">
-            <div class="row">
-                <article class="col-lg-12">
-                    <p>
-                        Documentation covers: 1.3.0
-                    </p>
-                </article>
+        <!-- Introduction section -->
+        <section class="jumbotron">
+            <div class="container">
+                <div class="row">
+
+                    <!--[if lt IE 9]>
+                    <div class="container">
+                        <div class="row">
+                            <article class="dialog dialog-danger">
+                                <h3>Your browser is too old!</h3>
+                                <p class="lead">
+                                    desoSlide is not compatible with lower version of Internet Explorer 9.
+                                    <br/>
+                                    <a href="http://browsehappy.com/?locale=en">Upgrade</a> your browser today!
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                    <![endif]-->
+
+                    <article class="col-lg-12">
+                        <h1>Documentation</h1>
+                        <p class="lead">Instructions for installation, configuration and browser compatibility</p>
+                    </article>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Documentation section -->
-    <section id="section_documentation">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
+        <!-- Breadcrumb section -->
+        <section class="section-breadcrumb">
+            <div class="container">
+                <div class="row">
+                    <article class="col-lg-12">
+                        <p>
+                            Documentation covers: 1.3.0
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-                    <!-- Setup -->
-                    <h3 id="setup" class="page-header">
-                        <span class="label label-danger"><i class="fa fa-download"></i></span> Setup
-                    </h3>
+        <!-- Documentation section -->
+        <section id="section_documentation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
 
-                    <p class="text-justify">
-                        At first, include jQuery, <a href="https://github.com/daneden/animate.css">animate.css</a> and the desoSlide files in your page.
-                    </p>
+                        <!-- Setup -->
+                        <h3 id="setup" class="page-header">
+                            <span class="label label-danger"><i class="fa fa-download"></i></span> Setup
+                        </h3>
 
-<pre><code>&lt;link rel="stylesheet" href="css/animate.css">
-&lt;link rel="stylesheet" href="css/jquery.desoslide.css">
+                        <p class="text-justify">
+                            At first, include jQuery, <a href="https://github.com/daneden/animate.css">animate.css</a> and the desoSlide files in your page.
+                        </p>
 
-&lt;script src="js/jquery.js">&lt;/script>
-&lt;script src="js/jquery.desoslide.min.js">&lt;/script></code></pre>
+    <pre><code>&lt;link rel="stylesheet" href="css/animate.css">
+    &lt;link rel="stylesheet" href="css/jquery.desoslide.css">
 
-                    <p class="text-justify">
-                        Then, you need to create your thumbnails list with that markup. Don't forget to specify your images links and the <code>alt</code> attribute.
-                    </p>
+    &lt;script src="js/jquery.js">&lt;/script>
+    &lt;script src="js/jquery.desoslide.min.js">&lt;/script></code></pre>
 
-<pre><code>&lt;ul id="my_thumbs">
-    &lt;li>
-        &lt;a href="assets/img/bird.jpg">
-            &lt;img src="assets/img/bird_thumb.jpg" alt="Bird"
-                data-desoslide-caption="A bird, click me to open http://chez-syl.fr/"
-                data-desoslide-href="http://chez-syl.fr/">
-        &lt;/a>
-    &lt;/li>
-    &lt;li>
-        &lt;a href="assets/img/flower.jpg">
-            &lt;img src="assets/img/flower_thumb.jpg" alt="Flower"
-                data-desoslide-caption="A flower"
-                data-desoslide-caption="A flower, click me to open README.md file"
-                data-desoslide-href="README.md">
-        &lt;/a>
-    &lt;/li>
-    &lt;li>
-        &lt;a href="assets/img/butterfly.jpg">
-            &lt;img src="assets/img/butterfly_thumb.jpg" alt="Butterfly"
-                data-desoslide-caption="A butterfly"
-                data-desoslide-caption="A butterfly, click me to open LICENSE.md file"
-                data-desoslide-href="LICENSE.md">
-        &lt;/a>
-    &lt;/li>
-    &lt;li>
-        &lt;a href="assets/img/rose.jpg">
-            &lt;img src="assets/img/rose_thumb.jpg" alt="Rose"
-                data-desoslide-caption="A rose, you can't click me, got no link">
-        &lt;/a>
-    &lt;/li>
-&lt;/ul></code></pre>
+                        <p class="text-justify">
+                            Then, you need to create your thumbnails list with that markup. Don't forget to specify your images links and the <code>alt</code> attribute.
+                        </p>
 
-                    <div class="dialog dialog-info">
-                        <h4>Explanations</h4>
+    <pre><code>&lt;ul id="my_thumbs">
+        &lt;li>
+            &lt;a href="assets/img/bird.jpg">
+                &lt;img src="assets/img/bird_thumb.jpg" alt="Bird"
+                    data-desoslide-caption="A bird, click me to open http://chez-syl.fr/"
+                    data-desoslide-href="http://chez-syl.fr/">
+            &lt;/a>
+        &lt;/li>
+        &lt;li>
+            &lt;a href="assets/img/flower.jpg">
+                &lt;img src="assets/img/flower_thumb.jpg" alt="Flower"
+                    data-desoslide-caption="A flower"
+                    data-desoslide-caption="A flower, click me to open README.md file"
+                    data-desoslide-href="README.md">
+            &lt;/a>
+        &lt;/li>
+        &lt;li>
+            &lt;a href="assets/img/butterfly.jpg">
+                &lt;img src="assets/img/butterfly_thumb.jpg" alt="Butterfly"
+                    data-desoslide-caption="A butterfly"
+                    data-desoslide-caption="A butterfly, click me to open LICENSE.md file"
+                    data-desoslide-href="LICENSE.md">
+            &lt;/a>
+        &lt;/li>
+        &lt;li>
+            &lt;a href="assets/img/rose.jpg">
+                &lt;img src="assets/img/rose_thumb.jpg" alt="Rose"
+                    data-desoslide-caption="A rose, you can't click me, got no link">
+            &lt;/a>
+        &lt;/li>
+    &lt;/ul></code></pre>
 
-                        <ul class="list-unstyled">
+                        <div class="dialog dialog-info">
+                            <h4>Explanations</h4>
+
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span class="label label-danger">mandatory</span>
+                                    &emsp;Specify your images links and the <code>alt</code> attribute
+                                </li>
+                                <li>
+                                    <span class="label label-primary">optional</span>
+                                    &emsp;&emsp;The <code>data-desoslide-caption</code> attribute is used for the caption
+                                </li>
+                                <li>
+                                    <span class="label label-primary">optional</span>
+                                    &emsp;&emsp;The <code>data-desoslide-href</code> attribute contains the link to the page that
+                                    will be active on the main image
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Configuration -->
+                        <h3 id="configuration" class="page-header">
+                            <span class="label label-danger"><i class="fa fa-wrench"></i></span> Configuration
+                        </h3>
+
+                        <p class="text-justify">
+                            Call the plugin "desoSlide" on your list of thumbnails by specifying the target where the main image
+                            will be generated:
+                        </p>
+
+    <pre><code>$(function() {
+        $('#my_thumbs').desoSlide({
+            main: {
+                container: '#demo_main_image',
+                cssClass: 'img-responsive'
+            },
+            caption: true
+        });
+    });</code></pre>
+
+                        <p class="text-justify">
+                            Here, the main image will be generated inside <code>#demo_main_image</code>.
+                        </p>
+
+                        <div class="dialog dialog-info">
+                            <h4>Demo</h4>
+                            <p>View the result on the <a href="demo.html">demo page</a>.</p>
+                        </div>
+
+                        <!-- Controls -->
+                        <h3 id="controls" class="page-header">
+                            <span class="label label-danger"><i class="fa fa-play"></i></span> Controls
+                        </h3>
+
+                        <p class="text-justify">
+                            You can control the slider by clicking on the pictos. Previous, pause, play and next are supported.
+                            Also, you are able to use your keyboard keys to control it:
+                        </p>
+
+                        <ul>
                             <li>
-                                <span class="label label-danger">mandatory</span>
-                                &emsp;Specify your images links and the <code>alt</code> attribute
+                                <p>Press <code>left arrow</code> to trigger <b>previous</b></p>
                             </li>
                             <li>
-                                <span class="label label-primary">optional</span>
-                                &emsp;&emsp;The <code>data-desoslide-caption</code> attribute is used for the caption
+                                <p>Press <code>right arrow</code> to trigger <b>next</b></p>
                             </li>
                             <li>
-                                <span class="label label-primary">optional</span>
-                                &emsp;&emsp;The <code>data-desoslide-href</code> attribute contains the link to the page that
-                                will be active on the main image
+                                <p>Press <code>space</code> to toggle <b>play/pause</b></p>
                             </li>
                         </ul>
-                    </div>
 
-                    <!-- Configuration -->
-                    <h3 id="configuration" class="page-header">
-                        <span class="label label-danger"><i class="fa fa-wrench"></i></span> Configuration
-                    </h3>
+                        <p class="text-justify">
+                            As this feature is binded on the document, if you have more than one slider on your page and you press
+                            a key, all sliders will be triggered. I recommend to you to enable the keys control on only one slider,
+                            by disabling the other ones with <code>controls.keys: false</code>.
+                        </p>
 
-                    <p class="text-justify">
-                        Call the plugin "desoSlide" on your list of thumbnails by specifying the target where the main image
-                        will be generated:
-                    </p>
 
-<pre><code>$(function() {
-    $('#my_thumbs').desoSlide({
+                        <!-- Options -->
+                        <h3 id="options" class="page-header">
+                            <span class="label label-danger"><i class="fa fa-cog"></i></span> Options
+                        </h3>
+
+                        <p>Find below all the available options.</p>
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Options</th>
+                                    <th>Values</th>
+                                    <th>Default</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-title="Options"><code>main.container</code></td>
+                                    <td data-title="Values">Your target container</td>
+                                    <td data-title="Default"><code>false</code></td>
+                                    <td data-title="Description">Container for the main image. If you don't specify a valid selector, you'll receive an error.</td>
+                                </tr>
+                                <tr>
+                                    <td data-title="Options"><code>main.cssClass</code></td>
+                                    <td data-title="Values">String</td>
+                                    <td data-title="Default"><code>''</code></td>
+                                    <td data-title="Description">Class(es) name(s) of your main image.</td>
+                                </tr>
+                                <tr>
+                                    <td data-title="Options"><code>main.insertion</code></td>
+                                    <td data-title="Values"><code>'append'</code> <code>'prepend'</code> <code>'replace'</code></td>
+                                    <td data-title="Default"><code>'append'</code></td>
+                                    <td data-title="Description">How to create the main image, by prepending, appending or replace all the selector's content (overwriting).</td>
+                                </tr>
+                                <tr>
+                                    <td data-title="Options"><code>auto.load</code></td>
+                                    <td data-title="Values">Boolean</td>
+                                    <td data-title="Default"><code>true</code></td>
+                                    <td data-title="Description">All thumbnails links (full size images) are auto loaded in background (invisible). </td>
+                                </tr>
+                                <tr>
+                                    <td data-title="Options"><code>auto.start</code></td>
+                                    <td data-title="Values">Boolean</td>
+                                    <td data-title="Default"><code>false</code></td>
+                                    <td data-title="Description">Autostarting a diaporama.</td>
+                                </tr>
+                                <tr>
+                                    <td data-title="Options"><code>first</code></td>
+                                    <td data-title="Values">Integer between 0 and the number of thumbnails (-1)</td>
+                                    <td data-title="Default"><code>0</code></td>
+                                    <td data-title="Description">The index of the thumbnail that you want to display first.</td>
+                                </tr>
+                                <tr>
+                                    <td data-title="Options"><code>interval</code></td>
+                                    <td data-title="Values">Integer, minimum 1500</td>
+                                    <td data-title="Default"><code>3000</code></td>
+                                    <td data-title="Description">Interval in milliseconds between each image.</td>
+                                </tr>
+                                <tr>
+                                    <td data-title="Options"><code>effect</code></td>
+                                    <td data-title="Values"><code>'fade'</code> <code>'sideFade'</code> <code>'sideFadeBig'</code> <code>'flip'</code> <code>'light'</code> <code>'roll'</code> <code>'rotate'</code> <code>'random'</code></td>
+                                    <td data-title="Default"><code>'fade'</code></td>
+                                    <td data-title="Description">Transition effect provided by <a href="http://daneden.me/animate/">animate.css</a>. <code>'random'</code> chooses the effect for you.</td>
+                                </tr>
+                                <tr>
+                                    <td data-title="Options"><code>overlay</code></td>
+                                    <td data-title="Values"><code>'always'</code> <code>'hover'</code> <code>'none'</code></td>
+                                    <td data-title="Default"><code>'always'</code></td>
+                                    <td data-title="Description">How to show overlay.</td>
+                                </tr>
+                                <tr>
+                                    <td data-title="Options"><code>caption</code></td>
+                                    <td data-title="Values">Boolean</td>
+                                    <td data-title="Default"><code>false</code></td>
+                                    <td data-title="Description">If <code>true</code>, be sure that you have specified the <code>data-desoslide-caption</code> attribute on thumbnails.</td>
+                                </tr>
+                                <tr>
+                                    <td data-title="Options"><code>controls.enable</code></td>
+                                    <td data-title="Values">Boolean</td>
+                                    <td data-title="Default"><code>true</code></td>
+                                    <td data-title="Description">Able to control by clicking (prev/pause/play/next).</td>
+                                </tr>
+                                <tr>
+                                    <td data-title="Options"><code>controls.keys</code></td>
+                                    <td data-title="Values">Boolean</td>
+                                    <td data-title="Default"><code>true</code></td>
+                                    <td data-title="Description">Able to control by pressing the keyboard keys (left/right/space).</td>
+                                </tr>
+                                <tr>
+                                    <td data-title="Options"><code>events.thumbClick</code></td>
+                                    <td data-title="Values">function()</td>
+                                    <td data-title="Default"><code>false</code></td>
+                                    <td data-title="Description">Callback when clicking on a thumbnail.</td>
+                                </tr>
+                                <tr>
+                                    <td data-title="Options"><code>events.prev</code></td>
+                                    <td data-title="Values">function()</td>
+                                    <td data-title="Default"><code>false</code></td>
+                                    <td data-title="Description">Callback when triggering <code>prev</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td data-title="Options"><code>events.pause</code></td>
+                                    <td data-title="Values">function()</td>
+                                    <td data-title="Default"><code>false</code></td>
+                                    <td data-title="Description">Callback when triggering <code>pause</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td data-title="Options"><code>events.play</code></td>
+                                    <td data-title="Values">function()</td>
+                                    <td data-title="Default"><code>false</code></td>
+                                    <td data-title="Description">Callback when triggering <code>play</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td data-title="Options"><code>events.next</code></td>
+                                    <td data-title="Values">function()</td>
+                                    <td data-title="Default"><code>false</code></td>
+                                    <td data-title="Description">Callback when triggering <code>next</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td data-title="Options"><code>events.completed</code></td>
+                                    <td data-title="Values">function(result)</td>
+                                    <td data-title="Default"><code>false</code></td>
+                                    <td data-title="Description">Get the slider result. The first argument outputs one of these values: "success", "error" or "warning".</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Return value -->
+                        <h3 id="return_value" class="page-header">
+                            <span class="label label-danger"><i class="fa fa-mail-reply"></i></span> Return value
+                        </h3>
+
+                        <p class="text-justify">
+                            The returned value by the <code>.desoSlide()</code> call is the jQuery object to maintain the chainability.
+                            If you want to know if the slider is well generated, use the <code>events.completed</code> function.
+                        </p>
+
+    <pre><code>$('#demo_thumbs').desoSlide({
         main: {
-            container: '#demo_main_image',
-            cssClass: 'img-responsive'
+            container: '#demo'
         },
-        caption: true
-    });
-});</code></pre>
-
-                    <p class="text-justify">
-                        Here, the main image will be generated inside <code>#demo_main_image</code>.
-                    </p>
-
-                    <div class="dialog dialog-info">
-                        <h4>Demo</h4>
-                        <p>View the result on the <a href="demo.html">demo page</a>.</p>
-                    </div>
-
-                    <!-- Controls -->
-                    <h3 id="controls" class="page-header">
-                        <span class="label label-danger"><i class="fa fa-play"></i></span> Controls
-                    </h3>
-
-                    <p class="text-justify">
-                        You can control the slider by clicking on the pictos. Previous, pause, play and next are supported.
-                        Also, you are able to use your keyboard keys to control it:
-                    </p>
-
-                    <ul>
-                        <li>
-                            <p>Press <code>left arrow</code> to trigger <b>previous</b></p>
-                        </li>
-                        <li>
-                            <p>Press <code>right arrow</code> to trigger <b>next</b></p>
-                        </li>
-                        <li>
-                            <p>Press <code>space</code> to toggle <b>play/pause</b></p>
-                        </li>
-                    </ul>
-
-                    <p class="text-justify">
-                        As this feature is binded on the document, if you have more than one slider on your page and you press
-                        a key, all sliders will be triggered. I recommend to you to enable the keys control on only one slider,
-                        by disabling the other ones with <code>controls.keys: false</code>.
-                    </p>
-
-
-                    <!-- Options -->
-                    <h3 id="options" class="page-header">
-                        <span class="label label-danger"><i class="fa fa-cog"></i></span> Options
-                    </h3>
-
-                    <p>Find below all the available options.</p>
-
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Options</th>
-                                <th>Values</th>
-                                <th>Default</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td data-title="Options"><code>main.container</code></td>
-                                <td data-title="Values">Your target container</td>
-                                <td data-title="Default"><code>false</code></td>
-                                <td data-title="Description">Container for the main image. If you don't specify a valid selector, you'll receive an error.</td>
-                            </tr>
-                            <tr>
-                                <td data-title="Options"><code>main.cssClass</code></td>
-                                <td data-title="Values">String</td>
-                                <td data-title="Default"><code>''</code></td>
-                                <td data-title="Description">Class(es) name(s) of your main image.</td>
-                            </tr>
-                            <tr>
-                                <td data-title="Options"><code>main.insertion</code></td>
-                                <td data-title="Values"><code>'append'</code> <code>'prepend'</code> <code>'replace'</code></td>
-                                <td data-title="Default"><code>'append'</code></td>
-                                <td data-title="Description">How to create the main image, by prepending, appending or replace all the selector's content (overwriting).</td>
-                            </tr>
-                            <tr>
-                                <td data-title="Options"><code>auto.load</code></td>
-                                <td data-title="Values">Boolean</td>
-                                <td data-title="Default"><code>true</code></td>
-                                <td data-title="Description">All thumbnails links (full size images) are auto loaded in background (invisible). </td>
-                            </tr>
-                            <tr>
-                                <td data-title="Options"><code>auto.start</code></td>
-                                <td data-title="Values">Boolean</td>
-                                <td data-title="Default"><code>false</code></td>
-                                <td data-title="Description">Autostarting a diaporama.</td>
-                            </tr>
-                            <tr>
-                                <td data-title="Options"><code>first</code></td>
-                                <td data-title="Values">Integer between 0 and the number of thumbnails (-1)</td>
-                                <td data-title="Default"><code>0</code></td>
-                                <td data-title="Description">The index of the thumbnail that you want to display first.</td>
-                            </tr>
-                            <tr>
-                                <td data-title="Options"><code>interval</code></td>
-                                <td data-title="Values">Integer, minimum 1500</td>
-                                <td data-title="Default"><code>3000</code></td>
-                                <td data-title="Description">Interval in milliseconds between each image.</td>
-                            </tr>
-                            <tr>
-                                <td data-title="Options"><code>effect</code></td>
-                                <td data-title="Values"><code>'fade'</code> <code>'sideFade'</code> <code>'sideFadeBig'</code> <code>'flip'</code> <code>'light'</code> <code>'roll'</code> <code>'rotate'</code> <code>'random'</code></td>
-                                <td data-title="Default"><code>'fade'</code></td>
-                                <td data-title="Description">Transition effect provided by <a href="http://daneden.me/animate/">animate.css</a>. <code>'random'</code> chooses the effect for you.</td>
-                            </tr>
-                            <tr>
-                                <td data-title="Options"><code>overlay</code></td>
-                                <td data-title="Values"><code>'always'</code> <code>'hover'</code> <code>'none'</code></td>
-                                <td data-title="Default"><code>'always'</code></td>
-                                <td data-title="Description">How to show overlay.</td>
-                            </tr>
-                            <tr>
-                                <td data-title="Options"><code>caption</code></td>
-                                <td data-title="Values">Boolean</td>
-                                <td data-title="Default"><code>false</code></td>
-                                <td data-title="Description">If <code>true</code>, be sure that you have specified the <code>data-desoslide-caption</code> attribute on thumbnails.</td>
-                            </tr>
-                            <tr>
-                                <td data-title="Options"><code>controls.enable</code></td>
-                                <td data-title="Values">Boolean</td>
-                                <td data-title="Default"><code>true</code></td>
-                                <td data-title="Description">Able to control by clicking (prev/pause/play/next).</td>
-                            </tr>
-                            <tr>
-                                <td data-title="Options"><code>controls.keys</code></td>
-                                <td data-title="Values">Boolean</td>
-                                <td data-title="Default"><code>true</code></td>
-                                <td data-title="Description">Able to control by pressing the keyboard keys (left/right/space).</td>
-                            </tr>
-                            <tr>
-                                <td data-title="Options"><code>events.thumbClick</code></td>
-                                <td data-title="Values">function()</td>
-                                <td data-title="Default"><code>false</code></td>
-                                <td data-title="Description">Callback when clicking on a thumbnail.</td>
-                            </tr>
-                            <tr>
-                                <td data-title="Options"><code>events.prev</code></td>
-                                <td data-title="Values">function()</td>
-                                <td data-title="Default"><code>false</code></td>
-                                <td data-title="Description">Callback when triggering <code>prev</code>.</td>
-                            </tr>
-                            <tr>
-                                <td data-title="Options"><code>events.pause</code></td>
-                                <td data-title="Values">function()</td>
-                                <td data-title="Default"><code>false</code></td>
-                                <td data-title="Description">Callback when triggering <code>pause</code>.</td>
-                            </tr>
-                            <tr>
-                                <td data-title="Options"><code>events.play</code></td>
-                                <td data-title="Values">function()</td>
-                                <td data-title="Default"><code>false</code></td>
-                                <td data-title="Description">Callback when triggering <code>play</code>.</td>
-                            </tr>
-                            <tr>
-                                <td data-title="Options"><code>events.next</code></td>
-                                <td data-title="Values">function()</td>
-                                <td data-title="Default"><code>false</code></td>
-                                <td data-title="Description">Callback when triggering <code>next</code>.</td>
-                            </tr>
-                            <tr>
-                                <td data-title="Options"><code>events.completed</code></td>
-                                <td data-title="Values">function(result)</td>
-                                <td data-title="Default"><code>false</code></td>
-                                <td data-title="Description">Get the slider result. The first argument outputs one of these values: "success", "error" or "warning".</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <!-- Return value -->
-                    <h3 id="return_value" class="page-header">
-                        <span class="label label-danger"><i class="fa fa-mail-reply"></i></span> Return value
-                    </h3>
-
-                    <p class="text-justify">
-                        The returned value by the <code>.desoSlide()</code> call is the jQuery object to maintain the chainability.
-                        If you want to know if the slider is well generated, use the <code>events.completed</code> function.
-                    </p>
-
-<pre><code>$('#demo_thumbs').desoSlide({
-    main: {
-        container: '#demo'
-    },
-    events: {
-        completed: function(result) {
-            switch(result) {
-                case 'success': // success handler
-                    break;
-                case 'warning': // warning handler
-                    break;
-                case 'error': // error handler
-                    break;
+        events: {
+            completed: function(result) {
+                switch(result) {
+                    case 'success': // success handler
+                        break;
+                    case 'warning': // warning handler
+                        break;
+                    case 'error': // error handler
+                        break;
+                }
             }
         }
-    }
-});</code></pre>
-                    <!-- Browser compatibility -->
-                    <h3 id="browser_compatibility" class="page-header">
-                        <span class="label label-danger"><i class="fa fa-globe"></i></span> Browser compatibility
-                    </h3>
+    });</code></pre>
+                        <!-- Browser compatibility -->
+                        <h3 id="browser_compatibility" class="page-header">
+                            <span class="label label-danger"><i class="fa fa-globe"></i></span> Browser compatibility
+                        </h3>
 
-                    <ul id="browser_list" class="list-inline text-center">
-                        <li><i class="icon-brw-explorer"></i> IE 10+</li>
-                        <li><i class="icon-brw-firefox"></i> Firefox 5+</li>
-                        <li><i class="icon-brw-chrome"></i> Chrome</li>
-                        <li><i class="icon-brw-opera"></i> Opera</li>
-                        <li><i class="icon-brw-safari-02"></i> Safari</li>
-                    </ul>
+                        <ul id="browser_list" class="list-inline text-center">
+                            <li><i class="icon-brw-explorer"></i> IE 10+</li>
+                            <li><i class="icon-brw-firefox"></i> Firefox 5+</li>
+                            <li><i class="icon-brw-chrome"></i> Chrome</li>
+                            <li><i class="icon-brw-opera"></i> Opera</li>
+                            <li><i class="icon-brw-safari-02"></i> Safari</li>
+                        </ul>
 
-                    <!-- Contributors -->
-                    <h3 id="contributors" class="page-header">
-                        <span class="label label-danger"><i class="fa fa-users"></i></span> Contributors
-                    </h3>
+                        <!-- Contributors -->
+                        <h3 id="contributors" class="page-header">
+                            <span class="label label-danger"><i class="fa fa-users"></i></span> Contributors
+                        </h3>
 
-                    <div class="row">
+                        <div class="row">
 
-                        <article class="col-sm-6 col-md-6 col-lg-6 text-center">
-                            <p><img src="assets/img/team/sylvain.jpg" class="img-circle" alt="Sylvain"></p>
+                            <article class="col-sm-6 col-md-6 col-lg-6 text-center">
+                                <p><img src="assets/img/team/sylvain.jpg" class="img-circle" alt="Sylvain"></p>
 
-                            <h4>Sylvain</h4>
+                                <h4>Sylvain</h4>
 
-                            <p>Developer</p>
+                                <p>Developer</p>
 
-                            <ul class="list-inline">
-                                <li>
-                                    <a href="http://sylouuu.github.io/" class="btn btn-danger btn-hg">
-                                        <i class="fa fa-home"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://twitter.com/sylwebdev" class="btn btn-twitter btn-hg">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://github.com/sylouuu" class="btn btn-github btn-hg">
-                                        <i class="fa fa-github"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </article>
+                                <ul class="list-inline">
+                                    <li>
+                                        <a href="http://sylouuu.github.io/" class="btn btn-danger btn-hg">
+                                            <i class="fa fa-home"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/sylwebdev" class="btn btn-twitter btn-hg">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/sylouuu" class="btn btn-github btn-hg">
+                                            <i class="fa fa-github"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </article>
 
-                        <article class="col-sm-6 col-md-6 col-lg-6 text-center">
-                            <p><img src="assets/img/team/jaoued.png" class="img-circle" alt="Sylvain"></p>
+                            <article class="col-sm-6 col-md-6 col-lg-6 text-center">
+                                <p><img src="assets/img/team/jaoued.png" class="img-circle" alt="Sylvain"></p>
 
-                            <h4>Jaoued</h4>
+                                <h4>Jaoued</h4>
 
-                            <p>Designer</p>
+                                <p>Designer</p>
 
-                            <ul class="list-inline">
-                                <li>
-                                    <a href="http://jaoued.com/" class="btn btn-danger btn-hg">
-                                        <i class="fa fa-home"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://twitter.com/jaouedElghali" class="btn btn-twitter btn-hg">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://github.com/jaoued" class="btn btn-github btn-hg">
-                                        <i class="fa fa-github"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </article>
+                                <ul class="list-inline">
+                                    <li>
+                                        <a href="http://jaoued.com/" class="btn btn-danger btn-hg">
+                                            <i class="fa fa-home"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/jaouedElghali" class="btn btn-twitter btn-hg">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/jaoued" class="btn btn-github btn-hg">
+                                            <i class="fa fa-github"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </article>
+                        </div>
                     </div>
+
                 </div>
-
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer section -->
-    <footer>
-        <div class="container">
-            <div class="row">
+        <!-- Footer section -->
+        <footer>
+            <div class="container">
+                <div class="row">
 
-                <article class="col-lg-3 col-md-3 col-sm-4">
-                    <ul class="list-inline">
-                        <li>
-                            <a href="https://github.com/sylouuu/desoslide">Contribute</a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/sylouuu/desoslide/issues?state=open">Issues</a>
-                        </li>
-                    </ul>
-                </article>
+                    <article class="col-lg-3 col-md-3 col-sm-4">
+                        <ul class="list-inline">
+                            <li>
+                                <a href="https://github.com/sylouuu/desoslide">Contribute</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/sylouuu/desoslide/issues?state=open">Issues</a>
+                            </li>
+                        </ul>
+                    </article>
 
-                <article class="col-lg-6 col-md-6 col-sm-5 text-center">
-                    <p>
-                        <a href="demo.html" class="btn btn-danger"><i class="fa fa-arrow-up"></i></a>
-                    </p>
-                </article>
+                    <article class="col-lg-6 col-md-6 col-sm-5 text-center">
+                        <p>
+                            <a href="./" class="btn btn-danger back-to-top"><i class="fa fa-arrow-up"></i></a>
+                        </p>
+                    </article>
 
-                <article class="col-lg-3 col-md-3 col-sm-3 text-right">
-                    <p>&copy; 2014 desoSlide</p>
-                </article>
+                    <article class="col-lg-3 col-md-3 col-sm-3 text-right">
+                        <p>&copy; 2014 desoSlide</p>
+                    </article>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-    <script src="assets/js/vendor/jquery/jquery.js"></script>
-    <script src="assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+        <script src="assets/js/vendor/jquery/jquery.js"></script>
+        <script src="assets/js/vendor/bootstrap/bootstrap.min.js"></script>
 
-    <!--[IF !IE]><!-->
-    <script src="assets/js/app/highlight.min.js"></script>
-    <!--<![ENDIF]-->
-</body>
+        <script type="text/javascript">
+            $(function() {
+                $('a.back-to-top').on('click', function(e) {
+                    e.preventDefault();
+
+                    $('html, body').stop().animate({
+                        scrollTop: $('html, body').offset().top
+                    }, 1000);
+                });
+            });
+        </script>
+
+        <!--[IF !IE]><!-->
+        <script src="assets/js/app/highlight.min.js"></script>
+        <!--<![ENDIF]-->
+
+    </body>
 </html>
