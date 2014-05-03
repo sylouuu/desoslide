@@ -28,6 +28,12 @@ a
     {
         margin : 0;
     }
+
+    @media (max-width : @screen-xs)
+    {
+        min-height    : 47px;
+        padding       : 8px 5px;
+    }
 }
 
 .section-title
@@ -44,6 +50,12 @@ a
     color         : @white;
     text-align    : center;
     border-radius : 50%;
+
+    .label
+    {
+        margin-top : 10px;
+        display    : inline-block;
+    }
 
     .section-icon
     {
@@ -94,6 +106,32 @@ a
             font-size : 20px;
         }
     }
+
+    @media (max-width : @screen-xs)
+    {
+        top           : -65px;
+        width         : 130px;
+        height        : 130px;
+        margin-left   : -65px;
+        padding       : 22px 10px 10px;
+        border        : 8px solid;
+
+        .section-icon
+        {
+            font-size : 45px;
+        }
+
+        .section-text
+        {
+            margin-top : 2px;
+            font-size  : 17px;
+        }
+
+        .label
+        {
+            margin-top : 3px;
+        }
+    }
 }
 
 .page-header
@@ -139,5 +177,13 @@ a
                 font-size   : 30px;
             }
         }
+    }
+}
+
+@media (max-width : @screen-xs)
+{
+    .lead
+    {
+        font-size : 1.115em;
     }
 }
