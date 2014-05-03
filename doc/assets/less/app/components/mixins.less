@@ -1,3 +1,24 @@
+.importVendorFiles()
+{
+    @import '../../vendor/bootstrap/variables.less';
+    @import '../../vendor/bootstrap/mixins.less';
+    @import '../../vendor/flat-ui/variables.less';
+    @import '../../vendor/flat-ui/mixins.less';
+}
+
+.importAppFiles()
+{
+    @import '../components/fonts.less';
+    @import '../components/typography.less';
+    @import '../layouts/header.less';
+    @import '../layouts/body.less';
+    @import '../layouts/footer.less';
+    @import '../components/modules/navbar.less';
+    @import '../components/modules/button.less';
+    @import '../components/modules/jumbotron.less';
+    @import '../components/modules/label.less';
+    @import '../components/modules/form.less';
+}
 
 .btn-circle-variant(@btn; @border; @color; @hover-bg) {
     &.@{btn}
@@ -14,3 +35,4 @@
         }
     }
 }
+
