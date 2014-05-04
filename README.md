@@ -30,4 +30,4 @@ See <a href="CONTRIBUTING.md">contributing</a> file.
 
 ## Changelog
 
-See <a href="https://github.com/sylouuu/desoslide/releases">releases</a> page or <a href="http://sylouuu.github.io/desoslide/doc/release-notes.html">releases notes</a>.
+See <a href="https://github.com/sylouuu/desoslide/releases">releases</a> page or <a href="http://sylouuu.github.io/desoslide/doc/release-notes.html">release notes</a>.
