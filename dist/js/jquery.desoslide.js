@@ -692,8 +692,8 @@
                 var border = parseInt(this.props.img.$elem.css('border-left-width'), 10);
 
                 // Main image height
-                var width_plus_border = this.props.img.$elem.width() + border;
-                var height_plus_border = this.props.img.$elem.height() + border;
+                var width_plus_border = this.props.img.$elem.width() + (border * 2);
+                var height_plus_border = this.props.img.$elem.height();
 
                 if ($(this.elem).find('.'+ this._namespace +'-overlay').length === 0) {
                     $('<div>', {
@@ -705,23 +705,25 @@
 
                 // Calculate new height with paddings
                 var
-                    paddingTop      = parseInt(this.props.img.$overlay.css('padding-top').replace('px', ''), 10),
-                    paddingBottom   = parseInt(this.props.img.$overlay.css('padding-bottom').replace('px', ''), 10),
-                    paddingLeft     = parseInt(this.props.img.$overlay.css('padding-left').replace('px', ''), 10),
-                    paddingRight    = parseInt(this.props.img.$overlay.css('padding-right').replace('px', ''), 10);
+                    paddingTop      = parseInt(this.props.img.$overlay.css('padding-top'), 10),
+                    paddingBottom   = parseInt(this.props.img.$overlay.css('padding-bottom'), 10),
+                    paddingLeft     = parseInt(this.props.img.$overlay.css('padding-left'), 10),
+                    paddingRight    = parseInt(this.props.img.$overlay.css('padding-right'), 10);
 
-                var overlayHeight = parseInt(this.props.img.$overlay.css('height').replace('px', ''), 10) - (paddingLeft + paddingRight);
+                var overlayHeight = parseInt(this.props.img.$overlay.css('height'), 10) - (paddingLeft + paddingRight);
                 overlayHeight = (parseInt(height_plus_border, 10) - overlayHeight - (paddingTop + paddingBottom));
 
                 var
-                    top = pos.top + overlayHeight,
+                    top = pos.top + overlayHeight + (border * 2),
                     left = pos.left;
 
                 // Update the overlay position
                 this.props.img.$overlay.css({
                     'left':  left +'px',
                     'top':   top +'px',
-                    'width': width_plus_border +'px'
+                    'width': width_plus_border +'px',
+                    'border-bottom-left-radius': this.props.img.$elem.css('border-radius'),
+                    'border-bottom-right-radius': this.props.img.$elem.css('border-radius')
                 });
 
                 // Showing the overlay if needed

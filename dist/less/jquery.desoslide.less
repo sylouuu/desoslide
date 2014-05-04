@@ -9,14 +9,12 @@
 @controls-width: 16px;
 @controls-height: 16px;
 
-.desoslide-wrapper
-{
+.desoslide-wrapper {
     position   : relative;
     text-align : center;
 }
 
-.desoslide-controls-wrapper
-{
+.desoslide-controls-wrapper {
     position    : relative;
     float       : right;
     height      : 36px;
@@ -25,17 +23,14 @@
     z-index     : 100;
     opacity     : 1;
 
-    a
-    {
-        &:hover
-        {
+    a     {
+        &:hover         {
             opacity : 0.7;
         }
     }
 }
 
-.desoslide-overlay
-{
+.desoslide-overlay {
     height           : 36px;
     position         : absolute;
     z-index          : 10;
@@ -46,13 +41,11 @@
     padding          : 8px;
     opacity          : 0;
 
-    a
-    {
+    a {
         color : white;
     }
 
-    .desoslide-caption-title
-    {
+    .desoslide-caption-title     {
         display    : inline-block;
         max-width  : 90%;
         max-height : 24px;
@@ -61,31 +54,26 @@
     }
 }
 
-.desoslide-controls
-{
+.desoslide-controls {
     display    : inline-block;
     background : url(@sprite-path) no-repeat 0 0;
 
-    &.prev
-    {
+    &.prev {
         width               : @controls-width;
         height              : @controls-height;
         background-position : 0 -54px;
     }
-    &.pause
-    {
+    &.pause {
         width               : @controls-width;
         height              : @controls-height;
         background-position : 0 -18px;
     }
-    &.play
-    {
+    &.play {
         width               : @controls-width;
         height              : @controls-height;
         background-position : 0 -36px;
     }
-    &.next
-    {
+    &.next {
         width               : @controls-width;
         height              : @controls-height;
         background-position : 0 0;
