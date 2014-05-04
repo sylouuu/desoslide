@@ -208,10 +208,10 @@
             }
 
             // Preload the target images
-            self._imagesLoading();
+            self._preloading();
 
             // Add the wrapper
-            self._addWrapper();
+            self._wrapper();
 
             // Set the effect
             self.setEffect({
@@ -287,7 +287,7 @@
                     if (effect.name === 'random') {
                         // Get a random effect
                         response.provider = effect.provider;
-                        response.name     = this.getRandomEffect(effect.provider);
+                        response.name     = this._getRandomEffect(effect.provider);
                     } else {
                         if (!this.props.effect.list[effect.provider].hasOwnProperty(effect.name)) {
                             response.provider = this._defaults.effect.provider;
@@ -511,9 +511,9 @@
         },
 
         /**
-        * Load images
+        * Preloads images
         */
-        _imagesLoading: function () {
+        _preloading: function () {
             if (this.options.auto.load === true) {
 
                 $.each(this.props.thumbs, function(i, item) {
@@ -528,7 +528,7 @@
         /**
         * Add wrapper
         */
-        _addWrapper: function () {
+        _wrapper: function () {
             var $img = $('<img>').attr('alt', this._name).addClass(this.options.imageClass).css('opacity', 0);
 
             $(this.elem).html($img).wrapInner($('<div>', {
@@ -579,7 +579,7 @@
         * @param string provider
         * @return strin random
         */
-        getRandomEffect: function (provider) {
+        _getRandomEffect: function (provider) {
             var random, count = 0, prop;
 
             for(prop in this.props.effect.list[provider]) {
@@ -626,7 +626,7 @@
                         // Animation done
                         .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
                             // Adding overlay
-                            self._addOverlay();
+                            self._overlay();
 
                             if (self.options.events.onImageShown) {
                                 self.options.events.onImageShown($(self.elem).find('img:first'));
@@ -681,7 +681,7 @@
         /**
         * Add overlay
         */
-        _addOverlay: function () {
+        _overlay: function () {
             // Overlay needed
             if (this.options.overlay !== 'none') {
                 // Main image position
@@ -728,10 +728,10 @@
                     }, 500);
                 }
 
-                this._captionManagement();
+                this._caption();
 
                 if (this.options.controls.show === true) {
-                    this._addControls();
+                    this._controls();
                 }
             }
         },
@@ -739,7 +739,7 @@
         /**
         * Add controls
         */
-        _addControls: function () {
+        _controls: function () {
             // Removing the existing controls wrapper
             $(this.elem).find('.'+ this._namespace +'-controls-wrapper').remove();
 
@@ -777,7 +777,7 @@
         /**
         * Caption management
         */
-        _captionManagement: function () {
+        _caption: function () {
             if (this.props.thumbs[this.props.img.to_show].caption_title !== null) {
                 this.props.img.$overlay.html('<span class="'+ this._namespace +'-caption-title">'+ this.props.thumbs[this.props.img.to_show].caption_title +'</span>');
 
@@ -921,7 +921,7 @@
             if (this.options.overlay !== 'none') {
                 $(window).bind('resize', function() {
                     delay(function() {
-                        self._addOverlay();
+                        self._overlay();
                     }, 100);
                 });
             }
