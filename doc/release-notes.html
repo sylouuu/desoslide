@@ -126,24 +126,72 @@
             <div class="container text-center">
                 <div class="row">
                     <article class="col-lg-12">
-                        <ul class="list-unstyled list-changelog text-justify">
+
+                        <h3 class="text-left">Main</h3>
+
+                        <ul class="list-unstyled list-changelog text-left">
                             <li>
-                                <span class="label label-success">New</span>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                <span class="label label-warning">Change</span>
+                                Call the plugin in <code>$(window).load(function() {})</code> instead of <code>$(function() {})</code>.
+                            </li>
+                        </ul>
+
+<pre class="text-left"><code id="code1">$(window).load(function() {
+
+    // Here we are sure that all images are loaded
+    $('#image').desoSlide({
+        // options
+    });
+
+});</code></pre>
+
+                        <h3 class="text-left">Options</h3>
+
+                        <ul class="list-unstyled list-changelog text-left">
+                            <li>
+                                <span class="label label-warning">Change</span>
+                                Call the plugin on the image container instead of a thumbs list.
                             </li>
                             <li>
-                                <span class="label label-danger">Fix</span>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                <span class="label label-success">New</span>
+                                Added <code>thumbs</code> option which takes an anchors collection.
+                            </li>
+                        </ul>
+
+<pre class="text-left"><code id="code1">$(function() {
+
+    // In version 1:
+    $('#thumbs').desoSlide({
+        main: {
+            container: '#image'
+        }
+    });
+
+});
+
+$(window).load(function() {
+
+    // In version 2:
+    $('#image').desoSlide({
+        thumbs: $('#thumbs li > a'), // This new way allows you to target any thumb in your DOM
+        // Or
+        thumbs: $('a.thumb'), // Be sure that your anchor has an `img` tag as a child
+    });
+
+});</code></pre>
+
+
+                        <ul class="list-unstyled list-changelog text-left">
+                            <li>
+                                <span class="label label-success">New</span>
+                                Added <code>imageClass</code> to replace <code>main.cssClass</code>.
                             </li>
                             <li>
                                 <span class="label label-warning">Change</span>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </li>
-                            <li>
-                                <span class="label label-info">Enhance</span>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Removed <code>main</code> object including <code>main.container</code>, <code>main.cssClass</code> and <code>main.insertion</code>.
                             </li>
                         </ul>
+
                     </article>
                 </div>
             </div>
@@ -162,7 +210,7 @@
             <div class="container text-center">
                 <div class="row">
                     <article class="col-lg-12">
-                        <ul class="list-unstyled list-changelog text-justify">
+                        <ul class="list-unstyled list-changelog text-left">
                             <li>
                                 <span class="label label-success">New</span>
                                 The <a href="https://github.com/daneden/animate.css">animate.css</a> library is now a dependency, it needs to be downloaded and loaded separately.
@@ -186,7 +234,7 @@
             <div class="container text-center">
                 <div class="row">
                     <article class="col-lg-12">
-                        <ul class="list-unstyled list-changelog text-justify">
+                        <ul class="list-unstyled list-changelog text-left">
                             <li>
                                 <span class="label label-success">New</span>
                                 Added <code>'random'</code> effect.
@@ -214,7 +262,7 @@
             <div class="container text-center">
                 <div class="row">
                     <article class="col-lg-12">
-                        <ul class="list-unstyled list-changelog text-justify">
+                        <ul class="list-unstyled list-changelog text-left">
                             <li>
                                 <span class="label label-success">New</span>
                                 Added 5 callbacks in the new <code>'events'</code> option: <code>'thumbClick'</code>, <code>'prev'</code>, <code>'pause'</code>, <code>'play'</code> and <code>'next'</code>.
@@ -246,7 +294,7 @@
             <div class="container text-center">
                 <div class="row">
                     <article class="col-lg-12">
-                        <ul class="list-unstyled list-changelog text-justify">
+                        <ul class="list-unstyled list-changelog text-left">
                             <li>
                                 <span class="label label-success">New</span>
                                 Added <code>'animationend'</code> event to recalculate overlay positioning after each effect, instead of using an arbitrary timeout.
@@ -278,7 +326,7 @@
             <div class="container text-center">
                 <div class="row">
                     <article class="col-lg-12">
-                        <ul class="list-unstyled list-changelog text-justify">
+                        <ul class="list-unstyled list-changelog text-left">
                             <li>
                                 <span class="label label-success">New</span>
                                 Added the <code>'desoslide'</code> namespace for data API. Use <code>data-desoslide-*</code>.
@@ -306,7 +354,7 @@
             <div class="container text-center">
                 <div class="row">
                     <article class="col-lg-12">
-                        <ul class="list-unstyled list-changelog text-justify">
+                        <ul class="list-unstyled list-changelog text-left">
                             <li>
                                 <span class="label label-success">New</span>
                                 Added effects <code>'sideFade'</code> and <code>'sideFadeBig'</code>.
@@ -330,7 +378,7 @@
             <div class="container text-center">
                 <div class="row">
                     <article class="col-lg-12">
-                        <ul class="list-unstyled list-changelog text-justify">
+                        <ul class="list-unstyled list-changelog text-left">
                             <li>
                                 <span class="label label-warning">Change</span>
                                 Log only the first error found. Avoid cascade errors.
@@ -354,7 +402,7 @@
             <div class="container text-center">
                 <div class="row">
                     <article class="col-lg-12">
-                        <ul class="list-unstyled list-changelog text-justify">
+                        <ul class="list-unstyled list-changelog text-left">
                             <li>
                                 <span class="label label-warning">Change</span>
                                 Totally remade the options syntax.
@@ -378,7 +426,7 @@
             <div class="container text-center">
                 <div class="row">
                     <article class="col-lg-12">
-                        <ul class="list-unstyled list-changelog text-justify">
+                        <ul class="list-unstyled list-changelog text-left">
                             <li>
                                 <span class="label label-success">New</span>
                                 Added 5 transition effects.
@@ -414,7 +462,7 @@
             <div class="container text-center">
                 <div class="row">
                     <article class="col-lg-12">
-                        <ul class="list-unstyled list-changelog text-justify">
+                        <ul class="list-unstyled list-changelog text-left">
                             <li>
                                 <span class="label label-danger">Fix</span>
                                 Fixed bad border value retrieved in Firefox.
@@ -438,7 +486,7 @@
             <div class="container text-center">
                 <div class="row">
                     <article class="col-lg-12">
-                        <ul class="list-unstyled list-changelog text-justify">
+                        <ul class="list-unstyled list-changelog text-left">
                             <li>
                                 <span class="label label-success">New</span>
                                 Added the border value while creating the overlay.
@@ -462,7 +510,7 @@
             <div class="container text-center">
                 <div class="row">
                     <article class="col-lg-12">
-                        <ul class="list-unstyled list-changelog text-justify">
+                        <ul class="list-unstyled list-changelog text-left">
                             <li>
                                 <span class="label label-success">New</span>
                                 First release.

@@ -323,6 +323,8 @@
                 if (this.options.auto.start === true && this.props.img.timer) {
                     this.options.auto.start = false;
 
+                    this._stopAnimation();
+
                     clearTimeout(this.props.img.timer);
 
                     if (this.props.controls.$wrapper) {
@@ -464,6 +466,8 @@
                 }
 
                 if (index !== this.props.img.to_show) {
+                    this._stopAnimation();
+
                     // Hiding the overlay
                     if (this.props.img.$overlay !== null) {
                         this.props.img.$overlay.animate({ opacity: 0 });
@@ -807,6 +811,13 @@
                     }
                 }
             }
+        },
+
+        /**
+        * Stop the current animation
+        */
+        _stopAnimation: function () {
+            $(this.elem).stop();
         },
 
         /**
