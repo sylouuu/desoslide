@@ -128,6 +128,7 @@
             },
 
             img: {
+                $elem:      null,
                 $overlay:   null,
                 to_show:    this.options.first,
                 timer:      null
@@ -534,6 +535,8 @@
             $(this.elem).html($img).wrapInner($('<div>', {
                 'class': this._namespace +'-wrapper'
             }));
+
+            this.props.img.$elem = $(this.elem).find('img:first');
         },
 
         /**
@@ -542,9 +545,9 @@
         _clearEffectClass: function () {
             var self = this, key, key2;
 
-            if ($(this.elem).find('img:first').attr('class') !== undefined) {
+            if (this.props.img.$elem.attr('class') !== undefined) {
                 // Retrieve CSS classes
-                var classes = $(this.elem).find('img:first').attr('class').split(/\s+/);
+                var classes = this.props.img.$elem.attr('class').split(/\s+/);
 
                 // Remove the namespace class an the in/out
                 for (key in self.props.effect.list) {
@@ -552,18 +555,18 @@
                         for (key2 in self.props.effect.list[key]) {
                             if (self.props.effect.list[key].hasOwnProperty(key2)) {
                                 if (classes.indexOf(self.props.effect.list[key][key2]) !== -1) {
-                                    $(this.elem).find('img:first').removeClass(self.props.effect.list[key][key2]);
+                                    this.props.img.$elem.removeClass(self.props.effect.list[key][key2]);
                                 }
 
                                 if (self.props.effect.list[key][key2].in) {
                                     if (classes.indexOf(self.props.effect.list[key][key2].in) !== -1) {
-                                        $(this.elem).find('img:first').removeClass(self.props.effect.list[key][key2].in);
+                                        this.props.img.$elem.removeClass(self.props.effect.list[key][key2].in);
                                     }
                                 }
 
                                 if (self.props.effect.list[key][key2].out) {
                                     if (classes.indexOf(self.props.effect.list[key][key2].out) !== -1) {
-                                        $(this.elem).find('img:first').removeClass(self.props.effect.list[key][key2].out);
+                                        this.props.img.$elem.removeClass(self.props.effect.list[key][key2].out);
                                     }
                                 }
                             }
@@ -605,7 +608,7 @@
             }
 
             if (self.options.events.onImageShow) {
-                self.options.events.onImageShow($(self.elem).find('img:first'));
+                self.options.events.onImageShow(this.props.img.$elem);
             }
 
             $(this.elem).find('img:first')
@@ -629,7 +632,7 @@
                             self._overlay();
 
                             if (self.options.events.onImageShown) {
-                                self.options.events.onImageShown($(self.elem).find('img:first'));
+                                self.options.events.onImageShown(self.props.img.$elem);
                             }
                         });
 
@@ -653,7 +656,7 @@
             this._clearEffectClass();
 
             if (self.options.events.onImageHide) {
-                self.options.events.onImageHide($(self.elem).find('img:first'));
+                self.options.events.onImageHide(this.props.img.$elem);
             }
 
             /**
@@ -669,7 +672,7 @@
                 // Animation done
                 .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
                     if (self.options.events.onImageHidden) {
-                        self.options.events.onImageHidden($(self.elem).find('img:first'));
+                        self.options.events.onImageHidden(self.props.img.$elem);
                     }
 
                     if (callback) {
@@ -685,12 +688,12 @@
             // Overlay needed
             if (this.options.overlay !== 'none') {
                 // Main image position
-                var pos = $(this.elem).find('img').position();
-                var border = parseInt($(this.elem).find('img').css('border-left-width'), 10);
+                var pos = this.props.img.$elem.position();
+                var border = parseInt(this.props.img.$elem.css('border-left-width'), 10);
 
                 // Main image height
-                var width_plus_border = $(this.elem).find('img').width() + border;
-                var height_plus_border = $(this.elem).find('img').height() + border;
+                var width_plus_border = this.props.img.$elem.width() + border;
+                var height_plus_border = this.props.img.$elem.height() + border;
 
                 if ($(this.elem).find('.'+ this._namespace +'-overlay').length === 0) {
                     $('<div>', {
@@ -839,7 +842,7 @@
             });
 
             // Click on image
-            $(this.elem).find('img:first').on('click', function(e) {
+            this.props.img.$elem.on('click', function(e) {
                 e.preventDefault();
 
                 // Callback
