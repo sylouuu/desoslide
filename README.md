@@ -6,7 +6,7 @@
 
 ## Dependencies
 
-* jQuery >= 1.7.0
+* jQuery >= 2.0.0 as only modern browsers are supported
 * [animate.css](https://github.com/daneden/animate.css) for using `effect.provider: 'animate'` (default)
 * [magic](https://github.com/miniMAC/magic) for using `effect.provider: 'magic'`
 
