@@ -7,7 +7,7 @@
 ## Dependencies
 
 * jQuery >= 1.7.0
-* [animate.css](https://github.com/daneden/animate.css) ~3.1.0 for using `effect.provider: 'animate'`
+* [animate.css](https://github.com/daneden/animate.css) for using `effect.provider: 'animate'` (default)
 * [magic](https://github.com/miniMAC/magic) for using `effect.provider: 'magic'`
 
 ## Build `dist/`
@@ -30,4 +30,8 @@ See <a href="CONTRIBUTING.md">contributing</a> file.
 
 ## Changelog
 
-See <a href="https://github.com/sylouuu/desoslide/releases">releases</a> page or <a href="http://sylouuu.github.io/desoslide/doc/release-notes.html">release notes</a>.
+See <a href="https://github.com/sylouuu/desoslide/releases">releases</a> page or <a href="http://sylouuu.github.io/desoslide/doc/release-notes.html">release notes</a> (UI).
+
+## License
+
+See <a href="LICENSE.md">license</a> file.
