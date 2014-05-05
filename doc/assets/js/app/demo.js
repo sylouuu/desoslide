@@ -29,10 +29,49 @@ $(function() {
     var $demo1_image = $('#slideshow1'), $effect_provider = $('#effect_provider'), $effect_name = $('#effect_name');
 
     $demo1_image.desoSlide({
-        thumbs: $('ul.slideshow1_thumbs li > a')
+        thumbs: $('ul.slideshow1_thumbs li > a'),
+        // events: {
+        //     'onThumbClick': function() {
+        //         console.log('onThumbClick');
+        //     },
+        //     'onImageShow': function() {
+        //         console.log('onImageShow');
+        //     },
+        //     'onImageShown': function() {
+        //         console.log('onImageShown');
+        //     },
+        //     'onImageHide': function() {
+        //         console.log('onImageHide');
+        //     },
+        //     'onImageHidden': function() {
+        //         console.log('onImageHidden');
+        //     },
+        //     'onImageClick': function() {
+        //         console.log('onImageClick');
+        //     },
+        //     'onPrev': function() {
+        //         console.log('onPrev');
+        //     },
+        //     'onPause': function() {
+        //         console.log('onPause');
+        //     },
+        //     'onPlay': function() {
+        //         console.log('onPlay');
+        //     },
+        //     'onNext': function() {
+        //         console.log('onNext');
+        //     },
+        //     'onError': function() {
+        //         console.log('onError');
+        //     },
+        //     'onWarning': function() {
+        //         console.log('onWarning');
+        //     },
+        //     'onSuccess': function() {
+        //         console.log('onSuccess');
+        //     }
+        // }
     });
-
-    console.log($demo1_image.desoSlide('getThumbs', 0));
 
     // Available effects by provider
     var effects = {
@@ -76,7 +115,6 @@ $(function() {
         syntaxHighlight();
     };
 
-
     // On change effect provider
     $effect_provider.on('change', function() {
         changeProvider($(this).val());
@@ -92,12 +130,47 @@ $(function() {
     // Default loaded provider
     changeProvider('animate');
 
-    console.log($demo1_image.desoSlide('isPlaying'));
-
-    $demo1_image.desoSlide('play');
-
-    console.log($demo1_image.desoSlide('isPlaying'));
-
+    // $demo1_image.on({
+    //     'thumbClick.desoslide': function() {
+    //         console.log('thumbClick.desoslide');
+    //     },
+    //     'imageShow.desoslide': function() {
+    //         console.log('imageShow.desoslide');
+    //     },
+    //     'imageShown.desoslide': function() {
+    //         console.log('imageShown.desoslide');
+    //     },
+    //     'imageHide.desoslide': function() {
+    //         console.log('imageHide.desoslide');
+    //     },
+    //     'imageHidden.desoslide': function() {
+    //         console.log('imageHidden.desoslide');
+    //     },
+    //     'imageClick.desoslide': function() {
+    //         console.log('imageClick.desoslide');
+    //     },
+    //     'prev.desoslide': function() {
+    //         console.log('prev.desoslide');
+    //     },
+    //     'pause.desoslide': function() {
+    //         console.log('pause.desoslide');
+    //     },
+    //     'play.desoslide': function() {
+    //         console.log('play.desoslide');
+    //     },
+    //     'next.desoslide': function() {
+    //         console.log('next.desoslide');
+    //     },
+    //     'error.desoslide': function() {
+    //         console.log('error.desoslide');
+    //     },
+    //     'warning.desoslide': function() {
+    //         console.log('warning.desoslide');
+    //     },
+    //     'success.desoslide': function() {
+    //         console.log('success.desoslide');
+    //     }
+    // });
 
     // Demo 2
     // ----------------------------------------------------------------------------------------------------------

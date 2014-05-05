@@ -341,14 +341,8 @@
                         this.props.controls.$wrapper.find('a[href="#pause"]').hide().parent().find('a[href="#play"]').show();
                     }
 
-                    // Callback
-                    if (this.options.events.onPause) {
-                        this.options.events.onPause();
-                    }
+                    this._triggerEvent('pause');
                 }
-
-                // Trigger event
-                $(this.elem).trigger('pause.'+ this._namespace);
             }
 
             return $(this.elem);
@@ -371,13 +365,7 @@
                     }
                 }
 
-                // Callback
-                if (this.options.events.onPlay) {
-                    this.options.events.onPlay();
-                }
-
-                // Trigger event
-                $(this.elem).trigger('play.'+ this._namespace);
+                this._triggerEvent('play');
             }
 
             return $(this.elem);
@@ -410,13 +398,7 @@
                     self._showImage();
                 });
 
-                // Callback
-                if (this.options.events.onPrev) {
-                    this.options.events.onPrev();
-                }
-
-                // Trigger event
-                $(this.elem).trigger('prev.'+ this._namespace);
+                this._triggerEvent('prev');
             }
 
             return $(this.elem);
@@ -449,13 +431,7 @@
                     self._showImage();
                 });
 
-                // Callback
-                if (this.options.events.onNext) {
-                    this.options.events.onNext();
-                }
-
-                // Trigger event
-                $(this.elem).trigger('next.'+ this._namespace);
+                this._triggerEvent('next');
             }
 
             return $(this.elem);
@@ -606,6 +582,21 @@
         },
 
         /**
+        * Triggers an event
+        *
+        * @param string event_name
+        */
+        _triggerEvent: function (event_name) {
+            // Trigger event
+            $(this.elem).triggerHandler(event_name +'.'+ this._namespace);
+
+            // Option event
+            if (this.options.events['on'+ event_name.charAt(0).toUpperCase() + event_name.slice(1)]) {
+                this.options.events['on'+ event_name.charAt(0).toUpperCase() + event_name.slice(1)](this.props.img.$elem);
+            }
+        },
+
+        /**
         * Show image
         */
         _showImage: function () {
@@ -619,6 +610,8 @@
             if (self.options.events.onImageShow) {
                 self.options.events.onImageShow(this.props.img.$elem);
             }
+
+            this._triggerEvent('imageShow');
 
             $(this.elem).find('img:first')
                 .attr('src', this.props.thumbs[this.props.img.to_show].src)
@@ -640,9 +633,7 @@
                             // Adding overlay
                             self._overlay();
 
-                            if (self.options.events.onImageShown) {
-                                self.options.events.onImageShown(self.props.img.$elem);
-                            }
+                            self._triggerEvent('imageShown');
                         });
 
                     // Starting the loop
@@ -664,9 +655,7 @@
 
             this._clearEffectClass();
 
-            if (self.options.events.onImageHide) {
-                self.options.events.onImageHide(this.props.img.$elem);
-            }
+            this._triggerEvent('imageHide');
 
             /**
             * Hiding the old one
@@ -680,9 +669,7 @@
 
                 // Animation done
                 .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-                    if (self.options.events.onImageHidden) {
-                        self.options.events.onImageHidden(self.props.img.$elem);
-                    }
+                    self._triggerEvent('imageHidden');
 
                     if (callback) {
                         callback();
@@ -846,20 +833,14 @@
 
                 self.goTo($(this).data(self._namespace +'-index'));
 
-                // Callback
-                if (self.options.events.onThumbClick) {
-                    self.options.events.onThumbClick();
-                }
+                self._triggerEvent('thumbClick');
             });
 
             // Click on image
             this.props.img.$elem.on('click', function(e) {
                 e.preventDefault();
 
-                // Callback
-                if (self.options.events.onImageClick) {
-                    self.options.events.onImageClick();
-                }
+                self._triggerEvent('imageClick');
             });
 
             // Click on control
@@ -954,9 +935,7 @@
                         console.error(this._name +': '+ msg +' Check out the documentation.');
                     }
 
-                    if (this.options.events.onError) {
-                        this.options.events.onError();
-                    }
+                    this._triggerEvent('error');
 
                     this.props.plugin_status = type;
                 break;
@@ -965,16 +944,12 @@
                         console.warn(this._name +': '+ msg);
                     }
 
-                    if (this.options.events.onWarning) {
-                        this.options.events.onWarning();
-                    }
+                    this._triggerEvent('warning');
 
                     this.props.plugin_status = type;
                 break;
                 default:
-                    if (this.options.events.onSuccess) {
-                        this.options.events.onSuccess();
-                    }
+                    this._triggerEvent('success');
 
                     this.props.plugin_status = type;
                 break;
