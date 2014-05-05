@@ -1,6 +1,6 @@
 # desoSlide [![Build Status](https://travis-ci.org/sylouuu/desoslide.svg)](https://travis-ci.org/sylouuu/desoslide) [![GitHub version](https://badge.fury.io/gh/sylouuu%2Fdesoslide.svg)](http://badge.fury.io/gh/sylouuu%2Fdesoslide) [![devDependency Status](https://david-dm.org/sylouuu/desoslide/dev-status.svg?theme=shields.io)](https://david-dm.org/sylouuu/desoslide#info=devDependencies)
 
-## Overview, demo, documentation and tests
+## Overview, demo, documentation, release notes and tests
 
 **http://sylouuu.github.io/desoslide**
 
