@@ -132,7 +132,7 @@
                         <div class="row">
 
                             <div class="col-lg-2 col-md-2">
-                                <ul id="demo1_thumbs_list1" class="desoslide-thumbs-vertical">
+                                <ul class="slideshow1_thumbs desoslide-thumbs-vertical">
                                     <li>
                                         <a href="assets/img/demos/demo1/bird.jpg">
                                             <img src="assets/img/demos/demo1/bird_thumb.jpg"
@@ -166,10 +166,10 @@
                                 </ul>
                             </div>
 
-                            <div id="demo1_image" class="col-lg-8 col-md-8"></div>
+                            <div id="slideshow1" class="col-lg-8 col-md-8"></div>
 
                             <div class="col-lg-2 col-md-2">
-                                <ul id="demo1_thumbs_list2" class="desoslide-thumbs-vertical text-right">
+                                <ul class="slideshow1_thumbs desoslide-thumbs-vertical text-right">
                                     <li>
                                         <a href="assets/img/demos/demo1/bird.jpg">
                                             <img src="assets/img/demos/demo1/bird_thumb.jpg"
@@ -238,9 +238,9 @@
                     <!-- Code 1 -->
                     <article class="col-lg-8 col-md-8">
                         <h4>Code</h4>
-<pre><code id="html_code1">&lt;link rel="stylesheet" href="path/to/animate.css"&gt;</code></pre>
-<pre><code id="js_code1">$('#demo1_image').desoSlide({
-    thumbs: $('#demo1_thumbs_list1, #demo1_thumbs_list2').find('li > a'),
+<pre><code id="html_code1">&lt;link rel="stylesheet" href="path/to/animate.min.css"&gt;</code></pre>
+<pre><code id="js_code1">$('#slideshow').desoSlide({
+    thumbs: $('ul.slideshow_thumbs li > a'),
     effect: {
         provider: 'animate',
         name: 'fade'
@@ -263,10 +263,10 @@
                         <h4>Result</h4>
 
                         <div class="row">
-                            <div id="demo2_image" class="col-lg-11 col-md-10"></div>
+                            <div id="slideshow2" class="col-lg-11 col-md-10"></div>
 
                             <div class="col-lg-1 col-md-2">
-                                <ul id="demo2_thumbs" class="desoslide-thumbs-vertical">
+                                <ul id="slideshow2_thumbs" class="desoslide-thumbs-vertical">
                                     <li>
                                         <a href="assets/img/demos/demo2/city.jpg">
                                             <img src="assets/img/demos/demo2/city_thumb.jpg" alt="city">
@@ -295,8 +295,8 @@
                     <!-- Code 2 -->
                     <article class="col-lg-offset-1 col-md-offset-1 col-lg-4 col-md-4">
                         <h4>Code</h4>
-<pre><code>$('#demo2_image').desoSlide({
-    thumbs: $('#demo2_thumbs li > a'),
+<pre><code>$('#slideshow').desoSlide({
+    thumbs: $('#slideshow_thumbs li > a'),
     auto: {
         start: true
     },
@@ -318,15 +318,16 @@
                     <div class="col-lg-12 col-md-12">
                         <p>
                             Controls are hidden but available with your keyboard:
-                            <ul class="list-unstyled keys-control">
+
+                            <ul class="keys-control">
                                 <li>
-                                    <span class="label label-info">left arrow</span> previous slide
+                                    Press <span class="label label-info">left</span> to go to the previous slide.
                                 </li>
                                 <li>
-                                    <span class="label label-info">space</span> toggle play/pause
+                                    Press <span class="label label-info">space</span> to switch between play and pause.
                                 </li>
                                 <li>
-                                    <span class="label label-info">right arrow</span> next slide
+                                    Press <span class="label label-info">right</span> to go to the next slide.
                                 </li>
                             </ul>
                         </p>
@@ -340,12 +341,12 @@
                         <h4>Result</h4>
 
                         <div class="row">
-                            <div id="demo3_image" class="col-lg-12"></div>
+                            <div id="slideshow3" class="col-lg-12"></div>
                         </div>
 
                         <div class="row">
                             <article class="col-lg-12">
-                                <ul id="demo3_thumbs" class="desoslide-thumbs-horizontal list-inline text-center">
+                                <ul id="slideshow3_thumbs" class="desoslide-thumbs-horizontal list-inline text-center">
                                     <li>
                                         <a href="assets/img/demos/demo3/tortoise.jpg">
                                             <img src="assets/img/demos/demo3/tortoise_thumb.jpg" class="img-responsive"
@@ -378,8 +379,8 @@
                     <!-- Code 3 -->
                     <article class="col-lg-4 col-md-4">
                         <h4>Code</h4>
-<pre><code>$('#demo3_image').desoSlide({
-    thumbs: $('#demo3_thumbs li > a'),
+<pre><code>$('#slideshow').desoSlide({
+    thumbs: $('#slideshow_thumbs li > a'),
     effect: {
         provider: 'animate',
         name: 'flip'
@@ -414,7 +415,7 @@
 
                         <div class="row">
                             <div class="col-lg-12">
-                                <ul id="demo4_thumbs" class="desoslide-thumbs-horizontal list-inline text-center">
+                                <ul id="slideshow4_thumbs" class="desoslide-thumbs-horizontal list-inline text-center">
                                     <li>
                                         <a href="assets/img/demos/demo4/dolmens.jpg">
                                             <img src="assets/img/demos/demo4/dolmens_thumb.jpg" alt="dolmens">
@@ -440,15 +441,15 @@
                         </div>
 
                         <div class="row">
-                            <div id="demo4_image" class="col-lg-12"></div>
+                            <div id="slideshow4" class="col-lg-12"></div>
                         </div>
                     </article>
 
                     <!-- Code 4 -->
                     <article class="col-lg-4 col-md-4">
                         <h4>Code</h4>
-<pre><code>$('#demo4_image').desoSlide({
-    thumbs: $('#demo4_thumbs li > a'),
+<pre><code>$('#slideshow').desoSlide({
+    thumbs: $('#slideshow_thumbs li > a'),
     auto: {
         start: true
     },

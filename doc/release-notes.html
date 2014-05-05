@@ -134,7 +134,7 @@
                         <ul class="list-unstyled list-changelog text-left">
                             <li>
                                 <span class="label label-warning">Change</span>
-                                Call the plugin in <code>$(window).load(function() {})</code> instead of <code>$(function() {})</code>.
+                                Call the plugin inside <code>$(window).load(function() {})</code> instead of <code>$(function() {})</code>.
                             </li>
                             <li>
                                 <span class="label label-warning">Change</span>
@@ -145,7 +145,7 @@
 <pre class="text-left"><code id="code1">$(window).load(function() {
 
     // Here we are sure that all images are loaded
-    $('#image').desoSlide({
+    $('#slideshow').desoSlide({
         // options
     });
 
@@ -165,7 +165,7 @@
     // In version 1:
     $('#thumbs').desoSlide({
         main: {
-            container: '#image'
+            container: '#slideshow'
         }
     });
 
@@ -174,7 +174,7 @@
 $(window).load(function() {
 
     // In version 2:
-    $('#image').desoSlide({
+    $('#slideshow').desoSlide({
         thumbs: $('#thumbs li > a'), // This new way allows you to target any thumb in your DOM
         // Or
         thumbs: $('a.thumb'), // Be sure that your anchor has an `img` tag as a child
@@ -290,6 +290,10 @@ $(window).load(function() {
                             <li>
                                 <span class="label label-success">New</span>
                                 Added <code>play()</code>.
+                            </li>
+                            <li>
+                                <span class="label label-success">New</span>
+                                Added <code>isPlaying()</code>.
                             </li>
                             <li>
                                 <span class="label label-success">New</span>

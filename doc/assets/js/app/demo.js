@@ -26,11 +26,13 @@ $(function() {
     // Demo 1
     // ----------------------------------------------------------------------------------------------------------
 
-    var $demo1_image = $('#demo1_image'), $effect_provider = $('#effect_provider'), $effect_name = $('#effect_name');
+    var $demo1_image = $('#slideshow1'), $effect_provider = $('#effect_provider'), $effect_name = $('#effect_name');
 
     $demo1_image.desoSlide({
-        thumbs: $('#demo1_thumbs_list1, #demo1_thumbs_list2').find('li > a')
+        thumbs: $('ul.slideshow1_thumbs li > a')
     });
+
+    console.log($demo1_image.desoSlide('getThumbs', 0));
 
     // Available effects by provider
     var effects = {
@@ -60,15 +62,15 @@ $(function() {
         // Playing
         $demo1_image.desoSlide('play');
 
-        var code = "$('#demo1_image').desoSlide({\n";
-        code += "    thumbs: $('#demo1_thumbs_list1, #demo1_thumbs_list2').find('li > a'),\n";
+        var code = "$('#slideshow').desoSlide({\n";
+        code += "    thumbs: $('ul.slideshow_thumbs li > a'),\n";
         code += "    effect: {\n";
         code += "        provider: '"+ $effect_provider.val() +"',\n";
         code += "        name: '"+ $effect_name.val() +"'\n";
         code += "    }\n";
         code += "});";
 
-        $('#html_code1').html('&lt;link rel="stylesheet" href="path/to/'+ $effect_provider.val() +'.css"&gt;');
+        $('#html_code1').html('&lt;link rel="stylesheet" href="path/to/'+ $effect_provider.val() +'.min.css"&gt;');
         $('#js_code1').html(code);
 
         syntaxHighlight();
@@ -90,11 +92,18 @@ $(function() {
     // Default loaded provider
     changeProvider('animate');
 
+    console.log($demo1_image.desoSlide('isPlaying'));
+
+    $demo1_image.desoSlide('play');
+
+    console.log($demo1_image.desoSlide('isPlaying'));
+
+
     // Demo 2
     // ----------------------------------------------------------------------------------------------------------
 
-    $('#demo2_image').desoSlide({
-        thumbs: $('#demo2_thumbs li > a'),
+    $('#slideshow2').desoSlide({
+        thumbs: $('#slideshow2_thumbs li > a'),
         auto: {
             start: true
         },
@@ -108,8 +117,8 @@ $(function() {
     // Demo 3
     // ----------------------------------------------------------------------------------------------------------
 
-    $('#demo3_image').desoSlide({
-        thumbs: $('#demo3_thumbs li > a'),
+    $('#slideshow3').desoSlide({
+        thumbs: $('#slideshow3_thumbs li > a'),
         effect: {
             provider: 'animate',
             name: 'flip'
@@ -124,8 +133,8 @@ $(function() {
     // Demo 4
     // ----------------------------------------------------------------------------------------------------------
 
-    $('#demo4_image').desoSlide({
-        thumbs: $('#demo4_thumbs li > a'),
+    $('#slideshow4').desoSlide({
+        thumbs: $('#slideshow4_thumbs li > a'),
         auto: {
             start: true
         },
