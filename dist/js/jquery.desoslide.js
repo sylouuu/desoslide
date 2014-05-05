@@ -7,44 +7,44 @@
 
 /*jslint browser: true, nomen: true, devel: true, plusplus: true, unparam: true, vars: true, white: true*/
 /*global $, jQuery*/
-(function($, window, document, undefined) {
+(function ($, window, document, undefined) {
 
     'use strict';
 
     var plugin_name = 'desoSlide',
     // Default options
     defaults = {
-        thumbs:             null,               // An anchors (`<a>`) collection
-        imageClass:         'img-responsive',   // Image class(es)
+        thumbs:             null,             // An anchors (`<a>`) collection
+        imageClass:         'img-responsive', // Image class(es)
         auto: {
-            load:           true,               // Preloading images
-            start:          false               // Autostarting slideshow
+            load:           true,             // Preloading images
+            start:          false             // Autostarting slideshow
         },
-        first:              0,                  // Index of the first image to show
-        interval:           3000,               // Interval between each images
+        first:              0,                // Index of the first image to show
+        interval:           3000,             // Interval between each images
         effect: {
-            provider:       'animate',          // Effect provider ('animate', 'magic')
-            name:           'fade'              // Transition effect ('fade', 'sideFade', 'sideFadeBig', 'flip', 'light', 'roll', 'rotate', 'foolish', 'swash', 'tin', 'puff', 'twister', 'random')
+            provider:       'animate',        // Effect provider ('animate', 'magic')
+            name:           'fade'            // Transition effect ('fade', 'sideFade', 'sideFadeBig', 'flip', 'light', 'roll', 'rotate', 'foolish', 'swash', 'tin', 'puff', 'twister', 'random')
         },
-        overlay:            'always',           // How to show overlay ('always', 'hover', 'none')
+        overlay:            'always',         // How to show overlay ('always', 'hover', 'none')
         controls: {
-            show:           true,               // Shows the player controls (prev/pause/play/next)
-            keys:           false               // Able to control by using the keyboard shortcuts (left/space/right)
+            show:           true,             // Shows the player controls (prev/pause/play/next)
+            keys:           false             // Able to control by using the keyboard shortcuts (left/space/right)
         },
         events: {
-            onThumbClick:   null,               // On thumb click
-            onImageShow:    null,               // On image show
-            onImageShown:   null,               // On image shown
-            onImageHide:    null,               // On image hide
-            onImageHidden:  null,               // On image hidden
-            onImageClick:   null,               // On image click
-            onPrev:         null,               // On previous
-            onPause:        null,               // On pause
-            onPlay:         null,               // On play
-            onNext:         null,               // On next
-            onError:        null,               // On error
-            onWarning:      null,               // On warning
-            onSuccess:      null                // On success
+            onThumbClick:   null,             // On thumb click
+            onImageShow:    null,             // On image show
+            onImageShown:   null,             // On image shown
+            onImageHide:    null,             // On image hide
+            onImageHidden:  null,             // On image hidden
+            onImageClick:   null,             // On image click
+            onPrev:         null,             // On previous
+            onPause:        null,             // On pause
+            onPlay:         null,             // On play
+            onNext:         null,             // On next
+            onError:        null,             // On error
+            onWarning:      null,             // On warning
+            onSuccess:      null              // On success
         }
     };
 
@@ -173,7 +173,7 @@
             }
 
             // Looping thumbs anchors
-            $(this.options.thumbs).each(function(i, item) {
+            $(this.options.thumbs).each(function (i, item) {
                 // Has `href`
                 if ($(item).attr('href') !== undefined) {
                     // Has `img` child
@@ -192,10 +192,10 @@
 
                         $(item).attr('data-'+ self._namespace +'-index', i);
                     } else {
-                        self._errorHandler('error', 'Your link on the '+ i +'-indexed thumb must have an <img> tag as a child.');
+                        self._errorHandler('error', 'Your link on the '+ i +'-indexed thumb must have an `<img>` tag as a child.');
                     }
                 } else {
-                    self._errorHandler('error', 'The `href` attribute is missing on the '+ i +'-indexed thumb, it\'s mandatory on <a> tags.');
+                    self._errorHandler('error', 'The `href` attribute is missing on the '+ i +'-indexed thumb, it\'s mandatory on `<a>` tags.');
                 }
             });
 
@@ -252,6 +252,7 @@
         */
         getThumbs: function (index) {
             var response;
+
             if (index !== undefined) {
                 if (this._isThumbExists(index) === true) {
                     response = this.props.thumbs[index];
@@ -319,7 +320,7 @@
         *
         * @return bool
         */
-        isPlaying: function() {
+        isPlaying: function () {
             return this.options.auto.start;
         },
 
@@ -372,7 +373,7 @@
         },
 
         /**
-        * Previous
+        * Go to the previous slide
         *
         * @param bool from_script
         * @return object $(this.elem)
@@ -394,7 +395,7 @@
                     this.props.img.to_show = $(this.options.thumbs).length - 1;
                 }
 
-                this._hideImage(function() {
+                this._hideImage(function () {
                     self._showImage();
                 });
 
@@ -405,7 +406,7 @@
         },
 
         /**
-        * Next
+        * Go to the next slide
         *
         * @param bool from_script
         * @return object $(this.elem)
@@ -427,7 +428,7 @@
                     this.props.img.to_show = 0;
                 }
 
-                this._hideImage(function() {
+                this._hideImage(function () {
                     self._showImage();
                 });
 
@@ -438,7 +439,7 @@
         },
 
         /**
-        * Go to a specific index
+        * Go to a specific slide
         *
         * @param number index
         * @return object $(this.elem)
@@ -448,6 +449,7 @@
                 var self = this;
 
                 if (this.options.auto.start === true) {
+                    // Pausing
                     this.pause();
                 }
 
@@ -461,7 +463,7 @@
 
                     self.props.img.to_show = index;
 
-                    this._hideImage(function() {
+                    this._hideImage(function () {
                         self._showImage();
                     });
                 }
@@ -501,8 +503,8 @@
         */
         _preloading: function () {
             if (this.options.auto.load === true) {
-
-                $.each(this.props.thumbs, function(i, item) {
+                // Looping thumbs
+                $.each(this.props.thumbs, function (i, item) {
                     $('<img>', {
                         src: item.src,
                         alt: item.alt
@@ -534,7 +536,7 @@
                 // Retrieve CSS classes
                 var classes = this.props.img.$elem.attr('class').split(/\s+/);
 
-                // Remove the namespace class an the in/out
+                // Remove the namespace class and the in/out
                 for (key in self.props.effect.list) {
                     if (self.props.effect.list.hasOwnProperty(key)) {
                         for (key2 in self.props.effect.list[key]) {
@@ -582,7 +584,7 @@
         },
 
         /**
-        * Show image
+        * Shows an image
         */
         _showImage: function () {
             var self = this;
@@ -592,18 +594,14 @@
                 this._errorHandler();
             }
 
-            if (self.options.events.onImageShow) {
-                self.options.events.onImageShow(this.props.img.$elem);
-            }
-
             this._triggerEvent('imageShow');
 
-            $(this.elem).find('img:first')
+            this.props.img.$elem
                 .attr('src', this.props.thumbs[this.props.img.to_show].src)
                 .attr('alt', this.props.thumbs[this.props.img.to_show].alt)
 
                 // Image loaded
-                .one('load', function() {
+                .one('load', function () {
 
                     // Showing
                     $(this)
@@ -614,7 +612,7 @@
                         .addClass(self.props.effect.list[self.props.effect.provider].css +' '+ self.props.effect.list[self.props.effect.provider][self.props.effect.name].in)
 
                         // Animation done
-                        .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                        .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
                             // Adding overlay
                             self._overlay();
 
@@ -623,7 +621,7 @@
 
                     // Starting the loop
                     if (self.options.auto.start === true) {
-                        self.props.img.timer = setTimeout(function() {
+                        self.props.img.timer = setTimeout(function () {
                             self.goNext(true);
                         }, (self.options.interval < 1500) ? 1500 : self.options.interval);
                     }
@@ -631,7 +629,7 @@
         },
 
         /**
-        * Hide image
+        * Hides an image
         *
         * @param function callback
         */
@@ -645,7 +643,7 @@
             /**
             * Hiding the old one
             */
-            $(this.elem).find('img:first')
+            this.props.img.$elem
                 // Removing the `in` class
                 .removeClass(this.props.effect.list[this.props.effect.provider].css +' '+ this.props.effect.list[this.props.effect.provider][this.props.effect.name].in)
 
@@ -653,7 +651,7 @@
                 .addClass(this.props.effect.list[this.props.effect.provider].css +' '+ this.props.effect.list[this.props.effect.provider][this.props.effect.name].out)
 
                 // Animation done
-                .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
                     self._triggerEvent('imageHidden');
 
                     if (callback) {
@@ -668,14 +666,17 @@
         _overlay: function () {
             // Overlay needed
             if (this.options.overlay !== 'none') {
-                // Main image position
+                // Image positions
                 var pos = this.props.img.$elem.position();
+
+                // Image border
                 var border = parseInt(this.props.img.$elem.css('border-left-width'), 10);
 
-                // Main image height
-                var width_plus_border = this.props.img.$elem.width() + (border * 2);
+                // Image height dimensions
+                var width_plus_border  = this.props.img.$elem.width() + (border * 2);
                 var height_plus_border = this.props.img.$elem.height();
 
+                // Add overlay if not exists
                 if ($(this.elem).find('.'+ this._namespace +'-overlay').length === 0) {
                     $('<div>', {
                         'class': this._namespace +'-overlay'
@@ -685,17 +686,15 @@
                 this.props.img.$overlay = $(this.elem).find('.'+ this._namespace +'-overlay');
 
                 // Calculate new height with paddings
-                var
-                    paddingTop      = parseInt(this.props.img.$overlay.css('padding-top'), 10),
+                var paddingTop      = parseInt(this.props.img.$overlay.css('padding-top'), 10),
                     paddingBottom   = parseInt(this.props.img.$overlay.css('padding-bottom'), 10),
                     paddingLeft     = parseInt(this.props.img.$overlay.css('padding-left'), 10),
                     paddingRight    = parseInt(this.props.img.$overlay.css('padding-right'), 10);
 
                 var overlayHeight = parseInt(this.props.img.$overlay.css('height'), 10) - (paddingLeft + paddingRight);
-                overlayHeight = (parseInt(height_plus_border, 10) - overlayHeight - (paddingTop + paddingBottom));
+                    overlayHeight = (parseInt(height_plus_border, 10) - overlayHeight - (paddingTop + paddingBottom));
 
-                var
-                    top = pos.top + overlayHeight + (border * 2),
+                var top = pos.top + overlayHeight + (border * 2),
                     left = pos.left;
 
                 // Update the overlay position
@@ -730,8 +729,7 @@
             $(this.elem).find('.'+ this._namespace +'-controls-wrapper').remove();
 
             // Controls buttons
-            var
-                $prev   = '<a class="'+ this._namespace +'-controls prev" href="#prev"></a>',
+            var $prev   = '<a class="'+ this._namespace +'-controls prev" href="#prev"></a>',
                 $pause  = '<a class="'+ this._namespace +'-controls pause" href="#pause"></a>',
                 $play   = '<a class="'+ this._namespace +'-controls play" href="#play"></a>',
                 $next   = '<a class="'+ this._namespace +'-controls next" href="#next"></a>';
@@ -752,7 +750,7 @@
 
             if (this.props.controls.$wrapper.length) {
                 // Showing the right button
-                if (this.options.auto.start) {
+                if (this.options.auto.start === true) {
                     this.props.controls.$wrapper.find('a[href="#play"]').hide().parent().find('a[href="#pause"]').show();
                 } else {
                     this.props.controls.$wrapper.find('a[href="#pause"]').hide().parent().find('a[href="#play"]').show();
@@ -779,9 +777,8 @@
                 } else {
                     // Anchor already exists but no caption title to show
                     if (anchor_exists === true && href_exists === false) {
-                        var
-                            $link = this.props.img.$overlay.find('a:first'),
-                            $clone = $link.children().clone(),
+                        var $link   = this.props.img.$overlay.find('a:first'),
+                            $clone  = $link.children().clone(),
                             $parent = $link.parent();
 
                             $link.remove();
@@ -815,9 +812,11 @@
             // Trigger event
             $(this.elem).triggerHandler(event_name +'.'+ this._namespace);
 
+            var capitalize_first = event_name.charAt(0).toUpperCase() + event_name.slice(1);
+
             // Option event
-            if (this.options.events['on'+ event_name.charAt(0).toUpperCase() + event_name.slice(1)]) {
-                this.options.events['on'+ event_name.charAt(0).toUpperCase() + event_name.slice(1)](this.props.img.$elem);
+            if (this.options.events['on'+ capitalize_first]) {
+                this.options.events['on'+ capitalize_first](this.props.img.$elem);
             }
         },
 
@@ -828,7 +827,7 @@
             var self = this;
 
             // Clicking on thumbnail
-            $(this.options.thumbs).on('click', function(e) {
+            $(this.options.thumbs).on('click', function (e) {
                 e.preventDefault();
 
                 self.goTo($(this).data(self._namespace +'-index'));
@@ -837,14 +836,14 @@
             });
 
             // Click on image
-            this.props.img.$elem.on('click', function(e) {
+            this.props.img.$elem.on('click', function (e) {
                 e.preventDefault();
 
                 self._triggerEvent('imageClick');
             });
 
             // Click on control
-            $(this.elem).on('click', '.'+ this._namespace  +'-controls-wrapper a', $(this.elem), function(e) {
+            $(this.elem).on('click', '.'+ this._namespace  +'-controls-wrapper a', $(this.elem), function (e) {
                 e.preventDefault();
 
                 switch($(this).attr('href')) {
@@ -865,14 +864,14 @@
 
             // Hover on overlay
             $(this.elem).find('.'+ this._namespace +'-wrapper').on({
-                mouseover: function() {
+                mouseover: function () {
                     if (self.options.overlay === 'hover' && self.props.img.$overlay !== null) {
                         self.props.img.$overlay.stop().animate({
                             opacity: 0.7
                         }, 400);
                     }
                 },
-                mouseleave: function() {
+                mouseleave: function () {
                     if (self.options.overlay === 'hover' && self.props.img.$overlay !== null) {
                         self.props.img.$overlay.stop().animate({
                             opacity: 0
@@ -883,7 +882,7 @@
 
             if (this.options.controls.keys === true) {
                 // Keys binder
-                $(document).on('keydown', function(e) {
+                $(document).on('keydown', function (e) {
                     switch(e.which) {
                         case 37: // Left arrow
                             self.goPrev();
@@ -904,9 +903,9 @@
                 });
             }
 
-            var delay = (function() {
+            var delay = (function () {
                 var timer = 0;
-                return function(callback, ms){
+                return function (callback, ms){
                     clearTimeout(timer);
                     timer = setTimeout(callback, ms);
                 };
@@ -914,8 +913,8 @@
 
             // New overlay position when resizing
             if (this.options.overlay !== 'none') {
-                $(window).bind('resize', function() {
-                    delay(function() {
+                $(window).bind('resize', function () {
+                    delay(function () {
                         self._overlay();
                     }, 100);
                 });
@@ -928,7 +927,7 @@
         * @param string type
         * @param string msg
         */
-        _errorHandler: function(type, msg) {
+        _errorHandler: function (type, msg) {
             switch(type) {
                 case 'error':
                     if (console !== undefined) {
@@ -962,7 +961,7 @@
 
         if (options === undefined || typeof options === 'object') {
             // Create a plugin instance for each selected element
-            response = this.each(function() {
+            response = this.each(function () {
                 if (!$.data(this, 'plugin_' + plugin_name)) {
                     $.data(this, 'plugin_' + plugin_name, new Plugin(this, options));
                 }
@@ -976,7 +975,7 @@
             }
         } else {
             // Invoke the speficied method on each selected element and preserve the chainability
-            response = this.each(function() {
+            response = this.each(function () {
                 instance = $.data(this, 'plugin_' + plugin_name);
 
                 if (instance instanceof Plugin && typeof instance[options] === 'function') {
