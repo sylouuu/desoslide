@@ -258,6 +258,33 @@ $(function() {
 
     });
 
+    // isPlaying()
+    // -------------------------------------------------------------------------
+
+    var is_playing_test1, is_playing_test2;
+
+    $('#image_test15').desoSlide({
+        thumbs: $('#alt_thumbs').find('li > a')
+    });
+
+    is_playing_test1 = $('#image_test15').desoSlide('isPlaying');
+
+    $('#image_test16').desoSlide({
+        thumbs: $('#alt_thumbs').find('li > a'),
+        auto: {
+            start: true
+        }
+    });
+
+    is_playing_test2 = $('#image_test16').desoSlide('isPlaying');
+
+    test('isPlaying method', function() {
+
+        ok(is_playing_test1 === false, 'must be false');
+        ok(is_playing_test2 === true, 'must be true');
+
+    });
+
     // Events
     // -------------------------------------------------------------------------
 
