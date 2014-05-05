@@ -14,7 +14,7 @@
     var plugin_name = 'desoSlide',
     // Default options
     defaults = {
-        thumbs:             null,               // Any selector with `<a>` as a target
+        thumbs:             null,               // An anchors (`<a>`) collection
         imageClass:         'img-responsive',   // Image class(es)
         auto: {
             load:           true,               // Preloading images
@@ -312,6 +312,15 @@
             this.props.effect.name      = response.name;
 
             return response;
+        },
+
+        /**
+        * Check that the slideshow is currently started
+        *
+        * @return bool
+        */
+        isPlaying: function() {
+            return this.options.auto.start;
         },
 
         /**
