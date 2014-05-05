@@ -117,6 +117,21 @@
                             <span class="label label-danger"><i class="fa fa-download"></i></span> Setup
                         </h3>
 
+                        <ul id="download_links" class="list-inline text-center">
+                            <li>
+                                <a href="http://jquery.com/download/" class="btn btn-info" target="_blank">Download jQuery 2</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/sylouuu/desoslide/releases" class="btn btn-success" target="_blank">Download desoSlide files</a>
+                            </li>
+                            <li>
+                                <a href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.min.css" class="btn btn-warning" target="_blank">Download 'animate'</a>
+                            </li>
+                            <li>
+                                <a href="http://pastebin.com/raw.php?i=8w47RUQ2" class="btn btn-warning" target="_blank">Download 'magic'</a>
+                            </li>
+                        </ul>
+
                         <p>In your HTML page:</p>
 
 <pre><code>&lt;!-- Loads jQuery framework --&gt;
@@ -141,21 +156,6 @@
                             <li>You have to load jQuery and desoSlide files (beware that the CSS file loads a sprite: <code>../img/desoslide_controls.png</code>, be sure that the path is correct).</li>
                             <li>Then it depends which effect you want to use for slides transition. By default <code>'animate'</code> is set, so include <code>animate.min.css</code>. Or you can use <code>'magic'</code> (see options), so include <code>magic.min.css</code>.</li>
                         </ol>
-
-                        <ul id="download_links" class="list-inline text-center">
-                            <li>
-                                <a href="http://jquery.com/download/" class="btn btn-info" target="_blank">Download jQuery 2</a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/sylouuu/desoslide/releases" class="btn btn-success" target="_blank">Download desoSlide files</a>
-                            </li>
-                            <li>
-                                <a href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.min.css" class="btn btn-warning" target="_blank">Download 'animate'</a>
-                            </li>
-                            <li>
-                                <a href="http://pastebin.com/raw.php?i=8w47RUQ2" class="btn btn-warning" target="_blank">Download 'magic'</a>
-                            </li>
-                        </ul>
 
                         <p>Once the pain is gone, create your thumbnails. The minimal markup for a thumb is:</p>
 
@@ -188,37 +188,37 @@
                         <p>Here are the default options:</p>
 
 <pre><code>defaults = {
-    thumbs:             null,               // An anchors (`&lt;a&gt;`) collection
-    imageClass:         'img-responsive',   // Image class(es)
+    thumbs:             null,             // An anchors (`&lt;a&gt;`) collection
+    imageClass:         'img-responsive', // Image class(es)
     auto: {
-        load:           true,               // Preloading images
-        start:          false               // Autostarting slideshow
+        load:           true,             // Preloading images
+        start:          false             // Autostarting slideshow
     },
-    first:              0,                  // Index of the first image to show
-    interval:           3000,               // Interval between each images
+    first:              0,                // Index of the first image to show
+    interval:           3000,             // Interval between each images
     effect: {
-        provider:       'animate',          // Effect provider ('animate', 'magic')
-        name:           'fade'              // Transition effect ('fade', 'sideFade', 'sideFadeBig', 'flip', 'light', 'roll', 'rotate', 'foolish', 'swash', 'tin', 'puff', 'twister', 'random')
+        provider:       'animate',        // Effect provider ('animate', 'magic')
+        name:           'fade'            // Transition effect ('fade', 'sideFade', 'sideFadeBig', 'flip', 'light', 'roll', 'rotate', 'foolish', 'swash', 'tin', 'puff', 'twister', 'random')
     },
-    overlay:            'always',           // How to show overlay ('always', 'hover', 'none')
+    overlay:            'always',         // How to show overlay ('always', 'hover', 'none')
     controls: {
-        show:           true,               // Shows the player controls (prev/pause/play/next)
-        keys:           false               // Able to control by using the keyboard shortcuts (left/space/right)
+        show:           true,             // Shows the player controls (prev/pause/play/next)
+        keys:           false             // Able to control by using the keyboard shortcuts (left/space/right)
     },
     events: {
-        onThumbClick:   null,               // On thumb click
-        onImageShow:    null,               // On image show
-        onImageShown:   null,               // On image shown
-        onImageHide:    null,               // On image hide
-        onImageHidden:  null,               // On image hidden
-        onImageClick:   null,               // On image click
-        onPrev:         null,               // On previous
-        onPause:        null,               // On pause
-        onPlay:         null,               // On play
-        onNext:         null,               // On next
-        onError:        null,               // On error
-        onWarning:      null,               // On warning
-        onSuccess:      null                // On success
+        onThumbClick:   null,             // On thumb click
+        onImageShow:    null,             // On image show
+        onImageShown:   null,             // On image shown
+        onImageHide:    null,             // On image hide
+        onImageHidden:  null,             // On image hidden
+        onImageClick:   null,             // On image click
+        onPrev:         null,             // On previous
+        onPause:        null,             // On pause
+        onPlay:         null,             // On play
+        onNext:         null,             // On next
+        onError:        null,             // On error
+        onWarning:      null,             // On warning
+        onSuccess:      null              // On success
     }
 }</code></pre>
 
