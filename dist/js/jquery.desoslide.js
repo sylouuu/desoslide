@@ -582,21 +582,6 @@
         },
 
         /**
-        * Triggers an event
-        *
-        * @param string event_name
-        */
-        _triggerEvent: function (event_name) {
-            // Trigger event
-            $(this.elem).triggerHandler(event_name +'.'+ this._namespace);
-
-            // Option event
-            if (this.options.events['on'+ event_name.charAt(0).toUpperCase() + event_name.slice(1)]) {
-                this.options.events['on'+ event_name.charAt(0).toUpperCase() + event_name.slice(1)](this.props.img.$elem);
-            }
-        },
-
-        /**
         * Show image
         */
         _showImage: function () {
@@ -819,6 +804,21 @@
         */
         _stopAnimation: function () {
             $(this.elem).stop();
+        },
+
+        /**
+        * Triggers an event
+        *
+        * @param string event_name
+        */
+        _triggerEvent: function (event_name) {
+            // Trigger event
+            $(this.elem).triggerHandler(event_name +'.'+ this._namespace);
+
+            // Option event
+            if (this.options.events['on'+ event_name.charAt(0).toUpperCase() + event_name.slice(1)]) {
+                this.options.events['on'+ event_name.charAt(0).toUpperCase() + event_name.slice(1)](this.props.img.$elem);
+            }
         },
 
         /**
