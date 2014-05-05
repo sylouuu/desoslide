@@ -13,7 +13,7 @@
         "doc"
     ],
     "dependencies": {
-        "jquery": ">=1.7.0",
+        "jquery": ">=2.0.0",
         "animate.css": "~3.1.0"
     }
 }
