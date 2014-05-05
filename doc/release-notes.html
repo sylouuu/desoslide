@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <meta name="description" content="List of changes in desoSlide jQuery plugin" />
+        <meta name="description" content="History of changes in desoSlide jQuery plugin" />
         <meta name="author" content="Sylvain, Jaoued" />
 
         <title>Release Notes &middot; desoSlide jQuery plugin</title>
@@ -127,12 +127,18 @@
                 <div class="row">
                     <article class="col-lg-12">
 
+                        <div class="alert alert-danger">ALERT! This version totally breaks the backwards compatibility!</div>
+
                         <h3 class="text-left">Main</h3>
 
                         <ul class="list-unstyled list-changelog text-left">
                             <li>
                                 <span class="label label-warning">Change</span>
                                 Call the plugin in <code>$(window).load(function() {})</code> instead of <code>$(function() {})</code>.
+                            </li>
+                            <li>
+                                <span class="label label-warning">Change</span>
+                                Call the plugin on the image container instead of a thumbs list.
                             </li>
                         </ul>
 
@@ -148,10 +154,6 @@
                         <h3 class="text-left">Options</h3>
 
                         <ul class="list-unstyled list-changelog text-left">
-                            <li>
-                                <span class="label label-warning">Change</span>
-                                Call the plugin on the image container instead of a thumbs list.
-                            </li>
                             <li>
                                 <span class="label label-success">New</span>
                                 Added <code>thumbs</code> option which takes an anchors collection.
@@ -189,6 +191,151 @@ $(window).load(function() {
                             <li>
                                 <span class="label label-warning">Change</span>
                                 Removed <code>main</code> object including <code>main.container</code>, <code>main.cssClass</code> and <code>main.insertion</code>.
+                            </li>
+                            <li>
+                                <span class="label label-warning">Change</span>
+                                Removed <code>caption</code> and insert caption title if <code>data-desoslide-caption-title</code> is specified. Insert caption link if <code>data-desoslide-caption-link</code> is specified.
+                            </li>
+                            <li>
+                                <span class="label label-warning">Change</span>
+                                Renamed <code>controls.enable</code> to <code>controls.show</code>.
+                            </li>
+                            <li>
+                                <span class="label label-warning">Change</span>
+                                Changed <code>controls.keys</code> from <code>true</code> to <code>false</code> by default.
+                            </li>
+                        </ul>
+
+                        <h3 class="text-left">Effect</h3>
+
+                        <ul class="list-unstyled list-changelog text-left">
+                            <li>
+                                <span class="label label-warning">Change</span>
+                                Changed <code>effect</code> option type from <code>string</code> to <code>object</code>.
+                            </li>
+                            <li>
+                                <span class="label label-success">New</span>
+                                Added <code>effect.provider</code>.
+                            </li>
+                            <li>
+                                <span class="label label-success">New</span>
+                                Added <code>effect.name</code>.
+                            </li>
+                        </ul>
+
+                        <h3 class="text-left">Events</h3>
+
+                        <ul class="list-unstyled list-changelog text-left">
+                            <li>
+                                <span class="label label-warning">Change</span>
+                                Prefixed all events name by <code>on</code>.
+                            </li>
+                            <li>
+                                <span class="label label-success">New</span>
+                                Added <code>events.onImageClick</code>.
+                            </li>
+                            <li>
+                                <span class="label label-success">New</span>
+                                Added <code>events.onImageShow</code>.
+                            </li>
+                            <li>
+                                <span class="label label-success">New</span>
+                                Added <code>events.onImageShown</code>.
+                            </li>
+                            <li>
+                                <span class="label label-success">New</span>
+                                Added <code>events.onImageHide</code>.
+                            </li>
+                            <li>
+                                <span class="label label-success">New</span>
+                                Added <code>events.onImageHidden</code>.
+                            </li>
+                            <li>
+                                <span class="label label-success">New</span>
+                                Added <code>events.onError</code>.
+                            </li>
+                            <li>
+                                <span class="label label-success">New</span>
+                                Added <code>events.onWarning</code>.
+                            </li>
+                            <li>
+                                <span class="label label-success">New</span>
+                                Added <code>events.onSuccess</code>.
+                            </li>
+                            <li>
+                                <span class="label label-warning">Change</span>
+                                Removed <code>events.completed</code>.
+                            </li>
+                        </ul>
+
+                        <h3 class="text-left">Public methods (new)</h3>
+
+                        <ul class="list-unstyled list-changelog text-left">
+                            <li>
+                                <span class="label label-success">New</span>
+                                Added <code>rebuild()</code>.
+                            </li>
+                            <li>
+                                <span class="label label-success">New</span>
+                                Added <code>getThumbs(index)</code>.
+                            </li>
+                            <li>
+                                <span class="label label-success">New</span>
+                                Added <code>setEffect(effect)</code>.
+                            </li>
+                            <li>
+                                <span class="label label-success">New</span>
+                                Added <code>pause()</code>.
+                            </li>
+                            <li>
+                                <span class="label label-success">New</span>
+                                Added <code>play()</code>.
+                            </li>
+                            <li>
+                                <span class="label label-success">New</span>
+                                Added <code>goPrev()</code>.
+                            </li>
+                            <li>
+                                <span class="label label-success">New</span>
+                                Added <code>goNext()</code>.
+                            </li>
+                            <li>
+                                <span class="label label-success">New</span>
+                                Added <code>goTo(index)</code>.
+                            </li>
+                        </ul>
+
+                        <h3 class="text-left">Other</h3>
+
+                        <ul class="list-unstyled list-changelog text-left">
+                            <li>
+                                <span class="label label-danger">Fix</span>
+                                Fixed the overlay positioning when image has borders.
+                            </li>
+                            <li>
+                                <span class="label label-warning">Change</span>
+                                Changed <code>data-desoslide-caption</code> to <code>data-desoslide-caption-title</code>.
+                            </li>
+                            <li>
+                                <span class="label label-warning">Change</span>
+                                Changed <code>data-desoslide-href</code> to <code>data-desoslide-caption-link</code>.
+                            </li>
+                            <li>
+                                <span class="label label-warning">Change</span>
+                                Removed spinner.
+                            </li>
+                        </ul>
+
+                        <h3 class="text-left">Tests</h3>
+
+                        <ul class="list-unstyled list-changelog text-left">
+                            <li>
+                                <span class="label label-success">New</span>
+                                Used <code>gulp-qunit</code>.
+                            </li>
+                            <li>
+                                <span class="label label-success">New</span>
+                                Used <a href="https://travis-ci.org/" target="_blank">Travis-CI</a>.
                             </li>
                         </ul>
 
