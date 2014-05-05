@@ -21,7 +21,7 @@
     "bugs": "https://github.com/sylouuu/desoslide/issues",
     "homepage": "http://sylouuu.github.io/desoslide",
     "demo": "http://sylouuu.github.io/desoslide/doc/demo.html",
-    "docs": "http://sylouuu.github.io/desoslide/doc/index.html",
+    "docs": "http://sylouuu.github.io/desoslide/doc/",
     "download": "https://github.com/sylouuu/desoslide/releases",
     "dependencies": {
         "jquery": ">=1.7"
