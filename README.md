@@ -6,7 +6,7 @@
 
 ## Dependencies
 
-* jQuery >= 2.0.0 as only modern browsers are supported
+* [jQuery 2](jquery.com/download/) as only modern browsers are supported
 * [animate.css](https://github.com/daneden/animate.css) for using `effect.provider: 'animate'` (default)
 * [magic](https://github.com/miniMAC/magic) for using `effect.provider: 'magic'`
 
