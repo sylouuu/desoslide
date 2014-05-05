@@ -2,7 +2,7 @@
 
 Thank's for your interest of desoSlide!
 
-Please follow this basic guidelines if you want to get involved:
+Please follow this basic guidelines if you want to get involved.
 
 ## Reporting issues
 
@@ -30,6 +30,13 @@ Please try to be as detailed as possible in your report too. What is your
 environment? What steps will reproduce the issue? What browser(s) and OS
 experience the problem? What would you expect to be the outcome? All these
 details will help people to assess and fix any potential bugs.
+
+## Feature requests
+
+Feature requests are welcome. But take a moment to find out whether your idea
+fits with the scope and aims of the project. It's up to *you* to make a strong
+case to convince the project's developers of the merits of this feature. Please
+provide as much detail and context as possible.
 
 ## Pull Requests
 
