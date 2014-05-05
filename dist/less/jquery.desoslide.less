@@ -5,9 +5,9 @@
 * This source code is under the MIT License
 */
 
-@sprite-path: '../img/desoslide_controls.png';
-@controls-width: 16px;
-@controls-height: 16px;
+@sprite-path     : '../img/desoslide_controls.png';
+@controls-width  : 16px;
+@controls-height : 16px;
 
 .desoslide-wrapper {
     position   : relative;
@@ -23,8 +23,8 @@
     z-index     : 100;
     opacity     : 1;
 
-    a     {
-        &:hover         {
+    a {
+        &:hover {
             opacity : 0.7;
         }
     }
@@ -41,12 +41,16 @@
     padding          : 8px;
     opacity          : 0;
 
-    a {
-        color : white;
+    > a {
+        position    : relative;
+        top         : -1px;
+        color       : white;
     }
 
-    .desoslide-caption-title     {
+    .desoslide-caption-title {
         display    : inline-block;
+        position    : relative;
+        top         : -1px;
         max-width  : 90%;
         max-height : 24px;
         font-size  : 14px;
@@ -63,16 +67,19 @@
         height              : @controls-height;
         background-position : 0 -54px;
     }
+
     &.pause {
         width               : @controls-width;
         height              : @controls-height;
         background-position : 0 -18px;
     }
+
     &.play {
         width               : @controls-width;
         height              : @controls-height;
         background-position : 0 -36px;
     }
+
     &.next {
         width               : @controls-width;
         height              : @controls-height;

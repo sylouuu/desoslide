@@ -11,7 +11,7 @@
         <link rel="icon" href="../favicon.png">
 
         <!--[if lt IE 9]>
-        <script src="assets/js/vendor/html5shiv/html5shiv.min.js"></script>
+            <script src="assets/js/vendor/html5shiv/html5shiv.min.js"></script>
         <![endif]-->
 
         <link rel="stylesheet" href="assets/css/app/main.css" />
@@ -95,7 +95,7 @@
 
                     <article class="col-lg-12">
                         <h1>Demo</h1>
-                        <p class="lead">Examples of desoSlide jQuery plugin</p>
+                        <p class="lead">Some examples to show you the plugin product features</p>
                     </article>
                 </div>
             </div>
@@ -107,7 +107,7 @@
                 <div class="row">
                     <article class="col-lg-12">
                         <p>
-                            For installation instructions, refer to the <a href="index.html">documentation</a>
+                            Browse the <a href="./">documentation</a> to get started
                         </p>
                     </article>
                 </div>
@@ -238,7 +238,8 @@
                     <!-- Code 1 -->
                     <article class="col-lg-8 col-md-8">
                         <h4>Code</h4>
-<pre><code id="code1">$('#demo1_image').desoSlide({
+<pre><code id="html_code1">&lt;link rel="stylesheet" href="path/to/animate.css"&gt;</code></pre>
+<pre><code id="js_code1">$('#demo1_image').desoSlide({
     thumbs: $('#demo1_thumbs_list1, #demo1_thumbs_list2').find('li > a'),
     effect: {
         provider: 'animate',
@@ -250,10 +251,10 @@
 
                 <!-- Demo 2 -->
                 <h3 class="page-header">
-                    <span class="label label-danger">2</span> Autostarting, displaying the second image at loading
+                    <span class="label label-danger">2</span> Autostarting slideshow
                 </h3>
 
-                <p>No link and no keys. Just standard controls.</p>
+                <p>The 1-indexed thumb is displayed first, no caption are provided.</p>
 
                 <div class="row">
 
@@ -310,10 +311,27 @@
 
                 <!-- Demo 3 -->
                 <h3 class="page-header">
-                    <span class="label label-danger">3</span> Displaying the overlay by hovering the main image
+                    <span class="label label-danger">3</span> Keyboard controls
                 </h3>
 
-                <p>No link provided and no controls.</p>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <p>
+                            Controls are hidden but available with your keyboard:
+                            <ul class="list-unstyled keys-control">
+                                <li>
+                                    <span class="label label-info">left arrow</span> previous slide
+                                </li>
+                                <li>
+                                    <span class="label label-info">space</span> toggle play/pause
+                                </li>
+                                <li>
+                                    <span class="label label-info">right arrow</span> next slide
+                                </li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
 
                 <div class="row">
 
@@ -377,8 +395,16 @@
 
                 <!-- Demo 4 -->
                 <h3 class="page-header">
-                    <span class="label label-danger">4</span> Autoloading, hiding the overlay
+                    <span class="label label-danger">4</span> Without overlay
                 </h3>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <p>
+                            As the overlay is hidden, captions are ignored.
+                        </p>
+                    </div>
+                </div>
 
                 <div class="row">
 
@@ -454,7 +480,7 @@
                     <article class="col-lg-3 col-md-3 col-sm-4">
                         <ul class="list-inline">
                             <li>
-                                <a href="https://github.com/sylouuu/desoslide/blob/master/CONTRIBUTING.md">Contribute</a>
+                                <a href="../CONTRIBUTING.md">Contribute</a>
                             </li>
                             <li>
                                 <a href="https://github.com/sylouuu/desoslide/issues?state=open">Issues</a>

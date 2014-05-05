@@ -11,8 +11,8 @@
         <link rel="icon" href="favicon.png" />
 
         <!--[if lt IE 9]>
-        <script src="doc/assets/js/vendor/html5shiv/html5shiv.min.js"></script>
-        <script src="doc/assets/js/vendor/respond/respond.min.js"></script>
+            <script src="doc/assets/js/vendor/html5shiv/html5shiv.min.js"></script>
+            <script src="doc/assets/js/vendor/respond/respond.min.js"></script>
         <![endif]-->
 
         <link rel="stylesheet" href="doc/assets/css/app/main.css" />
@@ -76,39 +76,57 @@
             <div class="container">
                 <div class="row">
 
-                    <h1>Take control of your slideshow with this powerful jQuery plugin</h1>
+                    <div class="col-lg-12 col-md-12">
+                        <h1>Take control of your slideshow with this powerful jQuery plugin</h1>
 
-                    <!--[if lt IE 9]>
-                    <div class="container">
-                        <div class="row">
-                            <article class="dialog dialog-danger">
-                                <h3>Your browser is too old!</h3>
-                                <p class="lead">
-                                    desoSlide is not compatible with lower version of Internet Explorer 9.
-                                    <br/>
-                                    <a href="http://browsehappy.com/?locale=en">Upgrade</a> your browser today!
-                                </p>
-                            </article>
+                        <!--[if lt IE 9]>
+                        <div class="container">
+                            <div class="row">
+                                <article class="dialog dialog-danger">
+                                    <h3>Your browser is too old!</h3>
+                                    <p class="lead">
+                                        desoSlide is not compatible with lower version of Internet Explorer 9.
+                                        <br/>
+                                        <a href="http://browsehappy.com/?locale=en">Upgrade</a> your browser today!
+                                    </p>
+                                </article>
+                            </div>
                         </div>
+                        <![endif]-->
+
+                        <ul class="list-inline">
+                            <li>
+                                <a class="btn btn-primary btn-hg wow bounce" href="doc/demo.html" data-wow-delay="1s">
+                                    <i class="fa fa-picture-o"></i> Demo</a>
+                            </li>
+                            <li>
+                                <a class="btn btn-danger btn-hg" href="https://github.com/sylouuu/desoslide/releases">
+                                    <i class="fa fa-download"></i> Download
+                                </a>
+                            </li>
+                        </ul>
+
+                        <small>
+                            Current stable release: 2.0.0
+                        </small>
                     </div>
-                    <![endif]-->
 
-                    <ul class="list-inline">
-                        <li>
-                            <a class="btn btn-primary btn-hg wow bounce" href="doc/demo.html" data-wow-delay="1s">
-                                <i class="fa fa-picture-o"></i> Demo</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-danger btn-hg" href="https://github.com/sylouuu/desoslide/releases">
-                                <i class="fa fa-download"></i> Download
-                            </a>
-                        </li>
-                    </ul>
-
-                    <small>
-                        Current stable release: 2.0.0
-                    </small>
                 </div>
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-4"></div>
+
+                    <div class="col-lg-4 col-md-4 text-left">
+                        <p>Easy to use</p>
+
+<pre><code id="js_code1">$('#image').desoSlide({
+    thumbs: $('a.thumb')
+});</code></pre>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4"></div>
+                </div>
+
             </div>
         </section>
 
@@ -128,10 +146,9 @@
                         <h4>Free</h4>
 
                         <p class="text-justify">
-                            DesoSlide jQuery plugin is open source, under the
+                            This plugin is open source, under the
                             <a href="http://en.wikipedia.org/wiki/MIT_License">MIT license</a>.
-                            Feel free to contribute on the
-                            <a href="https://github.com/sylouuu/desoslide">Github repository</a>.
+                            Feel free to contribute.
                         </p>
                     </article>
 
@@ -141,17 +158,16 @@
                         <h4>Customizable</h4>
 
                         <p class="text-justify">
-                            Use your own CSS, many options are avalaible (including effects) in the
-                            <a href="doc/index.html">documentation</a>.
+                            Target any thumbnail in your page. Many options available to fit your needs.
                         </p>
                     </article>
 
                     <article class="col-sm-4 col-md-4 col-lg-4 text-center wow fadeIn" data-wow-delay="250ms">
                         <p><img src="doc/assets/img/flat-ui/goal.png" alt="goal"></p>
 
-                        <h4>Controls</h4>
+                        <h4>Control</h4>
 
-                        <p class="text-justify">Control the slider by clicking or pressing your keyboard keys.</p>
+                        <p class="text-justify">Control the slideshow with your keyboard keys or through the player.</p>
                     </article>
                 </div>
             </div>
@@ -163,7 +179,7 @@
 
                         <h4>Caption</h4>
 
-                        <p class="text-justify">Specify a caption and a link for each image to show more information.</p>
+                        <p class="text-justify">Show more information to your users with caption and link for each image.</p>
                     </article>
 
                     <article class="col-sm-4 col-md-4 col-lg-4 text-center wow fadeIn" data-wow-delay="250ms">
@@ -171,7 +187,7 @@
 
                         <h4>Infinite</h4>
 
-                        <p class="text-justify">Create as many instances as you want on a same page.</p>
+                        <p class="text-justify">Create as many slideshows as you want on a single page.</p>
                     </article>
 
                     <article class="col-sm-4 col-md-4 col-lg-4 text-center wow fadeIn" data-wow-delay="250ms">
@@ -250,17 +266,17 @@
 
                         <ul class="list-inline">
                             <li>
-                                <a href="http://sylouuu.github.io/" class="btn btn-danger btn-hg">
+                                <a href="http://sylouuu.github.io/" class="btn btn-danger btn-hg" target="_blank">
                                     <i class="fa fa-home"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/sylwebdev" class="btn btn-twitter btn-hg">
+                                <a href="https://twitter.com/sylwebdev" class="btn btn-twitter btn-hg" target="_blank">
                                     <i class="fa fa-twitter"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://github.com/sylouuu" class="btn btn-github btn-hg">
+                                <a href="https://github.com/sylouuu" class="btn btn-github btn-hg" target="_blank">
                                     <i class="fa fa-github"></i>
                                 </a>
                             </li>
@@ -276,17 +292,17 @@
 
                         <ul class="list-inline">
                             <li>
-                                <a href="http://jaoued.com/" class="btn btn-danger btn-hg">
+                                <a href="http://jaoued.com/" class="btn btn-danger btn-hg" target="_blank">
                                     <i class="fa fa-home"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/jaouedElghali" class="btn btn-twitter btn-hg">
+                                <a href="https://twitter.com/jaouedElghali" class="btn btn-twitter btn-hg" target="_blank">
                                     <i class="fa fa-twitter"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://github.com/jaoued" class="btn btn-github btn-hg">
+                                <a href="https://github.com/jaoued" class="btn btn-github btn-hg" target="_blank">
                                     <i class="fa fa-github"></i>
                                 </a>
                             </li>
@@ -303,8 +319,12 @@
 
                     <article class="col-lg-3 col-md-3 col-sm-4">
                         <ul class="list-inline">
-                            <li><a href="https://github.com/sylouuu/desoslide/blob/master/CONTRIBUTING.md">Contribute</a></li>
-                            <li><a href="https://github.com/sylouuu/desoslide/issues?state=open">Issues</a></li>
+                            <li>
+                                <a href="CONTRIBUTING.md">Contribute</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/sylouuu/desoslide/issues?state=open">Issues</a>
+                            </li>
                         </ul>
                     </article>
 

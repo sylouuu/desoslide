@@ -31,11 +31,15 @@
   padding: 8px;
   opacity: 0;
 }
-.desoslide-overlay a {
+.desoslide-overlay > a {
+  position: relative;
+  top: -1px;
   color: white;
 }
 .desoslide-overlay .desoslide-caption-title {
   display: inline-block;
+  position: relative;
+  top: -1px;
   max-width: 90%;
   max-height: 24px;
   font-size: 14px;
