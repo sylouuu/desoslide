@@ -9,8 +9,7 @@
 
     .desoslide-wrapper
     {
-        margin-left  : 20px;
-        margin-right : 20px;
+        display : inline-block;
 
         img
         {
@@ -20,19 +19,14 @@
 
         @media (max-width : @screen-md)
         {
-            float         : left;
-        }
-
-        @media (min-width : @screen-md)
-        {
-            margin-right  : 0;
+            width         : 100%;
         }
     }
 
     .desoslide-thumbs-vertical,
     .desoslide-thumbs-horizontal
     {
-        list-style : none;
+        //list-style : none;
 
         img
         {
@@ -58,6 +52,7 @@
 
     .desoslide-thumbs-vertical
     {
+        display      : inline-block;
         padding-left : 0;
 
         > li
@@ -66,8 +61,12 @@
 
             @media (max-width : @screen-md)
             {
-                float         : left;
-                padding-left  : 20px;
+                margin : 10px 0;
+
+                &:first-child
+                {
+                    padding-left : 0;
+                }
             }
 
             @media (min-width : @screen-md)
@@ -86,39 +85,18 @@
 
         > li
         {
-            margin       : 20px 0;
-            padding-left : 20px;
+            margin       : 10px 0;
+            padding-left : 0px;
 
             @media (min-width : @screen-md)
             {
+                margin       : 20px 0;
+                padding-left : 20px;
+
                 &:first-child
                 {
                     padding-left : 0;
                 }
-            }
-        }
-    }
-
-    #demo1_image
-    {
-        .desoslide-wrapper
-        {
-            @media (min-width : @screen-md)
-            {
-                margin-right  : 20px;
-            }
-        }
-    }
-
-    #demo2_image,
-    #demo3_image,
-    #demo4_image
-    {
-        .desoslide-wrapper
-        {
-            @media (min-width : @screen-md)
-            {
-                margin-left   : 0;
             }
         }
     }
@@ -128,12 +106,35 @@
         padding-bottom : 25px;
     }
 
-    .keys-control .label {
-        display: inline-block;
-        min-width: 55px;
-        padding: 6px 8px;
+    #slideshow1,
+    #slideshow2,
+    #slideshow3,
+    #slideshow4
+    {
+        text-align : center;
     }
 
+    #slideshow_1_thumbs_1
+    {
+        text-align : center;
+    }
+
+    #slideshow_1_thumbs_2
+    {
+        text-align : center;
+
+        @media (min-width : @screen-md)
+        {
+            text-align    : right;
+        }
+    }
+
+    .keys-control .label
+    {
+        display   : inline-block;
+        min-width : 55px;
+        padding   : 6px 8px;
+    }
 }
 
 
