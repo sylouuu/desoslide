@@ -177,11 +177,7 @@ $(function() {
 
     $('#slideshow2').desoSlide({
         thumbs: $('#slideshow2_thumbs li > a'),
-        auto: {
-            start: true
-        },
-        first: 3,
-        interval: 6000,
+        first: 2,
         effect: {
             provider: 'animate',
             name: 'roll'
@@ -197,6 +193,7 @@ $(function() {
             start: true
         },
         first: 1,
+        interval: 6000,
         effect: {
             provider: 'magic',
             name: 'tin'

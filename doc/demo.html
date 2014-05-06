@@ -244,13 +244,13 @@
 
                 <!-- Demo 2 -->
                 <h3 class="page-header">
-                    <span class="label label-danger">2</span> Without overlay
+                    <span class="label label-danger">2</span> With links
                 </h3>
 
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <p>
-                            As the overlay is hidden, captions are ignored.
+                            Shows the third slide at loading.
                         </p>
                     </div>
                 </div>
@@ -308,14 +308,11 @@
                         <h4>Code</h4>
 <pre><code>$('#slideshow').desoSlide({
     thumbs: $('#slideshow_thumbs li > a'),
-    auto: {
-        start: true
-    },
+    first: 2,
     effect: {
-        provider: 'magic',
-        name: 'twister'
-    },
-    overlay: 'none'
+        provider: 'animate',
+        name: 'roll'
+    }
 });</code></pre>
                     </article>
                 </div>
@@ -372,6 +369,7 @@
         start: true
     },
     first: 1,
+    interval: 6000,
     effect: {
         provider: 'magic',
         name: 'tin'
