@@ -177,11 +177,7 @@ $(function() {
 
     $('#slideshow2').desoSlide({
         thumbs: $('#slideshow2_thumbs li > a'),
-        first: 2,
-        effect: {
-            provider: 'animate',
-            name: 'roll'
-        }
+        first: 2
     });
 
     // Demo 3
@@ -193,11 +189,7 @@ $(function() {
             start: true
         },
         first: 1,
-        interval: 6000,
-        effect: {
-            provider: 'magic',
-            name: 'tin'
-        }
+        interval: 6000
     });
 
     // Demo 4
@@ -205,10 +197,6 @@ $(function() {
 
     $('#slideshow4').desoSlide({
         thumbs: $('#slideshow4_thumbs li > a'),
-        effect: {
-            provider: 'animate',
-            name: 'flip'
-        },
         overlay: 'hover',
         controls: {
             show: false,
@@ -223,10 +211,6 @@ $(function() {
         thumbs: $('#slideshow5_thumbs li > a'),
         auto: {
             start: true
-        },
-        effect: {
-            provider: 'magic',
-            name: 'twister'
         },
         overlay: 'none'
     });
