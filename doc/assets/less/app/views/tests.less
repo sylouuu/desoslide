@@ -1,0 +1,148 @@
+.importVendorFiles();
+@import '../components/variables.less';
+@import '../components/mixins.less';
+.importAppFiles();
+
+.test,
+#qunit-header,
+#qunit-banner,
+#qunit-testrunner-toolbar
+{
+    display : none;
+}
+
+#qunit
+{
+    padding-top    : 80px;
+    padding-bottom : 80px;
+
+    @media (max-width  : @screen-md)
+    {
+        padding-top    : 55px;
+        padding-bottom : 55px;
+    }
+
+    @media (max-width  : @screen-xs)
+    {
+        padding-top    : 25px;
+        padding-bottom : 25px;
+    }
+}
+
+#qunit-userAgent
+{
+    line-height             : 20px;
+    padding                 : 8px 20px;
+    border-top-left-radius  : 6px;
+    border-top-right-radius : 6px;
+    background-color        : @ebony-clay;
+    font-family             : @font-family-base;
+    font-size               : 15px;
+    color                   : white;
+    text-shadow             : none;
+}
+
+#qunit-testresult
+{
+    border-bottom    : none;
+    background-color : lighten(@ebony-clay, 10%);
+    font-family      : @font-family-base;
+    font-size        : 14px;
+    color            : @white;
+}
+
+#qunit-tests
+{
+    font-family : @font-family-base;
+
+    li
+    {
+        border         : 3px none;
+        padding-top    : 12px;
+        padding-bottom : 12px;
+        font-size      : 14px;
+
+        li
+        {
+
+            &.pass
+            {
+                border-left-color : @brand-success;
+                border-top        : none;
+                border-right      : none;
+                border-bottom     : none;
+            }
+
+            &.fail
+            {
+                border-left-color : @brand-danger;
+                border-top        : none;
+                border-right      : none;
+                border-bottom     : none;
+            }
+        }
+
+        .runtime
+        {
+            @media (min-width : @screen-xs)
+            {
+                margin-right  : 16px;
+            }
+        }
+
+        &.pass,
+        &.fail
+        {
+            background-color : #f8f9fa;
+
+            .test-name
+            {
+                color : @text-color;
+            }
+        }
+
+        &.pass
+        {
+            border-left : solid @brand-success;
+            color       : @brand-success;
+        }
+
+        &.fail
+        {
+            border-left : solid @brand-danger;
+            color       : @brand-danger;
+        }
+    }
+
+    b
+    {
+        &.counts
+        {
+            color : @text-color;
+        }
+
+        .failed
+        {
+            color : @brand-danger;
+        }
+
+        .passed
+        {
+            color : @brand-success;
+        }
+    }
+
+    th
+    {
+        vertical-align : middle;
+    }
+
+}
+
+.qunit-assert-list
+{
+    @media (min-width : @screen-xs)
+    {
+        margin-right  : 16px;
+    }
+}

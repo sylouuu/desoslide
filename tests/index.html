@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="description" content="Tests suite shows that desoSlide passes the basics specifications" />
+        <meta name="author" content="Sylvain, Jaoued" />
 
-        <title>Tests suite &middot; jQuery plugin desoSlide</title>
+        <title>Tests &middot; desoSlide jQuery plugin</title>
 
-        <link rel="icon" href="../assets/img/logo/favicon.png">
+        <link rel="icon" href="../doc/assets/img/favicon.png">
+
+        <!--[if lt IE 9]>
+            <script src="assets/js/vendor/html5shiv/html5shiv.min.js"></script>
+        <![endif]-->
 
         <link rel="stylesheet" href="qunit/css/qunit.css">
-        <link rel="stylesheet" href="../assets/css/doc/tests.css">
-
-        <script src="../assets/js/jquery/jquery.js"></script>
-        <script src="../dist/js/jquery.desoslide.min.js"></script>
-        <script src="../assets/js/bootstrap/bootstrap.min.js"></script>
-
-        <script src="qunit/js/qunit.js"></script>
-
-        <script src="tests.js"></script>
+        <link rel="stylesheet" href="../doc/assets/css/app/main.css" />
+        <link rel="stylesheet" href="../doc/assets/css/app/views/tests.css" />
 
         <script>
             var _gaq = _gaq || [];
@@ -33,143 +32,188 @@
     </head>
     <body>
 
-        <header class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-
-                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-home"></button>
-
-                    <a href="../" class="navbar-brand">
-                        <img src="../assets/img/logo/desoslide.png" alt="desoslide logo">
+        <!-- Header -->
+        <header class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                    <a class="navbar-brand" href="../">
+                        <span class="brand-deso">deso</span><span class="brand-slide">Slide</span>
                     </a>
-
-                    <div class="nav-collapse collapse" id="nav-collapse-home">
-                        <ul class="nav">
-                            <li><a href="../">Home</a></li>
-                            <li><a href="../demo.html">Demo</a></li>
-                            <li>
-                                <a href="../documentation.html">Documentation</a>
-                                <ul>
-                                    <li><a href="../documentation.html#setup">Setup</a></li>
-                                    <li><a href="../documentation.html#configuration">Configuration</a></li>
-                                    <li><a href="../documentation.html#controls">Controls</a></li>
-                                    <li><a href="../documentation.html#options">Options</a></li>
-                                    <li><a href="../documentation.html#return_value">Return value</a></li>
-                                    <li><a href="../documentation.html#browser_compatibility">Browser compatibility</a></li>
-                                    <li><a href="../documentation.html#contributors">Contributors</a></li>
-                                </ul>
-                            </li>
-                            <li class="active"><a href="./">Tests</a></li>
-                        </ul>
-                    </div>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="../doc/demo.html"><i class="fa fa-picture-o"></i> Demo</a>
+                        </li>
+                        <li>
+                            <a href="../doc/"><i class="fa fa-book"></i> Documentation</a>
+                        </li>
+                        <li>
+                            <a href="../doc/release-notes.html"><i class="fa fa-calendar"></i> Release Notes</a>
+                        </li>
+                        <li class="active">
+                            <a href="./"><i class="fa fa-check"></i> Tests</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/sylouuu/desoslide" target="_blank"><i class="fa fa-github"></i> Github</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </header>
 
+        <!-- Introduction section -->
+        <section class="jumbotron">
+            <div class="container">
+                <div class="row">
+
+                    <!--[if lt IE 9]>
+                    <div class="container">
+                        <div class="row">
+                            <article class="dialog dialog-danger">
+                                <h3>Your browser is too old!</h3>
+                                <p class="lead">
+                                    desoSlide is not compatible with lower version of Internet Explorer 9.
+                                    <br/>
+                                    <a href="http://browsehappy.com/?locale=en">Upgrade</a> your browser today!
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                    <![endif]-->
+
+                    <article class="col-lg-12">
+                        <h1>Tests</h1>
+                        <p class="lead">Tests suite shows that desoSlide passes the basics specifications</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Breadcrumb section -->
+        <section class="section-breadcrumb">
+            <div class="container">
+                <div class="row">
+                    <article class="col-lg-12">
+                        <p>
+                            Tests cover: 2.0.0
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUnit container -->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <article id="qunit" class="col-lg-12"></article>
+                </div>
+            </div>
+        </section>
+
         <div class="container">
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="page-header">
-                        <h2>Tests</h2>
-                    </div>
-                </div>
-                <div id="qunit" class="col-lg-12"></div>
-            </div>
+            <!-- Image -->
+            <div id="image_test1" class="test"></div>
+            <div id="image_test2" class="test"></div>
+            <div id="image_test3" class="test"></div>
+            <div id="image_test4" class="test"></div>
+            <div id="image_test5" class="test"></div>
+            <div id="image_test6" class="test"></div>
+            <div id="image_test7" class="test"></div>
+            <div id="image_test8" class="test"></div>
+            <div id="image_test9" class="test"></div>
+            <div id="image_test10" class="test"></div>
+            <div id="image_test11" class="test"></div>
+            <div id="image_test12" class="test"></div>
+            <div id="image_test13" class="test"></div>
+            <div id="image_test14" class="test"></div>
+            <div id="image_test15" class="test"></div>
+            <div id="image_test16" class="test"></div>
 
-            <!-- Main container -->
-            <div id="main_image" class="test"></div>
-
-            <!-- Wrong markup with no child -->
-            <ul id="no_thumbs" class="test"></ul>
-
-            <!-- Accepted markup with alt attribute -->
+            <!-- Thumbs OK -->
             <ul id="alt_thumbs" class="test">
                 <li>
-                    <a href="../assets/img/demos/demo1/bird.jpg"><img src="../assets/img/demos/demo1/bird_thumb.jpg" alt="bird"></a>
+                    <a href="../doc/assets/img/demos/demo1/bird.jpg"><img src="../doc/assets/img/demos/demo1/bird_thumb.jpg" alt="Bird"></a>
                 </li>
                 <li>
-                    <a href="../assets/img/demos/demo1/flower.jpg"><img src="../assets/img/demos/demo1/flower_thumb.jpg" alt="Flower"></a>
-                </li>
-                <li>
-                    <a href="../assets/img/demos/demo1/butterfly.jpg"><img src="../assets/img/demos/demo1/butterfly_thumb.jpg" alt="Butterfly"></a>
-                </li>
-                <li>
-                    <a href="../assets/img/demos/demo1/rose.jpg"><img src="../assets/img/demos/demo1/rose_thumb.jpg" alt="Rose"></a>
+                    <a href="../doc/assets/img/demos/demo1/flower.jpg"><img src="../doc/assets/img/demos/demo1/flower_thumb.jpg" alt="Flower"></a>
                 </li>
             </ul>
 
-            <!-- Accepted markup with alt & data-desoslide-caption attributes -->
-            <ul id="alt_caption_thumbs" class="test">
-                <li>
-                    <a href="../assets/img/demos/demo1/bird.jpg"><img src="../assets/img/demos/demo1/bird_thumb.jpg" alt="bird" data-desoslide-caption="bird"></a>
-                </li>
-                <li>
-                    <a href="../assets/img/demos/demo1/flower.jpg"><img src="../assets/img/demos/demo1/flower_thumb.jpg" alt="Flower" data-desoslide-caption="Flower"></a>
-                </li>
-                <li>
-                    <a href="../assets/img/demos/demo1/butterfly.jpg"><img src="../assets/img/demos/demo1/butterfly_thumb.jpg" alt="Butterfly" data-desoslide-caption="Butterfly"></a>
-                </li>
-                <li>
-                    <a href="../assets/img/demos/demo1/rose.jpg"><img src="../assets/img/demos/demo1/rose_thumb.jpg" alt="Rose" data-desoslide-caption="Rose"></a>
-                </li>
-            </ul>
-
-            <!-- Wrong markup without alt attribute -->
+            <!-- Thumbs without `alt` -->
             <ul id="no_alt_thumbs" class="test">
                 <li>
-                    <a href="../assets/img/demos/demo1/bird.jpg"><img src="../assets/img/demos/demo1/bird_thumb.jpg"></a>
+                    <a href="../doc/assets/img/demos/demo1/bird.jpg"><img src="../doc/assets/img/demos/demo1/bird_thumb.jpg"></a>
                 </li>
                 <li>
-                    <a href="../assets/img/demos/demo1/flower.jpg"><img src="../assets/img/demos/demo1/flower_thumb.jpg"></a>
+                    <a href="../doc/assets/img/demos/demo1/flower.jpg"><img src="../doc/assets/img/demos/demo1/flower_thumb.jpg"></a>
+                </li>
+            </ul>
+
+            <!-- Thumbs without `href` -->
+            <ul id="no_href_thumbs" class="test">
+                <li>
+                    <a><img src="../doc/assets/img/demos/demo1/bird_thumb.jpg" alt="Bird"></a>
                 </li>
                 <li>
-                    <a href="../assets/img/demos/demo1/butterfly.jpg"><img src="../assets/img/demos/demo1/butterfly_thumb.jpg"></a>
+                    <a><img src="../doc/assets/img/demos/demo1/flower_thumb.jpg" alt="Flower"></a>
+                </li>
+            </ul>
+
+            <!-- Thumbs without `<img>` -->
+            <ul id="no_img_thumbs" class="test">
+                <li>
+                    <a href="../doc/assets/img/demos/demo1/bird.jpg"></a>
                 </li>
                 <li>
-                    <a href="../assets/img/demos/demo1/rose.jpg"><img src="../assets/img/demos/demo1/rose_thumb.jpg"></a>
+                    <a href="../doc/assets/img/demos/demo1/flower.jpg"></a>
                 </li>
             </ul>
 
         </div>
 
-        <!-- [BEGIN] FOOTER -->
-        <footer class="bottom-menu">
+        <!-- Footer section -->
+        <footer>
             <div class="container">
-
                 <div class="row">
 
-                    <article class="col-sm-3 col-md-2 col-lg-2">
-                        <div class="navbar-brand">
-                            <img src="../assets/img/logo/desoslide_small.png" alt="desoslide logo">
-                        </div>
-                    </article>
-
-                    <article class="col-sm-7 col-md-8 col-lg-8">
-                        <ul class="bottom-links">
-                            <li><a href="http://sylouuu.github.io/">My home</a></li>
-                            <li><a href="https://github.com/sylouuu/desoslide">Project on GitHub</a></li>
-                            <li><a href="https://github.com/sylouuu/desoslide/issues">Issues</a></li>
+                    <article class="col-lg-3 col-md-3 col-sm-4">
+                        <ul class="list-inline">
+                            <li>
+                                <a href="../CONTRIBUTING.md" target="_blank">Contribute</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/sylouuu/desoslide/issues?state=open" target="_blank">Issues</a>
+                            </li>
                         </ul>
                     </article>
 
-                    <article class="col-sm-2 col-md-2 col-lg-2 text-right">
-                        <ul class="list-inline no-mg-bt">
-                            <li>
-                                <a href="https://github.com/sylouuu" title="Visit my GitHub profile">
-                                    <img src="../assets/img/social/github_logo.png" alt="github logo">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://twitter.com/sylwebdev" title="Follow me on Twitter (@sylwebdev)">
-                                    <img src="../assets/img/social/twitter_logo.png" alt="twitter logo">
-                                </a>
-                            </li>
-                        </ul>
+                    <article class="col-lg-6 col-md-6 col-sm-5 text-center">
+                        <p>
+                        <a href="./" class="btn btn-danger back-to-top"><i class="fa fa-arrow-up"></i></a>
+                        </p>
+                    </article>
+
+                    <article class="col-lg-3 col-md-3 col-sm-3 text-right">
+                        <p>&copy; 2014 desoSlide</p>
                     </article>
                 </div>
             </div>
         </footer>
-        <!-- [END] FOOTER -->
+
+        <script src="../doc/assets/js/vendor/jquery/jquery.js"></script>
+        <script src="../doc/assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+
+        <script src="qunit/js/qunit.js"></script>
+
+        <script src="../dist/js/jquery.desoslide.js"></script>
+        <script src="tests.js"></script>
+
     </body>
 </html>

@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="description" content="Build powerful slideshow with desoSlide, a jQuery plugin" />
+        <meta name="author" content="Sylvain, Jaoued" />
 
-        <title>Home &middot; jQuery plugin desoSlide</title>
+        <title>Home &middot; desoSlide jQuery plugin</title>
 
-        <link rel="icon" href="assets/img/logo/favicon.png">
+        <link rel="icon" href="doc/assets/img/favicon.png">
 
-        <link rel="stylesheet" href="assets/css/doc/home.css">
+        <!--[if lt IE 9]>
+            <script src="doc/assets/js/vendor/html5shiv/html5shiv.min.js"></script>
+        <![endif]-->
 
-        <script src="assets/js/jquery/jquery.js"></script>
-        <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="doc/assets/css/app/main.css" />
+        <link rel="stylesheet" href="doc/assets/css/app/views/home.css" />
+
+        <link rel="stylesheet" href="doc/assets/css/vendor/animate/animate.min.css">
 
         <script>
             var _gaq = _gaq || [];
@@ -26,144 +32,313 @@
         </script>
     </head>
     <body>
-        <header class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
 
-                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-home"></button>
-
-                    <a href="./" class="navbar-brand">
-                        <img src="assets/img/logo/desoslide.png" alt="desoslide logo">
+        <!-- Header -->
+        <header class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                    <a class="navbar-brand" href="./">
+                        <span class="brand-deso">deso</span><span class="brand-slide">Slide</span>
                     </a>
-
-                    <div class="nav-collapse collapse" id="nav-collapse-home">
-                        <ul class="nav">
-                            <li class="active"><a href="./">Home</a></li>
-                            <li><a href="demo.html">Demo</a></li>
-                            <li>
-                                <a href="documentation.html">Documentation</a>
-                                <ul>
-                                    <li><a href="documentation.html#setup">Setup</a></li>
-                                    <li><a href="documentation.html#configuration">Configuration</a></li>
-                                    <li><a href="documentation.html#controls">Controls</a></li>
-                                    <li><a href="documentation.html#options">Options</a></li>
-                                    <li><a href="documentation.html#return_value">Return value</a></li>
-                                    <li><a href="documentation.html#browser_compatibility">Browser compatibility</a></li>
-                                    <li><a href="documentation.html#contributors">Contributors</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="tests/">Tests</a></li>
-                        </ul>
-                    </div>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="doc/demo.html"><i class="fa fa-picture-o"></i> Demo</a>
+                        </li>
+                        <li>
+                            <a href="doc/"><i class="fa fa-book"></i> Documentation</a>
+                        </li>
+                        <li>
+                            <a href="doc/release-notes.html"><i class="fa fa-calendar"></i> Release Notes</a>
+                        </li>
+                        <li>
+                            <a href="tests/"><i class="fa fa-check"></i> Tests</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/sylouuu/desoslide" target="_blank"><i class="fa fa-github"></i> Github</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </header>
 
-        <div class="container">
-
-            <!-- [BEGIN] JUMBOTRON -->
-            <div class="jumbotron">
-                <h1>Simple images slider...</h1>
-                <h3>... with thumbnails!</h3>
-
-                <br>
-
-                <ul class="list-inline text-muted">
-                    <li>
-                        <a href="https://github.com/sylouuu/desoslide/releases" class="btn btn-primary btn-hg">
-                            <span class="glyphicon glyphicon-download-alt"></span> Download
-                        </a>
-                    </li>
-                    <li>Version 1.3.0</li>
-                </ul>
-            </div>
-            <!-- [END] JUMBOTRON -->
-
-            <!-- [BEGIN] FEATURES -->
-            <div class="features">
-
-                <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-                        <img src="assets/img/flat_ui/gift.png" alt="gift">
-                        <h3>Free</h3>
-                        <p>
-                            This jQuery plugin is open source, under the <a href="http://en.wikipedia.org/wiki/MIT_License">MIT license</a>.<br>
-                            Feel free to contribute on the <a href="https://github.com/sylouuu/desoslide">repository</a>.
-                        </p>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-                        <img src="assets/img/flat_ui/settings.png" alt="settings">
-                        <h3>Customizable</h3>
-                        <p>Use your own CSS, many options are avalaible (including effects) in the <a href="documentation.html">documentation</a>.</p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-                        <img src="assets/img/flat_ui/goal.png" alt="goal">
-                        <h3>Controls</h3>
-                        <p>Control the slider by clicking or pressing your keyboard keys.</p>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-                        <img src="assets/img/flat_ui/picture.png" alt="picture">
-                        <h3>Caption</h3>
-                        <p>Specify a caption and a link for each image to show more informations.</p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-                        <img src="assets/img/flat_ui/infinite.png" alt="infinite">
-                        <h3>Multiple</h3>
-                        <p>Create as many instances as you want on a same page.</p>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-6 text-center">
-                        <img src="assets/img/flat_ui/tests.png" alt="tests">
-                        <h3>Tests suite</h3>
-                        <p>A <a href="tests/">tests suite</a> shows that the plugin passes the basics specifications.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- [END] FEATURES -->
-        </div> <!-- /CONTAINER -->
-
-        <!-- [BEGIN] FOOTER -->
-        <footer class="bottom-menu">
+        <!-- Introduction section -->
+        <section class="jumbotron text-center">
             <div class="container">
-
                 <div class="row">
 
-                    <article class="col-sm-3 col-md-2 col-lg-2">
-                        <div class="navbar-brand">
-                            <img src="assets/img/logo/desoslide_small.png" alt="desoslide logo">
+                    <div class="col-lg-12 col-md-12">
+                        <h1>Take control of your slideshow with this powerful jQuery plugin</h1>
+
+                        <!--[if lt IE 9]>
+                        <div class="container">
+                            <div class="row">
+                                <article class="dialog dialog-danger">
+                                    <h3>Your browser is too old!</h3>
+                                    <p class="lead">
+                                        desoSlide is not compatible with lower version of Internet Explorer 9.
+                                        <br/>
+                                        <a href="http://browsehappy.com/?locale=en">Upgrade</a> your browser today!
+                                    </p>
+                                </article>
+                            </div>
                         </div>
-                    </article>
+                        <![endif]-->
 
-                    <article class="col-sm-7 col-md-8 col-lg-8">
-                        <ul class="bottom-links">
-                            <li><a href="http://sylouuu.github.io/">My home</a></li>
-                            <li><a href="https://github.com/sylouuu/desoslide">Project on GitHub</a></li>
-                            <li><a href="https://github.com/sylouuu/desoslide/issues">Issues</a></li>
-                        </ul>
-                    </article>
-
-                    <article class="col-sm-2 col-md-2 col-lg-2 text-right">
-                        <ul class="list-inline no-mg-bt">
+                        <ul class="list-inline">
                             <li>
-                                <a href="https://github.com/sylouuu" title="Visit my GitHub profile">
-                                    <img src="assets/img/social/github_logo.png" alt="github logo">
-                                </a>
+                                <a class="btn btn-primary btn-hg wow bounce" href="doc/demo.html" data-wow-delay="1s">
+                                    <i class="fa fa-picture-o"></i> Demo</a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/sylwebdev" title="Follow me on Twitter (@sylwebdev)">
-                                    <img src="assets/img/social/twitter_logo.png" alt="twitter logo">
+                                <a class="btn btn-danger btn-hg" href="https://github.com/sylouuu/desoslide/releases">
+                                    <i class="fa fa-download"></i> Download
                                 </a>
                             </li>
                         </ul>
+
+                        <small>
+                            Current stable release: 2.0.0
+                        </small>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-lg-6 col-md-6 col-sm-6">
+                        <h3><i class="fa fa-thumbs-up"></i> Easy to use</h3>
+
+<pre class="text-left"><code id="js_code1">$('#slideshow').desoSlide({
+    thumbs: $('a.thumb')
+});</code></pre>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Features section -->
+        <section id="features">
+            <div class="section-title section-ebony wow fadeInDown">
+                <i class="fa fa-gift section-icon"></i>
+                <h2 class="section-text">Features</h2>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <article class="col-sm-4 col-md-4 col-lg-4 text-center wow fadeIn" data-wow-delay="250ms">
+                        <p><img src="doc/assets/img/flat-ui/gift.png" alt="gift"></p>
+
+                        <h4>Free</h4>
+
+                        <p class="text-justify">
+                            This plugin is open source, under the
+                            <a href="http://en.wikipedia.org/wiki/MIT_License">MIT license</a>.
+                            Feel free to contribute.
+                        </p>
+                    </article>
+
+                    <article class="col-sm-4 col-md-4 col-lg-4 text-center wow fadeIn" data-wow-delay="250ms">
+                        <p><img src="doc/assets/img/flat-ui/settings.png" alt="settings"></p>
+
+                        <h4>Customizable</h4>
+
+                        <p class="text-justify">
+                            Target any thumbnail in your page. Many options available to fit your needs.
+                        </p>
+                    </article>
+
+                    <article class="col-sm-4 col-md-4 col-lg-4 text-center wow fadeIn" data-wow-delay="250ms">
+                        <p><img src="doc/assets/img/flat-ui/goal.png" alt="goal"></p>
+
+                        <h4>Control</h4>
+
+                        <p class="text-justify">Control the slideshow with your keyboard keys or through the player.</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <article id="caption" class="col-sm-4 col-md-4 col-lg-4 text-center wow fadeIn" data-wow-delay="250ms">
+                        <p><img src="doc/assets/img/flat-ui/picture.png" alt="picture"></p>
+
+                        <h4>Caption</h4>
+
+                        <p class="text-justify">Show more information to your users with caption and link for each image.</p>
+                    </article>
+
+                    <article class="col-sm-4 col-md-4 col-lg-4 text-center wow fadeIn" data-wow-delay="250ms">
+                        <p><img src="doc/assets/img/flat-ui/infinite.png" alt="infinite"></p>
+
+                        <h4>Infinite</h4>
+
+                        <p class="text-justify">Create as many slideshows as you want on a single page.</p>
+                    </article>
+
+                    <article class="col-sm-4 col-md-4 col-lg-4 text-center wow fadeIn" data-wow-delay="250ms">
+                        <p><img src="doc/assets/img/flat-ui/tests.png" alt="tests"></p>
+
+                        <h4>Reliable</h4>
+
+                        <p class="text-justify">
+                            A <a href="tests/">tests suite</a> shows that the plugin passes the basics specifications.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core section -->
+        <section id="core">
+            <div class="section-title section-white wow fadeInDown" data-wow-delay="250ms">
+                <i class="fa fa-cogs section-icon"></i>
+                <h2 class="section-text">Core</h2>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <article class="col-sm-4 col-md-4 col-lg-4 text-center wow fadeIn" data-wow-delay="250ms">
+                        <p><img src="doc/assets/img/core/jquery.png" class="img-circle" alt="jQuery"></p>
+
+                        <h4>jQuery</h4>
+
+                        <p class="text-justify">
+                            <a href="http://jquery.com/">jQuery</a> is a fast, small, and feature-rich JavaScript library.
+                        </p>
+                    </article>
+
+                    <article class="col-sm-4 col-md-4 col-lg-4 text-center wow fadeIn" data-wow-delay="250ms">
+                        <p><img src="doc/assets/img/core/animate.png" class="img-circle" alt="Animate"></p>
+
+                        <h4>Animate</h4>
+
+                        <p class="text-justify">
+                            <a href="http://daneden.github.io/animate.css/">Animate</a>
+                            is a cross-browser library of CSS3 animations.
+                        </p>
+                    </article>
+
+                    <article class="col-sm-4 col-md-4 col-lg-4 text-center wow fadeIn" data-wow-delay="250ms">
+                        <p><img src="doc/assets/img/core/magic.png" class="img-circle" alt="Magic"></p>
+
+                        <h4>Magic</h4>
+
+                        <p class="text-justify">
+                            <a href="http://minimamente.com/example/magic_animations/">Magic</a>
+                            is another CSS3 animations with special effects.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team section -->
+        <section id="team">
+            <div class="section-title section-ebony wow fadeInDown" data-wow-delay="250ms">
+                <i class="fa fa-users section-icon"></i>
+                <h2 class="section-text">Team</h2>
+            </div>
+
+            <div class="container">
+                <div class="row">
+
+                    <article class="col-sm-6 col-md-6 col-lg-6 text-center">
+                        <p><img src="doc/assets/img/team/sylvain.jpg" class="img-circle wow flipInX" alt="Sylvain" data-wow-delay="250ms"></p>
+
+                        <h4>Sylvain</h4>
+
+                        <p>Developer</p>
+
+                        <ul class="list-inline">
+                            <li>
+                                <a href="http://sylouuu.github.io/" class="btn btn-danger btn-hg" target="_blank">
+                                    <i class="fa fa-home"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/sylwebdev" class="btn btn-twitter btn-hg" target="_blank">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/sylouuu" class="btn btn-github btn-hg" target="_blank">
+                                    <i class="fa fa-github"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="col-sm-6 col-md-6 col-lg-6 text-center">
+                        <p><img src="doc/assets/img/team/jaoued.png" class="img-circle wow flipInX" alt="Jaoued" data-wow-delay="250ms"></p>
+
+                        <h4>Jaoued</h4>
+
+                        <p>Designer</p>
+
+                        <ul class="list-inline">
+                            <li>
+                                <a href="http://jaoued.com/" class="btn btn-danger btn-hg" target="_blank">
+                                    <i class="fa fa-home"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/jaouedElghali" class="btn btn-twitter btn-hg" target="_blank">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/jaoued" class="btn btn-github btn-hg" target="_blank">
+                                    <i class="fa fa-github"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer section -->
+        <footer>
+            <div class="container">
+                <div class="row">
+
+                    <article class="col-lg-3 col-md-3 col-sm-4">
+                        <ul class="list-inline">
+                            <li>
+                                <a href="CONTRIBUTING.md" target="_blank">Contribute</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/sylouuu/desoslide/issues?state=open" target="_blank">Issues</a>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="col-lg-6 col-md-6 col-sm-5 text-center">
+                        <p>
+                            <a href="./" class="btn btn-danger back-to-top wow pulse" data-wow-delay="250ms"><i class="fa fa-arrow-up"></i></a>
+                        </p>
+                    </article>
+
+                    <article class="col-lg-3 col-md-3 col-sm-3 text-right">
+                        <p>&copy; 2014 desoSlide</p>
                     </article>
                 </div>
             </div>
         </footer>
-        <!-- [END] FOOTER -->
+
+        <script src="doc/assets/js/vendor/jquery/jquery.js"></script>
+        <script src="doc/assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+        <script src="doc/assets/js/vendor/wow.min.js"></script>
+        <script src="doc/assets/js/vendor/highlight/highlight.pack.js"></script>
+
+        <script src="doc/assets/js/app/home.js"></script>
+
     </body>
 </html>

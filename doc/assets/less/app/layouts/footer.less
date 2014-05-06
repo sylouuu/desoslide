@@ -1,0 +1,37 @@
+
+footer
+{
+    padding-top      : 50px;
+    padding-bottom   : 40px;
+    background-color : @ebony-clay;
+    color            : @white;
+
+    a, p
+    {
+        display     : inline-block;
+        line-height : 50px;
+        font-size   : 18px;
+        font-weight : 400;
+        color       : @white;
+    }
+
+    .fa
+    {
+        font-size : 22px;
+    }
+
+    @media (max-width : @screen-sm)
+    {
+        article,
+        article.text-right
+        {
+            text-align : center;
+        }
+    }
+
+    @media (max-width : @screen-xs)
+    {
+        padding-top      : 15px;
+        padding-bottom   : 10px;
+    }
+}

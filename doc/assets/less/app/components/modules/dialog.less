@@ -1,0 +1,53 @@
+.dialog
+{
+    margin           : 20px 0px;
+    padding          : 20px;
+    border-left      : 3px solid @text-color;
+    background-color : #f8f9fa;
+
+    h1, h2, h3, h4, h5, h6
+    {
+        margin-top : 0;
+    }
+
+    p
+    {
+        margin-bottom : 0;
+    }
+}
+
+.dialog-primary
+{
+    border-color     : @brand-danger;
+    background-color : @ebony-clay;
+    color            : @white;
+    .dialog-title-color(@curious-blue);
+}
+
+.dialog-info
+{
+    border-color : @brand-info;
+    .dialog-bg-color(@brand-info);
+    .dialog-title-color(@brand-info);
+}
+
+.dialog-success
+{
+    border-color : @brand-success;
+    .dialog-bg-color(@brand-success);
+    .dialog-title-color(@brand-success);
+}
+
+.dialog-warning
+{
+    border-color : @brand-warning;
+    .dialog-bg-color(@brand-warning);
+    .dialog-title-color(@brand-warning);
+}
+
+.dialog-danger
+{
+    border-color     : @brand-danger;
+    background-color : lighten(@brand-danger, 40%);
+    .dialog-title-color(@brand-danger);
+}
