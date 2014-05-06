@@ -239,7 +239,7 @@
         * @return object $(this.elem)
         */
         rebuild: function () {
-            this.init();
+            this._init();
 
             return $(this.elem);
         },
