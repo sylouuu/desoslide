@@ -12,6 +12,11 @@
 
 ## Build `dist/`
 
+Build if you want to compile dist files:
+
+* `dist/less/jquery.desoslide.less` to `dist/css/jquery.desoslide.css` and `dist/css/jquery.desoslide.min.css`
+* `dist/js/jquery.desoslide.js` to `dist/js/jquery.desoslide.min.js`
+
 ```
 npm install
 gulp build
