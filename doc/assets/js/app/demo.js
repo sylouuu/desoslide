@@ -180,10 +180,11 @@ $(function() {
         auto: {
             start: true
         },
-        first: 1,
+        first: 3,
+        interval: 6000,
         effect: {
-            provider: 'magic',
-            name: 'tin'
+            provider: 'animate',
+            name: 'roll'
         }
     });
 
@@ -192,6 +193,21 @@ $(function() {
 
     $('#slideshow3').desoSlide({
         thumbs: $('#slideshow3_thumbs li > a'),
+        auto: {
+            start: true
+        },
+        first: 1,
+        effect: {
+            provider: 'magic',
+            name: 'tin'
+        }
+    });
+
+    // Demo 4
+    // ----------------------------------------------------------------------------------------------------------
+
+    $('#slideshow4').desoSlide({
+        thumbs: $('#slideshow4_thumbs li > a'),
         effect: {
             provider: 'animate',
             name: 'flip'
@@ -203,11 +219,11 @@ $(function() {
         }
     });
 
-    // Demo 4
+    // Demo 5
     // ----------------------------------------------------------------------------------------------------------
 
-    $('#slideshow4').desoSlide({
-        thumbs: $('#slideshow4_thumbs li > a'),
+    $('#slideshow5').desoSlide({
+        thumbs: $('#slideshow5_thumbs li > a'),
         auto: {
             start: true
         },
