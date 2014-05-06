@@ -1,0 +1,88 @@
+/*!
+* Version 2.0.0-rc1
+* jQuery: desoSlide plugin
+* Copyright - 2014 - https://github.com/sylouuu/desoslide
+* This source code is under the MIT License
+*/
+
+@sprite-path     : '../img/desoslide_controls.png';
+@controls-width  : 16px;
+@controls-height : 16px;
+
+.desoslide-wrapper {
+    position   : relative;
+    text-align : center;
+}
+
+.desoslide-controls-wrapper {
+    position    : relative;
+    float       : right;
+    height      : 36px;
+    line-height : 41px;
+    bottom      : 8px;
+    z-index     : 100;
+    opacity     : 1;
+
+    a {
+        &:hover {
+            opacity : 0.7;
+        }
+    }
+}
+
+.desoslide-overlay {
+    height           : 36px;
+    position         : absolute;
+    z-index          : 10;
+    text-align       : left;
+    color            : white;
+    font-weight      : bold;
+    background-color : black;
+    padding          : 8px;
+    opacity          : 0;
+
+    > a {
+        position    : relative;
+        top         : -1px;
+        color       : white;
+    }
+
+    .desoslide-caption-title {
+        display    : inline-block;
+        position    : relative;
+        top         : -1px;
+        max-width  : 90%;
+        max-height : 24px;
+        font-size  : 14px;
+        overflow   : hidden;
+    }
+}
+
+.desoslide-controls {
+    display    : inline-block;
+    background : url(@sprite-path) no-repeat 0 0;
+
+    &.prev {
+        width               : @controls-width;
+        height              : @controls-height;
+        background-position : 0 -54px;
+    }
+
+    &.pause {
+        width               : @controls-width;
+        height              : @controls-height;
+        background-position : 0 -18px;
+    }
+
+    &.play {
+        width               : @controls-width;
+        height              : @controls-height;
+        background-position : 0 -36px;
+    }
+
+    &.next {
+        width               : @controls-width;
+        height              : @controls-height;
+        background-position : 0 0;
+    }
+}

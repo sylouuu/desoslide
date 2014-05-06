@@ -1,0 +1,154 @@
+
+.navbar-default
+{
+    min-width        : 320px;
+    margin-bottom    : 0;
+    border-bottom    : 1px solid lighten(@ebony-clay, 5%);
+    background-color : @ebony-clay;
+
+    .navbar-brand
+    {
+        height      : 53px;
+        line-height : 23px;
+        color       : @white;
+        font-size   : 28px;
+        font-weight : 400;
+
+        .brand-deso
+        {
+            color : @white;
+        }
+
+        .brand-slide
+        {
+            color : @brand-danger;
+        }
+
+        &:hover,
+        &:focus
+        {
+            color : @curious-blue;
+        }
+    }
+
+    .navbar-nav
+    {
+        > li
+        {
+            > a
+            {
+                color       : @white;
+                font-weight : 400;
+                transition  : color .25s ease 0s, box-shadow .25s ease 0s;
+
+                @media (max-width : @screen-md)
+                {
+                    padding       : 15px 13px;
+                }
+
+                &:hover,
+                &:focus
+                {
+                    color : @curious-blue;
+
+                    @media (min-width : @screen-sm)
+                    {
+                        box-shadow    : inset 0px -3px 0px @curious-blue;
+                    }
+                }
+            }
+
+            &.active
+            {
+                > a
+                {
+                    color : @brand-danger;
+
+                    &:hover,
+                    &:focus
+                    {
+                        color : @brand-danger;
+
+                        @media (min-width : @screen-sm)
+                        {
+                            box-shadow    : inset 0px -3px 0px @brand-danger;
+                        }
+                    }
+                }
+            }
+        }
+
+        > .dropdown
+        {
+            > a
+            {
+                .caret
+                {
+                    border-top-color    : @white;
+                    border-bottom-color : @white;
+                }
+
+                &:hover,
+                &:focus
+                {
+                    .caret
+                    {
+                        border-top-color    : @curious-blue;
+                        border-bottom-color : @curious-blue;
+                    }
+                }
+            }
+        }
+
+        // Remove background color from open dropdown
+        > .open > a
+        {
+            &,
+            &:hover,
+            &:focus
+            {
+                color : @curious-blue;
+
+                .caret
+                {
+                    border-top-color    : @curious-blue;
+                    border-bottom-color : @curious-blue;
+                }
+            }
+        }
+    }
+
+    .navbar-toggle
+    {
+        font-size : 23px;
+        color     : @white;
+
+        &:before
+        {
+            content : none;
+        }
+    }
+
+    .navbar-collapse
+    {
+        border-width : 1px;
+
+        @media (max-width : @screen-xs-max)
+        {
+            li
+            {
+                > a
+                {
+                    padding : 10px 20px;
+                }
+            }
+        }
+
+    }
+
+    .fa
+    {
+        margin-right : 5px;
+    }
+
+}

@@ -1,0 +1,127 @@
+.importVendorFiles();
+@import '../components/variables.less';
+@import '../components/mixins.less';
+.importAppFiles();
+
+.navbar-default
+{
+    .navbar-nav
+    {
+        > li
+        {
+            > a
+            {
+
+                &:hover,
+                &:focus
+                {
+                    box-shadow : none;
+                }
+            }
+        }
+    }
+
+    @media (min-width : @screen-sm)
+    {
+        position      : relative;
+        z-index       : 2;
+        top           : 55px;
+        border-bottom : none;
+    }
+}
+
+.jumbotron
+{
+    margin-top     : -53px;
+    padding-top    : 55px;
+    padding-bottom : 120px;
+
+    h1
+    {
+        line-height : 1.35em;
+        margin      : 100px 0 40px 0;
+    }
+
+    h3
+    {
+        margin-top: 100px;
+    }
+
+    @media (max-width : @screen-xs)
+    {
+        a.btn-hg
+        {
+            padding   : 12px 18px;
+            font-size : 16px;
+        }
+    }
+
+    @media (min-width : @screen-md)
+    {
+        padding       : 120px 150px 210px;
+
+        h3
+        {
+            margin-top: 100px;
+        }
+    }
+}
+
+#core,
+#team,
+#features
+{
+    position       : relative;
+    padding-top    : 155px;
+    padding-bottom : 155px;
+
+    h4
+    {
+        margin-top : 20px;
+    }
+
+    article
+    {
+        padding : 40px;
+    }
+
+    @media (max-width  : @screen-sm)
+    {
+        padding-top    : 120px;
+        padding-bottom : 120px;
+
+        p
+        {
+            text-align : center;
+        }
+    }
+}
+
+#caption
+{
+    img
+    {
+        padding-top    : 14px;
+        padding-bottom : 14px;
+    }
+}
+
+#core
+{
+    background-color : @ebony-clay;
+    color            : @white;
+}
+
+#team
+{
+    img
+    {
+        width   : 120px;
+        height  : 120px;
+    }
+
+    .btn .fa
+    {
+        font-size : 22px;
+    }
+}

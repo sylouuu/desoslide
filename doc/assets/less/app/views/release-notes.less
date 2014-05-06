@@ -1,0 +1,76 @@
+.importVendorFiles();
+@import '../components/variables.less';
+@import '../components/mixins.less';
+.importAppFiles();
+
+.changelog
+{
+    position       : relative;
+    padding-top    : 80px;
+    padding-bottom : 80px;
+
+    article.col-lg-12
+    {
+        padding : 30px;
+    }
+
+    @media (max-width : @screen-sm)
+    {
+
+        p
+        {
+            text-align : center;
+        }
+    }
+
+    @media (max-width  : @screen-xs)
+    {
+        padding-top    : 25px;
+        padding-bottom : 25px;
+    }
+
+    @media (min-width : @screen-sm)
+    {
+        .container
+        {
+            max-width : 70%;
+        }
+    }
+}
+
+.section-title
+{
+    position       : relative;
+    top            : 0px;
+    padding-top    : 20px;
+    padding-bottom : 20px;
+
+    @media (max-width  : @screen-xs)
+    {
+        padding-top    : 13px;
+        padding-bottom : 13px;
+    }
+}
+
+.list-changelog
+{
+    margin-top : 30px;
+
+    > li
+    {
+        margin-bottom : 20px;
+
+        &:last-child
+        {
+            margin-bottom : 0;
+        }
+    }
+
+    .label
+    {
+        display   : inline-block;
+        min-width : 82px;
+        padding   : 6px 8px;
+    }
+}
+

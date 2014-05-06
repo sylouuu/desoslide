@@ -1,0 +1,157 @@
+.importVendorFiles();
+@import '../components/variables.less';
+@import '../components/mixins.less';
+.importAppFiles();
+
+#section_demo
+{
+    padding-bottom : 80px;
+
+    .desoslide-wrapper
+    {
+        display : inline-block;
+
+        img
+        {
+            border        : 3px solid @ebony-clay;
+            border-radius : 3px;
+        }
+
+        @media (max-width : @screen-md)
+        {
+            width         : 100%;
+        }
+    }
+
+    .desoslide-thumbs-vertical,
+    .desoslide-thumbs-horizontal
+    {
+        //list-style : none;
+
+        img
+        {
+            border        : 3px solid @ebony-clay;
+            border-radius : 3px;
+            transition    : border .25s linear, opacity .25s linear;
+        }
+
+        > li
+        {
+            &:hover,
+            &:focus
+            {
+                img
+                {
+                    border-color : @brand-danger;
+                    opacity      : .8;
+                }
+            }
+        }
+
+    }
+
+    .desoslide-thumbs-vertical
+    {
+        display      : inline-block;
+        padding-left : 0;
+
+        > li
+        {
+            margin : 11px 0px;
+
+            @media (max-width : @screen-md)
+            {
+                margin        : 10px 0;
+
+                &:first-child
+                {
+                    padding-left : 0;
+                }
+            }
+
+            @media (min-width : @screen-md)
+            {
+                &:first-child
+                {
+                    margin-top : 0;
+                }
+            }
+
+            @media (max-width : @screen-lg)
+            {
+                margin        : 7px 0;
+            }
+        }
+    }
+
+    .desoslide-thumbs-horizontal
+    {
+        padding-left : 0;
+
+        > li
+        {
+            margin       : 10px 0;
+            padding-left : 0px;
+
+            @media (min-width : @screen-md)
+            {
+                margin        : 20px 0;
+                padding-left  : 20px;
+
+                &:first-child
+                {
+                    padding-left : 0;
+                }
+            }
+        }
+    }
+
+    @media (max-width  : @screen-xs)
+    {
+        padding-bottom : 25px;
+    }
+
+    #slideshow1,
+    #slideshow2,
+    #slideshow3,
+    #slideshow4,
+    #slideshow5
+    {
+        text-align : center;
+    }
+
+    #slideshow_1_thumbs_1
+    {
+        text-align : center;
+    }
+
+    #slideshow_1_thumbs_2
+    {
+        text-align : center;
+
+        @media (min-width : @screen-md)
+        {
+            text-align    : right;
+        }
+    }
+
+    #slideshow3_thumbs
+    {
+        @media (min-width : @screen-md)
+        {
+            li
+            {
+                margin-bottom : 2px;
+            }
+        }
+    }
+
+    .keys-control .label
+    {
+        display   : inline-block;
+        min-width : 55px;
+        padding   : 6px 8px;
+    }
+}
+
+

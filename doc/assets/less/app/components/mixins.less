@@ -1,0 +1,37 @@
+.importVendorFiles()
+{
+    @import '../../vendor/bootstrap/variables.less';
+    @import '../../vendor/bootstrap/mixins.less';
+    @import '../../vendor/flat-ui/variables.less';
+    @import '../../vendor/flat-ui/mixins.less';
+}
+
+.importAppFiles()
+{
+    @import '../components/fonts.less';
+    @import '../components/typography.less';
+    @import '../layouts/header.less';
+    @import '../layouts/body.less';
+    @import '../layouts/footer.less';
+    @import '../components/modules/navbar.less';
+    @import '../components/modules/button.less';
+    @import '../components/modules/jumbotron.less';
+    @import '../components/modules/label.less';
+    @import '../components/modules/form.less';
+    @import '../components/modules/dialog.less';
+    @import 'modules/tomorrow-night';
+}
+
+.dialog-bg-color(@color)
+{
+    background-color : lighten(@color, 45%);
+}
+
+.dialog-title-color(@color)
+{
+    h1, h2, h3, h4, h5, h6
+    {
+        color : @color;
+    }
+}
+

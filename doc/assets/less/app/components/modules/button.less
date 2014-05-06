@@ -1,0 +1,29 @@
+
+.btn-primary
+{
+    .button-variant(@white, @btn-primary-color, @btn-primary-active-bg);
+}
+
+.btn-twitter
+{
+    .button-variant(@white, @btn-twitter-color, @btn-twitter-active-bg);
+}
+
+.btn-github
+{
+    .button-variant(@white, @btn-github-color, @btn-github-hover-bg);
+
+    &:hover,
+    &:focus
+    {
+        background-color : @ebony-clay;
+    }
+}
+
+.list-btn
+{
+    >li
+    {
+        margin-bottom : 15px;
+    }
+}

@@ -1,0 +1,39 @@
+.importVendorFiles();
+@import '../components/variables.less';
+@import '../components/mixins.less';
+.importAppFiles();
+
+#section_documentation
+{
+    padding-bottom : 80px;
+
+    @media (max-width  : @screen-md)
+    {
+        padding-top    : 55px;
+        padding-bottom : 55px;
+    }
+
+    @media (max-width  : @screen-xs)
+    {
+        padding-top    : 0;
+        padding-bottom : 25px;
+    }
+}
+
+#browser_list
+{
+    padding-bottom : 20px;
+
+    > li
+    {
+        padding-top    : 10px;
+        padding-bottom : 10px;
+        font-size      : 29px;
+    }
+}
+
+.keys-control .label {
+    display: inline-block;
+    min-width: 55px;
+    padding: 6px 8px;
+}

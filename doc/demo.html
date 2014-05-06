@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="description" content="Examples of desoSlide jQuery plugin" />
+        <meta name="author" content="Sylvain, Jaoued" />
+
+        <title>Demo &middot; desoSlide jQuery plugin</title>
+
+        <link rel="icon" href="assets/img/favicon.png">
+
+        <!--[if lt IE 9]>
+            <script src="assets/js/vendor/html5shiv/html5shiv.min.js"></script>
+        <![endif]-->
+
+        <link rel="stylesheet" href="assets/css/app/main.css" />
+        <link rel="stylesheet" href="assets/css/app/views/demo.css" />
+
+        <link rel="stylesheet" href="assets/css/vendor/magic/magic.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/animate/animate.min.css">
+
+        <link rel="stylesheet" href="../dist/css/jquery.desoslide.css">
+
+        <script>
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-27524593-3']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </head>
+    <body>
+
+        <!-- Header -->
+        <header class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                    <a class="navbar-brand" href="../">
+                        <span class="brand-deso">deso</span><span class="brand-slide">Slide</span>
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active">
+                            <a href="demo.html"><i class="fa fa-picture-o"></i> Demo</a>
+                        </li>
+                        <li>
+                            <a href="./"><i class="fa fa-book"></i> Documentation</a>
+                        </li>
+                        <li>
+                            <a href="release-notes.html"><i class="fa fa-calendar"></i> Release Notes</a>
+                        </li>
+                        <li>
+                            <a href="../tests/"><i class="fa fa-check"></i> Tests</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/sylouuu/desoslide" target="_blank"><i class="fa fa-github"></i> Github</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- Introduction section -->
+        <section class="jumbotron">
+            <div class="container">
+                <div class="row">
+
+                    <!--[if lt IE 9]>
+                    <div class="container">
+                        <div class="row">
+                            <article class="dialog dialog-danger">
+                                <h3>Your browser is too old!</h3>
+                                <p class="lead">
+                                    desoSlide is not compatible with lower version of Internet Explorer 9.
+                                    <br/>
+                                    <a href="http://browsehappy.com/?locale=en">Upgrade</a> your browser today!
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                    <![endif]-->
+
+                    <article class="col-lg-12">
+                        <h1>Demo</h1>
+                        <p class="lead">Some examples to show you the plugin features</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Breadcrumb section -->
+        <section class="section-breadcrumb">
+            <div class="container">
+                <div class="row">
+                    <article class="col-lg-12">
+                        <p>
+                            Browse the <a href="./">documentation</a> to get started
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo section -->
+        <section id="section_demo">
+            <div class="container">
+
+                <!-- Demo 1 -->
+                <h3 class="page-header">
+                    <span class="label label-danger">1</span> Default options
+                </h3>
+
+                <div class="row">
+
+                    <!-- Result 1 -->
+                    <article class="col-lg-12 col-md-12">
+                        <h4>Result</h4>
+
+                        <div class="row">
+
+                            <div id="slideshow_1_thumbs_1" class="col-lg-2 col-md-2">
+                                <ul class="slideshow1_thumbs desoslide-thumbs-vertical list-inline text-center">
+                                    <li>
+                                        <a href="assets/img/demos/demo1/bick_buck_bunny.jpg">
+                                            <img src="assets/img/demos/demo1/bick_buck_bunny_thumb.jpg"
+                                                 alt="Bick Buck Bunny"
+                                                 data-desoslide-caption-title="Bick Buck Bunny">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo1/rinky.jpg">
+                                            <img src="assets/img/demos/demo1/rinky_thumb.jpg"
+                                                 alt="Rinky"
+                                                 data-desoslide-caption-title="Rinky">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo1/its_a_trap.jpg">
+                                            <img src="assets/img/demos/demo1/its_a_trap_thumb.jpg"
+                                                 alt="It's a trap!"
+                                                 data-desoslide-caption-title="It's a trap!">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo1/evil_frank.jpg">
+                                            <img src="assets/img/demos/demo1/evil_frank_thumb.jpg"
+                                                 alt="Evil Frank"
+                                                 data-desoslide-caption-title="Evil Frank">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="slideshow1" class="col-lg-8 col-md-8"></div>
+
+                            <div id="slideshow_1_thumbs_2" class="col-lg-2 col-md-2">
+                                <ul class="slideshow1_thumbs desoslide-thumbs-vertical list-inline">
+                                    <li>
+                                        <a href="assets/img/demos/demo1/rodents.jpg">
+                                            <img src="assets/img/demos/demo1/rodents_thumb.jpg"
+                                                 alt="Rodents"
+                                                 data-desoslide-caption-title="Rodents">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo1/bunny_bow.jpg">
+                                            <img src="assets/img/demos/demo1/bunny_bow_thumb.jpg"
+                                                 alt="Bunny Chasing"
+                                                 data-desoslide-caption-title="Bunny Chasing">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo1/attack.jpg">
+                                            <img src="assets/img/demos/demo1/attack_thumb.jpg"
+                                                 width="132"
+                                                 height="77"
+                                                 alt="Rinky Attacked!"
+                                                 data-desoslide-caption-title="Rinky Attacked!">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo1/bird.jpg">
+                                            <img src="assets/img/demos/demo1/bird_thumb.jpg"
+                                                 alt="Happy Bird"
+                                                 data-desoslide-caption-title="Happy Bird">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <br /><br />
+
+                <div class="row">
+                    <!-- Code 1 -->
+                    <article class="col-lg-4 col-md-4">
+                        <h4>Choose your effect</h4>
+
+                        <form id="effect_selector_form" action="/" method="get" accept-charset="utf-8" role="form">
+
+                            <div class="form-group">
+                                <label for="effect_provider">Effect provider</label>
+
+                                <select id="effect_provider" name="provider" class="form-control">
+                                    <option value="animate">animate</option>
+                                    <option value="magic">magic</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="effect_name">Effect name</label>
+
+                                <select id="effect_name" name="effect" class="form-control">
+                                </select>
+                            </div>
+
+                        </form>
+
+                    </article>
+
+                    <!-- Code 1 -->
+                    <article class="col-lg-8 col-md-8">
+                        <h4>Code</h4>
+<pre><code id="html_code1">&lt;link rel="stylesheet" href="path/to/animate.min.css"&gt;</code></pre>
+<pre><code id="js_code1">$('#slideshow').desoSlide({
+    thumbs: $('ul.slideshow_thumbs li > a'),
+    effect: {
+        provider: 'animate',
+        name: 'fade'
+    }
+});</code></pre>
+                    </article>
+                </div>
+
+                <!-- Demo 2 -->
+                <h3 class="page-header">
+                    <span class="label label-danger">2</span> With links
+                </h3>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <p>
+                            Shows the third slide at loading.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <!-- Result 2 -->
+                    <article class="col-lg-8 col-md-8">
+                        <h4>Result</h4>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ul id="slideshow2_thumbs" class="desoslide-thumbs-horizontal list-inline text-center">
+                                    <li>
+                                        <a href="assets/img/demos/demo2/bird.jpg">
+                                            <img src="assets/img/demos/demo2/bird_thumb.jpg"
+                                                 alt="Bird"
+                                                 data-desoslide-caption-title="A bird, click me to open http://sylouuu.github.io/"
+                                                 data-desoslide-caption-link="http://sylouuu.github.io/">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo2/flower.jpg">
+                                            <img src="assets/img/demos/demo2/flower_thumb.jpg"
+                                                 alt="Flower"
+                                                 data-desoslide-caption-title="A flower, click me to open README.md file"
+                                                 data-desoslide-caption-link="../README.md">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo2/butterfly.jpg">
+                                            <img src="assets/img/demos/demo2/butterfly_thumb.jpg" alt="Butterfly"
+                                                 data-desoslide-caption-title="A butterfly, click me to open LICENSE.md file"
+                                                 data-desoslide-caption-link="../LICENSE.md">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo2/rose.jpg">
+                                            <img src="assets/img/demos/demo2/rose_thumb.jpg"
+                                                 alt="Rose"
+                                                 data-desoslide-caption-title="A rose, you can't click me, got no link">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div id="slideshow2" class="col-lg-12"></div>
+                        </div>
+                    </article>
+
+                    <!-- Code 2 -->
+                    <article class="col-lg-4 col-md-4">
+                        <h4>Code</h4>
+<pre><code>$('#slideshow').desoSlide({
+    thumbs: $('#slideshow_thumbs li > a'),
+    first: 2
+});</code></pre>
+                    </article>
+                </div>
+
+                <!-- Demo 3 -->
+                <h3 class="page-header">
+                    <span class="label label-danger">3</span> Autostarting slideshow
+                </h3>
+
+                <p>The 1-indexed thumb is displayed first, no caption is provided.</p>
+
+                <div class="row">
+
+                    <!-- Result 3 -->
+                    <article class="col-lg-7 col-md-7">
+                        <h4>Result</h4>
+
+                        <div class="row">
+                            <div id="slideshow3" class="col-lg-11 col-md-10"></div>
+
+                            <div class="col-lg-1 col-md-2 text-center">
+                                <ul id="slideshow3_thumbs" class="desoslide-thumbs-vertical list-inline">
+                                    <li>
+                                        <a href="assets/img/demos/demo3/city.jpg">
+                                            <img src="assets/img/demos/demo3/city_thumb.jpg" alt="city">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo3/building.jpg">
+                                            <img src="assets/img/demos/demo3/building_thumb.jpg" alt="building">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo3/eiffel.jpg">
+                                            <img src="assets/img/demos/demo3/eiffel_thumb.jpg" alt="eiffel">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo3/bridge.jpg">
+                                            <img src="assets/img/demos/demo3/bridge_thumb.jpg" alt="bridge">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Code 3 -->
+                    <article class="col-lg-offset-1 col-md-offset-1 col-lg-4 col-md-4">
+                        <h4>Code</h4>
+<pre><code>$('#slideshow').desoSlide({
+    thumbs: $('#slideshow_thumbs li > a'),
+    auto: {
+        start: true
+    },
+    first: 1,
+    interval: 6000
+});</code></pre>
+                    </article>
+                </div>
+
+                <!-- Demo 4 -->
+                <h3 class="page-header">
+                    <span class="label label-danger">4</span> Keyboard controls
+                </h3>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <p>Controls are hidden but available with your keyboard:</p>
+
+                        <ul class="keys-control">
+                            <li>
+                                Press <span class="label label-info">left</span> to go to the previous slide.
+                            </li>
+                            <li>
+                                Press <span class="label label-info">space</span> to switch between play and pause.
+                            </li>
+                            <li>
+                                Press <span class="label label-info">right</span> to go to the next slide.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <!-- Result 4 -->
+                    <article class="col-lg-8 col-md-8">
+                        <h4>Result</h4>
+
+                        <div class="row">
+                            <div id="slideshow4" class="col-lg-12"></div>
+                        </div>
+
+                        <div class="row">
+                            <article class="col-lg-12">
+                                <ul id="slideshow4_thumbs" class="desoslide-thumbs-horizontal list-inline text-center">
+                                    <li>
+                                        <a href="assets/img/demos/demo4/tortoise.jpg">
+                                            <img src="assets/img/demos/demo4/tortoise_thumb.jpg" class="img-responsive"
+                                                 alt="tortoise" data-desoslide-caption-title="A tortoise">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo4/tiger.jpg">
+                                            <img src="assets/img/demos/demo4/tiger_thumb.jpg" class="img-responsive"
+                                                 alt="tiger" data-desoslide-caption-title="A tiger">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo4/lynx.jpg">
+                                            <img src="assets/img/demos/demo4/lynx_thumb.jpg" class="img-responsive"
+                                                 alt="lynx" data-desoslide-caption-title="A lynx">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo4/dog.jpg">
+                                            <img src="assets/img/demos/demo4/dog_thumb.jpg" class="img-responsive"
+                                                 alt="dog" data-desoslide-caption-title="A dog">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </article>
+                        </div>
+                    </article>
+
+                    <!-- Code 4 -->
+                    <article class="col-lg-4 col-md-4">
+                        <h4>Code</h4>
+<pre><code>$('#slideshow').desoSlide({
+    thumbs: $('#slideshow_thumbs li > a'),
+    overlay: 'hover',
+    controls: {
+        show: false,
+        keys: true
+    }
+});</code></pre>
+                    </article>
+                </div>
+
+                <!-- Demo 5 -->
+                <h3 class="page-header">
+                    <span class="label label-danger">5</span> Without overlay
+                </h3>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <p>
+                            As the overlay is hidden, captions are ignored.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <!-- Result 5 -->
+                    <article class="col-lg-8 col-md-8">
+                        <h4>Result</h4>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ul id="slideshow5_thumbs" class="desoslide-thumbs-horizontal list-inline text-center">
+                                    <li>
+                                        <a href="assets/img/demos/demo5/dolmens.jpg">
+                                            <img src="assets/img/demos/demo5/dolmens_thumb.jpg" alt="dolmens">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo5/lighthouse.jpg">
+                                            <img src="assets/img/demos/demo5/lighthouse_thumb.jpg" alt="lighthouse">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo5/road.jpg">
+                                            <img src="assets/img/demos/demo5/road_thumb.jpg" alt="road">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="assets/img/demos/demo5/wheat.jpg">
+                                            <img src="assets/img/demos/demo5/wheat_thumb.jpg" alt="wheat">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div id="slideshow5" class="col-lg-12"></div>
+                        </div>
+                    </article>
+
+                    <!-- Code 5 -->
+                    <article class="col-lg-4 col-md-4">
+                        <h4>Code</h4>
+<pre><code>$('#slideshow').desoSlide({
+    thumbs: $('#slideshow_thumbs li > a'),
+    auto: {
+        start: true
+    },
+    overlay: 'none'
+});</code></pre>
+                    </article>
+                </div>
+
+                <!-- Demo more -->
+                <h3 class="page-header">
+                    <span class="label label-danger">?</span> More examples?
+                </h3>
+
+                <p class="lead text-center">
+                    Make your own slideshow based on all <a href="./#configuration">options</a>!
+                </p>
+            </div>
+        </section>
+
+        <!-- Footer section -->
+        <footer>
+            <div class="container">
+                <div class="row">
+
+                    <article class="col-lg-3 col-md-3 col-sm-4">
+                        <ul class="list-inline">
+                            <li>
+                                <a href="../CONTRIBUTING.md" target="_blank">Contribute</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/sylouuu/desoslide/issues?state=open" target="_blank">Issues</a>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="col-lg-6 col-md-6 col-sm-5 text-center">
+                        <p>
+                            <a href="demo.html" class="btn btn-danger back-to-top"><i class="fa fa-arrow-up"></i></a>
+                        </p>
+                    </article>
+
+                    <article class="col-lg-3 col-md-3 col-sm-3 text-right">
+                        <p>&copy; 2014 desoSlide</p>
+                    </article>
+                </div>
+            </div>
+        </footer>
+
+        <script src="assets/js/vendor/jquery/jquery.js"></script>
+        <script src="assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+        <script src="assets/js/vendor/highlight/highlight.pack.js"></script>
+
+        <script src="../dist/js/jquery.desoslide.js"></script>
+        <script src="assets/js/app/demo.js"></script>
+
+    </body>
+</html>

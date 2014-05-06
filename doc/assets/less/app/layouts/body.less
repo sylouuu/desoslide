@@ -1,0 +1,222 @@
+
+body
+{
+    min-width   : 320px;
+    font-family : @font-family-base;
+    color       : @text-color;
+    overflow-x  : hidden;
+}
+
+a
+{
+    color : @link-color;
+
+    &:hover
+    {
+        color : @link-hover-color;
+    }
+}
+
+.table-bordered
+{
+    border        : 2px solid #e7e9ec;
+    border-radius : 6px;
+    > thead,
+    > tbody,
+    > tfoot
+    {
+        > tr
+        {
+            > th,
+            > td
+            {
+                border : 2px solid #e7e9ec;
+            }
+        }
+    }
+}
+
+.section-breadcrumb
+{
+    min-height       : 61px;
+    padding          : 15px;
+    background-color : lighten(@ebony-clay, 10%);
+    color            : @white;
+
+    p
+    {
+        margin : 0;
+    }
+
+    @media (max-width : @screen-xs)
+    {
+        min-height    : 47px;
+        padding       : 8px 5px;
+    }
+}
+
+.section-title
+{
+    position      : absolute;
+    top           : -110px;
+    left          : 50%;
+    z-index       : 3;
+    width         : 220px;
+    height        : 220px;
+    margin-left   : -110px;
+    padding       : 38px 10px 10px;
+    border        : 12px solid;
+    color         : @white;
+    text-align    : center;
+    border-radius : 50%;
+
+    .label
+    {
+        display    : inline-block;
+        margin-top : 10px;
+
+        @media (min-width : @screen-md)
+        {
+            padding       : 0.2em 0.3em 0.3em;
+            font-size     : 65%;
+        }
+    }
+
+    .section-icon
+    {
+        font-size : 75px;
+    }
+
+    .section-text
+    {
+        margin    : 7px 0 0;
+        font-size : 30px;
+    }
+
+    &.section-ebony
+    {
+        border-color     : @ebony-clay;
+        background-color : @white;
+        color            : @ebony-clay;
+    }
+
+    &.section-white
+    {
+        border-color     : @white;
+        background-color : @ebony-clay;
+        color            : @white;
+    }
+
+    &.section-curious
+    {
+        border-color     : @curious-blue;
+        background-color : @ebony-clay;
+    }
+
+    &.section-alizarin
+    {
+        border-color     : @ebony-clay;
+        background-color : @brand-danger;
+    }
+
+    @media (max-width : @screen-md)
+    {
+        top           : -85px;
+        width         : 170px;
+        height        : 170px;
+        margin-left   : -85px;
+        padding       : 38px 10px 10px;
+        border        : 10px solid;
+
+        .section-icon
+        {
+            font-size : 55px;
+        }
+
+        .section-text
+        {
+            margin    : 5px 0 0;
+            font-size : 20px;
+        }
+    }
+
+    @media (max-width : @screen-xs)
+    {
+        top           : -65px;
+        width         : 130px;
+        height        : 130px;
+        margin-left   : -65px;
+        padding       : 22px 10px 10px;
+        border        : 8px solid;
+
+        .section-icon
+        {
+            font-size : 45px;
+        }
+
+        .section-text
+        {
+            margin-top : 2px;
+            font-size  : 17px;
+        }
+
+        .label
+        {
+            margin-top : 3px;
+        }
+    }
+}
+
+.page-header
+{
+    margin-top    : 80px;
+    line-height   : 1.3em;
+    border-bottom : none;
+}
+
+.img-responsive
+{
+    width : 100%;
+}
+
+#section_demo,
+#section_documentation
+{
+    .page-header
+    {
+        position : relative;
+
+        .label
+        {
+            display       : inline-block;
+            height        : 54px;
+            width         : 54px;
+            padding       : 0.38em 0em;
+            border-radius : 1em;
+        }
+
+        @media (max-width : @screen-md)
+        {
+            text-align    : center;
+            font-size     : 32px;
+
+            .label
+            {
+                position    : absolute;
+                left        : 50%;
+                top         : -60px;
+                margin-left : -27px;
+                padding-top : 11px;
+                font-size   : 30px;
+            }
+        }
+    }
+}
+
+@media (max-width : @screen-xs)
+{
+    .lead
+    {
+        font-size : 1.115em;
+    }
+}

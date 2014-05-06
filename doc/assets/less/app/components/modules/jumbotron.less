@@ -1,0 +1,58 @@
+
+.jumbotron
+{
+    margin-bottom    : 0;
+    padding-top      : 120px;
+    padding-bottom   : 85px;
+    background-color : @ebony-clay;
+    color            : @white;
+
+    h1
+    {
+        margin-top : 0;
+        font-size  : 32px;
+
+        @media (min-width : @screen-md)
+        {
+            line-height   : 40px;
+            font-size     : 50px;
+        }
+    }
+
+    p
+    {
+        margin-bottom : 0;
+
+        &.lead
+        {
+            color : lighten(@ebony-clay, 20%);
+        }
+    }
+
+    .btn-primary
+    {
+        background-color : lighten(@ebony-clay, 10%);
+
+        &:hover,
+        &:focus
+        {
+            background-color : lighten(@ebony-clay, 20%);
+        }
+    }
+
+    @media (max-width  : @screen-sm)
+    {
+        padding-top    : 100px;
+        padding-bottom : 65px;
+    }
+
+    @media (max-width : @screen-xs)
+    {
+        padding       : 75px 5px 40px;
+
+        .lead
+        {
+            line-height : 1.2em;
+        }
+    }
+}

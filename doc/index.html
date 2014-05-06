@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="description" content="Instructions for setup, configuration, public methods and browser compatibility" />
+        <meta name="author" content="Sylvain, Jaoued" />
+
+        <title>Documentation &middot; desoSlide jQuery plugin</title>
+
+        <link rel="icon" href="assets/img/favicon.png">
+
+        <!--[if lt IE 9]>
+            <script src="assets/js/vendor/html5shiv/html5shiv.min.js"></script>
+        <![endif]-->
+
+        <link rel="stylesheet" href="assets/css/app/main.css" />
+        <link rel="stylesheet" href="assets/css/app/views/documentation.css" />
+
+        <script>
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-27524593-3']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </head>
+    <body>
+
+        <!-- Header -->
+        <header class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                    <a class="navbar-brand" href="../">
+                        <span class="brand-deso">deso</span><span class="brand-slide">Slide</span>
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="demo.html"><i class="fa fa-picture-o"></i> Demo</a>
+                        </li>
+                        <li class="active">
+                            <a href="./"><i class="fa fa-book"></i> Documentation</a>
+                        </li>
+                        <li>
+                            <a href="release-notes.html"><i class="fa fa-calendar"></i> Release Notes</a>
+                        </li>
+                        <li>
+                            <a href="../tests/"><i class="fa fa-check"></i> Tests</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/sylouuu/desoslide" target="_blank"><i class="fa fa-github"></i> Github</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- Introduction section -->
+        <section class="jumbotron">
+            <div class="container">
+                <div class="row">
+
+                    <!--[if lt IE 9]>
+                    <div class="container">
+                        <div class="row">
+                            <article class="dialog dialog-danger">
+                                <h3>Your browser is too old!</h3>
+                                <p class="lead">
+                                    desoSlide is not compatible with lower version of Internet Explorer 9.
+                                    <br/>
+                                    <a href="http://browsehappy.com/?locale=en">Upgrade</a> your browser today!
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                    <![endif]-->
+
+                    <article class="col-lg-12">
+                        <h1>Documentation</h1>
+                        <p class="lead">Instructions for setup, configuration and so on...</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Breadcrumb section -->
+        <section class="section-breadcrumb">
+            <div class="container">
+                <div class="row">
+                    <article class="col-lg-12">
+                        <p>
+                            Documentation covers: 2.0.0
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documentation section -->
+        <section id="section_documentation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <!-- Setup -->
+                        <h3 id="setup" class="page-header">
+                            <span class="label label-danger"><i class="fa fa-download"></i></span> Setup
+                        </h3>
+
+                        <p>The plugin is jQuery-based. It uses CSS3 animations providers to make transitions between slides.</p>
+
+                        <ul class="list-inline list-btn text-center">
+                            <li>
+                                <a href="http://jquery.com/download/" class="btn btn-info" target="_blank">Download jQuery</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/sylouuu/desoslide/releases" class="btn btn-danger" target="_blank">Download desoSlide</a>
+                            </li>
+                            <li>
+                                <a href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.min.css" class="btn btn-info" target="_blank">Download animate</a>
+                            </li>
+                            <li>
+                                <a href="http://pastebin.com/raw.php?i=8w47RUQ2" class="btn btn-info" target="_blank">Download magic</a>
+                            </li>
+                        </ul>
+
+                        <p>In your HTML page:</p>
+
+<pre><code>&lt;!-- Loads jQuery framework --&gt;
+&lt;script src="js/jquery.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- desoSlide styles --&gt;
+&lt;link href="css/jquery.desoslide.min.css" rel="stylesheet"&gt;
+
+&lt;!-- desoSlide core --&gt;
+&lt;script src="js/jquery.desoslide.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- Animate, used for slides transition (if you set effect.provider to 'animate', it's the default value) --&gt;
+&lt;link href="css/animate.min.css" rel="stylesheet"&gt;
+
+&lt;!-- Magic, used for slides transition (if you set effect.provider to 'magic') --&gt;
+&lt;link href="css/animate.min.css" rel="stylesheet"&gt;
+</code></pre>
+
+                        <div class="dialog dialog-info">
+                            <h4>Summary</h4>
+                            <ol>
+                                <li>You have to load jQuery and desoSlide files (beware that the CSS file loads a sprite: <code>../img/desoslide_controls.png</code>, be sure that the path is correct).</li>
+                                <li>Then it depends which effect you want to use for slides transition. By default <code>'animate'</code> is set, so include <code>animate.min.css</code>. Or you can use <code>'magic'</code> (see options), so include <code>magic.min.css</code>.</li>
+                            </ol>
+                        </div>
+
+                        <p>Once the pain is gone, create your thumbnails. The minimal markup for a thumb is:</p>
+
+<pre><code>&lt;a href="image.jpg"&gt;
+    &lt;img src="image_thumb.jpg" alt="Image"&gt;
+&lt;/a&gt;
+</code></pre>
+
+                        <p>Easy? If you need, specify a caption and a link on your thumb:</p>
+
+<pre><code>&lt;a href="image.jpg"&gt;
+    &lt;img src="image_thumb.jpg" alt="Image"
+         data-desoslide-caption-title="Hi i'm an image"
+         data-desoslide-caption-link="http://my-website.com"&gt;
+&lt;/a&gt;
+</code></pre>
+
+                        <p>Think about where you want that the slideshow is displayed. Create a container <code>&lt;div id="slideshow"&gt;&lt;/div&gt;</code> or use an existing one.</p>
+
+                        <div class="dialog dialog-info">
+                            <h4>Demo</h4>
+                            <p>View some examples on the <a href="demo.html">demo page</a>.</p>
+                        </div>
+
+                        <!-- Configuration -->
+                        <h3 id="configuration" class="page-header">
+                            <span class="label label-danger"><i class="fa fa-wrench"></i></span> Configuration
+                        </h3>
+
+                        <p>Here are the default options:</p>
+
+<pre><code>defaults = {
+    thumbs:             null,             // An anchors (`&lt;a&gt;`) collection
+    imageClass:         'img-responsive', // Image class(es)
+    auto: {
+        load:           true,             // Preloading images
+        start:          false             // Autostarting slideshow
+    },
+    first:              0,                // Index of the first image to show
+    interval:           3000,             // Interval between each images
+    effect: {
+        provider:       'animate',        // Effect provider ('animate', 'magic')
+        name:           'fade'            // Transition effect ('fade', 'sideFade', 'sideFadeBig', 'flip', 'light', 'roll', 'rotate', 'foolish', 'swash', 'tin', 'puff', 'twister', 'random')
+    },
+    overlay:            'always',         // How to show overlay ('always', 'hover', 'none')
+    controls: {
+        show:           true,             // Shows the player controls (prev/pause/play/next)
+        keys:           false             // Able to control by using the keyboard shortcuts (left/space/right)
+    },
+    events: {
+        onThumbClick:   null,             // On thumb click
+        onImageShow:    null,             // On image show
+        onImageShown:   null,             // On image shown
+        onImageHide:    null,             // On image hide
+        onImageHidden:  null,             // On image hidden
+        onImageClick:   null,             // On image click
+        onPrev:         null,             // On previous
+        onPause:        null,             // On pause
+        onPlay:         null,             // On play
+        onNext:         null,             // On next
+        onError:        null,             // On error
+        onWarning:      null,             // On warning
+        onSuccess:      null              // On success
+    }
+}</code></pre>
+
+                        <p>Call the plugin inside <code>$(window).load(function() {})</code>:</p>
+
+<pre class="text-left"><code>$(window).load(function() {
+
+    $('#slideshow').desoSlide({
+        thumbs: $('ul.thumbs li > a')
+        // Or
+        thumbs: $('#thumbs1, #thumbs2').find('li > a')
+        // Or
+        thumbs: $('a.thumb')
+        // etc.
+    });
+
+});</code></pre>
+
+                        <!-- Controls -->
+                        <h3 id="controls" class="page-header">
+                            <span class="label label-danger"><i class="fa fa-play"></i></span> Controls
+                        </h3>
+
+                        <p>You can control the slideshow by using the player and/or your keyboard keys when <code>controls.keys</code> is to <code>true</code>:</p>
+
+                        <ul class="keys-control">
+                            <li>
+                                Press <span class="label label-info">left</span> to go to the previous slide.
+                            </li>
+                            <li>
+                                Press <span class="label label-info">space</span> to switch between play and pause.
+                            </li>
+                            <li>
+                                Press <span class="label label-info">right</span> to go to the next slide.
+                            </li>
+                        </ul>
+
+                        <!-- Public methods -->
+                        <h3 id="public_methods" class="page-header">
+                            <span class="label label-danger"><i class="fa fa-user"></i></span> Public methods
+                        </h3>
+
+                        <p>You can interact with your slideshow even if already initialized. You still have to use public methods inside <code>$(window).load(function() {})</code>.</p>
+
+                        <!-- Rebuild -->
+                        <h3>Rebuild</h3>
+
+                        <p>In case you want to rebuild your slideshow:</p>
+
+<pre class="text-left"><code>// Re-initialize
+$('#slideshow').desoSlide('rebuild');
+</code></pre>
+
+                        <!-- Thumbs -->
+                        <h3>Thumbs</h3>
+
+                        <p>You have access to your thumbs:</p>
+
+
+                        <div class="row">
+                            <div class="col-lg-6">
+
+<pre class="text-left"><code>// Get all thumbs
+var my_thumbs = $('#slideshow').desoSlide('getThumbs');
+</code></pre>
+
+                            </div>
+                            <div class="col-lg-6">
+
+<pre class="text-left"><code>[
+    0: {
+        alt: 'Alt attribute found in thumb',
+        caption_link: 'link', // data-desoslide-caption-link
+        caption_title: 'link', // data-desoslide-caption-title
+        src: 'image path'
+    },
+    1: {
+        ...
+    }
+]
+</code></pre>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+
+<pre class="text-left"><code>// Get a specific thumb based on index
+var my_thumb = $('#slideshow').desoSlide('getThumbs', 1);
+</code></pre>
+
+                            </div>
+                            <div class="col-lg-6">
+
+<pre class="text-left"><code>{
+    alt: 'Alt attribute found in thumb',
+    caption_link: 'link', // data-desoslide-caption-link
+    caption_title: 'link', // data-desoslide-caption-title
+    src: 'image path'
+}
+</code></pre>
+
+                            </div>
+                        </div>
+
+                        <!-- Effect -->
+                        <h3>Effect</h3>
+
+                        <p>Change dynamically the transition effect:</p>
+
+                        <div class="row">
+                            <div class="col-lg-7">
+
+<pre class="text-left"><code>// Set a transition effect (include the appropriate CSS file)
+var effect = $('#slideshow').desoSlide('setEffect' {
+    provider: 'magic',
+    name: 'tin'
+});
+</code></pre>
+
+                            </div>
+                            <div class="col-lg-5">
+
+<pre class="text-left"><code>{
+    provider: 'magic',
+    name: 'tin'
+}
+</code></pre>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-7">
+
+<pre class="text-left"><code>// Set a random transition effect
+var effect = $('#slideshow').desoSlide('setEffect' {
+    provider: 'animate',
+    name: 'random'
+});
+</code></pre>
+
+                            </div>
+                            <div class="col-lg-5">
+
+<pre class="text-left"><code>{
+    provider: 'animate',
+    name: 'sideFade' // a random effect
+}
+</code></pre>
+
+                            </div>
+                        </div>
+
+                        <!-- Slides -->
+                        <h3>Slides</h3>
+
+                        <p>Interact with slides:</p>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+
+<pre class="text-left"><code>// Pause the slideshow if started
+$('#slideshow').desoSlide('pause');
+
+// Play the slideshow if stopped
+$('#slideshow').desoSlide('play');
+
+// Is the slideshow playing?
+$('#slideshow').desoSlide('isPlaying'); // true/false
+
+// Go to the previous slide
+$('#slideshow').desoSlide('goPrev');
+
+// Go to the next slide
+$('#slideshow').desoSlide('goNext');
+
+// Go to a specific slide (here the third)
+$('#slideshow').desoSlide('goTo', 2);
+</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Events -->
+                        <h3 id="events" class="page-header">
+                            <span class="label label-danger"><i class="fa fa-fire"></i></span> Events
+                        </h3>
+
+                        <p>You can listen events from <a href="#configuration">options</a> with <code>events.onEventName: function()</code> or use an event handler:</p>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+<pre class="text-left"><code>// Stand-alone event handlers
+$('#slideshow').on('thumbClick.desoslide', function() {
+    // on thumbClick
+});
+
+$('#slideshow').on('imageShow.desoslide', function() {
+    // on imageShow
+});
+
+$('#slideshow').on('imageShown.desoslide', function() {
+    // on imageShown
+});
+
+$('#slideshow').on('imageHide.desoslide', function() {
+    // on imageHide
+});
+
+$('#slideshow').on('imageHidden.desoslide', function() {
+    // on imageHidden
+});
+
+$('#slideshow').on('imageClick.desoslide', function() {
+    // on imageClick
+});
+
+$('#slideshow').on('prev.desoslide', function() {
+    // on previous slide
+});
+
+$('#slideshow').on('pause.desoslide', function() {
+    // on pause
+});
+
+$('#slideshow').on('play.desoslide', function() {
+    // on play
+});
+
+$('#slideshow').on('next.desoslide', function() {
+    // on next slide
+});
+
+$('#slideshow').on('error.desoslide', function() {
+    // on error
+});
+
+$('#slideshow').on('warning.desoslide', function() {
+    // on warning
+});
+
+$('#slideshow').on('success.desoslide', function() {
+    // on success
+});
+</code></pre>
+                            </div>
+                            <div class="col-lg-6">
+<pre class="text-left"><code>// All-in-one events handler
+$('#slideshow').on({
+    'thumbClick.desoslide': function() {
+        // on thumbClick
+    },
+    'imageShow.desoslide': function() {
+        // on imageShow
+    },
+    'imageShown.desoslide': function() {
+        // on imageShown
+    },
+    'imageHide.desoslide': function() {
+        // on imageHide
+    },
+    'imageHidden.desoslide': function() {
+        // on imageHidden
+    },
+    'imageClick.desoslide': function() {
+        // on imageClick
+    },
+    'prev.desoslide': function() {
+        // on prev
+    },
+    'pause.desoslide': function() {
+        // on pause
+    },
+    'play.desoslide': function() {
+        // on play
+    },
+    'next.desoslide': function() {
+        // on next
+    },
+    'error.desoslide': function() {
+        // on error
+    },
+    'warning.desoslide': function() {
+        // on warning
+    },
+    'success.desoslide': function() {
+        // on success
+    }
+});
+</code></pre>
+                            </div>
+                        </div>
+
+
+                        <!-- Browser compatibility -->
+                        <h3 id="browser_compatibility" class="page-header">
+                            <span class="label label-danger"><i class="fa fa-globe"></i></span> Browser compatibility
+                        </h3>
+
+                        <ul id="browser_list" class="list-inline text-center">
+                            <li><i class="icon-brw-explorer"></i> IE 10+</li>
+                            <li><i class="icon-brw-firefox"></i> Firefox 5+</li>
+                            <li><i class="icon-brw-chrome"></i> Chrome</li>
+                            <li><i class="icon-brw-opera"></i> Opera</li>
+                            <li><i class="icon-brw-safari-02"></i> Safari</li>
+                        </ul>
+
+                        <!-- Contributors -->
+                        <h3 id="contributors" class="page-header">
+                            <span class="label label-danger"><i class="fa fa-users"></i></span> Contributors
+                        </h3>
+
+                        <div class="row">
+
+                            <article class="col-sm-6 col-md-6 col-lg-6 text-center">
+                                <p><img src="assets/img/team/sylvain.jpg" class="img-circle" alt="Sylvain"></p>
+
+                                <h4>Sylvain</h4>
+
+                                <p>Developer</p>
+
+                                <ul class="list-inline">
+                                    <li>
+                                        <a href="http://sylouuu.github.io/" class="btn btn-danger btn-hg">
+                                            <i class="fa fa-home"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/sylwebdev" class="btn btn-twitter btn-hg">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/sylouuu" class="btn btn-github btn-hg">
+                                            <i class="fa fa-github"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </article>
+
+                            <article class="col-sm-6 col-md-6 col-lg-6 text-center">
+                                <p><img src="assets/img/team/jaoued.png" class="img-circle" alt="Sylvain"></p>
+
+                                <h4>Jaoued</h4>
+
+                                <p>Designer</p>
+
+                                <ul class="list-inline">
+                                    <li>
+                                        <a href="http://jaoued.com/" class="btn btn-danger btn-hg">
+                                            <i class="fa fa-home"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/jaouedElghali" class="btn btn-twitter btn-hg">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/jaoued" class="btn btn-github btn-hg">
+                                            <i class="fa fa-github"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </article>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer section -->
+        <footer>
+            <div class="container">
+                <div class="row">
+
+                    <article class="col-lg-3 col-md-3 col-sm-4">
+                        <ul class="list-inline">
+                            <li>
+                                <a href="../CONTRIBUTING.md" target="_blank">Contribute</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/sylouuu/desoslide/issues?state=open" target="_blank">Issues</a>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="col-lg-6 col-md-6 col-sm-5 text-center">
+                        <p>
+                            <a href="./" class="btn btn-danger back-to-top"><i class="fa fa-arrow-up"></i></a>
+                        </p>
+                    </article>
+
+                    <article class="col-lg-3 col-md-3 col-sm-3 text-right">
+                        <p>&copy; 2014 desoSlide</p>
+                    </article>
+                </div>
+            </div>
+        </footer>
+
+        <script src="assets/js/vendor/jquery/jquery.js"></script>
+        <script src="assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+        <script src="assets/js/vendor/highlight/highlight.pack.js"></script>
+
+        <script src="assets/js/app/documentation.js"></script>
+
+    </body>
+</html>
