@@ -75,11 +75,11 @@ a
         display    : inline-block;
         margin-top : 10px;
 
-       @media (min-width: @screen-md)
-       {
-           padding    : 0.2em 0.3em 0.3em;
-           font-size  : 65%;
-       }
+        @media (min-width : @screen-md)
+        {
+            padding       : 0.2em 0.3em 0.3em;
+            font-size     : 65%;
+        }
     }
 
     .section-icon
@@ -96,19 +96,27 @@ a
     &.section-ebony
     {
         border-color     : @ebony-clay;
-        background-color : @brand-danger;
+        background-color : @white;
+        color            : @ebony-clay;
     }
 
     &.section-white
     {
         border-color     : @white;
-        background-color : @curious-blue;
+        background-color : @ebony-clay;
+        color            : @white;
     }
 
     &.section-curious
     {
         border-color     : @curious-blue;
         background-color : @ebony-clay;
+    }
+
+    &.section-alizarin
+    {
+        border-color     : @ebony-clay;
+        background-color : @brand-danger;
     }
 
     @media (max-width : @screen-md)
