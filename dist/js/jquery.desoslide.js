@@ -387,6 +387,8 @@
                     this.pause();
                 }
 
+                this._hideOverlay();
+
                 // Decrementing index
                 this.props.img.to_show--;
 
@@ -419,6 +421,8 @@
                     // Pausing
                     this.pause();
                 }
+
+                this._hideOverlay();
 
                 // Incrementing index
                 this.props.img.to_show++;
@@ -456,10 +460,7 @@
                 if (index !== this.props.img.to_show) {
                     this._stopAnimation();
 
-                    // Hiding the overlay
-                    if (this.props.img.$overlay !== null) {
-                        this.props.img.$overlay.animate({ opacity: 0 });
-                    }
+                    this._hideOverlay();
 
                     self.props.img.to_show = index;
 
@@ -718,6 +719,15 @@
                 if (this.options.controls.show === true) {
                     this._controls();
                 }
+            }
+        },
+
+        /**
+        * Hides the overlay
+        */
+        _hideOverlay: function () {
+            if (this.props.img.$overlay !== null) {
+                this.props.img.$overlay.animate({ opacity: 0 });
             }
         },
 
