@@ -24,7 +24,9 @@
         interval:           3000,             // Interval between each images
         effect: {
             provider:       'animate',        // Effect provider ('animate', 'magic')
-            name:           'fade'            // Transition effect ('fade', 'sideFade', 'slide', 'flip', 'light', 'roll', 'rotate', 'foolish', 'swash', 'tin', 'puff', 'twister', 'random')
+            name:           'fade'            // Transition effect
+                                              // 'animate': 'bounce', 'fade', 'flipX', 'flipY', 'fun', 'light', 'roll', 'rotate', 'rotateBig', 'sideFade', 'sideFadeBig', 'slide', 'random'
+                                              // 'magic': 'foolish', 'perspective', 'puff', 'swap', 'swash', 'tin', 'twister', 'random'
         },
         overlay:            'always',         // How to show overlay ('always', 'hover', 'none')
         controls: {
@@ -71,25 +73,13 @@
                     animate: {
                         css: 'animated',
 
-                        fade: {
-                            in:   'fadeIn', // Default
-                            out:  'fadeOut'
-                        },
-                        sideFade: {
-                            in:   'fadeInLeft',
-                            out:  'fadeOutRight'
-                        },
-                        sideFadeBig: {
-                            in:   'fadeInLeftBig',
-                            out:  'fadeOutRightBig'
-                        },
-                        slide: {
-                            in:   'slideInLeft',
-                            out:  'slideOutRight'
-                        },
                         bounce: {
                             in:   'bounceInLeft',
                             out:  'bounceOutRight'
+                        },
+                        fade: {
+                            in:   'fadeIn', // Default
+                            out:  'fadeOut'
                         },
                         flipX: {
                             in:   'flipInX',
@@ -98,6 +88,10 @@
                         flipY: {
                             in:   'flipInY',
                             out:  'flipOutY'
+                        },
+                        fun: {
+                            in:   'rubberBand',
+                            out:  'hinge'
                         },
                         light: {
                             in:   'lightSpeedIn',
@@ -115,9 +109,17 @@
                             in:   'rotateInDownLeft',
                             out:  'rotateOutUpRight'
                         },
-                        fun: {
-                            in:   'rubberBand',
-                            out:  'hinge'
+                        sideFade: {
+                            in:   'fadeInLeft',
+                            out:  'fadeOutRight'
+                        },
+                        sideFadeBig: {
+                            in:   'fadeInLeftBig',
+                            out:  'fadeOutRightBig'
+                        },
+                        slide: {
+                            in:   'slideInLeft',
+                            out:  'slideOutRight'
                         }
                     },
                     magic: {
@@ -127,6 +129,18 @@
                             in:   'foolishIn',
                             out:  'foolishOut'
                         },
+                        perspective: {
+                            in:   'perspectiveLeftRetourn',
+                            out:  'perspectiveLeft'
+                        },
+                        puff: {
+                            in:   'puffIn',
+                            out:  'puffOut'
+                        },
+                        swap: {
+                            in:   'swap',
+                            out:  'magic'
+                        },
                         swash: {
                             in:   'swashIn',
                             out:  'swashOut'
@@ -134,10 +148,6 @@
                         tin: {
                             in:   'tinLeftIn',
                             out:  'tinRightOut'
-                        },
-                        puff: {
-                            in:   'puffIn',
-                            out:  'puffOut'
                         },
                         twister: {
                             in:   'twisterInDown',
