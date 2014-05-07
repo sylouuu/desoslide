@@ -79,7 +79,7 @@
                             in:   'fadeInLeft',
                             out:  'fadeOutRight'
                         },
-                        slide: {
+                        sideFadeBig: {
                             in:   'fadeInLeftBig',
                             out:  'fadeOutRightBig'
                         },
