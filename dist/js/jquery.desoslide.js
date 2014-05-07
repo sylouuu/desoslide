@@ -87,9 +87,17 @@
                             in:   'slideInLeft',
                             out:  'slideOutRight'
                         },
-                        flip: {
+                        bounce: {
+                            in:   'bounceInLeft',
+                            out:  'bounceOutRight'
+                        },
+                        flipX: {
                             in:   'flipInX',
                             out:  'flipOutX'
+                        },
+                        flipY: {
+                            in:   'flipInY',
+                            out:  'flipOutY'
                         },
                         light: {
                             in:   'lightSpeedIn',

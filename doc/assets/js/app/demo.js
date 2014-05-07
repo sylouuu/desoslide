@@ -75,7 +75,7 @@ $(function() {
 
     // Available effects by provider
     var effects = {
-        animate: ['fade', 'sideFade', 'sideFadeBig', 'slide', 'flip', 'light', 'roll', 'rotate'],
+        animate: ['fade', 'sideFade', 'sideFadeBig', 'slide', 'bounce', 'flipX', 'flipY', 'light', 'roll', 'rotate'],
         magic: ['foolish', 'swash', 'tin', 'puff', 'twister']
     };
 
