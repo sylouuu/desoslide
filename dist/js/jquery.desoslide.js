@@ -114,6 +114,10 @@
                         rotateBig: {
                             in:   'rotateInDownLeft',
                             out:  'rotateOutUpRight'
+                        },
+                        fun: {
+                            in:   'rubberBand',
+                            out:  'hinge'
                         }
                     },
                     magic: {
