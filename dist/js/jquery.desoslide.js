@@ -110,6 +110,10 @@
                         rotate: {
                             in:   'rotateIn',
                             out:  'rotateOut'
+                        },
+                        rotateBig: {
+                            in:   'rotateInDownLeft',
+                            out:  'rotateOutUpRight'
                         }
                     },
                     magic: {
