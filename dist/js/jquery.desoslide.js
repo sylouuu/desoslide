@@ -518,7 +518,7 @@
         * Add wrapper
         */
         _wrapper: function () {
-            var $img = $('<img>').attr('alt', this._name).addClass(this.options.imageClass).css('opacity', 0);
+            var $img = $('<img>').attr('alt', this._name).addClass(this.options.imageClass);
 
             $(this.elem).html($img).wrapInner($('<div>', {
                 'class': this._namespace +'-wrapper'
