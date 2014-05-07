@@ -83,6 +83,10 @@
                             in:   'fadeInLeftBig',
                             out:  'fadeOutRightBig'
                         },
+                        slide: {
+                            in:   'slideInLeft',
+                            out:  'slideOutRight'
+                        },
                         flip: {
                             in:   'flipInX',
                             out:  'flipOutX'
