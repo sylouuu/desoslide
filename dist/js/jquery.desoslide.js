@@ -1,5 +1,5 @@
 /*!
-* Version 2.0.0-rc1
+* Version 2.0.0-rc2
 * jQuery: desoSlide plugin
 * Copyright - 2014 - https://github.com/sylouuu/desoslide
 * This source code is under the MIT License
@@ -168,6 +168,7 @@
                 $wrapper:   null
             },
 
+            is_transition_supported: false,
             plugin_status:  null
         };
 
@@ -238,17 +239,22 @@
                 this.props.img.to_show  = this._defaults.first;
             }
 
+            // Detect CSS3 transition support
+            self.props.is_transition_supported = self._supportsTransitions();
+
             // Preload the target images
             self._preloading();
 
             // Add the wrapper
             self._wrapper();
 
-            // Set the effect
-            self.setEffect({
-                provider:   self.options.effect.provider,
-                name:       self.options.effect.name
-            });
+            if (self.props.is_transition_supported === true) {
+                // Set the effect
+                self.setEffect({
+                    provider:   self.options.effect.provider,
+                    name:       self.options.effect.name
+                });
+            }
 
             if (this.props.thumbs[this.props.img.to_show] !== undefined) {
                 // Show the first image
@@ -508,6 +514,29 @@
         // ----------------------------------------------------------------------------------------------------------
 
         /**
+        * Is the browser supports CSS3 transition
+        *
+        * @return bool
+        */
+        _supportsTransitions: function () {
+            var b = document.body || document.documentElement,
+                s = b.style,
+                p = 'transition';
+
+            if (typeof s[p] === 'string') { return true; }
+
+            // Tests for vendor specific prop
+            var v = ['Moz', 'webkit', 'Webkit', 'Khtml', 'O', 'ms'];
+            p = p.charAt(0).toUpperCase() + p.substr(1);
+
+            for (var i = 0; i < v.length; i++) {
+                if (typeof s[v[i] + p] === 'string') { return true; }
+            }
+
+            return false;
+        },
+
+        /**
         * Is thumb exists
         *
         * @param number index
@@ -633,22 +662,35 @@
 
                 // Image loaded
                 .one('load', function () {
+                    if (self.props.is_transition_supported === true) {
+                        // Showing
+                        $(this)
+                            // Removing the `out` class
+                            .removeClass(self.props.effect.list[self.props.effect.provider].css +' '+ self.props.effect.list[self.props.effect.provider][self.props.effect.name].out)
 
-                    // Showing
-                    $(this)
-                        // Removing the `out` class
-                        .removeClass(self.props.effect.list[self.props.effect.provider].css +' '+ self.props.effect.list[self.props.effect.provider][self.props.effect.name].out)
+                            // Adding the `in` class
+                            .addClass(self.props.effect.list[self.props.effect.provider].css +' '+ self.props.effect.list[self.props.effect.provider][self.props.effect.name].in)
 
-                        // Adding the `in` class
-                        .addClass(self.props.effect.list[self.props.effect.provider].css +' '+ self.props.effect.list[self.props.effect.provider][self.props.effect.name].in)
+                            // Animation done
+                            .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+                                // Adding overlay
+                                self._overlay();
 
-                        // Animation done
-                        .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
-                            // Adding overlay
-                            self._overlay();
+                                self._triggerEvent('imageShown');
+                            });
+                    } else {
+                        // Fallback CSS3
+                        $(this)
+                            .css('opacity', 0)
+                            .animate({
+                                opacity: 1
+                            }, 1000, function() {
+                                // Adding overlay
+                                self._overlay();
 
-                            self._triggerEvent('imageShown');
-                        });
+                                self._triggerEvent('imageShown');
+                            });
+                    }
 
                     // Starting the loop
                     if (self.options.auto.start === true) {
@@ -667,28 +709,39 @@
         _hideImage: function (callback) {
             var self = this;
 
-            this._clearEffectClass();
-
             this._triggerEvent('imageHide');
 
-            /**
-            * Hiding the old one
-            */
-            this.props.img.$elem
-                // Removing the `in` class
-                .removeClass(this.props.effect.list[this.props.effect.provider].css +' '+ this.props.effect.list[this.props.effect.provider][this.props.effect.name].in)
+            if (self.props.is_transition_supported === true) {
+                this._clearEffectClass();
 
-                // Adding the `out` class
-                .addClass(this.props.effect.list[this.props.effect.provider].css +' '+ this.props.effect.list[this.props.effect.provider][this.props.effect.name].out)
+                // Hiding the old one
+                this.props.img.$elem
+                    // Removing the `in` class
+                    .removeClass(this.props.effect.list[this.props.effect.provider].css +' '+ this.props.effect.list[this.props.effect.provider][this.props.effect.name].in)
 
-                // Animation done
-                .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+                    // Adding the `out` class
+                    .addClass(this.props.effect.list[this.props.effect.provider].css +' '+ this.props.effect.list[this.props.effect.provider][this.props.effect.name].out)
+
+                    // Animation done
+                    .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+                        self._triggerEvent('imageHidden');
+
+                        if (callback) {
+                            callback();
+                        }
+                    });
+            } else {
+                // Fallback CSS3
+                this.props.img.$elem.animate({
+                    opacity: 0
+                }, 1000, function() {
                     self._triggerEvent('imageHidden');
 
                     if (callback) {
                         callback();
                     }
                 });
+            }
         },
 
         /**
