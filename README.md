@@ -6,18 +6,19 @@
 
 ## Dependencies
 
-* [jQuery 2](jquery.com/download/) as only modern browsers are supported
+* [jQuery](jquery.com/download/)
 * [animate.css](https://github.com/daneden/animate.css) for using `effect.provider: 'animate'` (default)
 * [magic](https://github.com/miniMAC/magic) for using `effect.provider: 'magic'`
 
 ## Build `dist/`
 
-Build if you want to compile dist files:
+Compile dist files:
 
-* `dist/less/jquery.desoslide.less` to 
+* `dist/less/jquery.desoslide.less` to
     * `dist/css/jquery.desoslide.css`
     * `dist/css/jquery.desoslide.min.css`
-* `dist/js/jquery.desoslide.js` to 
+
+* `dist/js/jquery.desoslide.js` to
     * `dist/js/jquery.desoslide.min.js`
 
 ```
