@@ -6,7 +6,7 @@
 
 ## Dependencies
 
-* [jQuery](jquery.com/download/)
+* [jQuery](http://jquery.com/download/)
 * [animate.css](https://github.com/daneden/animate.css) for using `effect.provider: 'animate'` (default)
 * [magic](https://github.com/miniMAC/magic) for using `effect.provider: 'magic'`
 
