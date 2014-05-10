@@ -524,7 +524,7 @@ $('#slideshow').on({
                             <span class="label label-danger"><i class="fa fa-globe"></i></span> Browser compatibility
                         </h3>
 
-                        <ul id="browser_list" class="list-inline text-center">
+                        <ul id="browser_list" class="list-inline">
                             <li><i class="icon-brw-explorer"></i> IE 9+</li>
                             <li><i class="icon-brw-firefox"></i> Firefox 5+</li>
                             <li><i class="icon-brw-chrome"></i> Chrome</li>
@@ -532,7 +532,13 @@ $('#slideshow').on({
                             <li><i class="icon-brw-safari-02"></i> Safari</li>
                         </ul>
 
-                        <p class="text-center">When CSS3 <a href="http://caniuse.com/#feat=css-transitions" target="_blank">transitions are not supported</a>, a fallback takes over and does a basic fade effect.</p>
+                        <div class="dialog dialog-warning">
+                            <h4>CSS 3 transitions fallback</h4>
+                            <p>
+                                If CSS3 <a href="http://caniuse.com/#feat=css-transitions" target="_blank">transitions
+                                are not supported</a>, a fallback takes over and does a basic fade effect.
+                            </p>
+                        </div>
 
                         <!-- Contributors -->
                         <h3 id="contributors" class="page-header">
