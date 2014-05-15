@@ -1,4 +1,4 @@
-# desoSlide [![Build Status](https://travis-ci.org/sylouuu/desoslide.svg)](https://travis-ci.org/sylouuu/desoslide) [![GitHub version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=5&v=2.0.0-rc1)](http://badge.fury.io/gh/sylouuu%2Fdesoslide) [![devDependency Status](https://david-dm.org/sylouuu/desoslide/dev-status.svg?theme=shields.io)](https://david-dm.org/sylouuu/desoslide#info=devDependencies)
+# desoSlide [![Build Status](https://travis-ci.org/sylouuu/desoslide.svg)](https://travis-ci.org/sylouuu/desoslide) [![GitHub version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=5&v=2.0.0-rc2)](http://badge.fury.io/gh/sylouuu%2Fdesoslide) [![devDependency Status](https://david-dm.org/sylouuu/desoslide/dev-status.svg?theme=shields.io)](https://david-dm.org/sylouuu/desoslide#info=devDependencies)
 
 ## Overview, demo, documentation, release notes and tests
 
