@@ -1,5 +1,5 @@
 /*!
-* Version 2.0.0-rc1
+* Version 2.0.0-rc2
 * jQuery: desoSlide plugin
 * Copyright - 2014 - https://github.com/sylouuu/desoslide
 * This source code is under the MIT License
@@ -24,7 +24,9 @@
         interval:           3000,             // Interval between each images
         effect: {
             provider:       'animate',        // Effect provider ('animate', 'magic')
-            name:           'fade'            // Transition effect ('fade', 'sideFade', 'slide', 'flip', 'light', 'roll', 'rotate', 'foolish', 'swash', 'tin', 'puff', 'twister', 'random')
+            name:           'fade'            // Transition effect
+                                              // 'animate': 'bounce', 'fade', 'flipX', 'flipY', 'fun', 'light', 'roll', 'rotate', 'rotateBig', 'sideFade', 'sideFadeBig', 'slide', 'random'
+                                              // 'magic': 'foolish', 'perspective', 'puff', 'swap', 'swash', 'tin', 'twister', 'random'
         },
         overlay:            'always',         // How to show overlay ('always', 'hover', 'none')
         controls: {
@@ -71,21 +73,25 @@
                     animate: {
                         css: 'animated',
 
+                        bounce: {
+                            in:   'bounceInLeft',
+                            out:  'bounceOutRight'
+                        },
                         fade: {
                             in:   'fadeIn', // Default
                             out:  'fadeOut'
                         },
-                        sideFade: {
-                            in:   'fadeInLeft',
-                            out:  'fadeOutRight'
-                        },
-                        sideFadeBig: {
-                            in:   'fadeInLeftBig',
-                            out:  'fadeOutRightBig'
-                        },
-                        flip: {
+                        flipX: {
                             in:   'flipInX',
                             out:  'flipOutX'
+                        },
+                        flipY: {
+                            in:   'flipInY',
+                            out:  'flipOutY'
+                        },
+                        fun: {
+                            in:   'rubberBand',
+                            out:  'hinge'
                         },
                         light: {
                             in:   'lightSpeedIn',
@@ -98,6 +104,22 @@
                         rotate: {
                             in:   'rotateIn',
                             out:  'rotateOut'
+                        },
+                        rotateBig: {
+                            in:   'rotateInDownLeft',
+                            out:  'rotateOutUpRight'
+                        },
+                        sideFade: {
+                            in:   'fadeInLeft',
+                            out:  'fadeOutRight'
+                        },
+                        sideFadeBig: {
+                            in:   'fadeInLeftBig',
+                            out:  'fadeOutRightBig'
+                        },
+                        slide: {
+                            in:   'slideInLeft',
+                            out:  'slideOutRight'
                         }
                     },
                     magic: {
@@ -107,6 +129,18 @@
                             in:   'foolishIn',
                             out:  'foolishOut'
                         },
+                        perspective: {
+                            in:   'perspectiveLeftRetourn',
+                            out:  'perspectiveLeft'
+                        },
+                        puff: {
+                            in:   'puffIn',
+                            out:  'puffOut'
+                        },
+                        swap: {
+                            in:   'swap',
+                            out:  'magic'
+                        },
                         swash: {
                             in:   'swashIn',
                             out:  'swashOut'
@@ -114,10 +148,6 @@
                         tin: {
                             in:   'tinLeftIn',
                             out:  'tinRightOut'
-                        },
-                        puff: {
-                            in:   'puffIn',
-                            out:  'puffOut'
                         },
                         twister: {
                             in:   'twisterInDown',
@@ -138,6 +168,7 @@
                 $wrapper:   null
             },
 
+            is_transition_supported: false,
             plugin_status:  null
         };
 
@@ -208,17 +239,22 @@
                 this.props.img.to_show  = this._defaults.first;
             }
 
+            // Detect CSS3 transition support
+            self.props.is_transition_supported = self._supportsTransitions();
+
             // Preload the target images
             self._preloading();
 
             // Add the wrapper
             self._wrapper();
 
-            // Set the effect
-            self.setEffect({
-                provider:   self.options.effect.provider,
-                name:       self.options.effect.name
-            });
+            if (self.props.is_transition_supported === true) {
+                // Set the effect
+                self.setEffect({
+                    provider:   self.options.effect.provider,
+                    name:       self.options.effect.name
+                });
+            }
 
             if (this.props.thumbs[this.props.img.to_show] !== undefined) {
                 // Show the first image
@@ -478,6 +514,29 @@
         // ----------------------------------------------------------------------------------------------------------
 
         /**
+        * Is the browser supports CSS3 transition
+        *
+        * @return bool
+        */
+        _supportsTransitions: function () {
+            var b = document.body || document.documentElement,
+                s = b.style,
+                p = 'transition',
+                v = ['Moz', 'webkit', 'Webkit', 'Khtml', 'O', 'ms'],
+                i = 0;
+
+            if (typeof s[p] === 'string') { return true; }
+
+            p = p.charAt(0).toUpperCase() + p.substr(1);
+
+            for (i; i < v.length; i++) {
+                if (typeof s[v[i] + p] === 'string') { return true; }
+            }
+
+            return false;
+        },
+
+        /**
         * Is thumb exists
         *
         * @param number index
@@ -603,22 +662,35 @@
 
                 // Image loaded
                 .one('load', function () {
+                    if (self.props.is_transition_supported === true) {
+                        // Showing
+                        $(this)
+                            // Removing the `out` class
+                            .removeClass(self.props.effect.list[self.props.effect.provider].css +' '+ self.props.effect.list[self.props.effect.provider][self.props.effect.name].out)
 
-                    // Showing
-                    $(this)
-                        // Removing the `out` class
-                        .removeClass(self.props.effect.list[self.props.effect.provider].css +' '+ self.props.effect.list[self.props.effect.provider][self.props.effect.name].out)
+                            // Adding the `in` class
+                            .addClass(self.props.effect.list[self.props.effect.provider].css +' '+ self.props.effect.list[self.props.effect.provider][self.props.effect.name].in)
 
-                        // Adding the `in` class
-                        .addClass(self.props.effect.list[self.props.effect.provider].css +' '+ self.props.effect.list[self.props.effect.provider][self.props.effect.name].in)
+                            // Animation done
+                            .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+                                // Adding overlay
+                                self._overlay();
 
-                        // Animation done
-                        .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
-                            // Adding overlay
-                            self._overlay();
+                                self._triggerEvent('imageShown');
+                            });
+                    } else {
+                        // Fallback CSS3
+                        $(this)
+                            .css('opacity', 0)
+                            .animate({
+                                opacity: 1
+                            }, 1000, function() {
+                                // Adding overlay
+                                self._overlay();
 
-                            self._triggerEvent('imageShown');
-                        });
+                                self._triggerEvent('imageShown');
+                            });
+                    }
 
                     // Starting the loop
                     if (self.options.auto.start === true) {
@@ -637,28 +709,39 @@
         _hideImage: function (callback) {
             var self = this;
 
-            this._clearEffectClass();
-
             this._triggerEvent('imageHide');
 
-            /**
-            * Hiding the old one
-            */
-            this.props.img.$elem
-                // Removing the `in` class
-                .removeClass(this.props.effect.list[this.props.effect.provider].css +' '+ this.props.effect.list[this.props.effect.provider][this.props.effect.name].in)
+            if (self.props.is_transition_supported === true) {
+                this._clearEffectClass();
 
-                // Adding the `out` class
-                .addClass(this.props.effect.list[this.props.effect.provider].css +' '+ this.props.effect.list[this.props.effect.provider][this.props.effect.name].out)
+                // Hiding the old one
+                this.props.img.$elem
+                    // Removing the `in` class
+                    .removeClass(this.props.effect.list[this.props.effect.provider].css +' '+ this.props.effect.list[this.props.effect.provider][this.props.effect.name].in)
 
-                // Animation done
-                .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+                    // Adding the `out` class
+                    .addClass(this.props.effect.list[this.props.effect.provider].css +' '+ this.props.effect.list[this.props.effect.provider][this.props.effect.name].out)
+
+                    // Animation done
+                    .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+                        self._triggerEvent('imageHidden');
+
+                        if (callback) {
+                            callback();
+                        }
+                    });
+            } else {
+                // Fallback CSS3
+                this.props.img.$elem.animate({
+                    opacity: 0
+                }, 1000, function() {
                     self._triggerEvent('imageHidden');
 
                     if (callback) {
                         callback();
                     }
                 });
+            }
         },
 
         /**
