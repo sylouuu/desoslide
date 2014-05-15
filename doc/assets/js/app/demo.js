@@ -75,16 +75,20 @@ $(function() {
 
     // Available effects by provider
     var effects = {
-        animate: ['fade', 'sideFade', 'sideFadeBig', 'flip', 'light', 'roll', 'rotate'],
-        magic: ['foolish', 'swash', 'tin', 'puff', 'twister']
+        animate: ['bounce', 'fade', 'flipX', 'flipY', 'fun', 'light', 'roll', 'rotate', 'rotateBig', 'sideFade', 'sideFadeBig', 'slide'],
+        magic: ['foolish', 'perspective', 'puff', 'swap', 'swash', 'tin', 'twister']
     };
 
     // Change provider
-    var changeProvider = function(provider) {
+    var changeProvider = function(provider, effect) {
         var tmp = '';
 
         $.each(effects[provider], function(i, item) {
-            tmp += '<option value="'+ item +'">'+ item +'</option>';
+            if(effect !== undefined && effect === item) {
+                tmp += '<option value="'+ item +'" selected="selected">'+ item +'</option>';
+            } else {
+                tmp += '<option value="'+ item +'">'+ item +'</option>';
+            }
         });
 
         $effect_name.html(tmp);
@@ -127,8 +131,8 @@ $(function() {
         setEffect();
     });
 
-    // Default loaded provider
-    changeProvider('animate');
+    // Default loaded provider and effect
+    changeProvider('animate', 'fade');
 
     // $demo1_image.on({
     //     'thumbClick.desoslide': function() {
