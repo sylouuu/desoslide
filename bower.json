@@ -1,6 +1,6 @@
 {
     "name": "desoslide",
-    "version": "2.0.0-rc1",
+    "version": "2.0.0-rc2",
     "homepage": "https://github.com/sylouuu/desoslide",
     "description": "Take control of your slideshow with this powerful jQuery plugin",
     "keywords": [
@@ -13,7 +13,7 @@
         "doc"
     ],
     "dependencies": {
-        "jquery": ">=2.0.0",
+        "jquery": "~1.11.0",
         "animate.css": "~3.1.0",
         "magic": "~1.0.0"
     }
