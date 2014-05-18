@@ -521,15 +521,15 @@
         _supportsTransitions: function () {
             var b = document.body || document.documentElement,
                 s = b.style,
-                p = 'transition';
+                p = 'transition',
+                v = ['Moz', 'webkit', 'Webkit', 'Khtml', 'O', 'ms'],
+                i = 0;
 
             if (typeof s[p] === 'string') { return true; }
 
-            // Tests for vendor specific prop
-            var v = ['Moz', 'webkit', 'Webkit', 'Khtml', 'O', 'ms'];
             p = p.charAt(0).toUpperCase() + p.substr(1);
 
-            for (var i = 0; i < v.length; i++) {
+            for (i; i < v.length; i++) {
                 if (typeof s[v[i] + p] === 'string') { return true; }
             }
 
