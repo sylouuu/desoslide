@@ -1,6 +1,6 @@
 {
     "name": "desoslide",
-    "version": "2.0.0-rc2",
+    "version": "2.0.0",
     "description": "Take control of your slideshow with this powerful jQuery plugin",
     "directories": {
         "test": "tests"
