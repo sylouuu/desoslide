@@ -1,5 +1,5 @@
 /*!
-* Version 2.0.0
+* Version 2.0.1
 * jQuery: desoSlide plugin
 * Copyright - 2014 - https://github.com/sylouuu/desoslide
 * This source code is under the MIT License
@@ -799,7 +799,7 @@
 
                 this._caption();
 
-                if (this.options.controls.show === true) {
+                if (this.options.controls.show === true && this.props.thumbs.length > 1) {
                     this._controls();
                 }
             }
