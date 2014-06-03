@@ -16,7 +16,7 @@
     },
     "homepage": "https://github.com/sylouuu/desoslide",
     "devDependencies": {
-        "gulp": "~3.6.0",
+        "gulp": "~3.7.0",
         "gulp-uglify": "~0.3.0",
         "gulp-less": "~1.2.3",
         "gulp-minify-css": "~0.3.0",
