@@ -154,7 +154,7 @@
                             <h4>Summary</h4>
                             <ol>
                                 <li>You have to load jQuery and desoSlide files (beware that the CSS file loads a sprite: <code>../img/desoslide_controls.png</code>, be sure that the path is correct).</li>
-                                <li>Then it depends which effect you want to use for slides transition. By default <code>'animate'</code> is set, so include <code>animate.min.css</code>. Or you can use <code>'magic'</code> (see options), so include <code>magic.min.css</code>.</li>
+                                <li>Then it depends which effect you want to use for slides transition. By default <code>'animate'</code> is set, so include <code>animate.min.css</code>. Or use <code>'magic'</code> (see options), so include <code>magic.min.css</code>.</li>
                             </ol>
                         </div>
 
@@ -245,7 +245,7 @@
                             <span class="label label-danger"><i class="fa fa-play"></i></span> Controls
                         </h3>
 
-                        <p>You can control the slideshow by using the player and/or your keyboard keys when <code>controls.keys</code> is to <code>true</code>:</p>
+                        <p>Control the slideshow by using the player and/or your keyboard keys when <code>controls.keys</code> is to <code>true</code>:</p>
 
                         <ul class="keys-control">
                             <li>
@@ -264,12 +264,12 @@
                             <span class="label label-danger"><i class="fa fa-user"></i></span> Public methods
                         </h3>
 
-                        <p>You can interact with your slideshow even if already initialized. You still have to use public methods inside <code>$(window).load(function() {})</code>.</p>
+                        <p>Interact with your slideshow even if already initialized. Use these public methods inside <code>$(window).load(function() {})</code>.</p>
 
                         <!-- Rebuild -->
                         <h3>Rebuild</h3>
 
-                        <p>In case you want to rebuild your slideshow:</p>
+                        <p>Rebuilding your slideshow:</p>
 
 <pre class="text-left"><code>// Re-initialize
 $('#slideshow').desoSlide('rebuild');
@@ -278,7 +278,7 @@ $('#slideshow').desoSlide('rebuild');
                         <!-- Thumbs -->
                         <h3>Thumbs</h3>
 
-                        <p>You have access to your thumbs:</p>
+                        <p>Accessing to your thumbs:</p>
 
 
                         <div class="row">
@@ -295,7 +295,7 @@ var my_thumbs = $('#slideshow').desoSlide('getThumbs');
     0: {
         alt: 'Alt attribute found in thumb',
         caption_link: 'link', // data-desoslide-caption-link
-        caption_title: 'link', // data-desoslide-caption-title
+        caption_title: 'title', // data-desoslide-caption-title
         src: 'image path'
     },
     1: {
@@ -310,7 +310,7 @@ var my_thumbs = $('#slideshow').desoSlide('getThumbs');
                         <div class="row">
                             <div class="col-lg-6">
 
-<pre class="text-left"><code>// Get a specific thumb based on index
+<pre class="text-left"><code>// Get a specific thumb based on its index
 var my_thumb = $('#slideshow').desoSlide('getThumbs', 1);
 </code></pre>
 
@@ -320,7 +320,7 @@ var my_thumb = $('#slideshow').desoSlide('getThumbs', 1);
 <pre class="text-left"><code>{
     alt: 'Alt attribute found in thumb',
     caption_link: 'link', // data-desoslide-caption-link
-    caption_title: 'link', // data-desoslide-caption-title
+    caption_title: 'title', // data-desoslide-caption-title
     src: 'image path'
 }
 </code></pre>
@@ -331,12 +331,12 @@ var my_thumb = $('#slideshow').desoSlide('getThumbs', 1);
                         <!-- Effect -->
                         <h3>Effect</h3>
 
-                        <p>Change dynamically the transition effect:</p>
+                        <p>Dynamically change the transition effect. It returns the applied effect.</p>
 
                         <div class="row">
                             <div class="col-lg-7">
 
-<pre class="text-left"><code>// Set a transition effect (include the appropriate CSS file)
+<pre class="text-left"><code>// Set a transition effect (remember to add the appropriate provider CSS file)
 var effect = $('#slideshow').desoSlide('setEffect' {
     provider: 'magic',
     name: 'tin'
@@ -380,7 +380,7 @@ var effect = $('#slideshow').desoSlide('setEffect' {
                         <!-- Slides -->
                         <h3>Slides</h3>
 
-                        <p>Interact with slides:</p>
+                        <p>Interacting with your slides:</p>
 
                         <div class="row">
                             <div class="col-lg-12">
@@ -388,7 +388,7 @@ var effect = $('#slideshow').desoSlide('setEffect' {
 <pre class="text-left"><code>// Pause the slideshow if started
 $('#slideshow').desoSlide('pause');
 
-// Play the slideshow if stopped
+// Play the slideshow if paused
 $('#slideshow').desoSlide('play');
 
 // Is the slideshow playing?
@@ -403,6 +403,7 @@ $('#slideshow').desoSlide('goNext');
 // Go to a specific slide (here the third)
 $('#slideshow').desoSlide('goTo', 2);
 </code></pre>
+
                             </div>
                         </div>
 
@@ -411,10 +412,11 @@ $('#slideshow').desoSlide('goTo', 2);
                             <span class="label label-danger"><i class="fa fa-fire"></i></span> Events
                         </h3>
 
-                        <p>You can listen events from <a href="#configuration">options</a> with <code>events.onEventName: function()</code> or use an event handler:</p>
+                        <p>Listen events from <a href="#configuration">options</a> with <code>events.onEventName: function()</code> or use event handlers. Two ways to achieve this:</p>
 
                         <div class="row">
                             <div class="col-lg-6">
+
 <pre class="text-left"><code>// Stand-alone event handlers
 $('#slideshow').on('thumbClick.desoslide', function() {
     // on thumbClick
@@ -468,8 +470,10 @@ $('#slideshow').on('success.desoslide', function() {
     // on success
 });
 </code></pre>
+
                             </div>
                             <div class="col-lg-6">
+
 <pre class="text-left"><code>// All-in-one events handler
 $('#slideshow').on({
     'thumbClick.desoslide': function() {
@@ -513,6 +517,7 @@ $('#slideshow').on({
     }
 });
 </code></pre>
+
                             </div>
                         </div>
 
