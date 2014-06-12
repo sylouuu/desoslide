@@ -110,31 +110,58 @@
                 <div class="row">
                     <div class="col-lg-12">
 
-                        <!-- Setup -->
-                        <h3 id="setup" class="page-header">
-                            <span class="label label-danger"><i class="fa fa-download"></i></span> Setup
+                        <!-- Download -->
+                        <h3 id="download" class="page-header">
+                            <span class="label label-danger"><i class="fa fa-download"></i></span> Download
                         </h3>
 
-                        <p>The plugin is jQuery-based. It uses CSS3 animations providers to make transitions between slides.</p>
+                        <p>You can download individual files or use <a href="http://bower.io/" target="_blank">Bower</a> for automatic download.</p>
 
-                        <ul class="list-inline list-btn text-center">
-                            <li>
-                                <a href="http://jquery.com/download/" class="btn btn-info" target="_blank">Download jQuery</a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/sylouuu/desoslide/releases" class="btn btn-danger" target="_blank">Download desoSlide</a>
-                            </li>
-                            <li>
-                                <a href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.min.css" class="btn btn-info" target="_blank">Download animate</a>
-                            </li>
-                            <li>
-                                <a href="http://pastebin.com/raw.php?i=8w47RUQ2" class="btn btn-info" target="_blank">Download magic</a>
-                            </li>
-                        </ul>
+                        <div class="row">
+                            <div id="manual_download" class="col-lg-6">
+
+                                <p>Core files</p>
+
+                                <ul class="list-inline list-btn text-center">
+                                    <li>
+                                        <a href="http://jquery.com/download/" class="btn btn-info" target="_blank">Download jQuery</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/sylouuu/desoslide/releases" class="btn btn-danger" target="_blank">Download desoSlide</a>
+                                    </li>
+                                </ul>
+
+                                <p>Providers files</p>
+
+                                <ul class="list-inline list-btn text-center">
+                                    <li>
+                                        <a href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.min.css" class="btn btn-warning" target="_blank">Download animate</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://raw.githubusercontent.com/miniMAC/magic/master/magic.min.css" class="btn btn-warning" target="_blank">Download magic</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <div class="col-lg-6">
+
+                                <p>With Bower</p>
+
+                                <pre><code>bower install desoslide</code></pre>
+
+                                <p>All files are downloaded in the <code>bower_components</code> folder.
+
+                            </div>
+                        </div>
+
+                        <!-- Setup -->
+                        <h3 id="setup" class="page-header">
+                            <span class="label label-danger"><i class="fa fa-cog"></i></span> Setup
+                        </h3>
 
                         <p>In your HTML page:</p>
 
-<pre><code>&lt;!-- Loads jQuery framework --&gt;
+<pre><code>&lt;!-- Loads jQuery library --&gt;
 &lt;script src="js/jquery.min.js"&gt;&lt;/script&gt;
 
 &lt;!-- desoSlide styles --&gt;
