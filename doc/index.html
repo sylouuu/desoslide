@@ -291,7 +291,7 @@
                             <span class="label label-danger"><i class="fa fa-user"></i></span> Public methods
                         </h3>
 
-                        <p>Interact with your slideshow even if already initialized. Use these public methods inside <code>$(window).load(function() {})</code>.</p>
+                        <p>Interact with your slideshow after initialize. Use these public methods inside <code>$(window).load(function() {})</code>.</p>
 
                         <!-- Rebuild -->
                         <h3>Rebuild</h3>
@@ -439,7 +439,12 @@ $('#slideshow').desoSlide('goTo', 2);
                             <span class="label label-danger"><i class="fa fa-fire"></i></span> Events
                         </h3>
 
-                        <p>Listen events from <a href="#configuration">options</a> with <code>events.onEventName: function()</code> or use event handlers. Two ways to achieve this:</p>
+                        <p>Three ways to listen slideshow events.</p>
+
+                        <ul>
+                            <li>Use the <a href="#configuration">options</a> with <code>events.onEventName: function()</code>.</li>
+                            <li>Use event handlers. Stand-alone handlers or all-in-one handler.</li>
+                        </ul>
 
                         <div class="row">
                             <div class="col-lg-6">
