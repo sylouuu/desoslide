@@ -404,6 +404,37 @@ var effect = $('#slideshow').desoSlide('setEffect' {
                             </div>
                         </div>
 
+                        <div class="dialog dialog-info">
+                            <h4>Disable transition effect</h4>
+                            <p>
+                                You want an instant transition? Well then use the following syntax.
+                            </p>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-7">
+
+<pre class="text-left"><code>// Set a 'none' effect
+var effect = $('#slideshow').desoSlide('setEffect', 'none');
+</code></pre>
+
+                            </div>
+                            <div class="col-lg-5">
+
+<pre class="text-left"><code>{
+    provider: null,
+    name: 'none'
+}
+</code></pre>
+
+                            </div>
+                        </div>
+
+                        <p>Or directly from options:</p>
+
+<pre class="text-left"><code>effect: 'none'
+</code></pre>
+
                         <!-- Slides -->
                         <h3>Slides</h3>
 
