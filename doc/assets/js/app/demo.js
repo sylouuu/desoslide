@@ -26,10 +26,10 @@ $(function() {
     // Demo 1
     // ----------------------------------------------------------------------------------------------------------
 
-    var $demo1_image = $('#slideshow1'), $effect_provider = $('#effect_provider'), $effect_name = $('#effect_name');
+    var $slideshow1 = $('#slideshow1'), $effect_provider = $('#effect_provider'), $effect_name = $('#effect_name');
 
-    $demo1_image.desoSlide({
-        thumbs: $('ul.slideshow1_thumbs li > a'),
+    $slideshow1.desoSlide({
+        thumbs: $('ul.slideshow1_thumbs li > a')
         // events: {
         //     'onThumbClick': function() {
         //         console.log('onThumbClick');
@@ -97,13 +97,13 @@ $(function() {
     // Set effect
     var setEffect = function(provider, effect) {
         // Pausing
-        $demo1_image.desoSlide('pause');
+        $slideshow1.desoSlide('pause');
 
         // Applying asked effect
-        $demo1_image.desoSlide('setEffect', { provider: $effect_provider.val(), name: $effect_name.val() });
+        $slideshow1.desoSlide('setEffect', { provider: $effect_provider.val(), name: $effect_name.val() });
 
         // Playing
-        $demo1_image.desoSlide('play');
+        $slideshow1.desoSlide('play');
 
         var code = "$('#slideshow').desoSlide({\n";
         code += "    thumbs: $('ul.slideshow_thumbs li > a'),\n";
@@ -134,7 +134,7 @@ $(function() {
     // Default loaded provider and effect
     changeProvider('animate', 'fade');
 
-    // $demo1_image.on({
+    // $slideshow1.on({
     //     'thumbClick.desoslide': function() {
     //         console.log('thumbClick.desoslide');
     //     },

@@ -236,7 +236,7 @@ $(function() {
     // setEffect()
     // -------------------------------------------------------------------------
 
-    var set_effect_test1, set_effect_test2, set_effect_test3, set_effect_test4, set_effect_test5, set_effect_test6, set_effect_test7;
+    var set_effect_test1, set_effect_test2, set_effect_test3, set_effect_test4, set_effect_test5, set_effect_test6, set_effect_test7, set_effect_test8;
 
     set_effect_test1 = $('#image_test4').desoSlide('setEffect', { provider: 'animate', name: 'random' });
     set_effect_test2 = $('#image_test4').desoSlide('setEffect', { provider: 'magic', name: 'random' });
@@ -245,6 +245,7 @@ $(function() {
     set_effect_test5 = $('#image_test4').desoSlide('setEffect', { provider: 'animate', name: 'fail' });
     set_effect_test6 = $('#image_test4').desoSlide('setEffect');
     set_effect_test7 = $('#image_test4').desoSlide('setEffect', {});
+    set_effect_test8 = $('#image_test4').desoSlide('setEffect', 'none');
 
     test('setEffect method', function() {
 
@@ -255,6 +256,7 @@ $(function() {
         ok(set_effect_test5.provider === 'animate' && set_effect_test5.name === 'fade', 'has a bad effect: default provider and effect used');
         ok(set_effect_test6.provider === 'animate' && set_effect_test6.name === 'fade', 'has a bad parameter: default provider and effect used');
         ok(set_effect_test7.provider === 'animate' && set_effect_test7.name === 'fade', 'has a bad parameter: default provider and effect used');
+        ok(set_effect_test8.provider === null && set_effect_test8.name === 'none', 'has a none effect');
 
     });
 

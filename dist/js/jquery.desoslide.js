@@ -250,10 +250,7 @@
 
             if (self.props.is_transition_supported === true) {
                 // Set the effect
-                self.setEffect({
-                    provider:   self.options.effect.provider,
-                    name:       self.options.effect.name
-                });
+                self.setEffect(self.options.effect);
             }
 
             if (this.props.thumbs[this.props.img.to_show] !== undefined) {
@@ -316,10 +313,15 @@
 
             if (effect !== undefined && effect.provider !== null && effect.name !== null) {
                 if (!this.props.effect.list.hasOwnProperty(effect.provider)) {
-                    response.provider = this._defaults.effect.provider;
-                    response.name     = this._defaults.effect.name;
+                    // No effect, instant transition
+                    if (effect === 'none') {
+                        response.name     = 'none';
+                    } else {
+                        response.provider = this._defaults.effect.provider;
+                        response.name     = this._defaults.effect.name;
 
-                    this._errorHandler('error', 'Incorrect value for the `effect.provider` option. Default value is used.');
+                        this._errorHandler('error', 'Incorrect value for the `effect.provider` option. Default value is used.');
+                    }
                 } else {
                     // Random effect asked for a specific provider
                     if (effect.name === 'random') {
@@ -644,6 +646,13 @@
         },
 
         /**
+        * Has effect
+        */
+        _hasEffect: function () {
+            return (this.props.effect.provider === null && this.props.effect.name === 'none') ? false : true;
+        },
+
+        /**
         * Shows an image
         */
         _showImage: function () {
@@ -662,34 +671,45 @@
 
                 // Image loaded
                 .one('load', function () {
-                    if (self.props.is_transition_supported === true) {
-                        // Showing
-                        $(this)
-                            // Removing the `out` class
-                            .removeClass(self.props.effect.list[self.props.effect.provider].css +' '+ self.props.effect.list[self.props.effect.provider][self.props.effect.name].out)
+                    // No effect
+                    if (self._hasEffect() === false) {
+                        // Showing image
+                        $(this).css('opacity', 1);
 
-                            // Adding the `in` class
-                            .addClass(self.props.effect.list[self.props.effect.provider].css +' '+ self.props.effect.list[self.props.effect.provider][self.props.effect.name].in)
+                        // Adding overlay
+                        self._overlay();
 
-                            // Animation done
-                            .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
-                                // Adding overlay
-                                self._overlay();
-
-                                self._triggerEvent('imageShown');
-                            });
+                        self._triggerEvent('imageShown');
                     } else {
-                        // Fallback CSS3
-                        $(this)
-                            .css('opacity', 0)
-                            .animate({
-                                opacity: 1
-                            }, 1000, function() {
-                                // Adding overlay
-                                self._overlay();
+                        if (self.props.is_transition_supported === true) {
+                            // Showing
+                            $(this)
+                                // Removing the `out` class
+                                .removeClass(self.props.effect.list[self.props.effect.provider].css +' '+ self.props.effect.list[self.props.effect.provider][self.props.effect.name].out)
 
-                                self._triggerEvent('imageShown');
-                            });
+                                // Adding the `in` class
+                                .addClass(self.props.effect.list[self.props.effect.provider].css +' '+ self.props.effect.list[self.props.effect.provider][self.props.effect.name].in)
+
+                                // Animation done
+                                .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+                                    // Adding overlay
+                                    self._overlay();
+
+                                    self._triggerEvent('imageShown');
+                                });
+                        } else {
+                            // Fallback CSS3
+                            $(this)
+                                .css('opacity', 0)
+                                .animate({
+                                    opacity: 1
+                                }, 1000, function() {
+                                    // Adding overlay
+                                    self._overlay();
+
+                                    self._triggerEvent('imageShown');
+                                });
+                        }
                     }
 
                     // Starting the loop
@@ -711,36 +731,49 @@
 
             this._triggerEvent('imageHide');
 
-            if (self.props.is_transition_supported === true) {
-                this._clearEffectClass();
+            // No effect
+            if (this._hasEffect() === false) {
+                this.props.img.$elem.css('opacity', 0);
 
-                // Hiding the old one
-                this.props.img.$elem
-                    // Removing the `in` class
-                    .removeClass(this.props.effect.list[this.props.effect.provider].css +' '+ this.props.effect.list[this.props.effect.provider][this.props.effect.name].in)
+                self._triggerEvent('imageHidden');
 
-                    // Adding the `out` class
-                    .addClass(this.props.effect.list[this.props.effect.provider].css +' '+ this.props.effect.list[this.props.effect.provider][this.props.effect.name].out)
+                if (callback) {
+                    callback();
+                }
+            } else {
 
-                    // Animation done
-                    .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+                if (self.props.is_transition_supported === true) {
+                    this._clearEffectClass();
+
+                    // Hiding the old one
+                    this.props.img.$elem
+                        // Removing the `in` class
+                        .removeClass(this.props.effect.list[this.props.effect.provider].css +' '+ this.props.effect.list[this.props.effect.provider][this.props.effect.name].in)
+
+                        // Adding the `out` class
+                        .addClass(this.props.effect.list[this.props.effect.provider].css +' '+ this.props.effect.list[this.props.effect.provider][this.props.effect.name].out)
+
+                        // Animation done
+                        .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+                            self._triggerEvent('imageHidden');
+
+                            if (callback) {
+                                callback();
+                            }
+                        });
+                } else {
+                    // Fallback CSS3
+                    this.props.img.$elem.animate({
+                        opacity: 0
+                    }, 1000, function() {
                         self._triggerEvent('imageHidden');
 
                         if (callback) {
                             callback();
                         }
                     });
-            } else {
-                // Fallback CSS3
-                this.props.img.$elem.animate({
-                    opacity: 0
-                }, 1000, function() {
-                    self._triggerEvent('imageHidden');
+                }
 
-                    if (callback) {
-                        callback();
-                    }
-                });
             }
         },
 
@@ -794,7 +827,7 @@
                 if (this.options.overlay === 'always') {
                     this.props.img.$overlay.animate({
                         opacity: 0.7
-                    }, 500);
+                    }, (this._hasEffect() === true) ? 500 : 0);
                 }
 
                 this._caption();
@@ -810,7 +843,9 @@
         */
         _hideOverlay: function () {
             if (this.props.img.$overlay !== null) {
-                this.props.img.$overlay.animate({ opacity: 0 });
+                this.props.img.$overlay.animate({
+                    opacity: 0
+                }, (this._hasEffect() === true) ? 500 : 0);
             }
         },
 
