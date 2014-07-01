@@ -14,12 +14,12 @@
 
 Compile dist files:
 
-* `dist/less/jquery.desoslide.less` to
-    * `dist/css/jquery.desoslide.css`
-    * `dist/css/jquery.desoslide.min.css`
+* from `dist/less/jquery.desoslide.less`
+    * to `dist/css/jquery.desoslide.css`
+    * to `dist/css/jquery.desoslide.min.css`
 
-* `dist/js/jquery.desoslide.js` to
-    * `dist/js/jquery.desoslide.min.js`
+* from `dist/js/jquery.desoslide.js` to
+    * to `dist/js/jquery.desoslide.min.js`
 
 ```
 npm install

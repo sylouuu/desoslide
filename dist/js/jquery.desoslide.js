@@ -634,7 +634,7 @@
         _getRandomEffect: function (provider) {
             var random, count = 0, prop;
 
-            for(prop in this.props.effect.list[provider]) {
+            for (prop in this.props.effect.list[provider]) {
                 if (this.props.effect.list[provider].hasOwnProperty(prop) && prop !== 'css') {
                     if (Math.random() < 1 / ++count) {
                         random = prop;
@@ -647,6 +647,8 @@
 
         /**
         * Has effect
+        *
+        * @return bool
         */
         _hasEffect: function () {
             return (this.props.effect.provider === null && this.props.effect.name === 'none') ? false : true;
