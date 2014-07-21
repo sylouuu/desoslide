@@ -16,7 +16,7 @@ $(function() {
     // -------------------------------------------------------------------------
     // -------------------------------------------------------------------------
 
-    var thumbs_test1, thumbs_test2, thumbs_test3, thumbs_test4;
+    var thumbs_test1, thumbs_test2, thumbs_test3, thumbs_test4, thumbs_test5, thumbs_test6;
 
     $('#image_test1').desoSlide({
         events: {
@@ -53,12 +53,32 @@ $(function() {
         }
     });
 
+    $('#image_test17').desoSlide({
+        thumbs: $('#alt_thumbs').find('li > a'),
+        events: {
+            onSuccess: function() {
+                thumbs_test5 = 'success';
+            }
+        }
+    });
+
+    $('#image_test18').desoSlide({
+        thumbs: '#alt_thumbs li > a',
+        events: {
+            onSuccess: function() {
+                thumbs_test6 = 'success';
+            }
+        }
+    });
+
     test('`thumbs`', function() {
 
         ok(thumbs_test1 === 'error', 'option doesn\'t exist: error expected');
         ok(thumbs_test2 === 'error', 'selector doesn\'t exist: error expected');
         ok(thumbs_test3 === 'error', '`href` attribute on `<a>` doesn\'t exist: error expected');
         ok(thumbs_test4 === 'error', 'doesn\'t contain <img> tag as a child: error expected');
+        ok(thumbs_test5 === 'success', 'has an accepted value (jQuery selector)');
+        ok(thumbs_test6 === 'success', 'has an accepted value (string selector)');
 
     });
 
