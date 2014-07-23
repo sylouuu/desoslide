@@ -1,6 +1,6 @@
 /**
  * desoslide - Take control of your slideshow with this powerful jQuery plugin
- * @version 2.0.0
+ * @version 2.1.0
  * @link https://github.com/sylouuu/desoslide
  * @license MIT
  */
