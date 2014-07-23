@@ -1,9 +1,9 @@
-/*!
-* Version 2.1.0
-* jQuery: desoSlide plugin
-* Copyright - 2014 - https://github.com/sylouuu/desoslide
-* This source code is under the MIT License
-*/
+/**
+ * desoslide - Take control of your slideshow with this powerful jQuery plugin
+ * @version 2.0.0
+ * @link https://github.com/sylouuu/desoslide
+ * @license MIT
+ */
 .desoslide-wrapper {
   position: relative;
   text-align: center;

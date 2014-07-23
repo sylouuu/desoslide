@@ -12,14 +12,15 @@
 
     // Importing Gulp dependencies
     // ------------------------------------------------------------------------------------------------------
-    var
-        uglify      = require('gulp-uglify'),
-        less        = require('gulp-less'),
-        minifyCSS   = require('gulp-minify-css'),
-        rename      = require('gulp-rename'),
-        jshint      = require('gulp-jshint'),
-        notify      = require('gulp-notify'),
-        qunit       = require('gulp-qunit');
+    var uglify    = require('gulp-uglify'),
+        less      = require('gulp-less'),
+        minifyCSS = require('gulp-minify-css'),
+        rename    = require('gulp-rename'),
+        jshint    = require('gulp-jshint'),
+        notify    = require('gulp-notify'),
+        qunit     = require('gulp-qunit'),
+        header    = require('gulp-header'),
+        pkg       = require('./package.json');
 
 
     // Source path
@@ -48,15 +49,23 @@
         }
     };
 
+    // Banner for building
+    var banner = ['/**',
+                  ' * <%= pkg.name %> - <%= pkg.description %>',
+                  ' * @version <%= pkg.version %>',
+                  ' * @link <%= pkg.homepage %>',
+                  ' * @license <%= pkg.license %>',
+                  ' */',
+                  ''].join('\n');
+
     // Javascript
     // ------------------------------------------------------------------------------------------------------
     gulp.task('dist_js_min', function() {
 
         return gulp
             .src(tasks.dist_js.source)
-            .pipe(uglify({
-                preserveComments: 'some'
-            }))
+            .pipe(uglify())
+            .pipe(header(banner, { pkg: pkg }))
             .pipe(rename({
                 suffix: '.min'
             }))
@@ -97,6 +106,7 @@
         return gulp
             .src(tasks.dist_less.source)
             .pipe(less())
+            .pipe(header(banner, { pkg: pkg }))
             .pipe(gulp.dest(tasks.dist_less.dest))
             .pipe(notify({
                 title: 'LESS',
@@ -114,9 +124,8 @@
         return gulp
             .src(tasks.dist_less.source)
             .pipe(less())
-            .pipe(minifyCSS({
-                keepSpecialComments: 1
-            }))
+            .pipe(minifyCSS())
+            .pipe(header(banner, { pkg: pkg }))
             .pipe(rename({
                 suffix: '.min'
             }))
