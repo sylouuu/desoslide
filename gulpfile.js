@@ -10,7 +10,7 @@
     // ----------------------------------------------------------------------------------------------------------
     var gulp = require('gulp');
 
-    // Importing Gulp dependencies
+    // Gulp dependencies
     // ------------------------------------------------------------------------------------------------------
     var uglify    = require('gulp-uglify'),
         less      = require('gulp-less'),
@@ -25,8 +25,8 @@
 
     // Source path
     // ------------------------------------------------------------------------------------------------------
-    var dist_path   = 'dist/';
-    var doc_path    = 'doc/assets/';
+    var dist_path = 'dist/';
+    var doc_path  = 'doc/assets/';
 
     // Tasks configuration
     // ------------------------------------------------------------------------------------------------------
@@ -72,7 +72,7 @@
             .pipe(gulp.dest(tasks.dist_js.dest))
             .pipe(notify({
                 title: 'Javascript',
-                message: 'File minified successfully',
+                message: '<%= file.relative %> minified successfully',
                 onLast: true
             }))
             .on('error', notify.onError(function (error) {
@@ -90,7 +90,7 @@
             .pipe(gulp.dest(tasks.dist_js.dest))
             .pipe(notify({
                 title: 'Javascript',
-                message: 'File linted successfully',
+                message: '<%= file.relative %> linted successfully',
                 onLast: true
             }))
             .on('error', notify.onError(function (error) {
@@ -110,7 +110,7 @@
             .pipe(gulp.dest(tasks.dist_less.dest))
             .pipe(notify({
                 title: 'LESS',
-                message: 'File compiled successfully',
+                message: '<%= file.relative %> compiled successfully',
                 onLast: true
             }))
             .on('error', notify.onError(function (error) {
@@ -132,7 +132,7 @@
             .pipe(gulp.dest(tasks.dist_less.dest))
             .pipe(notify({
                 title: 'LESS',
-                message: 'File compiled successfully',
+                message: '<%= file.relative %> compiled and minified successfully',
                 onLast: true
             }))
             .on('error', notify.onError(function (error) {
