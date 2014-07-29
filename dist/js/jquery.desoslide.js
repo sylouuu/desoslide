@@ -1,13 +1,6 @@
-/*!
-* Version 2.1.0
-* jQuery: desoSlide plugin
-* Copyright - 2014 - https://github.com/sylouuu/desoslide
-* This source code is under the MIT License
-*/
-
 /*jslint browser: true, nomen: true, devel: true, plusplus: true, unparam: true, vars: true, white: true*/
 /*global $, jQuery*/
-(function ($, window, document, undefined) {
+(function ($, window, document) {
 
     'use strict';
 
