@@ -1,6 +1,4 @@
-/*jslint browser: true, nomen: true, devel: true, plusplus: true, unparam: true, vars: true, white: true*/
-/*global $, jQuery*/
-(function ($, window, document) {
+(function ($, window, document, undefined) {
 
     'use strict';
 
@@ -423,7 +421,7 @@
                 // Decrementing index
                 this.props.img.to_show--;
 
-                if (this.props.img.to_show < 0){
+                if (this.props.img.to_show < 0) {
                     // Taking the last index
                     this.props.img.to_show = $(this.options.thumbs).length - 1;
                 }
@@ -520,12 +518,16 @@
                 v = ['Moz', 'webkit', 'Webkit', 'Khtml', 'O', 'ms'],
                 i = 0;
 
-            if (typeof s[p] === 'string') { return true; }
+            if (typeof s[p] === 'string') {
+                return true;
+            }
 
             p = p.charAt(0).toUpperCase() + p.substr(1);
 
             for (i; i < v.length; i++) {
-                if (typeof s[v[i] + p] === 'string') { return true; }
+                if (typeof s[v[i] + p] === 'string') {
+                    return true;
+                }
             }
 
             return false;
@@ -778,15 +780,17 @@
         _overlay: function () {
             // Overlay needed
             if (this.options.overlay !== 'none') {
+                var pos, top, left, border, width_plus_border, height_plus_border, paddingTop, paddingBottom, paddingLeft, paddingRight, overlayHeight;
+
                 // Image positions
-                var pos = this.props.img.$elem.position();
+                pos = this.props.img.$elem.position();
 
                 // Image border
-                var border = parseInt(this.props.img.$elem.css('border-left-width'), 10);
+                border = parseInt(this.props.img.$elem.css('border-left-width'), 10);
 
                 // Image height dimensions
-                var width_plus_border  = this.props.img.$elem.width() + (border * 2);
-                var height_plus_border = this.props.img.$elem.height();
+                width_plus_border  = this.props.img.$elem.width() + (border * 2);
+                height_plus_border = this.props.img.$elem.height();
 
                 // Add overlay if not exists
                 if ($(this.elem).find('.'+ this._namespace +'-overlay').length === 0) {
@@ -798,16 +802,16 @@
                 this.props.img.$overlay = $(this.elem).find('.'+ this._namespace +'-overlay');
 
                 // Calculate new height with paddings
-                var paddingTop      = parseInt(this.props.img.$overlay.css('padding-top'), 10),
-                    paddingBottom   = parseInt(this.props.img.$overlay.css('padding-bottom'), 10),
-                    paddingLeft     = parseInt(this.props.img.$overlay.css('padding-left'), 10),
-                    paddingRight    = parseInt(this.props.img.$overlay.css('padding-right'), 10);
+                paddingTop    = parseInt(this.props.img.$overlay.css('padding-top'), 10);
+                paddingBottom = parseInt(this.props.img.$overlay.css('padding-bottom'), 10);
+                paddingLeft   = parseInt(this.props.img.$overlay.css('padding-left'), 10);
+                paddingRight  = parseInt(this.props.img.$overlay.css('padding-right'), 10);
 
-                var overlayHeight = parseInt(this.props.img.$overlay.css('height'), 10) - (paddingLeft + paddingRight);
-                    overlayHeight = (parseInt(height_plus_border, 10) - overlayHeight - (paddingTop + paddingBottom));
+                overlayHeight = parseInt(this.props.img.$overlay.css('height'), 10) - (paddingLeft + paddingRight);
+                overlayHeight = (parseInt(height_plus_border, 10) - overlayHeight - (paddingTop + paddingBottom));
 
-                var top = pos.top + overlayHeight + (border * 2),
-                    left = pos.left;
+                top  = pos.top + overlayHeight + (border * 2);
+                left = pos.left;
 
                 // Update the overlay position
                 this.props.img.$overlay.css({
@@ -848,17 +852,19 @@
         * Add controls
         */
         _controls: function () {
+            var $prev, $pause, $play, $next, $controls;
+
             // Removing the existing controls wrapper
             $(this.elem).find('.'+ this._namespace +'-controls-wrapper').remove();
 
             // Controls buttons
-            var $prev   = '<a class="'+ this._namespace +'-controls prev" href="#prev"></a>',
-                $pause  = '<a class="'+ this._namespace +'-controls pause" href="#pause"></a>',
-                $play   = '<a class="'+ this._namespace +'-controls play" href="#play"></a>',
-                $next   = '<a class="'+ this._namespace +'-controls next" href="#next"></a>';
+            $prev  = '<a class="'+ this._namespace +'-controls prev" href="#prev"></a>';
+            $pause = '<a class="'+ this._namespace +'-controls pause" href="#pause"></a>';
+            $play  = '<a class="'+ this._namespace +'-controls play" href="#play"></a>';
+            $next  = '<a class="'+ this._namespace +'-controls next" href="#next"></a>';
 
             // Controls wrapper
-            var $controls = $('<div>', {
+            $controls = $('<div>', {
                 'class': this._namespace +'-controls-wrapper'
             }).append($prev + $pause + $play + $next);
 
@@ -886,13 +892,15 @@
         */
         _caption: function () {
             if (this.props.thumbs[this.props.img.to_show].caption_title !== null) {
+                var anchor, anchor_exists, href_exists, $link, $clone, $parent;
+
                 this.props.img.$overlay.html('<span class="'+ this._namespace +'-caption-title">'+ this.props.thumbs[this.props.img.to_show].caption_title +'</span>');
 
-                var anchor_exists   = (this.props.img.$overlay.find('a:first').length > 0) ? true : false;
-                var href_exists     = (this.props.thumbs[this.props.img.to_show].caption_link !== null) ? true : false;
+                anchor_exists = (this.props.img.$overlay.find('a:first').length > 0) ? true : false;
+                href_exists   = (this.props.thumbs[this.props.img.to_show].caption_link !== null) ? true : false;
 
                 // Anchor tag
-                var anchor = '<a href="'+ this.props.thumbs[this.props.img.to_show].caption_link +'" target="_blank"></a>';
+                anchor = '<a href="'+ this.props.thumbs[this.props.img.to_show].caption_link +'" target="_blank"></a>';
 
                 if (anchor_exists === true && href_exists === true) {
                     // Updating the href
@@ -900,15 +908,15 @@
                 } else {
                     // Anchor already exists but no caption title to show
                     if (anchor_exists === true && href_exists === false) {
-                        var $link   = this.props.img.$overlay.find('a:first'),
-                            $clone  = $link.children().clone(),
-                            $parent = $link.parent();
+                        $link   = this.props.img.$overlay.find('a:first');
+                        $clone  = $link.children().clone();
+                        $parent = $link.parent();
 
-                            $link.remove();
-                            $clone.appendTo($parent);
+                        $link.remove();
+                        $clone.appendTo($parent);
 
-                            // Removing existing caption title
-                            this.props.img.$overlay.find('span:first').empty();
+                        // Removing existing caption title
+                        this.props.img.$overlay.find('span:first').empty();
                     } else {
                         if (anchor_exists === false && href_exists === true) {
                             // Wrapping the caption
@@ -969,19 +977,19 @@
             $(this.elem).on('click', '.'+ this._namespace  +'-controls-wrapper a', $(this.elem), function (e) {
                 e.preventDefault();
 
-                switch($(this).attr('href')) {
+                switch ($(this).attr('href')) {
                     case '#prev':
                         self.goPrev();
-                    break;
+                        break;
                     case '#pause':
                         self.pause();
-                    break;
+                        break;
                     case '#play':
                         self.play();
-                    break;
+                        break;
                     case '#next':
                         self.goNext();
-                    break;
+                        break;
                 }
             });
 
@@ -1006,13 +1014,13 @@
             if (this.options.controls.keys === true) {
                 // Keys binder
                 $(document).on('keydown', function (e) {
-                    switch(e.which) {
+                    switch (e.which) {
                         case 37: // Left arrow
                             self.goPrev();
-                        break;
+                            break;
                         case 39: // Right arrow
                             self.goNext();
-                        break;
+                            break;
                         case 32: // Space
                             e.preventDefault();
 
@@ -1021,14 +1029,14 @@
                             } else {
                                 self.play();
                             }
-                        break;
+                            break;
                     }
                 });
             }
 
             var delay = (function () {
                 var timer = 0;
-                return function (callback, ms){
+                return function (callback, ms) {
                     clearTimeout(timer);
                     timer = setTimeout(callback, ms);
                 };
@@ -1051,7 +1059,7 @@
         * @param string msg
         */
         _errorHandler: function (type, msg) {
-            switch(type) {
+            switch (type) {
                 case 'error':
                     if (console !== undefined) {
                         console.error(this._name +': '+ msg +' Check out the documentation.');
@@ -1060,7 +1068,7 @@
                     this._triggerEvent('error');
 
                     this.props.plugin_status = type;
-                break;
+                    break;
                 case 'warning':
                     if (console !== undefined) {
                         console.warn(this._name +': '+ msg);
@@ -1069,12 +1077,12 @@
                     this._triggerEvent('warning');
 
                     this.props.plugin_status = type;
-                break;
+                    break;
                 default:
                     this._triggerEvent('success');
 
                     this.props.plugin_status = type;
-                break;
+                    break;
             }
         }
     };
