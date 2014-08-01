@@ -6,9 +6,9 @@
 
 ## Building
 
-Retrieve packages with `npm install`. and `gulp build`.
+Retrieve packages with `npm install` then type `gulp build`.
 
-Compile `dist/` files by typing `gulp build`:
+This will compile `dist/` files:
 
 * from `dist/less/jquery.desoslide.less`
     * to `dist/css/jquery.desoslide.css`
