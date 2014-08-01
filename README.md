@@ -1,18 +1,14 @@
 # desoSlide [![Build Status](https://travis-ci.org/sylouuu/desoslide.svg)](https://travis-ci.org/sylouuu/desoslide) [![GitHub version](https://badge.fury.io/gh/sylouuu%2Fdesoslide.svg)](http://badge.fury.io/gh/sylouuu%2Fdesoslide) [![devDependency Status](https://david-dm.org/sylouuu/desoslide/dev-status.svg?theme=shields.io)](https://david-dm.org/sylouuu/desoslide#info=devDependencies)
 
-## Overview, demo, documentation, release notes and tests
+## Website
 
 **http://sylouuu.github.io/desoslide**
 
-## Dependencies
+## Building
 
-* [jQuery](http://jquery.com/download/)
-* [animate.css](https://github.com/daneden/animate.css) for using `effect.provider: 'animate'` (default)
-* [magic](https://github.com/miniMAC/magic) for using `effect.provider: 'magic'`
+Retrieve packages with `npm install`. and `gulp build`.
 
-## Build `dist/`
-
-Compile dist files:
+Compile `dist/` files by typing `gulp build`:
 
 * from `dist/less/jquery.desoslide.less`
     * to `dist/css/jquery.desoslide.css`
@@ -21,17 +17,9 @@ Compile dist files:
 * from `dist/js/jquery.desoslide.js` to
     * to `dist/js/jquery.desoslide.min.js`
 
-```
-npm install
-gulp build
-```
-
 ## Run tests
 
-```
-npm install
-gulp tests
-```
+Type `gulp tests`.
 
 ## Contributing
 
@@ -39,7 +27,7 @@ See <a href="CONTRIBUTING.md">contributing</a> file.
 
 ## Changelog
 
-See <a href="https://github.com/sylouuu/desoslide/releases">releases</a> page or <a href="http://sylouuu.github.io/desoslide/doc/release-notes.html">release notes</a> (UI).
+See <a href="https://github.com/sylouuu/desoslide/releases">releases</a> section or <a href="http://sylouuu.github.io/desoslide/doc/release-notes.html">release notes</a> page (UI).
 
 ## License
 
