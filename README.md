@@ -1,4 +1,4 @@
-# desoSlide [![Build Status](https://travis-ci.org/sylouuu/desoslide.svg?style=flat)](https://travis-ci.org/sylouuu/desoslide) [![GitHub version](https://badge.fury.io/gh/sylouuu%2Fdesoslide.svg?style=flat)](http://badge.fury.io/gh/sylouuu%2Fdesoslide) [![devDependency Status](https://david-dm.org/sylouuu/desoslide/dev-status.svg?theme=shields.io&style=flat)](https://david-dm.org/sylouuu/desoslide#info=devDependencies)
+# desoSlide [![Build Status](http://img.shields.io/travis/sylouuu/desoslide.svg?style=flat)](https://travis-ci.org/sylouuu/desoslide) [![GitHub version](https://badge.fury.io/gh/sylouuu%2Fdesoslide.svg?style=flat)](http://badge.fury.io/gh/sylouuu%2Fdesoslide) [![devDependency Status](https://david-dm.org/sylouuu/desoslide/dev-status.svg?theme=shields.io&style=flat)](https://david-dm.org/sylouuu/desoslide#info=devDependencies)
 
 ## Website
 
