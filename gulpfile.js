@@ -20,6 +20,7 @@
         notify    = require('gulp-notify'),
         qunit     = require('gulp-qunit'),
         header    = require('gulp-header'),
+        jscs      = require('gulp-jscs'),
         pkg       = require('./package.json');
 
 
@@ -85,6 +86,7 @@
 
         return gulp
             .src(tasks.dist_js.source)
+            .pipe(jscs())
             .pipe(jshint())
             .pipe(jshint.reporter('default'))
             .pipe(gulp.dest(tasks.dist_js.dest))

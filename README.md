@@ -1,18 +1,16 @@
-# desoSlide [![Build Status](https://travis-ci.org/sylouuu/desoslide.svg)](https://travis-ci.org/sylouuu/desoslide) [![GitHub version](https://badge.fury.io/gh/sylouuu%2Fdesoslide.svg)](http://badge.fury.io/gh/sylouuu%2Fdesoslide) [![devDependency Status](https://david-dm.org/sylouuu/desoslide/dev-status.svg?theme=shields.io)](https://david-dm.org/sylouuu/desoslide#info=devDependencies)
+# desoSlide 
+[![Build Status](http://img.shields.io/travis/sylouuu/desoslide.svg?style=flat)](https://travis-ci.org/sylouuu/desoslide) [![devDependency Status](http://img.shields.io/david/dev/sylouuu/desoslide.svg?style=flat)](https://david-dm.org/sylouuu/desoslide#info=devDependencies)
+[![Version](http://img.shields.io/github/release/sylouuu/desoslide.svg?style=flat)](https://github.com/sylouuu/desoslide/releases)
 
-## Overview, demo, documentation, release notes and tests
+## Website
 
 **http://sylouuu.github.io/desoslide**
 
-## Dependencies
+## Building
 
-* [jQuery](http://jquery.com/download/)
-* [animate.css](https://github.com/daneden/animate.css) for using `effect.provider: 'animate'` (default)
-* [magic](https://github.com/miniMAC/magic) for using `effect.provider: 'magic'`
+Retrieve packages with `npm install` then type `gulp build`.
 
-## Build `dist/`
-
-Compile dist files:
+This will compile `dist/` files:
 
 * from `dist/less/jquery.desoslide.less`
     * to `dist/css/jquery.desoslide.css`
@@ -21,17 +19,9 @@ Compile dist files:
 * from `dist/js/jquery.desoslide.js` to
     * to `dist/js/jquery.desoslide.min.js`
 
-```
-npm install
-gulp build
-```
-
 ## Run tests
 
-```
-npm install
-gulp tests
-```
+Type `gulp tests`.
 
 ## Contributing
 
@@ -39,7 +29,7 @@ See <a href="CONTRIBUTING.md">contributing</a> file.
 
 ## Changelog
 
-See <a href="https://github.com/sylouuu/desoslide/releases">releases</a> page or <a href="http://sylouuu.github.io/desoslide/doc/release-notes.html">release notes</a> (UI).
+See <a href="https://github.com/sylouuu/desoslide/releases">releases</a> section or <a href="http://sylouuu.github.io/desoslide/doc/release-notes.html">release notes</a> page (UI).
 
 ## License
 
