@@ -1,6 +1,6 @@
 # desoSlide 
 [![Build Status](http://img.shields.io/travis/sylouuu/desoslide.svg?style=flat)](https://travis-ci.org/sylouuu/desoslide) [![devDependency Status](http://img.shields.io/david/dev/sylouuu/desoslide.svg?style=flat)](https://david-dm.org/sylouuu/desoslide#info=devDependencies)
-[![Version](http://img.shields.io/npm/v/sylouuu/desoslide.svg?style=flat)](https://www.npmjs.org/package/desoslide)
+[![Version](http://img.shields.io/npm/v/desoslide.svg?style=flat)](https://www.npmjs.org/package/desoslide)
 
 ## Website
 
