@@ -1,10 +1,10 @@
-# desoSlide 
+# desoSlide
 [![Build Status](http://img.shields.io/travis/sylouuu/desoslide.svg?style=flat)](https://travis-ci.org/sylouuu/desoslide) [![devDependency Status](http://img.shields.io/david/dev/sylouuu/desoslide.svg?style=flat)](https://david-dm.org/sylouuu/desoslide#info=devDependencies)
 [![Version](http://img.shields.io/npm/v/desoslide.svg?style=flat)](https://www.npmjs.org/package/desoslide)
 
 ## Website
 
-**http://sylouuu.github.io/desoslide**
+**[http://sylouuu.github.io/desoslide](http://sylouuu.github.io/desoslide)**
 
 ## Building
 
@@ -25,12 +25,12 @@ Type `gulp tests`.
 
 ## Contributing
 
-See <a href="CONTRIBUTING.md">contributing</a> file.
+See [contributing](CONTRIBUTING.md) file.
 
 ## Changelog
 
-See <a href="https://github.com/sylouuu/desoslide/releases">releases</a> section or <a href="http://sylouuu.github.io/desoslide/doc/release-notes.html">release notes</a> page (UI).
+See [releases](https://github.com/sylouuu/desoslide/releases) section or [release notes](http://sylouuu.github.io/desoslide/doc/release-notes.html) page (UI).
 
 ## License
 
-See <a href="LICENSE.md">license</a> file.
+See [license](LICENSE.md) file.
