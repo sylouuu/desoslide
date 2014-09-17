@@ -313,7 +313,7 @@ $('#slideshow').desoSlide('rebuild');
                         <div class="row">
                             <div class="col-lg-6">
 
-<pre class="text-left"><code>// Get all thumbs
+<pre class="text-left"><code>// Get all thumbs (an array of objects)
 var my_thumbs = $('#slideshow').desoSlide('getThumbs');
 </code></pre>
 
@@ -321,13 +321,12 @@ var my_thumbs = $('#slideshow').desoSlide('getThumbs');
                             <div class="col-lg-6">
 
 <pre class="text-left"><code>[
-    0: {
+    {
         alt: 'Alt attribute found in thumb',
         caption_link: 'link', // data-desoslide-caption-link
         caption_title: 'title', // data-desoslide-caption-title
         src: 'image path'
-    },
-    1: {
+    }, {
         ...
     }
 ]
@@ -339,7 +338,7 @@ var my_thumbs = $('#slideshow').desoSlide('getThumbs');
                         <div class="row">
                             <div class="col-lg-6">
 
-<pre class="text-left"><code>// Get a specific thumb based on its index
+<pre class="text-left"><code>// Get a specific thumb based on its index (an object)
 var my_thumb = $('#slideshow').desoSlide('getThumbs', 1);
 </code></pre>
 
