@@ -26,6 +26,7 @@
 
     // Source path
     // ------------------------------------------------------------------------------------------------------
+    var src_path  = 'src/';
     var dist_path = 'dist/';
     var doc_path  = 'doc/assets/';
 
@@ -33,11 +34,11 @@
     // ------------------------------------------------------------------------------------------------------
     var tasks = {
         'dist_js': {
-            source: dist_path +'js/jquery.desoslide.js',
+            source: src_path +'js/jquery.desoslide.js',
             dest:   dist_path +'js'
         },
         'dist_less': {
-            source: dist_path +'less/jquery.desoslide.less',
+            source: src_path +'less/jquery.desoslide.less',
             dest:   dist_path +'css'
         },
         'doc_less_main': {
@@ -89,7 +90,6 @@
             .pipe(jscs())
             .pipe(jshint())
             .pipe(jshint.reporter('default'))
-            .pipe(gulp.dest(tasks.dist_js.dest))
             .pipe(notify({
                 title: 'Javascript',
                 message: '<%= file.relative %> linted successfully',
