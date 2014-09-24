@@ -10,13 +10,13 @@
 
 Retrieve packages with `npm install` then type `gulp build`.
 
-This will compile `dist/` files:
+This will compile `src/` files:
 
-* from `dist/less/jquery.desoslide.less`
+* from `src/less/jquery.desoslide.less`
     * to `dist/css/jquery.desoslide.css`
     * to `dist/css/jquery.desoslide.min.css`
 
-* from `dist/js/jquery.desoslide.js` to
+* from `src/js/jquery.desoslide.js` to
     * to `dist/js/jquery.desoslide.min.js`
 
 ## Run tests
