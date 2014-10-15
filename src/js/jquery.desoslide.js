@@ -980,16 +980,16 @@
                 switch ($(this).attr('href')) {
                     case '#prev':
                         self.goPrev();
-                        break;
+                    break;
                     case '#pause':
                         self.pause();
-                        break;
+                    break;
                     case '#play':
                         self.play();
-                        break;
+                    break;
                     case '#next':
                         self.goNext();
-                        break;
+                    break;
                 }
             });
 
@@ -1017,10 +1017,10 @@
                     switch (e.which) {
                         case 37: // Left arrow
                             self.goPrev();
-                            break;
+                        break;
                         case 39: // Right arrow
                             self.goNext();
-                            break;
+                        break;
                         case 32: // Space
                             e.preventDefault();
 
@@ -1029,7 +1029,7 @@
                             } else {
                                 self.play();
                             }
-                            break;
+                        break;
                     }
                 });
             }
@@ -1068,7 +1068,7 @@
                     this._triggerEvent('error');
 
                     this.props.plugin_status = type;
-                    break;
+                break;
                 case 'warning':
                     if (console !== undefined) {
                         console.warn(this._name +': '+ msg);
@@ -1077,12 +1077,12 @@
                     this._triggerEvent('warning');
 
                     this.props.plugin_status = type;
-                    break;
+                break;
                 default:
                     this._triggerEvent('success');
 
                     this.props.plugin_status = type;
-                    break;
+                break;
             }
         }
     };

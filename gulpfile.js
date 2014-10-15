@@ -23,7 +23,6 @@
         jscs      = require('gulp-jscs'),
         pkg       = require('./package.json');
 
-
     // Source path
     // ------------------------------------------------------------------------------------------------------
     var src_path  = 'src/';
