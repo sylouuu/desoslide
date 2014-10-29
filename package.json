@@ -23,7 +23,7 @@
         "gulp-rename": "~1.2.0",
         "gulp-jshint": "~1.8.0",
         "gulp-notify": "~2.0.0",
-        "gulp-qunit": "~0.3.3",
+        "gulp-qunit": "~1.0.0",
         "gulp-header": "~1.2.0",
         "gulp-jscs": "~1.2.0"
     }
