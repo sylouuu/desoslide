@@ -12,6 +12,32 @@ $(function() {
         }, 1000);
     });
 
+    // Toggle thumbnails
+    // ----------------------------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------------------------------------
+
+    $('#toggle_thumbs').on('click', function(e) {
+        e.preventDefault();
+
+        var $this = $(this),
+            $slideshow_1_thumbs_1 = $('#slideshow_1_thumbs_1'),
+            $slideshow_1_thumbs_2 = $('#slideshow_1_thumbs_2');
+
+        if ($slideshow_1_thumbs_1.css('visibility') === 'hidden') {
+            $slideshow_1_thumbs_1.css('visibility', 'visible');
+            $slideshow_1_thumbs_2.css('visibility', 'visible');
+
+            $this.find('i').attr('class', 'fa fa-eye-slash');
+            $this.find('span').text('Hide');
+        } else {
+            $slideshow_1_thumbs_1.css('visibility', 'hidden');
+            $slideshow_1_thumbs_2.css('visibility', 'hidden');
+
+            $this.find('i').attr('class', 'fa fa-eye');
+            $this.find('span').text('Show');
+        }
+    });
+
     // Syntax highlighting
     // ----------------------------------------------------------------------------------------------------------
 
