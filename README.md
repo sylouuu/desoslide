@@ -6,6 +6,21 @@
 
 **[http://sylouuu.github.io/desoslide](http://sylouuu.github.io/desoslide)**
 
+## Features
+
+* **Free**: This plugin is open source, under the [MIT license](LICENSE.md). Feel free to [contribute](CONTRIBUTING.md).
+* **Customizable**: Place yours thumbnails anywhere in your page. Many options available to fit your needs.
+* **Control**: Control the slideshow with your keyboard keys or through the player.
+* **Caption**: Show more information to your users with caption and link for each image.
+* **Infinite**: Create as many slideshows as you want on a single page.
+* **Reliable**: A [tests suite](tests) shows that the plugin passes the basics specifications.
+
+## Core
+
+* [jquery/jquery](https://github.com/jquery/jquery)
+* [daneden/animate.css](https://github.com/daneden/animate.css)
+* [miniMAC/magic](https://github.com/miniMAC/magic)
+
 ## Building
 
 Retrieve packages with `npm install` then type `gulp build`.
