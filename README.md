@@ -21,7 +21,7 @@
 * [daneden/animate.css](https://github.com/daneden/animate.css)
 * [miniMAC/magic](https://github.com/miniMAC/magic)
 
-## Building
+## Build `dist/`
 
 Retrieve packages with `npm install` then type `gulp build`.
 
