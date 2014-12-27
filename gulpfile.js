@@ -18,9 +18,9 @@
         rename    = require('gulp-rename'),
         jshint    = require('gulp-jshint'),
         notify    = require('gulp-notify'),
-        qunit     = require('gulp-qunit'),
         header    = require('gulp-header'),
         jscs      = require('gulp-jscs'),
+        qunit     = require('node-qunit-phantomjs'),
         pkg       = require('./package.json');
 
     // Source path
@@ -182,9 +182,7 @@
     // ------------------------------------------------------------------------------------------------------
     gulp.task('tests', function() {
 
-        return gulp
-            .src('tests/index.html')
-            .pipe(qunit());
+        return qunit('tests/index.html');
 
     });
 
