@@ -17,9 +17,9 @@
     "homepage": "https://github.com/sylouuu/desoslide",
     "devDependencies": {
         "gulp": "~3.8.0",
-        "gulp-uglify": "~1.0.0",
+        "gulp-uglify": "~1.1.0",
         "gulp-less": "~2.0.0",
-        "gulp-minify-css": "~0.3.0",
+        "gulp-minify-css": "~0.4.0",
         "gulp-rename": "~1.2.0",
         "gulp-jshint": "~1.9.0",
         "gulp-notify": "~2.1.0",
