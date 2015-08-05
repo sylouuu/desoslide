@@ -24,7 +24,7 @@
         "gulp-jshint": "~1.11.0",
         "gulp-notify": "~2.2.0",
         "gulp-header": "~1.2.0",
-        "gulp-jscs": "~1.6.0",
+        "gulp-jscs": "~2.0.0",
         "node-qunit-phantomjs": "~1.2.0"
     }
 }
