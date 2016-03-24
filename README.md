@@ -31,7 +31,7 @@ This will compile `src/` files:
     * to `dist/css/jquery.desoslide.css`
     * to `dist/css/jquery.desoslide.min.css`
 
-* from `src/js/jquery.desoslide.js` to
+* from `src/js/jquery.desoslide.js`
     * to `dist/js/jquery.desoslide.min.js`
 
 ## Run tests

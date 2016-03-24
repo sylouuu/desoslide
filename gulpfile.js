@@ -87,6 +87,7 @@
         return gulp
             .src(tasks.dist_js.source)
             .pipe(jscs())
+            .pipe(jscs.reporter())
             .pipe(jshint())
             .pipe(jshint.reporter('default'))
             .pipe(notify({
