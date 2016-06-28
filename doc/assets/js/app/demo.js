@@ -1,10 +1,10 @@
-$(function() {
+$(function () {
 
     // Demo
     // ----------------------------------------------------------------------------------------------------------
     // ----------------------------------------------------------------------------------------------------------
 
-    $('a.back-to-top').on('click', function(e) {
+    $('a.back-to-top').on('click', function (e) {
         e.preventDefault();
 
         $('html, body').stop().animate({
@@ -16,10 +16,10 @@ $(function() {
     // ----------------------------------------------------------------------------------------------------------
     // ----------------------------------------------------------------------------------------------------------
 
-    $('#toggle_thumbs').on('click', function(e) {
+    $('#toggle_thumbs').on('click', function (e) {
         e.preventDefault();
 
-        var $this = $(this),
+        var $this                 = $(this),
             $slideshow_1_thumbs_1 = $('#slideshow_1_thumbs_1'),
             $slideshow_1_thumbs_2 = $('#slideshow_1_thumbs_2');
 
@@ -41,8 +41,8 @@ $(function() {
     // Syntax highlighting
     // ----------------------------------------------------------------------------------------------------------
 
-    var syntaxHighlight = function() {
-        $('pre code').each(function(i, e) {
+    var syntaxHighlight = function () {
+        $('pre code').each(function (i, e) {
             hljs.highlightBlock(e);
         });
     };
@@ -106,14 +106,14 @@ $(function() {
     };
 
     // Change provider
-    var changeProvider = function(provider, effect) {
+    var changeProvider = function (provider, effect) {
         var tmp = '';
 
-        $.each(effects[provider], function(i, item) {
-            if(effect !== undefined && effect === item) {
-                tmp += '<option value="'+ item +'" selected="selected">'+ item +'</option>';
+        $.each(effects[provider], function (i, item) {
+            if (effect !== undefined && effect === item) {
+                tmp += '<option value="' + item + '" selected="selected">' + item + '</option>';
             } else {
-                tmp += '<option value="'+ item +'">'+ item +'</option>';
+                tmp += '<option value="' + item + '">' + item + '</option>';
             }
         });
 
@@ -121,7 +121,7 @@ $(function() {
     };
 
     // Set effect
-    var setEffect = function(provider, effect) {
+    var setEffect = function (provider, effect) {
         // Pausing
         $slideshow1.desoSlide('pause');
 
@@ -134,26 +134,26 @@ $(function() {
         var code = "$('#slideshow').desoSlide({\n";
         code += "    thumbs: $('ul.slideshow_thumbs li > a'),\n";
         code += "    effect: {\n";
-        code += "        provider: '"+ $effect_provider.val() +"',\n";
-        code += "        name: '"+ $effect_name.val() +"'\n";
+        code += "        provider: '" + $effect_provider.val() + "',\n";
+        code += "        name: '" + $effect_name.val() + "'\n";
         code += "    }\n";
         code += "});";
 
-        $('#html_code1').html('&lt;link rel="stylesheet" href="path/to/'+ $effect_provider.val() +'.min.css"&gt;');
+        $('#html_code1').html('&lt;link rel="stylesheet" href="path/to/' + $effect_provider.val() + '.min.css"&gt;');
         $('#js_code1').html(code);
 
         syntaxHighlight();
     };
 
     // On change effect provider
-    $effect_provider.on('change', function() {
+    $effect_provider.on('change', function () {
         changeProvider($(this).val());
 
         setEffect();
     });
 
     // On change effect name
-    $effect_name.on('change', function() {
+    $effect_name.on('change', function () {
         setEffect();
     });
 
@@ -207,7 +207,8 @@ $(function() {
 
     $('#slideshow2').desoSlide({
         thumbs: $('#slideshow2_thumbs li > a'),
-        first: 2
+        first: 2,
+        thumbEvent: 'mouseover'
     });
 
     // Demo 3
