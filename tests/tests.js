@@ -1,10 +1,10 @@
 /*jslint vars: true, white: true*/
 /*global $, jQuery, ok, test*/
-$(function() {
+$(function () {
 
     'use strict';
 
-    $('a.back-to-top').on('click', function(e) {
+    $('a.back-to-top').on('click', function (e) {
         e.preventDefault();
 
         $('html, body').stop().animate({
@@ -20,7 +20,7 @@ $(function() {
 
     $('#image_test1').desoSlide({
         events: {
-            onError: function() {
+            onError: function () {
                 thumbs_test1 = 'error';
             }
         }
@@ -29,7 +29,7 @@ $(function() {
     $('#image_test2').desoSlide({
         thumbs: $('#no_thumbs').find('a'),
         events: {
-            onError: function() {
+            onError: function () {
                 thumbs_test2 = 'error';
             }
         }
@@ -38,7 +38,7 @@ $(function() {
     $('#image_test13').desoSlide({
         thumbs: $('#no_href_thumbs').find('a'),
         events: {
-            onError: function() {
+            onError: function () {
                 thumbs_test3 = 'error';
             }
         }
@@ -47,7 +47,7 @@ $(function() {
     $('#image_test14').desoSlide({
         thumbs: $('#no_img_thumbs').find('a'),
         events: {
-            onError: function() {
+            onError: function () {
                 thumbs_test4 = 'error';
             }
         }
@@ -56,7 +56,7 @@ $(function() {
     $('#image_test17').desoSlide({
         thumbs: $('#alt_thumbs').find('li > a'),
         events: {
-            onSuccess: function() {
+            onSuccess: function () {
                 thumbs_test5 = 'success';
             }
         }
@@ -65,13 +65,13 @@ $(function() {
     $('#image_test18').desoSlide({
         thumbs: '#alt_thumbs li > a',
         events: {
-            onSuccess: function() {
+            onSuccess: function () {
                 thumbs_test6 = 'success';
             }
         }
     });
 
-    test('`thumbs`', function() {
+    test('`thumbs`', function () {
 
         ok(thumbs_test1 === 'error', 'option doesn\'t exist: error expected');
         ok(thumbs_test2 === 'error', 'selector doesn\'t exist: error expected');
@@ -92,7 +92,7 @@ $(function() {
         thumbs: $('#alt_thumbs').find('li > a'),
         overlay: 'fail',
         events: {
-            onError: function() {
+            onError: function () {
                 overlay_test1 = 'error';
             }
         }
@@ -102,13 +102,13 @@ $(function() {
         thumbs: $('#alt_thumbs').find('li > a'),
         overlay: 'always',
         events: {
-            onSuccess: function() {
+            onSuccess: function () {
                 overlay_test2 = 'success';
             }
         }
     });
 
-    test('`overlay` option', function() {
+    test('`overlay` option', function () {
 
         ok(overlay_test1 === 'error', 'has a wrong value: error expected');
         ok(overlay_test2 === 'success', 'has an accepted value: success expected');
@@ -124,7 +124,7 @@ $(function() {
     $('#image_test5').desoSlide({
         thumbs: $('#no_alt_thumbs').find('li > a'),
         events: {
-            onWarning: function() {
+            onWarning: function () {
                 alt_test1 = 'warning';
             }
         }
@@ -133,13 +133,13 @@ $(function() {
     $('#image_test6').desoSlide({
         thumbs: $('#alt_thumbs').find('li > a'),
         events: {
-            onSuccess: function() {
+            onSuccess: function () {
                 alt_test2 = 'success';
             }
         }
     });
 
-    test('`alt` attribute', function() {
+    test('`alt` attribute', function () {
 
         ok(alt_test1 === 'warning', 'isn\'t specified: warning expected');
         ok(alt_test2 === 'success', 'is specified: success expected');
@@ -156,7 +156,7 @@ $(function() {
         thumbs: $('#alt_thumbs').find('li > a'),
         first: 4,
         events: {
-            onError: function() {
+            onError: function () {
                 first_test1 = 'error';
             }
         }
@@ -166,13 +166,13 @@ $(function() {
         thumbs: $('#alt_thumbs').find('li > a'),
         first: 1,
         events: {
-            onSuccess: function() {
+            onSuccess: function () {
                 first_test2 = 'success';
             }
         }
     });
 
-    test('`first` option', function() {
+    test('`first` option', function () {
 
         ok(first_test1 === 'error', 'has a wrong value: error expected');
         ok(first_test2 === 'success', 'has an accepted value: success expected');
@@ -192,7 +192,7 @@ $(function() {
             name: 'fade'
         },
         events: {
-            onError: function() {
+            onError: function () {
                 effect_test1 = 'error';
             }
         }
@@ -205,7 +205,7 @@ $(function() {
             name: 'fail'
         },
         events: {
-            onError: function() {
+            onError: function () {
                 effect_test2 = 'error';
             }
         }
@@ -218,13 +218,13 @@ $(function() {
             name: 'rotate'
         },
         events: {
-            onSuccess: function() {
+            onSuccess: function () {
                 effect_test3 = 'success';
             }
         }
     });
 
-    test('`effect` option', function() {
+    test('`effect` option', function () {
 
         ok(effect_test1 === 'error', 'has a bad `provider` value: error expected');
         ok(effect_test2 === 'error', 'has a bad `name` value: success expected');
@@ -245,7 +245,7 @@ $(function() {
     get_thumbs_test2 = $('#image_test4').desoSlide('getThumbs', 1);
     get_thumbs_test3 = $('#image_test4').desoSlide('getThumbs', 10);
 
-    test('getThumbs method', function() {
+    test('getThumbs method', function () {
 
         ok(get_thumbs_test1.length === 2, 'the thumbs object has a size of 2');
         ok(get_thumbs_test2.alt === 'Flower', 'the wanted thumb has been retrieved successfully');
@@ -267,7 +267,7 @@ $(function() {
     set_effect_test7 = $('#image_test4').desoSlide('setEffect', {});
     set_effect_test8 = $('#image_test4').desoSlide('setEffect', 'none');
 
-    test('setEffect method', function() {
+    test('setEffect method', function () {
 
         ok(set_effect_test1.provider === 'animate' && typeof set_effect_test1.name === 'string', 'has an accepted provider and a random effect');
         ok(set_effect_test2.provider === 'magic' && typeof set_effect_test2.name === 'string', 'has an accepted provider and a random effect');
@@ -300,7 +300,7 @@ $(function() {
 
     is_playing_test2 = $('#image_test16').desoSlide('isPlaying');
 
-    test('isPlaying method', function() {
+    test('isPlaying method', function () {
 
         ok(is_playing_test1 === false, 'must be false');
         ok(is_playing_test2 === true, 'must be true');
@@ -315,19 +315,19 @@ $(function() {
     $('#image_test12').desoSlide({
         thumbs: $('#alt_thumbs').find('li > a'),
         events: {
-            onThumbClick: function() {
+            onThumbClick: function () {
                 events_test1 = 'ok';
             },
-            onImageClick: function() {
+            onImageClick: function () {
                 events_test2 = 'ok';
             },
-            onPrev: function() {
+            onPrev: function () {
                 events_test3 = 'ok';
             },
-            onPlay: function() {
+            onPlay: function () {
                 events_test4 = 'ok';
             },
-            onNext: function() {
+            onNext: function () {
                 events_test5 = 'ok';
             }
         }
@@ -340,7 +340,7 @@ $(function() {
     $('#image_test12').desoSlide('play');
     $('#image_test12').desoSlide('goNext');
 
-    test('events', function() {
+    test('events', function () {
 
         ok(events_test1 === 'ok', 'onThumbClick');
         ok(events_test2 === 'ok', 'onImageClick');

@@ -1,6 +1,6 @@
 {
     "name": "desoslide",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "description": "Take control of your slideshow with this powerful jQuery plugin",
     "directories": {
         "test": "tests"
@@ -24,7 +24,7 @@
         "gulp-jshint": "~2.0.0",
         "gulp-notify": "~2.2.0",
         "gulp-header": "~1.8.0",
-        "gulp-jscs": "~3.0.0",
+        "gulp-jscs": "~4.0.0",
         "node-qunit-phantomjs": "~1.4.0"
     }
 }

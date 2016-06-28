@@ -260,7 +260,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <p>
-                            Show the third slide at loading.
+                            Show the third slide at loading, large image shown on mouse over, not click.
                         </p>
                     </div>
                 </div>
@@ -318,6 +318,7 @@
                         <h4>Code</h4>
 <pre><code>$('#slideshow').desoSlide({
     thumbs: $('#slideshow_thumbs li > a'),
+    thumbEvent: 'mouseover',
     first: 2
 });</code></pre>
                     </article>
@@ -588,7 +589,7 @@
                     </article>
 
                     <article class="col-lg-3 col-md-3 col-sm-3 text-right">
-                        <p>&copy; 2014 desoSlide</p>
+                        <p>&copy; 2014-2016 desoSlide</p>
                     </article>
                 </div>
             </div>
@@ -598,7 +599,7 @@
         <script src="assets/js/vendor/bootstrap/bootstrap.min.js"></script>
         <script src="assets/js/vendor/highlight/highlight.pack.js"></script>
 
-        <script src="../src/js/jquery.desoslide.js"></script>
+        <script src="../dist/js/jquery.desoslide.min.js"></script>
         <script src="assets/js/app/demo.js"></script>
 
     </body>
