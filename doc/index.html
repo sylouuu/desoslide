@@ -97,7 +97,7 @@
                 <div class="row">
                     <article class="col-lg-12">
                         <p>
-                            Documentation covers: 2.1.0
+                            Documentation covers: 2.2.0
                         </p>
                     </article>
                 </div>
@@ -221,6 +221,7 @@
 
 <pre><code>defaults = {
     thumbs:             null,             // An anchors (`&lt;a&gt;`) collection
+    thumbEvent:         'click',          // What event to capture on thumbnail ('click', 'mouseover')
     imageClass:         'img-responsive', // Image class(es)
     auto: {
         load:           true,             // Preloading images
@@ -240,19 +241,20 @@
         keys:           false             // Able to control by using the keyboard shortcuts (left/space/right)
     },
     events: {
-        onThumbClick:   null,             // On thumb click
-        onImageShow:    null,             // On image show
-        onImageShown:   null,             // On image shown
-        onImageHide:    null,             // On image hide
-        onImageHidden:  null,             // On image hidden
-        onImageClick:   null,             // On image click
-        onPrev:         null,             // On previous
-        onPause:        null,             // On pause
-        onPlay:         null,             // On play
-        onNext:         null,             // On next
-        onError:        null,             // On error
-        onWarning:      null,             // On warning
-        onSuccess:      null              // On success
+        onThumbClick:       null,             // On thumb click if thumbEvent: 'click'
+        onThumbMouseOver:   null,             // On thumb mouseover if thumbEvent: 'mouseover'
+        onImageShow:        null,             // On image show
+        onImageShown:       null,             // On image shown
+        onImageHide:        null,             // On image hide
+        onImageHidden:      null,             // On image hidden
+        onImageClick:       null,             // On image click
+        onPrev:             null,             // On previous
+        onPause:            null,             // On pause
+        onPlay:             null,             // On play
+        onNext:             null,             // On next
+        onError:            null,             // On error
+        onWarning:          null,             // On warning
+        onSuccess:          null              // On success
     }
 }</code></pre>
 
@@ -508,6 +510,10 @@ $('#slideshow').on('thumbClick.desoslide', function() {
     // on thumbClick
 });
 
+$('#slideshow').on('thumbMouseOver.desoslide', function() {
+    // on thumbMouseOver
+});
+
 $('#slideshow').on('imageShow.desoslide', function() {
     // on imageShow
 });
@@ -564,6 +570,9 @@ $('#slideshow').on('success.desoslide', function() {
 $('#slideshow').on({
     'thumbClick.desoslide': function() {
         // on thumbClick
+    },
+    'thumbMouseOver.desoslide': function() {
+        // on thumbMouseOver
     },
     'imageShow.desoslide': function() {
         // on imageShow
@@ -749,7 +758,7 @@ $('#slideshow').on({
                     </article>
 
                     <article class="col-lg-3 col-md-3 col-sm-3 text-right">
-                        <p>&copy; 2014 desoSlide</p>
+                        <p>&copy; 2014-2016 desoSlide</p>
                     </article>
                 </div>
             </div>
